@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Generate professional framework diagrams for the Gnosis LIF Framework.
-Uses the established NCF Slate color palette for visual consistency.
+Uses the established LIF Slate color palette for visual consistency.
 """
 
 import matplotlib.pyplot as plt
@@ -11,7 +11,7 @@ import numpy as np
 import os
 
 # ============================================================================
-# COLOR PALETTE (NCF Slate Theme)
+# COLOR PALETTE (LIF Slate Theme)
 # ============================================================================
 COLORS = {
     'bg': '#F8FAFC',           # Slate 50 - Background
@@ -55,10 +55,10 @@ def create_hierarchy_diagram():
     # Define levels (widest at top, narrowest at bottom = inverted funnel logic)
     levels = [
         ('LEVEL 1', 'NETWORK SCOPE', 'Chain Halt ("Nuclear Option")', 'Berachain Nov 2025', COLORS['level1'], 0.9),
-        ('LEVEL 2', 'ASSET SCOPE', 'Token Freeze', 'Sui Cetus, USDC', COLORS['level2'], 0.75),
-        ('LEVEL 3', 'PROTOCOL SCOPE', 'dApp Pause', 'Balancer pool pause', COLORS['level3'], 0.6),
-        ('LEVEL 4', 'MODULE SCOPE', 'Feature Pause', 'Swap disabled only', COLORS['level4'], 0.45),
-        ('LEVEL 5', 'ACCOUNT SCOPE', 'Targeted Intervention', 'Attacker wallet block', COLORS['level5'], 0.42),
+        ('LEVEL 2', 'ASSET SCOPE', 'Token Freeze', 'Sui Cetus, USDC', COLORS['level2'], 0.8),
+        ('LEVEL 3', 'PROTOCOL SCOPE', 'dApp Pause', 'Balancer pool pause', COLORS['level3'], 0.7),
+        ('LEVEL 4', 'MODULE SCOPE', 'Feature Pause', 'Swap disabled only', COLORS['level4'], 0.6),
+        ('LEVEL 5', 'ACCOUNT SCOPE', 'Targeted Intervention', 'Attacker wallet block', COLORS['level5'], 0.5),
     ]
     
     y_start = 8.2

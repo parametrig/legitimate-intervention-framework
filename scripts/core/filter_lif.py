@@ -8,7 +8,7 @@ BASE_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
 BUILD_DIR = os.path.join(BASE_DIR, "data/build")
 REFINED_DIR = os.path.join(BASE_DIR, "data/refined")
 INPUT_CSV = os.path.join(BUILD_DIR, "merged_master.csv")
-OUTPUT_CSV = os.path.join(REFINED_DIR, "ncf_exploits_final.csv")
+OUTPUT_CSV = os.path.join(REFINED_DIR, "lif_exploits_final.csv")
 
 SCHEMA = [
     "date", "protocol", "chain", "loss_usd", 
@@ -16,7 +16,7 @@ SCHEMA = [
 ]
 
 def main():
-    print("Step 3: Applying High-Signal NCF Filters...")
+    print("Step 3: Applying High-Signal LIF Filters...")
     if not os.path.exists(INPUT_CSV):
         print("Error: merged_master.csv not found. Run deduplicate.py first.")
         return
@@ -26,7 +26,7 @@ def main():
         reader = csv.DictReader(f)
         master = list(reader)
 
-    # NCF High-Signal Filter Logic:
+    # LIF High-Signal Filter Logic:
     # 1. is_technical == True (Eliminates Rugpulls, Honeypots, Agency Problems)
     # 2. loss_usd >= 100,000 (Eliminates low-value noise)
     refined = [

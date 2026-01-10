@@ -15,7 +15,7 @@ numbersections: true
 
 > **Response to Sebastian Bürgel (@SCBuergel)'s "A Framework for the Future" consultation**
 >
-> This document synthesises findings from the Native Compliance Framework (NCF) initiative to inform GnosisDAO's development of intervention criteria for its emergency framework. It offers a structured approach to the "credible neutrality vs. user safety" tension identified in the consultation.
+> This document synthesises findings from the Legitimate Intervention Framework (LIF) *(formerly Native Compliance Framework (NCF))* initiative to inform GnosisDAO's development of intervention criteria for its emergency framework. It offers a structured approach to the "credible neutrality vs. user safety" tension identified in the consultation.
 
 ---
 
@@ -45,7 +45,7 @@ Research from Charoenwong & Bernardi (2022) documents $88 billion in cryptocurre
 | Human Error | 5 | 17% |
 | Insider Theft | 5 | 17% |
 
-**Post-2021 Update:** The NCF database now tracks 759 exploits totalling $91.3 billion (2014–2025).
+**Post-2021 Update:** The LIF database now tracks 759 exploits totalling $91.3 billion (2014–2025).
 
 ### 1.2 Threats from AI Acceleration
 
@@ -308,7 +308,7 @@ The proposed Emergency Council should:
 | Charoenwong et al. (2025) | A Framework for Evaluating Regulatory Approaches | [SSRN 5368708](https://ssrn.com/abstract=5368708) |
 | Bybit Security Lab (Nov 2025) | 166 chains analysed | [Report](https://assets.contentstack.io/v3/assets/bltffdbacf2f22e15fa/bltda1597363a4f2a2b/69144b86424c333a34bc9fa8/2509-T68340_Security_Report_1111.pdf) |
 | Anthropic Red Team (Dec 2025) | AI exploit capabilities | [red.anthropic.com](https://red.anthropic.com/2025/smart-contracts/) |
-| NCF Repository | Research repository | [GitHub](https://github.com/e3o8o/native-compliance-framework) |
+| LIF Repository | Research repository | [GitHub](https://github.com/e3o8o/legitimate-intervention-framework) |
 
 ---
 
@@ -325,4 +325,4 @@ The proposed Emergency Council should:
 ---
 
 
-**Contact:** @e3o8o (Forum) | [X/Twitter](https://x.com/elemoghenekaro) | [GitHub](https://github.com/e3o8o/native-compliance-framework)
+**Contact:** @e3o8o (Forum) | [X/Twitter](https://x.com/elemoghenekaro) | [GitHub](https://github.com/e3o8o/legitimate-intervention-framework)

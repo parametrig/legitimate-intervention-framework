@@ -1,6 +1,6 @@
-# NCF Chart & Visualization Requirements
+# LIF Chart & Visualization Requirements
 
-This document consolidates all charts, infographics, and animated visualizations required for the NCF manuscript and website, organized by data source and narrative part.
+This document consolidates all charts, infographics, and animated visualizations required for the LIF manuscript and website, organized by data source and narrative part.
 
 ---
 
@@ -23,13 +23,13 @@ This document consolidates all charts, infographics, and animated visualizations
 | C13 | 5 Regulatory Models | Regulatory Framework | HIGH | Comparison | Centralized → Gatekeeper → RegTech → Ex Ante → Ex Post |
 | C14 | Technical Evaluation Framework | Regulatory Framework | MEDIUM | Hierarchy | 4 dimensions of compliance |
 | C15 | Sovereignty Risk Spectrum | _004_final | HIGH | Spectrum | Code as Law ↔ Law as Code |
-| C16 | NCF Pipeline Flow | Data Pipeline | HIGH | Mermaid | Raw → Parsed → Dedupe → Filter |
-| C17 | Top 10 Exploits by Loss | NCF Database | HIGH | Bar (Horizontal) | From ncf_exploits_final.csv |
-| C18 | Vector Category Distribution | NCF Database | HIGH | Pie/Donut | From ncf_exploits_final.csv |
-| C19 | Chain Distribution | NCF Database | MEDIUM | Bar | From ncf_exploits_final.csv |
-| C20 | Losses by Year | NCF Database | HIGH | Line/Area | From ncf_exploits_final.csv |
+| C16 | LIF Pipeline Flow | Data Pipeline | HIGH | Mermaid | Raw → Parsed → Dedupe → Filter |
+| C17 | Top 10 Exploits by Loss | LIF Database | HIGH | Bar (Horizontal) | From lif_exploits_final.csv |
+| C18 | Vector Category Distribution | LIF Database | HIGH | Pie/Donut | From lif_exploits_final.csv |
+| C19 | Chain Distribution | LIF Database | MEDIUM | Bar | From lif_exploits_final.csv |
+| C20 | Losses by Year | LIF Database | HIGH | Line/Area | From lif_exploits_final.csv |
 | C21 | Institutional Deduction Flow | _004_final | MEDIUM | Flowchart | Institutional → Compliance → Control |
-| C22 | Complete NCF Stack | Part 4 | HIGH | Layer Cake | L1 Consensus, L2 Safety, L3 Legal |
+| C22 | Complete LIF Stack | Part 4 | HIGH | Layer Cake | L1 Consensus, L2 Safety, L3 Legal |
 | C23 | Legal Entity Comparison | Part 4 | MEDIUM | Table | LLC vs Foundation vs DUNA |
 | C24 | Separating Equilibrium | Part 2 | MEDIUM | Game Theory | Attacker payoff matrix |
 | C25 | ZKP Architecture Flow | Part 2 | HIGH | Diagram | Prover → Proof → Verifier |
@@ -207,25 +207,25 @@ Nov 4, 05:45 UTC → Moonwell oracle exploit ($1M)
 
 ---
 
-## 📁 SOURCE 6: NCF DATABASE (ncf_exploits_final.csv)
+## 📁 SOURCE 6: LIF DATABASE (lif_exploits_final.csv)
 
 ### C17: Top 10 Exploits by Loss
-**Generate from:** `data/refined/ncf_exploits_final.csv`
+**Generate from:** `data/refined/lif_exploits_final.csv`
 **Fields:** protocol, loss_usd
 **Visual:** Horizontal bar chart.
 
 ### C18: Vector Category Distribution
-**Generate from:** `data/refined/ncf_exploits_final.csv`
+**Generate from:** `data/refined/lif_exploits_final.csv`
 **Fields:** vector_category, count
 **Visual:** Pie/Donut chart.
 
 ### C19: Chain Distribution
-**Generate from:** `data/refined/ncf_exploits_final.csv`
+**Generate from:** `data/refined/lif_exploits_final.csv`
 **Fields:** chain, count
 **Visual:** Bar chart.
 
 ### C20: Losses by Year
-**Generate from:** `data/refined/ncf_exploits_final.csv`
+**Generate from:** `data/refined/lif_exploits_final.csv`
 **Fields:** date (extract year), loss_usd (sum)
 **Visual:** Line/Area chart.
 
@@ -256,7 +256,7 @@ Text:       #475569 (Slate 600)
 ## 📋 CHART GENERATION STATUS
 
 ### ✅ Generated (24 Charts)
-All charts generated via `scripts/analysis/ncf_charts.ipynb`:
+All charts generated via `scripts/analysis/lif_charts.ipynb`:
 
 | ID | Chart | Status |
 |:---|:------|:-------|
@@ -276,18 +276,18 @@ All charts generated via `scripts/analysis/ncf_charts.ipynb`:
 | C18 | Vector Distribution | ✅ |
 | C19 | Chain Distribution | ✅ |
 | C20 | Losses by Year | ✅ |
-| C22 | NCF Stack | ✅ |
+| C22 | LIF Stack | ✅ |
 | C25 | ZKP Flow | ✅ |
 | C26 | Optimistic Freeze | ✅ |
 | A01 | Scatter Plot | ✅ |
 | A02 | Pareto | ✅ |
 | A03 | Heatmap | ✅ |
 | - | Monthly Trends | ✅ |
-| - | NCF Addressable | ✅ |
+| - | LIF Addressable | ✅ |
 
 ### 🔲 Pending (Web Phase)
 - C12: Regulatory Timeline Evolution
-- C16: NCF Pipeline Flow (Mermaid)
+- C16: LIF Pipeline Flow (Mermaid)
 - C21: Institutional Deduction Flow
 - C24: Separating Equilibrium (Game Theory)
 - C27: Insurance Payout Loop
@@ -297,7 +297,7 @@ All charts generated via `scripts/analysis/ncf_charts.ipynb`:
 ## 🔗 REFERENCES
 
 - [Charoenwong & Bernardi (2022)](https://ssrn.com/abstract=3944435)
-- Bybit Security Report (Nov 2025) - See `external_data` in `ncf_stats.json`
+- Bybit Security Report (Nov 2025) - See `external_data` in `lif_stats.json`
 - [Anthropic Red Team (Dec 2025)](https://red.anthropic.com/2025/smart-contracts/)
 - [Regulatory Framework (Charoenwong et al.)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5368708)
 

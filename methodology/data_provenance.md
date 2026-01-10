@@ -1,6 +1,6 @@
-# Data Provenance: NCF Hack Database
+# Data Provenance: LIF Hack Database
 
-This document details the origins and ingestion methodology for the datasets used in the Native Compliance Framework (NCF) research.
+This document details the origins and ingestion methodology for the datasets used in the Legitimate Intervention Framework (LIF) research.
 
 ## Primary Sources
 
@@ -35,18 +35,18 @@ This document details the origins and ingestion methodology for the datasets use
 ```bash
 python3 scripts/core/parse_sources.py   # → data/build/parsed_raw.csv
 python3 scripts/core/deduplicate.py     # → data/build/merged_master.csv
-python3 scripts/core/filter_ncf.py      # → data/refined/ncf_exploits_final.csv
+python3 scripts/core/filter_lif.py      # → data/refined/lif_exploits_final.csv
 ```
 
 ### Step 4: Analysis & Visualization
 ```bash
 # Run the master Jupyter notebook (single source of truth)
-jupyter nbconvert --execute --to notebook scripts/analysis/ncf_charts.ipynb
+jupyter nbconvert --execute --to notebook scripts/analysis/lif_charts.ipynb
 ```
 
 **Outputs:**
-- `data/refined/ncf_exploits_cleaned.csv` - Cleaned dataset with NCF relevance tagging
-- `data/refined/ncf_stats.json` - Rich JSON statistics with external data sources
+- `data/refined/lif_exploits_cleaned.csv` - Cleaned dataset with LIF relevance tagging
+- `data/refined/lif_stats.json` - Rich JSON statistics with external data sources
 - `visualizations/*.png` - 24 charts in Light Mode palette
 
 ---
@@ -57,7 +57,7 @@ jupyter nbconvert --execute --to notebook scripts/analysis/ncf_charts.ipynb
 |:-------|:------|
 | Total Exploits | 759 |
 | Total Loss | $91.3 Billion |
-| NCF-Addressable | 440 ($10.9B) |
+| LIF-Relevant | 440 ($10.9B) |
 | Date Range | 2014-03-01 to 2025-12-16 |
 
 ---
