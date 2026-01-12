@@ -391,22 +391,285 @@ def create_resilience_stack():
 
 
 # ============================================================================
+# DIAGRAM 6: Intervention Layers (Technical Extension Architecture)
+# ============================================================================
+def create_intervention_layers():
+    """Create a layered architecture diagram showing intervention surfaces."""
+    fig, ax = plt.subplots(figsize=(14, 10), facecolor=COLORS['bg'])
+    ax.set_facecolor(COLORS['bg'])
+    ax.set_xlim(0, 14)
+    ax.set_ylim(0, 10)
+    ax.axis('off')
+    
+    # Title
+    ax.text(7, 9.6, 'INTERVENTION LAYERS', fontsize=18, fontweight='bold',
+            ha='center', va='top', color=COLORS['primary'])
+    ax.text(7, 9.1, 'Architecture of Emergency Response Surfaces', fontsize=11,
+            ha='center', va='top', color=COLORS['secondary'])
+    
+    # Layer definitions (from top to bottom)
+    layers = [
+        ('APPLICATION LAYER', 'dApp admin/pauser (per protocol)', '#93C5FD', 8.0),
+        ('BRIDGE LAYER', 'Bridge Governance Board (8-of-15 Safe)', '#60A5FA', 6.3),
+        ('CHAIN LAYER', 'Validator-coordinated soft/hard fork', '#3B82F6', 4.6),
+        ('PROPOSED: EMERGENCY COUNCIL', 'Scoped responder with pre-approved registry', '#1E3A5F', 2.9),
+    ]
+    
+    for i, (title, desc, color, y) in enumerate(layers):
+        # Main layer box
+        box = FancyBboxPatch((1.5, y - 0.6), 11, 1.2,
+                             boxstyle="round,pad=0.05,rounding_size=0.15",
+                             facecolor=color, edgecolor=COLORS['white'],
+                             linewidth=2)
+        ax.add_patch(box)
+        
+        text_color = COLORS['white'] if i >= 2 else COLORS['primary']
+        ax.text(7, y + 0.15, title, fontsize=13, fontweight='bold',
+                ha='center', va='center', color=text_color)
+        ax.text(7, y - 0.25, desc, fontsize=10,
+                ha='center', va='center', color=text_color, alpha=0.9)
+    
+    # Annotations on the right showing relationships
+    annotations = [
+        (8.0, 4.6, 'Cannot override\nby default', COLORS['level1']),
+        (6.3, 2.9, 'Extends/formalises', COLORS['level4']),
+        (4.6, 2.9, 'Interfaces with', COLORS['level2']),
+    ]
+    
+    # Relationship arrows
+    ax.annotate('', xy=(12.8, 8.0), xytext=(12.8, 3.5),
+                arrowprops=dict(arrowstyle='<->', color=COLORS['secondary'], lw=1.5, ls='--'))
+    ax.text(13.2, 5.75, 'EC cannot\noverride\nApp Layer', fontsize=8, ha='left', va='center',
+            color=COLORS['secondary'])
+    
+    # Legend box at bottom
+    legend_box = FancyBboxPatch((1.5, 0.8), 11, 1.0,
+                                boxstyle="round,pad=0.02,rounding_size=0.1",
+                                facecolor=COLORS['light_blue'], edgecolor=COLORS['border'],
+                                linewidth=1)
+    ax.add_patch(legend_box)
+    ax.text(7, 1.5, 'The Emergency Council (EC) operates at its own layer with Guard-enforced scope limits.',
+            fontsize=10, ha='center', va='center', color=COLORS['primary'])
+    ax.text(7, 1.1, 'It can call pre-approved Bridge actions and interface with validators, but cannot control dApps.',
+            fontsize=9, ha='center', va='center', color=COLORS['secondary'], style='italic')
+    
+    plt.tight_layout()
+    plt.savefig(f'{OUTPUT_DIR}/lif_intervention_layers.png', dpi=150,
+                facecolor=COLORS['bg'], bbox_inches='tight')
+    plt.close()
+    print("✓ Created: lif_intervention_layers.png")
+
+
+# ============================================================================
+# DIAGRAM 7: EC Power Scope (Technical Extension - What EC Can and Cannot Do)
+# ============================================================================
+def create_ec_power_scope():
+    """Create a two-column diagram showing EC powers vs non-powers."""
+    fig, ax = plt.subplots(figsize=(14, 8), facecolor=COLORS['bg'])
+    ax.set_facecolor(COLORS['bg'])
+    ax.set_xlim(0, 14)
+    ax.set_ylim(0, 8)
+    ax.axis('off')
+    
+    # Title
+    ax.text(7, 7.6, 'EMERGENCY COUNCIL POWER SCOPE', fontsize=18, fontweight='bold',
+            ha='center', va='top', color=COLORS['primary'])
+    ax.text(7, 7.1, 'Bounded Authority with Explicit Limits', fontsize=11,
+            ha='center', va='top', color=COLORS['secondary'])
+    
+    # Left column: CAN DO (green)
+    can_box = FancyBboxPatch((0.5, 1), 6, 5.5,
+                             boxstyle="round,pad=0.05,rounding_size=0.2",
+                             facecolor='#D1FAE5', edgecolor=COLORS['level4'],
+                             linewidth=3)
+    ax.add_patch(can_box)
+    ax.text(3.5, 6.2, '✓ EC CAN DO', fontsize=14, fontweight='bold',
+            ha='center', va='center', color=COLORS['level4'])
+    
+    can_items = [
+        'Bridge-scope containment',
+        '(freeze/unfreeze outflows)',
+        '',
+        'DAO-owned module pause',
+        '(where GnosisDAO is admin)',
+        '',
+        'Targeted restrictions',
+        '(only if pre-existing)',
+        '',
+        'Evidence + reporting',
+        '(publish bundle, open window)',
+    ]
+    
+    y_pos = 5.6
+    for item in can_items:
+        if item == '':
+            y_pos -= 0.2
+            continue
+        style = 'italic' if item.startswith('(') else 'normal'
+        size = 9 if item.startswith('(') else 11
+        ax.text(1, y_pos, item, fontsize=size, ha='left', va='center',
+                color=COLORS['primary'], style=style)
+        y_pos -= 0.45
+    
+    # Right column: CANNOT DO (red)
+    cannot_box = FancyBboxPatch((7.5, 1), 6, 5.5,
+                                boxstyle="round,pad=0.05,rounding_size=0.2",
+                                facecolor='#FEE2E2', edgecolor=COLORS['level1'],
+                                linewidth=3)
+    ax.add_patch(cannot_box)
+    ax.text(10.5, 6.2, '✗ EC CANNOT DO', fontsize=14, fontweight='bold',
+            ha='center', va='center', color=COLORS['level1'])
+    
+    cannot_items = [
+        'Overwrite arbitrary state',
+        '(no "state editor" powers)',
+        '',
+        'Move user funds',
+        '(property rights preserved)',
+        '',
+        'Unilaterally change rules',
+        '(requires validator adoption)',
+        '',
+        '→ These require hard fork',
+        '(validator + governance)',
+    ]
+    
+    y_pos = 5.6
+    for item in cannot_items:
+        if item == '':
+            y_pos -= 0.2
+            continue
+        style = 'italic' if item.startswith('(') or item.startswith('→') else 'normal'
+        size = 9 if item.startswith('(') or item.startswith('→') else 11
+        ax.text(8, y_pos, item, fontsize=size, ha='left', va='center',
+                color=COLORS['primary'], style=style)
+        y_pos -= 0.45
+    
+    # Bottom principle box
+    principle_box = FancyBboxPatch((1.5, 0.2), 11, 0.6,
+                                   boxstyle="round,pad=0.02,rounding_size=0.1",
+                                   facecolor=COLORS['light_blue'], edgecolor=COLORS['border'],
+                                   linewidth=1)
+    ax.add_patch(principle_box)
+    ax.text(7, 0.5, 'The EC is a SCOPED RESPONDER, not a super-admin for Gnosis Chain',
+            fontsize=11, ha='center', va='center', color=COLORS['primary'], fontweight='bold')
+    
+    plt.tight_layout()
+    plt.savefig(f'{OUTPUT_DIR}/lif_ec_power_scope.png', dpi=150,
+                facecolor=COLORS['bg'], bbox_inches='tight')
+    plt.close()
+    print("✓ Created: lif_ec_power_scope.png")
+
+
+# ============================================================================
+# DIAGRAM 8: Optimistic Freeze Technical (Refined Terminology)
+# ============================================================================
+def create_optimistic_freeze_technical():
+    """Create a refined Optimistic Freeze diagram with 'expires unless ratified' language."""
+    fig, ax = plt.subplots(figsize=(14, 7), facecolor=COLORS['bg'])
+    ax.set_facecolor(COLORS['bg'])
+    ax.set_xlim(0, 14)
+    ax.set_ylim(0, 7)
+    ax.axis('off')
+    
+    # Title
+    ax.text(7, 6.6, 'OPTIMISTIC FREEZE MODEL', fontsize=18, fontweight='bold',
+            ha='center', va='top', color=COLORS['primary'])
+    ax.text(7, 6.1, 'Actions Expire Unless Ratified', fontsize=12,
+            ha='center', va='top', color=COLORS['secondary'])
+    
+    # Four-stage horizontal flow
+    stages = [
+        ('1. TRIGGER', 'Anomaly\nDetected', COLORS['level1'], 2),
+        ('2. QUEUE', 'EC Queues Action\n(Guard-Scoped)', COLORS['level2'], 5),
+        ('3. RATIFY', 'DAO Vote\n(24-48h)', COLORS['accent'], 8),
+        ('4. OUTCOME', 'Confirmed\nor Expired', COLORS['level4'], 11),
+    ]
+    
+    for label, desc, color, x in stages:
+        # Main box
+        box = FancyBboxPatch((x - 1.3, 3.2), 2.6, 2.2,
+                             boxstyle="round,pad=0.05,rounding_size=0.15",
+                             facecolor=COLORS['white'], edgecolor=color,
+                             linewidth=3)
+        ax.add_patch(box)
+        
+        # Header
+        header = FancyBboxPatch((x - 1.3, 4.8), 2.6, 0.6,
+                                boxstyle="round,pad=0.02,rounding_size=0.1",
+                                facecolor=color, edgecolor=color,
+                                linewidth=1)
+        ax.add_patch(header)
+        
+        ax.text(x, 5.1, label, fontsize=10, fontweight='bold',
+                ha='center', va='center', color=COLORS['white'])
+        ax.text(x, 3.9, desc, fontsize=10, ha='center', va='center',
+                color=COLORS['primary'], linespacing=1.3)
+    
+    # Arrows between stages
+    for i in range(len(stages) - 1):
+        x_start = stages[i][3] + 1.4
+        x_end = stages[i + 1][3] - 1.4
+        ax.annotate('', xy=(x_end, 4.3), xytext=(x_start, 4.3),
+                    arrowprops=dict(arrowstyle='->', color=COLORS['primary'], lw=2))
+    
+    # Key properties box at bottom
+    props_box = FancyBboxPatch((1.5, 0.8), 11, 1.8,
+                               boxstyle="round,pad=0.02,rounding_size=0.1",
+                               facecolor=COLORS['light_blue'], edgecolor=COLORS['border'],
+                               linewidth=1)
+    ax.add_patch(props_box)
+    
+    ax.text(7, 2.3, 'KEY PROPERTIES', fontsize=11, fontweight='bold',
+            ha='center', va='center', color=COLORS['primary'])
+    
+    properties = [
+        '• EC can only queue actions from pre-approved registry',
+        '• All actions logged onchain immediately',
+        '• If not ratified within window, action lapses (no chain-level undo needed)',
+    ]
+    
+    y_pos = 1.9
+    for prop in properties:
+        ax.text(2, y_pos, prop, fontsize=10, ha='left', va='center', color=COLORS['primary'])
+        y_pos -= 0.4
+    
+    plt.tight_layout()
+    plt.savefig(f'{OUTPUT_DIR}/lif_optimistic_freeze_technical.png', dpi=150,
+                facecolor=COLORS['bg'], bbox_inches='tight')
+    plt.close()
+    print("✓ Created: lif_optimistic_freeze_technical.png")
+
+
+# ============================================================================
 # MAIN
 # ============================================================================
 if __name__ == '__main__':
-    print("\nGenerating LIF Framework Diagrams...")
+    print("\nGenerating LIF Framework Diagrams (Core + Extension)...")
     print(f"Output directory: {OUTPUT_DIR}\n")
     
+    # Core Framework Diagrams
     create_hierarchy_diagram()
     create_pre_incident_flow()
     create_optimistic_freeze_flow()
     create_legitimacy_pillars()
     create_resilience_stack()
     
-    print("\nAll 5 diagrams generated successfully!")
+    # Technical Extension Diagrams
+    create_intervention_layers()
+    create_ec_power_scope()
+    create_optimistic_freeze_technical()
+    
+    print("\nAll 8 diagrams generated successfully!")
     print("\nGenerated files:")
+    print("  Core Framework:")
     print("  • lif_hierarchy_of_precision.png")
     print("  • lif_pre_incident_flow.png")
     print("  • lif_optimistic_freeze_flow.png")
     print("  • lif_legitimacy_pillars.png")
     print("  • lif_resilience_stack.png")
+    print("  Technical Extension:")
+    print("  • lif_intervention_layers.png")
+    print("  • lif_ec_power_scope.png")
+    print("  • lif_optimistic_freeze_technical.png")
+

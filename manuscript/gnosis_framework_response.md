@@ -309,6 +309,7 @@ The proposed Emergency Council should:
 | Bybit Security Lab (Nov 2025) | 166 chains analysed | [Report](https://assets.contentstack.io/v3/assets/bltffdbacf2f22e15fa/bltda1597363a4f2a2b/69144b86424c333a34bc9fa8/2509-T68340_Security_Report_1111.pdf) |
 | Anthropic Red Team (Dec 2025) | AI exploit capabilities | [red.anthropic.com](https://red.anthropic.com/2025/smart-contracts/) |
 | LIF Repository | Research repository | [GitHub](https://github.com/e3o8o/legitimate-intervention-framework) |
+| LIF Technical Extension | Emergency Council power scope (Gnosis-specific) | [Technical Extension](https://github.com/e3o8o/legitimate-intervention-framework/blob/main/manuscript/gnosis_framework_response_technical_extension.md) |
 
 ---
 
