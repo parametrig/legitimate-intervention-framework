@@ -51,6 +51,28 @@ jupyter nbconvert --execute --to notebook scripts/analysis/lif_charts.ipynb
 - `data/refined/lif_exploits_cleaned.csv` (cleaned dataset)
 - `data/refined/lif_stats.json` (rich statistics with sources)
 
+## Papers & Outputs
+
+- **Main Paper**: [Legitimate Intervention Framework (LIF)](manuscript/gnosis_framework_response.pdf) — Response to GnosisDAO's "Framework for the Future" consultation
+- **Technical Extension**: [Emergency Council Power Scope (Gnosis-specific)](manuscript/gnosis_framework_response_technical_extension.pdf) — Technical grounding for Emergency Council powers and limits
+
+## Contributing
+
+We welcome contributions! Areas where you can help:
+
+- **Data pipeline**: Improve parsing, deduplication, or add new sources
+- **Analysis**: Extend the charts, statistics, or cross-chain comparisons
+- **Framework**: Refine the Hierarchy of Precision, legitimacy conditions, or procedural models
+- **Code review**: Audit scripts, notebooks, or the Guard contract specifications
+
+**To contribute:**
+1. Fork this repository
+2. Create a feature branch (`git checkout -b feature/your-contribution`)
+3. Make your changes
+4. Submit a pull request with clear description
+
+---
+
 ## Data Sources
 | Source | Coverage | Records |
 |:-------|:---------|:--------|
