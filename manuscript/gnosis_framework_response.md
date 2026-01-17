@@ -15,7 +15,7 @@ numbersections: true
 
 > **Response to Sebastian Bürgel (@SCBuergel)'s "A Framework for the Future" consultation**
 >
-> This document synthesises findings from the Legitimate Intervention Framework (LIF) *(formerly Native Compliance Framework (NCF))* initiative to inform GnosisDAO's development of intervention criteria for its emergency framework. It offers a structured approach to the "credible neutrality vs. user safety" tension identified in the consultation.
+> This document synthesises findings from the Legitimate Intervention Framework (LIF) initiative to inform GnosisDAO's development of intervention criteria for its emergency framework. It offers a structured approach to the "credible neutrality vs. user safety" tension identified in the consultation.
 
 ---
 

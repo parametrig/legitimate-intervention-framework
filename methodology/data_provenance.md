@@ -27,6 +27,12 @@ This document details the origins and ingestion methodology for the datasets use
 - **Format:** JSON.
 - **Reference File:** `data/raw/defihacklabs_incidents.json`
 
+### 5. Post Dec 16, 2025 Incident Additions (Manual Additions)
+- **Source:** Verified incidents from the *Legitimate Overrides* paper research (Flow, Sonic, Berachain, Gnosis recovery).
+- **Format:** Manually appended CSV entries with canonical URLs in the `source_file` field.
+- **Reference:** `methodology/manual_update_procedure.md`
+- **Scope:** 5 recent critical incidents from Q4 2025 not yet in aggregators.
+
 ---
 
 ## Ingestion & Analysis Pipeline
@@ -55,10 +61,10 @@ jupyter nbconvert --execute --to notebook scripts/analysis/lif_charts.ipynb
 
 | Metric | Value |
 |:-------|:------|
-| Total Exploits | 759 |
-| Total Loss | $91.3 Billion |
-| LIF-Relevant | 440 ($10.9B) |
-| Date Range | 2014-03-01 to 2025-12-16 |
+| Total Exploits | 763 |
+| Total Loss | $91.32 Billion |
+| LIF-Relevant | 439 ($10.77B) |
+| Date Range | 2014-03-01 to 2025-12-27 |
 
 ---
 
