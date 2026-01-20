@@ -24,17 +24,17 @@ This document consolidates all charts, infographics, and animated visualizations
 | C14 | Technical Evaluation Framework | Regulatory Framework | MEDIUM | Hierarchy | 4 dimensions of compliance |
 | C15 | Sovereignty Risk Spectrum | _004_final | HIGH | Spectrum | Code as Law ↔ Law as Code |
 | C16 | LIF Pipeline Flow | Data Pipeline | HIGH | Mermaid | Raw → Parsed → Dedupe → Filter |
-| C17 | Top 10 Exploits by Loss | LIF Database | HIGH | Bar (Horizontal) | From lif_exploits_final.csv |
-| C18 | Vector Category Distribution | LIF Database | HIGH | Pie/Donut | From lif_exploits_final.csv |
-| C19 | Chain Distribution | LIF Database | MEDIUM | Bar | From lif_exploits_final.csv |
-| C20 | Losses by Year | LIF Database | HIGH | Line/Area | From lif_exploits_final.csv |
+| C17 | Top 10 Exploits by Loss | LIF Database | HIGH | Bar (Horizontal) | From lif_exploits_cleaned.csv |
+| C18 | Vector Category Distribution | LIF Database | HIGH | Pie/Donut | From lif_exploits_cleaned.csv |
+| C19 | Chain Distribution | LIF Database | MEDIUM | Bar | From lif_exploits_cleaned.csv |
+| C20 | Losses by Year | LIF Database | HIGH | Line/Area | From lif_exploits_cleaned.csv |
 | C21 | Institutional Deduction Flow | _004_final | MEDIUM | Flowchart | Institutional → Compliance → Control |
 | C22 | Complete LIF Stack | Part 4 | HIGH | Layer Cake | L1 Consensus, L2 Safety, L3 Legal |
 | C23 | Legal Entity Comparison | Part 4 | MEDIUM | Table | LLC vs Foundation vs DUNA |
 | C24 | Separating Equilibrium | Part 2 | MEDIUM | Game Theory | Attacker payoff matrix |
 | C25 | ZKP Architecture Flow | Part 2 | HIGH | Diagram | Prover → Proof → Verifier |
 | C26 | Optimistic Freeze Flow | Part 3 | HIGH | Flowchart | Trigger → Pause → Vote → Slash/Confirm |
-| C27 | Insurance Payout Loop | Part 3 | MEDIUM | Cycle | Parametrig mechanism |
+| C27 | Insurance Payout Loop | Part 3 | MEDIUM | Cycle | Parametric mechanism |
 
 ---
 
@@ -207,25 +207,25 @@ Nov 4, 05:45 UTC → Moonwell oracle exploit ($1M)
 
 ---
 
-## 📁 SOURCE 6: LIF DATABASE (lif_exploits_final.csv)
+## 📁 SOURCE 6: LIF DATABASE (lif_exploits_cleaned.csv)
 
 ### C17: Top 10 Exploits by Loss
-**Generate from:** `data/refined/lif_exploits_final.csv`
+**Generate from:** `data/refined/lif_exploits_cleaned.csv`
 **Fields:** protocol, loss_usd
 **Visual:** Horizontal bar chart.
 
 ### C18: Vector Category Distribution
-**Generate from:** `data/refined/lif_exploits_final.csv`
+**Generate from:** `data/refined/lif_exploits_cleaned.csv`
 **Fields:** vector_category, count
 **Visual:** Pie/Donut chart.
 
 ### C19: Chain Distribution
-**Generate from:** `data/refined/lif_exploits_final.csv`
+**Generate from:** `data/refined/lif_exploits_cleaned.csv`
 **Fields:** chain, count
 **Visual:** Bar chart.
 
 ### C20: Losses by Year
-**Generate from:** `data/refined/lif_exploits_final.csv`
+**Generate from:** `data/refined/lif_exploits_cleaned.csv`
 **Fields:** date (extract year), loss_usd (sum)
 **Visual:** Line/Area chart.
 

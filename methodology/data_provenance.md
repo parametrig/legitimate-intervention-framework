@@ -27,11 +27,12 @@ This document details the origins and ingestion methodology for the datasets use
 - **Format:** JSON.
 - **Reference File:** `data/raw/defihacklabs_incidents.json`
 
-### 5. Post Dec 16, 2025 Incident Additions (Manual Additions)
-- **Source:** Verified incidents from the *Legitimate Overrides* paper research (Flow, Sonic, Berachain, Gnosis recovery).
-- **Format:** Manually appended CSV entries with canonical URLs in the `source_file` field.
-- **Reference:** `methodology/manual_update_procedure.md`
-- **Scope:** 5 recent critical incidents from Q4 2025 not yet in aggregators.
+### 5. Intervention Incidents (Manual Curation)
+- **Source:** High-fidelity manual research from post-mortems, on-chain alerts, and official project tweets/forums.
+- **Format:** Structured CSV.
+- **Reference File:** `data/refined/lif_intervention_metrics.csv`
+- **Scope:** 28 incidents specifically chose for their clearly observable intervention mechanics (pauses, freezes, halts). Includes both technical hacks and systemic market failures.
+- **Provenance Link:** Each row in the CSV contains a `source` URL pointing to the evidence (Post-mortem or TX hash).
 
 ---
 
@@ -44,16 +45,16 @@ python3 scripts/core/deduplicate.py     # → data/build/merged_master.csv
 python3 scripts/core/filter_lif.py      # → data/refined/lif_exploits_final.csv
 ```
 
-### Step 4: Analysis & Visualization
+### Step 4: Analysis & Final Cleaning
+# Run the master Jupyter notebook (Single source of truth for cleaning & stats)
 ```bash
-# Run the master Jupyter notebook (single source of truth)
 jupyter nbconvert --execute --to notebook scripts/analysis/lif_charts.ipynb
 ```
 
 **Outputs:**
-- `data/refined/lif_exploits_cleaned.csv` - Cleaned dataset with LIF relevance tagging
-- `data/refined/lif_stats.json` - Rich JSON statistics with external data sources
-- `visualizations/*.png` - 24 charts in Light Mode palette
+- `data/refined/lif_exploits_cleaned.csv` - Primary deduplicated dataset (Source of Truth)
+- `data/refined/lif_stats.json` - Comprehensive stats generated from cleaned data
+- `visualizations/*.png` - Analysis charts based on cleaned data
 
 ---
 
@@ -64,7 +65,8 @@ jupyter nbconvert --execute --to notebook scripts/analysis/lif_charts.ipynb
 | Total Exploits | 763 |
 | Total Loss | $91.32 Billion |
 | LIF-Relevant | 439 ($10.77B) |
-| Date Range | 2014-03-01 to 2025-12-27 |
+| Intervention Incidents | 28 Verified Cases |
+| Date Range | 2014-03-01 to 2026-01-13 |
 
 ---
 

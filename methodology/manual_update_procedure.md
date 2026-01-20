@@ -23,9 +23,9 @@ Manual incident rows **must** include:
    - Prefer primary sources (foundation blog, forum proposal, incident report).
 
 2. **Append to datasets**
-   - Add the incident row to:
-     - `data/refined/lif_exploits_final.csv`
-     - `data/refined/lif_exploits_cleaned.csv`
+   - Add the incident row to both refined files to maintain consistency:
+     - `data/refined/lif_exploits_final.csv` (Pipeline intermediate)
+     - `data/refined/lif_exploits_cleaned.csv` (Primary Analysis Dataset)
    - Ensure the `source_file` column is a valid URL.
 
 3. **Update intervention metrics (if applicable)**
@@ -33,7 +33,7 @@ Manual incident rows **must** include:
      - `data/refined/lif_intervention_metrics.csv`
 
 4. **Recompute summary stats**
-   - Update `data/refined/lif_stats.json` with new totals.
+   - Update `data/refined/lif_stats.json` with new totals using `scripts/core/update_stats.py`.
    - Update `README.md` and `methodology/data_provenance.md` to match.
 
 5. **Verify charts**
@@ -44,8 +44,8 @@ Manual incident rows **must** include:
 ```mermaid
 flowchart TD
     A[New Incident Verified] --> B[Collect Canonical Source URL]
-    B --> C[Append to lif_exploits_final.csv]
-    B --> D[Append to lif_exploits_cleaned.csv]
+    B --> C[Append to lif_exploits_final.csv (Intermediate)]
+    B --> D[Append to lif_exploits_cleaned.csv (Primary)]
     C --> E[Update lif_intervention_metrics.csv (if timing data)]
     D --> F[Recompute lif_stats.json]
     F --> G[Update README + data_provenance]

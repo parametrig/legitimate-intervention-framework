@@ -1,6 +1,6 @@
 # LIF Data Dictionary
 
-This document defines the schema used in the `lif_exploits_final.csv` and across the research pipeline.
+This document defines the schema used in the `lif_exploits_cleaned.csv` (primary dataset) and across the research pipeline.
 
 | Field | Definition | Enum / Format |
 | :--- | :--- | :--- |
@@ -15,9 +15,32 @@ This document defines the schema used in the `lif_exploits_final.csv` and across
 
 ---
 
+## 2. Intervention Incidents Schema
+**File:** `lif_intervention_metrics.csv`
+
+This dataset tracks the effectiveness of on-chain emergency mechanisms triggered by both security exploits and systemic market failures. It drives the calibration models in the `Legitimate Overrides in Decentralized Protocols` paper.
+
+| Field | Definition | Enum / Format |
+| :--- | :--- | :--- |
+| `incident_id` | Unique identifier for the incident mapping back to the main database. | String |
+| `protocol` | The name of the protocol or system targeted by the intervention. | String |
+| `date` | The date of the intervention (or start of the incident). | YYYY-MM-DD |
+| `chain` | The network where the intervention took place. | String |
+| `scope` | The hierarchical level of the intervention precision. | `Network`, `Asset`, `Protocol`, `Module`, `Account` |
+| `authority` | The type of body that authorized/triggered the intervention. | `Signer Set`, `Delegated Body`, `Governance`, `None (expired)` |
+| `time_to_detect_min` | Minutes from exploit start to first credible detection. | Float |
+| `time_to_contain_min` | Minutes from detection to successful mechanism execution. | Float |
+| `containment_success_pct` | Percentage of at-risk funds saved or successfully frozen/recovered. | Integer (0-100) |
+| `loss_usd` | Realized loss despite (or before) intervention (USD). | Float |
+| `loss_prevented_usd` | Estimated value saved directly by the intervention (USD). | Float |
+| `notes` | Brief technical context on the intervention mechanism used. | String |
+| `source` | Primary source URL for the intervention details (Post-mortems, Tweets). | URL |
+
+---
+
 ## Methodology Note on Inclusion vs. Exclusion
 
-The final refined dataset (`lif_exploits_final.csv`) applies two filters:
+The primary refined dataset (`lif_exploits_cleaned.csv`) applies two core filters and a final deduplication pass:
 1. `is_technical == True`
 2. `loss_usd >= 100,000`
 
@@ -33,7 +56,10 @@ Per Charoenwong & Bernardi (2022), Agency Problem hacks—while only 5/30 incide
 - **Separate Research Track:** These incidents are better addressed by governance mechanism design and corporate law research (e.g., DUNA wrappers, multi-party key custody).
 
 > [!IMPORTANT]
-> **The LIF acknowledges that Agency Problems are among the most devastating attacks by dollar value.** They are included in `parsed_raw.csv` and `merged_master.csv` for total loss context, but filtered out of `lif_exploits_final.csv` which focuses on *technical resilience*.
+> **The LIF acknowledges that Agency Problems are among the most devastating attacks by dollar value.** They are included in `parsed_raw.csv` and `merged_master.csv` for total loss context, but **physically filtered out** of `lif_exploits_cleaned.csv` via the `is_technical` check.
+
+> [!NOTE]
+> **CEX hacks stay in `lif_exploits_cleaned.csv`** to maintain accurate "Total Loss" historical context, but they are excluded from "LIF-Addressable" stats via the `is_lif_relevant = False` tag.
 
 ### 2. Centralized Exchange (CEX) Hacks
 > **Examples:** Bybit ($1.4B, 2025), Mt. Gox ($460M, 2014), Coincheck ($533M, 2018), KuCoin ($281M, 2020)
@@ -41,7 +67,7 @@ Per Charoenwong & Bernardi (2022), Agency Problem hacks—while only 5/30 incide
 CEX hacks are included in the case studies for **strategic context** (they constitute 66% of early-era losses) but are not the primary focus of LIF because:
 
 - **Centralized Custody:** CEX hacks are "Access Control" failures where the "Freeze" is a manual, centralized action by the exchange operator (or law enforcement).
-- **LIF Focus:** The LIF is concerned with *decentralized protocol governance*—how to build automated, transparent, and auditable control mechanisms that work without a central operator.
+- **LIF Focus:** The LIF is concerned with *decentralized protocol governance* — how to build automated, transparent, and auditable control mechanisms that work without a central operator.
 - **Distinct Mitigation Path:** CEX security is addressed by traditional InfoSec (SOC 2 compliance, HSM key management, insurance funds like SAFU), not by on-chain governance mechanisms.
 
 > [!NOTE]
@@ -56,6 +82,7 @@ CEX hacks are included in the case studies for **strategic context** (they const
 
 When citing LIF statistics in the manuscript:
 - **Total Loss Context:** Use `parsed_raw.csv` or `merged_master.csv` to cite aggregate losses across all categories (including Agency Problem and CEX).
-- **Technical Resilience Focus:** Use `lif_exploits_final.csv` to cite losses that could have been mitigated by the LIF's technical proposals (Ex Ante, Freeze First, etc.).
+- **Technical Resilience Focus:** Use `lif_exploits_cleaned.csv` to cite losses that could have been mitigated by the LIF's technical proposals (Ex Ante, Freeze First, etc.).
+- **Intervention Effectiveness:** Use `lif_intervention_metrics.csv` to cite empirical data on intervention effectiveness.
 
 **Reference:** Charoenwong, B., & Bernardi, M. (2022). *A Decade of Cryptocurrency 'Hacks': 2011–2021*. SSRN. https://ssrn.com/abstract=3944435

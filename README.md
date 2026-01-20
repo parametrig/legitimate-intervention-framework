@@ -15,7 +15,7 @@ This repository contains the data pipeline, research methodology, and manuscript
 ├── data/
 │   ├── raw/          # source files
 │   ├── build/        # intermediate pipeline outputs
-│   └── refined/      # final datasets (lif_exploits_final.csv)
+│   └── refined/      # primary datasets (lif_exploits_cleaned.csv)
 ├── scripts/
 │   ├── core/         # data pipeline (parse, dedupe, filter)
 │   └── analysis/     # lif_charts.ipynb (single source of truth)
@@ -48,8 +48,9 @@ jupyter nbconvert --execute --to notebook scripts/analysis/lif_charts.ipynb
 
 **Outputs:**
 - `visualizations/*.png` 
-- `data/refined/lif_exploits_cleaned.csv` (cleaned dataset)
+- `data/refined/lif_exploits_cleaned.csv` (primary cleaned dataset)
 - `data/refined/lif_stats.json` (rich statistics with sources)
+- `data/refined/lif_intervention_metrics.csv` (intervention effectiveness subset)
 
 ## Papers & Outputs
 

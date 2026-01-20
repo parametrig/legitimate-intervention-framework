@@ -4,7 +4,7 @@
 > **CEX vs. DEX Distinction:** While the database includes CEX hacks (Upbit, DMM Bitcoin, WazirX) for total loss context, the LIF primarily addresses **decentralized protocol governance**. CEX incidents are usually "Access Control" (private key) failures where the "Freeze" is a manual, centralized action. LIF focuses on how to automate or govern these powers in a decentralized stack.
 
 > [!IMPORTANT]
-> **On Agency Problem Exclusions:** Per Charoenwong & Bernardi (2022), "Agency Problem" hacks (insider theft, exit scams) produced the **highest single-event losses** in the 2011-2021 decade—e.g., Africrypt ($3.6B). These are documented here for context but are **not the primary focus of LIF's technical proposals**. Insider betrayal requires governance controls (multisig, DAO oversight) rather than code-level circuit breakers. See `methodology/data_dictionary.md` for the full rationale.
+> **On Agency Problem Exclusions:** Per Charoenwong & Bernardi (2022), "Agency Problem" hacks (insider theft, exit scams) produced the **highest single-event losses** in the 2011-2021 decade e.g., Africrypt ($3.6B). These are documented here for context but are **not the primary focus of LIF's technical proposals**. Insider betrayal requires governance controls (multisig, DAO oversight) rather than code-level circuit breakers. See `methodology/data_dictionary.md` for the full rationale.
 
 ---
 
@@ -55,7 +55,44 @@
 
 ---
 
-## ⚠️ ORACLE FAILURES (Supports "Ex Ante" Argument)
+## ORACLE FAILURES (Supports "Ex Ante" Argument)
+
+### Truebit (Jan 8, 2026) - $26.5M Lost
+**Chain:** Ethereum | **Type:** Integer Overflow
+
+- **Root Cause:** Integer overflow in `getPurchasePrice()` function caused numerator to exceed 2^256, rounding to zero.
+- **Attack Method:** Attacker minted hundreds of millions of TRU tokens for 0 ETH cost, then sold them.
+- **Impact:** Drained 8,535 ETH from contract `0x764C64b2A09b09Acb100B80d8c505Aa6a0302EF2`. TRU token dropped 100%.
+- **Attribution:** Same attacker hit Sparkle protocol 12 days earlier.
+- **LIF Relevance:** Classic **arithmetic vulnerability** that circuit breakers on minting rate could have detected.
+
+### Yo Yield (Jan 13, 2026) - $3.73M Lost
+**Chain:** Ethereum | **Type:** Slippage / Operational Error
+
+- **Root Cause:** 3.84M GHO was swapped for only 112K USDC during a Vault operation (97% value loss).
+- **Attack Type:** Not a hack—but an operational failure caused by inadequate slippage protection.
+- **LIF Relevance:** **"Ex Ante" circuit breakers** on price deviation could have halted the transaction.
+
+### Fusion/IPOR (Jan 6, 2026) - $336K Lost
+**Chain:** Arbitrum | **Type:** EIP-7702 Delegation Exploit
+
+- **Root Cause:** Legacy vault (490 days old) had missing fuse validation. Attacker used EIP-7702 to hijack admin identity.
+- **Attack Method:** Injected malicious fuse via `configureInstantWithdrawalFuses`, drained USDC.
+- **Laundering:** $267K bridged to Ethereum and deposited into Tornado Cash.
+- **Response:** IPOR DAO providing full reimbursement from treasury.
+- **LIF Relevance:** **New attack surface** from EIP-7702 delegation. Highlights need for legacy contract audits.
+
+### Unleash Protocol (Dec 30, 2025) - $3.9M Lost
+**Chain:** Story Protocol | **Type:** Multisig Governance Compromise
+
+- **Root Cause:** Attacker obtained administrative control through multisig system.
+- **Attack Method:** Executed unauthorized contract upgrade enabling asset withdrawals.
+- **Tokens Stolen:** WIP, USDC, WETH, stIP, vIP.
+- **Laundering:** 1337.1 ETH deposited into Tornado Cash.
+- **Response:** Protocol paused all operations, engaged forensic investigators.
+- **LIF Relevance:** **Multisig governance attacks** require multi-day timelocks and social review.
+
+---
 
 ### Moonwell (Nov 4, 2025) - $3.7M Lost
 **Chain:** Base | **Type:** Chainlink Oracle Malfunction
