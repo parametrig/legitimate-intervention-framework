@@ -5,19 +5,23 @@ An open-source research framework for onchain governance and protocol safety.
 ## Overview
 This repository contains the data pipeline, research methodology, and manuscript for the Legitimate Intervention Framework (LIF). The project quantifies and analyzes systemic risk in decentralized finance, proposing automated "Ex Ante" (Circuit Breaker) and "Ex Post" (Governance Freeze) mechanisms.
 
-**Key Stats (Dec 2025):**
-- **763 exploits** analyzed (2014-2025)
-- **$91.32 billion** in total losses
-- **439 LIF-addressable** incidents (~$10.77B)
+**Key Stats (Jan 2026):**
+- **692 exploits** analyzed (2014-2025)
+- **$61.05 billion** in total losses
+- **402 LIF-addressable** incidents (~$8.78B)
+- **30 intervention cases** with detailed analysis
 
 ## Project Structure
 ```
 ├── data/
 │   ├── raw/          # source files
 │   ├── build/        # intermediate pipeline outputs
-│   └── refined/      # primary datasets (lif_exploits_cleaned.csv)
+│   └── refined/      # primary datasets
+│       ├── lif_exploits_final.csv      # Main cleaned dataset (692 incidents)
+│       ├── lif_exploits_raw.csv       # Source data (1903 incidents)
+│       └── lif_intervention_metrics.csv # Intervention analysis (30 cases)
 ├── scripts/
-│   ├── core/         # data pipeline (parse, dedupe, filter)
+│   ├── core/         # data pipeline (parse, dedupe, filter, update_stats)
 │   └── analysis/     # lif_charts.ipynb (single source of truth)
 ├── methodology/      # data provenance, dictionary, chart requirements, manual update procedure
 ├── visualizations/   # PNG charts 

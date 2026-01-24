@@ -2,6 +2,19 @@
 
 This document details the origins and ingestion methodology for the datasets used in the Legitimate Intervention Framework (LIF) research.
 
+## Current Dataset Status (Jan 2026)
+
+**Final Processed Dataset:** `data/refined/lif_exploits_final.csv`
+- **Total Incidents:** 692 (deduplicated and manually reviewed)
+- **Date Range:** 2014-03-01 to 2025-12-27
+- **Total Loss:** $61.05 billion
+- **LIF-Relevant:** 402 incidents (~$8.78B)
+- **Intervention Analysis:** 30 detailed cases in `lif_intervention_metrics.csv`
+
+**Source Data:** `data/refined/lif_exploits_raw.csv`
+- **Raw Incidents:** 1903 (before deduplication and cleaning)
+- **All original sources preserved for reproducibility**
+
 ## Primary Sources
 
 ### 1. Charoenwong & Bernardi (2011 - 2021)

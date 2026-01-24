@@ -1,6 +1,9 @@
 # LIF Data Dictionary
 
-This document defines the schema used in the `lif_exploits_cleaned.csv` (primary dataset) and across the research pipeline.
+This document defines the schema used in the `lif_exploits_final.csv` (primary dataset) and across the research pipeline.
+
+## 1. Main Exploits Dataset Schema
+**File:** `data/refined/lif_exploits_final.csv`
 
 | Field | Definition | Enum / Format |
 | :--- | :--- | :--- |
@@ -11,12 +14,24 @@ This document defines the schema used in the `lif_exploits_cleaned.csv` (primary
 | `vector_category` | The technical entry point of the exploit. | Enum (Reentrancy, Logic Flaw, CPIMP, etc.) |
 | `is_technical` | Boolean flag. True = Code exploit. False = Social/Agency (Rugpull). | Boolean |
 | `description` | Contextual details or contract references. | String |
-| `source_file` | Reference to the raw evidence in `data/raw/`. | String |
+| `source_file` | Reference to the raw evidence in `data/raw/` or refined data sources. | String |
+| `incident_id` | Unique identifier for the incident (protocol_date format). | String |
+| `loss_prevented_usd` | Value of assets saved through intervention mechanisms. | Float |
+| `is_intervention` | Boolean flag indicating if intervention mechanisms were involved. | Boolean |
+| `scope` | Scope of intervention (Account, Asset, Module, Network, Protocol). | Enum |
+| `authority` | Authority type for intervention (Signer Set, Governance, Delegated Body). | Enum |
+| `time_to_detect_min` | Time to detect incident in minutes. | Float |
+| `time_to_contain_min` | Time to contain incident in minutes. | Float |
+| `containment_success_pct` | Percentage of assets successfully contained/recovered. | Float |
+| `intervention_notes` | Detailed notes about intervention actions and effectiveness. | String |
+| `intervention_source` | Source URL for intervention details. | String |
+| `confidence_level` | Confidence level in data accuracy (high, medium, low). | Enum |
+| `is_lif_relevant` | Boolean flag indicating if incident is relevant to LIF framework. | Boolean |
 
 ---
 
 ## 2. Intervention Incidents Schema
-**File:** `lif_intervention_metrics.csv`
+**File:** `data/refined/lif_intervention_metrics.csv`
 
 This dataset tracks the effectiveness of on-chain emergency mechanisms triggered by both security exploits and systemic market failures. It drives the calibration models in the `Legitimate Overrides in Decentralized Protocols` paper.
 
