@@ -20,7 +20,7 @@
 
 <body>
 
-    <header class="transparent">
+    <header>
 
         <nav class="nav-links">
             <a href="index.html">Summary</a>
@@ -66,100 +66,96 @@
                         </ul>
                     </div>
                 </div>
-                <p class="text-small" style="margin-top: 1rem; color: #888;">
-                    <em>Note: Effectiveness is calculated based on the ratio of saved funds to total funds at risk
-                        at the time of intervention.</em>
+                <p class="text-small" style="margin-top: 1rem; color: #888; display: flex; gap: 0.4rem;">
+                    <em>Note:</em>
+                    <em>Effectiveness is calculated based on the ratio of saved funds to total funds at risk
+                        at the time of intervention.<br>"Success Rate" is calculated as (Saved / (Saved + Loss)) *
+                        100.</em>
                 </p>
             </div>
         </div>
-        <p class="text-small" style="margin-top: 1rem;">
-            <em>Note: "Success Rate" is calculated as (Saved / (Saved + Loss)) * 100.</em>
-        </p>
-    </div>
-    </div>
+        <!-- Sticky Controls (Search & View Toggle) -->
+        <div class="sticky-controls">
+            <!-- View Toggle -->
+            <div class="view-toggle">
+                <button class="toggle-btn active" data-view="interventions">
+                    <span id="interventionCount">—</span> Interventions
+                </button>
+                <button class="toggle-btn" data-view="all">
+                    <span id="exploitCount">—</span> All Exploits
+                </button>
+            </div>
 
-    <!-- Sticky Controls (Search & View Toggle) -->
-    <div class="sticky-controls">
-        <!-- View Toggle -->
-        <div class="view-toggle">
-            <button class="toggle-btn active" data-view="interventions">
-                <span id="interventionCount">—</span> Interventions
-            </button>
-            <button class="toggle-btn" data-view="all">
-                <span id="exploitCount">—</span> All Exploits
-            </button>
-        </div>
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <input type="text" class="search-bar" placeholder="Search by protocol, chain, vector..." id="search">
 
-        <!-- Filter Bar -->
-        <div class="filter-bar">
-            <input type="text" class="search-bar" placeholder="Search by protocol, chain, vector..." id="search">
+                <div class="filter-group">
+                    <select id="filterAuthority" class="filter-select">
+                        <option value="">All Authorities</option>
+                        <option value="Signer Set">Signer Set</option>
+                        <option value="Delegated Body">Delegated Body</option>
+                        <option value="Governance">Governance</option>
+                    </select>
 
-            <div class="filter-group">
-                <select id="filterAuthority" class="filter-select">
-                    <option value="">All Authorities</option>
-                    <option value="Signer Set">Signer Set</option>
-                    <option value="Delegated Body">Delegated Body</option>
-                    <option value="Governance">Governance</option>
-                </select>
+                    <select id="filterScope" class="filter-select">
+                        <option value="">All Scopes</option>
+                        <option value="Account">Account</option>
+                        <option value="Protocol">Protocol</option>
+                        <option value="Network">Network</option>
+                        <option value="Asset">Asset</option>
+                        <option value="Module">Module</option>
+                    </select>
 
-                <select id="filterScope" class="filter-select">
-                    <option value="">All Scopes</option>
-                    <option value="Account">Account</option>
-                    <option value="Protocol">Protocol</option>
-                    <option value="Network">Network</option>
-                    <option value="Asset">Asset</option>
-                    <option value="Module">Module</option>
-                </select>
+                    <select id="filterYear" class="filter-select">
+                        <option value="">All Years</option>
+                    </select>
 
-                <select id="filterYear" class="filter-select">
-                    <option value="">All Years</option>
-                </select>
-
-                <select id="filterSuccess" class="filter-select">
-                    <option value="">All Outcomes</option>
-                    <option value="high">High Success (>80%)</option>
-                    <option value="medium">Medium (20-80%)</option>
-                    <option value="low">Low (&lt;20%)</option>
-                </select>
+                    <select id="filterSuccess" class="filter-select">
+                        <option value="">All Outcomes</option>
+                        <option value="high">High Success (>80%)</option>
+                        <option value="medium">Medium (20-80%)</option>
+                        <option value="low">Low (&lt;20%)</option>
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Results Summary -->
-    <div class="results-summary">
-        <span id="resultsCount">Showing — results</span>
-        <span id="resultsTotals"></span>
-    </div>
+        <!-- Results Summary -->
+        <div class="results-summary">
+            <span id="resultsCount">Showing — results</span>
+            <span id="resultsTotals"></span>
+        </div>
 
-    <!-- Data Table -->
-    <table class="case-table" id="casesTable">
-        <thead>
-            <tr>
-                <th class="sortable" data-sort="date">Date <i data-lucide="chevrons-up-down"></i></th>
-                <th class="sortable" data-sort="protocol">Protocol <i data-lucide="chevrons-up-down"></i></th>
-                <th class="sortable" data-sort="loss_usd">Loss / Saved <i data-lucide="chevrons-up-down"></i></th>
-                <th>Authority</th>
-                <th>Details</th>
-            </tr>
-        </thead>
-        <tbody id="casesBody">
-            <!-- Dynamically populated -->
-        </tbody>
-    </table>
+        <!-- Data Table -->
+        <table class="case-table" id="casesTable">
+            <thead>
+                <tr>
+                    <th class="sortable" data-sort="date">Date <i data-lucide="chevrons-up-down"></i></th>
+                    <th class="sortable" data-sort="protocol">Protocol <i data-lucide="chevrons-up-down"></i></th>
+                    <th class="sortable" data-sort="loss_usd">Loss / Saved <i data-lucide="chevrons-up-down"></i></th>
+                    <th>Authority</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody id="casesBody">
+                <!-- Dynamically populated -->
+            </tbody>
+        </table>
 
-    <!-- Loading State -->
-    <div id="loadingState" class="loading-state">
-        <div class="loading-spinner"></div>
-        <p>Loading database...</p>
-    </div>
+        <!-- Loading State -->
+        <div id="loadingState" class="loading-state">
+            <div class="loading-spinner"></div>
+            <p>Loading database...</p>
+        </div>
 
-    <!-- Empty State -->
-    <div id="emptyState" class="empty-state" style="display: none;">
-        <i data-lucide="search-x" style="width: 48px; height: 48px; color: #999;"></i>
-        <p>No cases match your filters</p>
-        <button onclick="clearFilters()" class="clear-filters-btn">Clear Filters</button>
-    </div>
-    </div>
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <i data-lucide="search-x" style="width: 48px; height: 48px; color: #999;"></i>
+            <p>No cases match your filters</p>
+            <button onclick="clearFilters()" class="clear-filters-btn">Clear Filters</button>
+        </div>
+    </div> <!-- Close registry-container here -->
 
     <!-- Case Detail Modal -->
     <div id="caseModal" class="case-modal">

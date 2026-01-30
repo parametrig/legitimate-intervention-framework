@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // Selectors
-    const sections = document.querySelectorAll('.narrative-section, .research-section');
+    // Selectors
+    const sections = document.querySelectorAll('.narrative-section, .research-section, .report-section, .report-hero');
     const scrollSections = document.querySelectorAll('.scroll-section');
     const charts = document.querySelectorAll('.chart-img');
     const scrollMarker = document.getElementById('scrollMarker');
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('data-id');
+                const id = entry.target.getAttribute('data-id') || entry.target.id;
                 const chartId = entry.target.getAttribute('data-chart');
 
                 // 1. Highlight Narrative Text
@@ -77,6 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     let lastScrollY = window.scrollY;
 
+    const scrollIndicator = document.getElementById('scrollIndicator');
+    const stickyControls = document.querySelector('.sticky-controls');
+    let scrollTimeout;
+    let stickyTimeout;
+
     // Scroll Progress & Smart Navbar
     window.addEventListener('scroll', () => {
         const scrollTop = window.scrollY;
@@ -101,8 +107,49 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // 3. Mobile Scroll Indicator Visibility
+        if (scrollIndicator && window.innerWidth <= 1024) {
+            scrollIndicator.classList.add('scrolling');
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                scrollIndicator.classList.remove('scrolling');
+            }, 2000);
+        }
+
+        // 4. Mobile Database Controls Visibility
+        if (stickyControls && window.innerWidth <= 768) {
+            stickyControls.classList.add('scrolling');
+            clearTimeout(stickyTimeout);
+            stickyTimeout = setTimeout(() => {
+                stickyControls.classList.remove('scrolling');
+            }, 2000);
+        }
+
         lastScrollY = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
     });
+
+    // Focus Tracking for Database Controls
+    if (stickyControls) {
+        const inputs = stickyControls.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                stickyControls.classList.add('focused');
+            });
+            input.addEventListener('blur', () => {
+                stickyControls.classList.remove('focused');
+            });
+            // Also keep visible during change/interaction
+            input.addEventListener('change', () => {
+                stickyControls.classList.add('scrolling');
+                clearTimeout(stickyTimeout);
+                stickyTimeout = setTimeout(() => {
+                    if (document.activeElement !== input) {
+                        stickyControls.classList.remove('scrolling');
+                    }
+                }, 2000);
+            });
+        });
+    }
 
     // Initialize marker position on load
     setTimeout(() => updateMarker(0), 100);
@@ -152,15 +199,48 @@ function toggleSection(id) {
 
 function copyAddress() {
     const address = '0x5A30de56F4d345b3ab5c3759463335BA3a3AB637';
-    navigator.clipboard.writeText(address).then(() => {
-        const feedback = document.getElementById('copy-feedback');
-        if (!feedback) return;
 
+    const feedback = document.getElementById('copy-feedback');
+    const showFeedback = () => {
+        if (!feedback) return;
+        feedback.getBoundingClientRect(); // Reflow
         feedback.style.opacity = '1';
         setTimeout(() => {
             feedback.style.opacity = '0';
         }, 2000);
-    });
+    };
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(address).then(showFeedback).catch(err => {
+            console.error('Failed to copy: ', err);
+            // Fallback if needed
+            fallbackCopyTextToClipboard(address, showFeedback);
+        });
+    } else {
+        fallbackCopyTextToClipboard(address, showFeedback);
+    }
+}
+
+function fallbackCopyTextToClipboard(text, callback) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+
+    // Ensure it's not visible
+    textArea.style.position = "fixed";
+    textArea.style.left = "-9999px";
+    textArea.style.top = "0";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+        const successful = document.execCommand('copy');
+        if (successful && callback) callback();
+    } catch (err) {
+        console.error('Fallback copy failed: ', err);
+    }
+
+    document.body.removeChild(textArea);
 }
 
 function initSearch() {
@@ -600,6 +680,14 @@ async function initDatabase() {
         return;
     }
 
+    // Check for deep link search
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchTerm = urlParams.get('search');
+    if (searchTerm) {
+        const searchInput = document.getElementById('search');
+        if (searchInput) searchInput.value = searchTerm;
+    }
+
     // Calculate and display stats
     const stats = calculateStats(allInterventions);
     updateHeaderStats(stats);
@@ -672,4 +760,25 @@ function debounce(fn, delay) {
         clearTimeout(timeout);
         timeout = setTimeout(() => fn.apply(this, args), delay);
     };
+}
+
+// Insight Toggle Logic for Research Page
+function toggleInsight(btn) {
+    const panel = btn.nextElementSibling;
+    const icon = btn.querySelector('i');
+
+    if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+        icon.style.transform = 'rotate(0deg)';
+        btn.classList.remove('active');
+    } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+        icon.style.transform = 'rotate(180deg)';
+        btn.classList.add('active');
+    }
+}
+
+// Initialize icons on all pages if Lucide is present
+if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
 }
