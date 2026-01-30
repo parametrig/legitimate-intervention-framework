@@ -473,14 +473,21 @@ section.active {
 
 /* Illustrations (About Page) */
 .illustration-container {
-    margin-top: 5rem;
+    margin-top: 8rem;
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 4rem;
     flex-wrap: wrap;
-    opacity: 0.8;
-    padding-top: 3rem;
+    opacity: 0.2;
+    filter: blur(1.5px) grayscale(100%);
+    padding: 6rem 2rem;
     border-top: 1px dotted #eee;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
 }
 
 .illustration-item {
@@ -491,10 +498,10 @@ section.active {
 }
 
 .illustration-svg {
-    width: 80px;
-    height: 80px;
-    stroke: #1a1a1a;
-    stroke-width: 1.2;
+    width: 60px;
+    height: 60px;
+    stroke: #666;
+    stroke-width: 1.5;
     fill: none;
 }
 
