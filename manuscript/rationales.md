@@ -215,6 +215,8 @@ Note: The subsequent "Incident Recovery Site" and CSV-based claims process repre
 
 ===
 
+### Flow Blockchain (Dec 2025) - Account x Delegated Body
+
 The classification of the Flow (December 2025) incident in the Account × Delegated Body cell highlights the evolution of platform-level security toward high-precision, council-governed remediation.
 
 1. Rationale for Scope: Account
@@ -634,7 +636,7 @@ The 54-minute containment time from exploit to full pause, with initial detectio
 
 ### Additional Incident Classifications (2017--2025)
 
-1. Sui/Cetus (May 2025) - Account x Governance
+### Sui/Cetus (May 2025) - Account x Governance
 - Scope rationale: The protocol upgrade created address aliases for two hacker addresses only, enabling a recovery multisig to move the frozen funds without touching other accounts or chain history.
 - Authority rationale: Recovery required an on-chain validator/staker vote (90.9% yes). The multisig (Cetus + Sui Foundation + OtterSec) executes after governance approval.
 - Sources: https://blog.sui.io/cetus-incident-response-onchain-community-vote/ (vote mechanics, aliasing), Cetus statements (pause and recovery plan).
@@ -654,7 +656,7 @@ flowchart TD
 - Authority rationale: The pause guardian multisig requires multiple signers, distinct from the single-signer kill switch. The kill switch is a protocol capability but not an executed incident in this dataset.
 - Source: https://x.com/liqwidfinance/status/1976778373168087162 (pause announcement). Proposal 44 documents kill switch vs pause guardian.
 
-3. Cork Protocol (May 2025) - Protocol x Signer Set
+### Cork Protocol (May 2025) - Protocol x Signer Set
 - Scope rationale: Cork paused all contracts and markets in response to the Uniswap v4 hook exploit.
 - Authority rationale: Emergency pause executed by the core team (Signer Set) within 54 minutes.
 - Source: https://www.cork.tech/blog/post-mortem
@@ -669,7 +671,7 @@ flowchart TD
   - Recovery: Compromised signers removed from multisig by 22:10 UTC
 - Source: https://medium.com/@RadiantCapital/radiant-post-mortem-fecd6cd38081
 
-5. DeltaPrime (Nov 2024) - Protocol x Signer Set
+### DeltaPrime (Nov 2024) - Protocol x Signer Set
 - Scope rationale: Protocol-wide pause on Arbitrum and Avalanche after $4.75M exploit via claimRewards() vulnerability. Attackers mimicked LFJ contracts to bypass solvency checks.
 - Authority rationale: Core team (Signer Set) assembled war room within 15 minutes of attack detection. Protocol paused within 10 minutes of war room formation.
 - Key details:
@@ -679,7 +681,7 @@ flowchart TD
   - Recovery: rTKN reimbursement plan implemented for users
 - Source: https://medium.com/@DeltaPrimeDefi/deltaprime-post-mortem-reimbursement-plan-07-12-2024-2d654912715b
 
-6. Sonne Finance (May 2024) - Protocol x Signer Set
+### Sonne Finance (May 2024) - Protocol x Signer Set
 - Scope rationale: All Optimism markets paused after $20M donation attack on newly deployed VELO markets. Attack executed after 2-day timelock expired.
 - Authority rationale: Core team (Signer Set) detected incident 25 minutes after exploit, paused all markets within 30 minutes. White-hat saved $6.5M by front-running with $100 VELO.
 - Key details:
