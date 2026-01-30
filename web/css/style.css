@@ -28,7 +28,11 @@ body {
 /* Typography */
 h1,
 h2,
-h3,
+h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
 h4,
 h5,
 h6 {
@@ -57,6 +61,12 @@ p {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
     color: #333;
+}
+
+.text-small {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.6;
 }
 
 a {
@@ -432,7 +442,7 @@ section.active {
 }
 
 .editorial-content p {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     margin-bottom: 1.5rem;
     text-align: justify;
     line-height: 1.7;
@@ -453,8 +463,6 @@ section.active {
     margin-top: 4rem;
     padding-top: 2rem;
     border-top: 1px solid #eee;
-    font-size: 1rem;
-    color: #444;
 }
 
 .acknowledgements h3 {
@@ -1114,9 +1122,10 @@ body.navbar-hidden .sticky-controls {
     margin-bottom: 0.25rem;
 }
 
-.stat-value {
+.chart-card h3 {
+    margin: 0;
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .stat-box.loss .stat-value {

@@ -44,117 +44,121 @@
         <div style="margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
             <div class="expandable-header" onclick="toggleSection('methodology')">
                 <span id="chevron-methodology" class="chevron">›</span>
-                <h3 style="margin: 0; font-size: 1.1rem; color: #555;">Methodology & Data Sources</h3>
+                <h3>Methodology & Data Sources</h3>
             </div>
             <div id="content-methodology" class="expandable-content" style="margin-top: 1rem;">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                     <div>
-                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: #444;">Data Sources (2014-2026)
+                        <h4 class="text-small" style="margin-bottom: 0.5rem; font-weight: 600;">Data Sources (2014-2026)
                         </h4>
-                        <ul
-                            style="margin-left: 1.2rem; font-size: 0.9rem; color: #666; line-height: 1.5; margin-bottom: 0;">
+                        <ul class="text-small" style="margin-left: 1.2rem; margin-bottom: 0;">
                             <li><strong>Academic</strong>: Charoenwong & Bernardi (2022)</li>
                             <li><strong>Industry</strong>: De.Fi Rekt Database, DeFiHackLabs</li>
                             <li><strong>Investigative</strong>: Rekt.news, SlowMist</li>
                         </ul>
                     </div>
                     <div>
-                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: #444;">Key Definitions</h4>
-                        <ul
-                            style="margin-left: 1.2rem; font-size: 0.9rem; color: #666; line-height: 1.5; margin-bottom: 0;">
+                        <h4 class="text-small" style="margin-bottom: 0.5rem; font-weight: 600;">Key Definitions</h4>
+                        <ul class="text-small" style="margin-left: 1.2rem; margin-bottom: 0;">
                             <li><strong>Authority</strong>: Entity authorized to intervene (Signers, Council, Gov).</li>
                             <li><strong>Scope</strong>: Technical domain (Asset, Module, Protocol).</li>
                             <li><strong>Saved</strong>: Funds rescued/frozen by intervention.</li>
                         </ul>
                     </div>
                 </div>
-                <p style="font-size: 0.85rem; color: #888; margin-top: 1rem;">
-                    <em>Note: "Success Rate" is calculated as (Saved / (Saved + Loss)) * 100.</em>
+                <p class="text-small" style="margin-top: 1rem; color: #888;">
+                    <em>Note: Effectiveness is calculated based on the ratio of saved funds to total funds at risk
+                        at the time of intervention.</em>
                 </p>
             </div>
         </div>
+        <p class="text-small" style="margin-top: 1rem;">
+            <em>Note: "Success Rate" is calculated as (Saved / (Saved + Loss)) * 100.</em>
+        </p>
+    </div>
+    </div>
 
-        <!-- Sticky Controls (Search & View Toggle) -->
-        <div class="sticky-controls">
-            <!-- View Toggle -->
-            <div class="view-toggle">
-                <button class="toggle-btn active" data-view="interventions">
-                    <span id="interventionCount">—</span> Interventions
-                </button>
-                <button class="toggle-btn" data-view="all">
-                    <span id="exploitCount">—</span> All Exploits
-                </button>
+    <!-- Sticky Controls (Search & View Toggle) -->
+    <div class="sticky-controls">
+        <!-- View Toggle -->
+        <div class="view-toggle">
+            <button class="toggle-btn active" data-view="interventions">
+                <span id="interventionCount">—</span> Interventions
+            </button>
+            <button class="toggle-btn" data-view="all">
+                <span id="exploitCount">—</span> All Exploits
+            </button>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <input type="text" class="search-bar" placeholder="Search by protocol, chain, vector..." id="search">
+
+            <div class="filter-group">
+                <select id="filterAuthority" class="filter-select">
+                    <option value="">All Authorities</option>
+                    <option value="Signer Set">Signer Set</option>
+                    <option value="Delegated Body">Delegated Body</option>
+                    <option value="Governance">Governance</option>
+                </select>
+
+                <select id="filterScope" class="filter-select">
+                    <option value="">All Scopes</option>
+                    <option value="Account">Account</option>
+                    <option value="Protocol">Protocol</option>
+                    <option value="Network">Network</option>
+                    <option value="Asset">Asset</option>
+                    <option value="Module">Module</option>
+                </select>
+
+                <select id="filterYear" class="filter-select">
+                    <option value="">All Years</option>
+                </select>
+
+                <select id="filterSuccess" class="filter-select">
+                    <option value="">All Outcomes</option>
+                    <option value="high">High Success (>80%)</option>
+                    <option value="medium">Medium (20-80%)</option>
+                    <option value="low">Low (&lt;20%)</option>
+                </select>
             </div>
-
-            <!-- Filter Bar -->
-            <div class="filter-bar">
-                <input type="text" class="search-bar" placeholder="Search by protocol, chain, vector..." id="search">
-
-                <div class="filter-group">
-                    <select id="filterAuthority" class="filter-select">
-                        <option value="">All Authorities</option>
-                        <option value="Signer Set">Signer Set</option>
-                        <option value="Delegated Body">Delegated Body</option>
-                        <option value="Governance">Governance</option>
-                    </select>
-
-                    <select id="filterScope" class="filter-select">
-                        <option value="">All Scopes</option>
-                        <option value="Account">Account</option>
-                        <option value="Protocol">Protocol</option>
-                        <option value="Network">Network</option>
-                        <option value="Asset">Asset</option>
-                        <option value="Module">Module</option>
-                    </select>
-
-                    <select id="filterYear" class="filter-select">
-                        <option value="">All Years</option>
-                    </select>
-
-                    <select id="filterSuccess" class="filter-select">
-                        <option value="">All Outcomes</option>
-                        <option value="high">High Success (>80%)</option>
-                        <option value="medium">Medium (20-80%)</option>
-                        <option value="low">Low (&lt;20%)</option>
-                    </select>
-                </div>
-            </div>
         </div>
+    </div>
 
-        <!-- Results Summary -->
-        <div class="results-summary">
-            <span id="resultsCount">Showing — results</span>
-            <span id="resultsTotals"></span>
-        </div>
+    <!-- Results Summary -->
+    <div class="results-summary">
+        <span id="resultsCount">Showing — results</span>
+        <span id="resultsTotals"></span>
+    </div>
 
-        <!-- Data Table -->
-        <table class="case-table" id="casesTable">
-            <thead>
-                <tr>
-                    <th class="sortable" data-sort="date">Date <i data-lucide="chevrons-up-down"></i></th>
-                    <th class="sortable" data-sort="protocol">Protocol <i data-lucide="chevrons-up-down"></i></th>
-                    <th class="sortable" data-sort="loss_usd">Loss / Saved <i data-lucide="chevrons-up-down"></i></th>
-                    <th>Authority</th>
-                    <th>Details</th>
-                </tr>
-            </thead>
-            <tbody id="casesBody">
-                <!-- Dynamically populated -->
-            </tbody>
-        </table>
+    <!-- Data Table -->
+    <table class="case-table" id="casesTable">
+        <thead>
+            <tr>
+                <th class="sortable" data-sort="date">Date <i data-lucide="chevrons-up-down"></i></th>
+                <th class="sortable" data-sort="protocol">Protocol <i data-lucide="chevrons-up-down"></i></th>
+                <th class="sortable" data-sort="loss_usd">Loss / Saved <i data-lucide="chevrons-up-down"></i></th>
+                <th>Authority</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody id="casesBody">
+            <!-- Dynamically populated -->
+        </tbody>
+    </table>
 
-        <!-- Loading State -->
-        <div id="loadingState" class="loading-state">
-            <div class="loading-spinner"></div>
-            <p>Loading database...</p>
-        </div>
+    <!-- Loading State -->
+    <div id="loadingState" class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>Loading database...</p>
+    </div>
 
-        <!-- Empty State -->
-        <div id="emptyState" class="empty-state" style="display: none;">
-            <i data-lucide="search-x" style="width: 48px; height: 48px; color: #999;"></i>
-            <p>No cases match your filters</p>
-            <button onclick="clearFilters()" class="clear-filters-btn">Clear Filters</button>
-        </div>
+    <!-- Empty State -->
+    <div id="emptyState" class="empty-state" style="display: none;">
+        <i data-lucide="search-x" style="width: 48px; height: 48px; color: #999;"></i>
+        <p>No cases match your filters</p>
+        <button onclick="clearFilters()" class="clear-filters-btn">Clear Filters</button>
+    </div>
     </div>
 
     <!-- Case Detail Modal -->
