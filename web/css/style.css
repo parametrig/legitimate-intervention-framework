@@ -73,7 +73,7 @@ header {
     width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: baseline;
     font-family: var(--font-serif);
     position: fixed;
@@ -416,7 +416,7 @@ section.active {
 
 /* About / Editorial Layout */
 .editorial-container {
-    max-width: 680px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 140px 24px 8rem;
 }
@@ -601,7 +601,7 @@ section.active {
 
 /* Database / Registry Page */
 .registry-container {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 140px 5% 4rem;
 }
