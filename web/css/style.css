@@ -15,6 +15,7 @@
     --dot-active: #1a1a1a;
     --font-serif: 'Newsreader', Georgia, serif;
     --font-sans: system-ui, -apple-system, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
     /* Font Sizes (NCF Standard) */
     --fs-h1: 3rem;
@@ -216,6 +217,10 @@ header.transparent {
         padding-left: 2rem;
         padding-right: 2rem;
     }
+
+    .timeline-sidebar {
+        display: none;
+    }
 }
 
 /* 1. Left Sidebar: Timeline Dots */
@@ -236,13 +241,35 @@ header.transparent {
 
 @media (max-width: 1024px) {
     .scroll-indicator {
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
+        opacity: 1;
+        /* Container always present for clicks */
+        pointer-events: auto;
+        height: 100vh;
+        /* Full height click zone */
+        top: 0;
+        transform: none;
+        width: 40px;
+        /* Width of click zone */
+        padding-left: 0;
+        align-items: center;
+        /* Center track vertically */
+        background: transparent;
+        /* Invisible surface */
     }
 
-    .scroll-indicator.scrolling {
+    /* Hide the visual track by default */
+    .scroll-indicator .scroll-track {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+
+    /* Show track when active class is added via JS */
+    .scroll-indicator.active .scroll-track {
         opacity: 1;
+        transform: translateX(12px);
+        /* Restore original padding visual */
         pointer-events: auto;
     }
 }
@@ -367,7 +394,7 @@ header.transparent {
 
 /* 2. Center Column: Narrative Content */
 .content-column {
-    padding-top: 2rem;
+    /* padding-top: 2rem; Removed to match About page spacing */
     max-width: 850px;
 }
 
@@ -580,7 +607,8 @@ section.active {
 /* Research Report Grid */
 .chart-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Reduced min-width to fit narrower screens better, but media query is safer */
     /* Responsive columns */
     gap: 2rem;
     margin-top: 3rem;
@@ -960,7 +988,7 @@ section.active {
 }
 
 .wallet-address-content {
-    font-family: monospace;
+    font-family: var(--font-mono);
     font-size: var(--fs-tiny);
     white-space: nowrap;
     overflow: hidden;
@@ -1226,6 +1254,12 @@ body.navbar-hidden .sticky-controls {
     border: 1px solid #eee;
     border-radius: 8px;
     overflow: hidden;
+    display: block;
+    /* Allow scrolling on this element if needed or use wrapper */
+    overflow-x: auto;
+    /* Enable internal scrolling for table */
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
 }
 
 .case-table thead {
@@ -1643,30 +1677,34 @@ body.navbar-hidden .sticky-controls {
 /* Responsive */
 @media (max-width: 768px) {
     .sticky-controls {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    .sticky-controls.scrolling,
-    .sticky-controls.focused {
         opacity: 1;
         pointer-events: auto;
     }
 
     .filter-bar {
         flex-direction: column;
-        padding: 0.75rem;
+        padding: 0.5rem;
+        /* Reduced padding to maximize width */
+        gap: 0.5rem;
     }
 
     .filter-bar .search-bar {
         width: 100%;
         height: 42px;
-        line-height: 42px;
+        /* Explicit height to match selects */
+        min-height: 42px;
+        /* Force minimum height */
+        line-height: normal;
+        /* Let flexbox handle centering or use padding */
         padding: 0 0.75rem;
         border-radius: 6px;
         font-size: var(--fs-small);
         border: 1px solid #ddd;
         box-sizing: border-box;
+        -webkit-appearance: none;
+        /* Remove iOS default styles */
+        appearance: none;
+        margin: 0;
     }
 
     .filter-group {
@@ -1700,6 +1738,25 @@ body.navbar-hidden .sticky-controls {
     .illustration-svg {
         width: 35px;
         height: 35px;
+    }
+
+    /* Fix Research Page Overflow */
+    .chart-grid {
+        grid-template-columns: 1fr;
+        /* Stack charts on mobile */
+    }
+
+    /* Ensure no horizontal scroll on body */
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Standardize Container Margins to match About Page (2rem) */
+    .registry-container,
+    .research-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 }
 

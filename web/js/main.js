@@ -107,26 +107,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // 3. Mobile Scroll Indicator Visibility
-        if (scrollIndicator && window.innerWidth <= 1024) {
-            scrollIndicator.classList.add('scrolling');
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                scrollIndicator.classList.remove('scrolling');
-            }, 2000);
-        }
+        // 3. Mobile Scroll Indicator Visibility (Handled by click now, so we don't auto-show on scroll)
+        // Kept empty to preserve structure or we can remove this block entirely.
+        // Logic moved to Click Handler below.
 
         // 4. Mobile Database Controls Visibility
         if (stickyControls && window.innerWidth <= 768) {
             stickyControls.classList.add('scrolling');
-            clearTimeout(stickyTimeout);
-            stickyTimeout = setTimeout(() => {
-                stickyControls.classList.remove('scrolling');
-            }, 2000);
         }
 
         lastScrollY = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
     });
+
+    // Mobile Edge Click Handler (Scroll Indicator)
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', (e) => {
+            // Only toggle if we are on mobile/small screen
+            if (window.innerWidth <= 1024) {
+                scrollIndicator.classList.toggle('active');
+            }
+        });
+    }
 
     // Focus Tracking for Database Controls
     if (stickyControls) {
@@ -141,18 +142,22 @@ document.addEventListener('DOMContentLoaded', () => {
             // Also keep visible during change/interaction
             input.addEventListener('change', () => {
                 stickyControls.classList.add('scrolling');
-                clearTimeout(stickyTimeout);
-                stickyTimeout = setTimeout(() => {
-                    if (document.activeElement !== input) {
-                        stickyControls.classList.remove('scrolling');
-                    }
-                }, 2000);
             });
         });
     }
 
     // Initialize marker position on load
     setTimeout(() => updateMarker(0), 100);
+
+    // Deep Link Search Logic (Database Page)
+    const urlParams = new URLSearchParams(window.location.search);
+    // Support both 'q' and 'search' params
+    const searchQuery = urlParams.get('q') || urlParams.get('search');
+    if (searchQuery && searchInput) {
+        searchInput.value = searchQuery;
+        // Trigger filter
+        filterData(searchQuery);
+    }
 
     // Lightbox Logic
     const lightbox = document.createElement('div');
