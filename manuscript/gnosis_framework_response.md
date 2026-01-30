@@ -75,7 +75,7 @@ A November 2025 analysis by Bybit's Security Lab examined 166 blockchains:
 
 Current debate tends toward binary thinking (Halt vs. Nothing). This framework proposes a **graduated response spectrum**:
 
-![Hierarchy of Precision](../visualizations/lif_hierarchy_of_precision.png)
+![Hierarchy of Precision](../visualizations/archived/v0_legacy/lif_hierarchy_of_precision.png)
 *Figure 1: The Hierarchy of Precision — graduated intervention levels from Network Scope (most disruptive) to Account Scope (most surgical).*
 
 ### Principle of Minimal Intervention
@@ -106,7 +106,7 @@ For Gnosis, a hybrid of Models 3–4 is recommended: algorithmic detection with 
 
 ### Legitimacy Test
 
-![Legitimacy Pillars](../visualizations/lif_legitimacy_pillars.png)
+![Legitimacy Pillars](../visualizations/archived/v0_legacy/lif_legitimacy_pillars.png)
 *Figure 2: The four legitimacy conditions that must be satisfied for intervention to be considered valid.*
 
 For any intervention to be considered legitimate, it should satisfy:
@@ -158,7 +158,7 @@ These parameters should inform both the *trigger threshold* (when to intervene) 
 
 **Establish the Rules Before the Crisis**
 
-![Pre-Incident Flow](../visualizations/lif_pre_incident_flow.png)
+![Pre-Incident Flow](../visualizations/archived/v0_legacy/lif_pre_incident_flow.png)
 *Figure 3: The pre-incident phase establishes intervention criteria through community ratification.*
 
 Required Documentation:
@@ -172,7 +172,7 @@ Required Documentation:
 
 **An "Optimistic Freeze" Model**
 
-![Optimistic Freeze Flow](../visualizations/lif_optimistic_freeze_flow.png)
+![Optimistic Freeze Flow](../visualizations/archived/v0_legacy/lif_optimistic_freeze_flow.png)
 *Figure 4: Optimistic Freeze model enables fast action with mandatory DAO ratification.*
 
 Key Features:
@@ -240,7 +240,7 @@ If GnosisDAO determines that intervention capability is appropriate, that capabi
 
 ### The Resilience Stack
 
-![Resilience Stack](../visualizations/lif_resilience_stack.png)
+![Resilience Stack](../visualizations/archived/v0_legacy/lif_resilience_stack.png)
 *Figure 5: The Resilience Stack shows human factors as the foundation supporting technical capability.*
 
 ### High-Reliability Industry Principles

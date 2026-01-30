@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | LIF Research</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+
+<body>
+
+    <header>
+        <a href="/" class="site-title">LIF Research</a>
+        <nav class="nav-links">
+            <a href="index.html">Summary</a>
+            <a href="research.html">Research</a>
+            <a href="cases.html">Database</a>
+            <a href="about.html" class="active">About</a>
+        </nav>
+    </header>
+
+    <div class="editorial-container">
+        <h1>About</h1>
+        <p class="hero-tagline">"That which is measured improves. That which is measured and reported improves
+            exponentially."</p>
+
+        <div class="editorial-content">
+            <p>
+                LIF Research was aesthetically and stylistically inspired by <a href="https://ai-2027.com/">AI 2027</a>.
+                I encourage all readers to explore their work, which set a high bar for presenting complex models.
+            </p>
+
+            <p>
+                The research itself had already begun as an exploration of legitimate intervention mechanisms in
+                decentralized protocols. This website was sparked by a conversation started by Sebastian Bürgel in the
+                <a href="https://forum.gnosis.io/t/a-framework-for-the-future/11914">Gnosis forum</a> to help build the
+                framework collaboratively. The empirical foundation is grounded in the work of Charoenwong & Bernardi.
+            </p>
+
+            <p>
+                An academic treatment of this research—<em>"Legitimate Overrides in Decentralized Protocols"</em> by
+                Elem Oghenekaro and Dr. Nimrod Talmon—is forthcoming and provides the formal game-theoretic foundations
+                for the intervention design space explored here.
+            </p>
+
+            <p>
+                Reality has provided 718 counter-examples totaling over $80 billion in losses. As AI capabilities
+                escalate, paralleling the scaling risks outlined in <a
+                    href="https://red.anthropic.com/2025/smart-contracts/" target="_blank">recent Anthropic safety
+                    reports</a>, the window for
+                reactive human intervention is collapsing. We must view these failures not as anomalies, but as the
+                data points mapping the "Speed-Legitimacy Curve."
+            </p>
+
+            <p>
+                I created the Legitimate Intervention Framework because I want the integration of automation into DeFi
+                to
+                yield <strong>good outcomes</strong>. Measurement is the first step toward that goal: by rigorously
+                reporting success (and failure), we create the feedback loop necessary to build protocols that are not
+                just "law" but
+                are resilient and legitimate.
+            </p>
+
+            <p>
+                Crucially, we noted that missing data impacts results. "Intervention success is subject to high
+                reporting
+                bias. While the detailed curated metrics suggest high success in specific silos, the full dataset (120
+                cases) reveals a more complex reality. Among addressable incidents ($10.2B at risk), only $2.7B (27.2%)
+                was successfully captured—yet within that capture, multisigs (Signer Sets) proved highly effective,
+                performing 2x better (67.6% success) than the documented subset suggests."
+            </p>
+
+            <p>
+                "Integrity check complete: the case for high-velocity authorities is actually stronger in the real-world
+                messy
+                dataset than in the polished sub-metrics. Any protocol design should reference the 'All Interventions'
+                matrix
+                for realistic risk expectations."
+            </p>
+
+            <p>
+                First, the good outcomes must be fully defined (Scope). Then, define who has the right to act
+                (Authority). Finally, implement the mechanisms (Optimistic Freeze). And constantly reevaluate all three
+                as the data updates.
+            </p>
+
+            <h2 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1rem;">Get in Touch</h2>
+
+            <p>
+                You can chat with the full dataset in our <a
+                    href="https://notebooklm.google.com/notebook/a0b24efe-8d1d-4949-83a3-8d204a43ec27?pli=1">NotebookLM</a>
+                or contribute to the research on <a
+                    href="https://github.com/e3o8o/legitimate-intervention-framework">GitHub</a>.
+            </p>
+
+            <p style="margin-top: 2rem;">
+                <strong>Contact:</strong> <a href="mailto:karo@parametrig.com">karo@parametrig.com</a>
+            </p>
+
+            <h2 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1rem;">Contributions & Bounties</h2>
+
+            <p>
+                We encourage you to debate and improve this framework. To incentivize high-quality contributions, we're
+                offering bounties:
+            </p>
+
+            <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li>If you find a data error or inconsistency, we'll credit you in the repository.</li>
+                <li>If you contribute a new case study with complete documentation, we'll feature it in the database.
+                </li>
+                <li>If you identify a fundamental flaw in the taxonomy or analysis, we'll acknowledge your contribution
+                    prominently.</li>
+            </ul>
+
+            <p>
+                All contributions should be submitted via <a
+                    href="https://github.com/e3o8o/legitimate-intervention-framework">GitHub Issues or Pull
+                    Requests</a>.
+            </p>
+
+            <h2 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1rem;">Support This Work</h2>
+
+            <p>
+                This research is independent and unfunded. If you find value in this work and would like to support
+                continued development, you can send donations to:
+            </p>
+
+            <p class="wallet-address-container" onclick="copyAddress()" title="Click to copy address">
+                <span class="wallet-address-content"><strong>ETH/Gnosis:</strong>
+                    <span id="wallet-address">0x5A30de56F4d345b3ab5c3759463335BA3a3AB637</span> (parametrig.eth)</span>
+                <span id="copy-feedback" class="wallet-feedback">Copied!</span>
+            </p>
+
+            <!-- Collapsible Sections -->
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #eee;">
+
+                <!-- How to Use This Research -->
+                <div style="margin-bottom: 1.5rem;">
+                    <div class="expandable-header" onclick="toggleSection('howtouse')">
+                        <span id="chevron-howtouse" class="chevron">›</span>
+                        <h3 style="margin: 0; font-size: 1.25rem;">How to Use This Research</h3>
+                    </div>
+                    <div id="content-howtouse" class="expandable-content" style="margin-top: 1rem;">
+                        <p style="font-size: 0.95rem; color: #444; line-height: 1.6; margin-bottom: 1rem;">
+                            This framework is designed for multiple audiences:
+                        </p>
+                        <p style="font-size: 0.95rem; color: #444; line-height: 1.6; margin-bottom: 0.5rem;">
+                            <strong>For Protocol Developers:</strong>
+                        </p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem; font-size: 0.95rem; color: #444;">
+                            <li>Audit your existing intervention capabilities using the Scope × Authority matrix</li>
+                            <li>Design new emergency response mechanisms informed by the effectiveness data</li>
+                            <li>Benchmark your response times against the median performance by authority type</li>
+                        </ul>
+                        <p style="font-size: 0.95rem; color: #444; line-height: 1.6; margin-bottom: 0.5rem;">
+                            <strong>For Governance Designers:</strong>
+                        </p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem; font-size: 0.95rem; color: #444;">
+                            <li>Use the legitimacy conditions framework to pre-authorize emergency actions</li>
+                            <li>Consider the "Optimistic Freeze" model for balancing speed and legitimacy</li>
+                            <li>Establish mandatory post-mortem processes to build institutional memory</li>
+                        </ul>
+                        <p style="font-size: 0.95rem; color: #444; line-height: 1.6; margin-bottom: 0.5rem;">
+                            <strong>For Researchers:</strong>
+                        </p>
+                        <ul style="margin-left: 1.5rem; font-size: 0.95rem; color: #444;">
+                            <li>Download the datasets and reproduce the analysis</li>
+                            <li>Extend the taxonomy to new intervention mechanisms or blockchain architectures</li>
+                            <li>Cross-validate findings with alternative data sources</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Acknowledgements -->
+                <div style="margin-bottom: 1.5rem;">
+                    <div class="expandable-header" onclick="toggleSection('acknowledgements')">
+                        <span id="chevron-acknowledgements" class="chevron">›</span>
+                        <h3 style="margin: 0; font-size: 1.25rem;">Acknowledgements</h3>
+                    </div>
+                    <div id="content-acknowledgements" class="expandable-content" style="margin-top: 1rem;">
+                        <p style="font-size: 0.95rem; color: #444;">This work stands on the shoulders of giants. Special
+                            thanks to:</p>
+                        <ul style="margin-left: 1.5rem; font-size: 0.95rem; color: #444;">
+                            <li><strong>Nimrod Talmon</strong> for invaluable research guidance.</li>
+                            <li><strong>Sebastian Bürgel</strong> (VP Technology Gnosis, Founder HOPR) for starting this
+                                conversation.</li>
+                            <li>The papers <em>"A Decade of Cryptocurrency 'Hacks': 2011 – 2021"</em> (Charoenwong &
+                                Bernardi, 2021) and <em>"Blockchain Compliance: A Framework for Evaluating Regulatory
+                                    Approaches"</em> (Charoenwong, Soni, Shankar, Kirby, Reiter, 2025) for foundational
+                                data frameworks.</li>
+                            <li>The <strong>Rekt.news</strong>, <strong>DeFiHackLabs</strong>, and
+                                <strong>SlowMist</strong> teams for their exhaustive incident reporting.
+                            </li>
+                            <li><strong>Daniel Kokotajlo, Scott Alexander, Thomas Larsen, Eli Lifland, Romeo
+                                    Dean</strong> for the inspiration of <em>ai-2027.com</em>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Data Sources -->
+                <div style="margin-bottom: 1.5rem;">
+                    <div class="expandable-header" onclick="toggleSection('datasources')">
+                        <span id="chevron-datasources" class="chevron">›</span>
+                        <h3 style="margin: 0; font-size: 1.25rem;">Data Sources</h3>
+                    </div>
+                    <div id="content-datasources" class="expandable-content" style="margin-top: 1rem;">
+                        <p style="font-size: 0.95rem; color: #444; line-height: 1.6;">
+                            This research aggregates exploit data from four primary sources, spanning 2014-2026:
+                        </p>
+                        <ul style="margin-left: 1.5rem; margin-top: 1rem; font-size: 0.95rem; color: #444;">
+                            <li><strong>Charoenwong & Bernardi (2022)</strong> — Academic study covering 2011-2021 (30
+                                cases)</li>
+                            <li><strong>De.Fi Rekt Database</strong> — Industry incident database, 2021-2026 (~450
+                                cases)</li>
+                            <li><strong>Rekt.news Reports</strong> — Investigative post-mortems, 2020-2025 (282 cases)
+                            </li>
+                            <li><strong>DeFiHackLabs</strong> — Technical incident tracking with PoC, 2022-2026 (~200
+                                cases)</li>
+                            <li><strong>Manual Research</strong> — Intervention curation from forums, tweets,
+                                post-mortems (120 interventions)</li>
+                        </ul>
+                        <p style="font-size: 0.95rem; color: #444; margin-top: 1rem; line-height: 1.6;">
+                            All data and analysis scripts are available in the <a
+                                href="https://github.com/e3o8o/legitimate-intervention-framework">GitHub repository</a>
+                            for reproducibility.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Illustrations -->
+                <div class="illustration-container">
+                    <!-- 1. The Data (Chart/Graph) -->
+                    <div class="illustration-item">
+                        <svg class="illustration-svg" viewBox="0 0 100 100">
+                            <rect x="20" y="70" width="10" height="10" fill="none" stroke="#1a1a1a"
+                                stroke-width="1.5" />
+                            <rect x="35" y="50" width="10" height="30" fill="none" stroke="#1a1a1a"
+                                stroke-width="1.5" />
+                            <rect x="50" y="30" width="10" height="50" fill="none" stroke="#1a1a1a"
+                                stroke-width="1.5" />
+                            <rect x="65" y="45" width="10" height="35" fill="none" stroke="#1a1a1a"
+                                stroke-width="1.5" />
+                            <line x1="10" y1="90" x2="90" y2="90" stroke="#1a1a1a" stroke-width="1.5" />
+                        </svg>
+                        <span class="illustration-caption">Data</span>
+                    </div>
+
+                    <!-- 2. The Shield (Security) -->
+                    <div class="illustration-item">
+                        <svg class="illustration-svg" viewBox="0 0 100 100">
+                            <path d="M50 20 L80 30 V50 C80 70 50 90 50 90 C50 90 20 70 20 50 V30 Z" stroke="#1a1a1a"
+                                stroke-width="1.5" fill="none" />
+                            <path d="M50 40 V60 M40 50 H60" stroke="#1a1a1a" stroke-width="1.5" />
+                        </svg>
+                        <span class="illustration-caption">Security</span>
+                    </div>
+
+                    <!-- 3. The Network (System) -->
+                    <div class="illustration-item">
+                        <svg class="illustration-svg" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="30" stroke="#1a1a1a" stroke-width="1.5" fill="none"
+                                stroke-dasharray="4 4" />
+                            <circle cx="50" cy="20" r="4" stroke="#1a1a1a" stroke-width="1.5" fill="#fcfcfc" />
+                            <circle cx="80" cy="50" r="4" stroke="#1a1a1a" stroke-width="1.5" fill="#fcfcfc" />
+                            <circle cx="50" cy="80" r="4" stroke="#1a1a1a" stroke-width="1.5" fill="#fcfcfc" />
+                            <circle cx="20" cy="50" r="4" stroke="#1a1a1a" stroke-width="1.5" fill="#fcfcfc" />
+                            <line x1="50" y1="50" x2="50" y2="24" stroke="#1a1a1a" stroke-width="1.5" />
+                            <line x1="50" y1="50" x2="76" y2="50" stroke="#1a1a1a" stroke-width="1.5" />
+                            <line x1="50" y1="50" x2="50" y2="76" stroke="#1a1a1a" stroke-width="1.5" />
+                            <line x1="50" y1="50" x2="24" y2="50" stroke="#1a1a1a" stroke-width="1.5" />
+                        </svg>
+                        <span class="illustration-caption">System</span>
+                    </div>
+                </div>
+            </div>
+
+            <script src="js/main.js"></script>
+
+
+</body>
+
+</html>

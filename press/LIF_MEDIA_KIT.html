@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIF Research — Media Kit</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.5;
+            padding: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: #1a1a1a;
+                padding: 20px;
+            }
+
+            .stat-card {
+                background: #f5f5f5 !important;
+                border: 1px solid #ddd !important;
+            }
+
+            .stat-value {
+                color: #2563eb !important;
+            }
+
+            .header {
+                background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%) !important;
+            }
+
+            .finding-item {
+                background: #f9f9f9 !important;
+                border: 1px solid #eee !important;
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(37, 99, 235, 0.3) 100%);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .header .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .header .version {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #60a5fa;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .section h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #60a5fa;
+            margin-bottom: 16px;
+        }
+
+        .finding-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .finding-icon {
+            font-size: 1.5rem;
+        }
+
+        .finding-text {
+            flex: 1;
+        }
+
+        .finding-text strong {
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .finding-text span {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            font-weight: 600;
+            color: #60a5fa;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+        }
+
+        .badge.blue {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+
+        .badge.purple {
+            background: rgba(139, 92, 246, 0.2);
+            color: #a78bfa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="version">v1.2 — January 2026</div>
+        <h1>Legitimate Intervention Framework</h1>
+        <p class="tagline">The first comprehensive database of DeFi security interventions. 718 exploits. 120
+            interventions. $80.48B in losses analyzed.</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value">$80.5B</div>
+            <div class="stat-label">Total Losses (2014-2026)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">718</div>
+            <div class="stat-label">Exploit Cases</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">120</div>
+            <div class="stat-label">Interventions Documented</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">$2.77B</div>
+            <div class="stat-label">Successfully Prevented</div>
+        </div>
+    </div>
+
+    <div class="two-column">
+        <div class="section">
+            <h2>🔑 Key Findings</h2>
+            <div class="finding-item">
+                <div class="finding-text">
+                    <strong>21% of blockchains can already freeze funds</strong>
+                    <span>Bybit Security Lab survey of 166 chains (Nov 2025)</span>
+                </div>
+            </div>
+            <div class="finding-item">
+                <div class="finding-text">
+                    <strong>80.6% of at-risk capital saw intervention attempts</strong>
+                    <span>Coverage is high; effectiveness (26.5%) is the bottleneck</span>
+                </div>
+            </div>
+            <div class="finding-item">
+                <div class="finding-text">
+                    <strong>10.9% → 82.5% success rate (2024 → 2025)</strong>
+                    <span>Dramatic learning curve as protocols matured defenses</span>
+                </div>
+            </div>
+            <div class="finding-item">
+                <div class="finding-text">
+                    <strong>Signer Sets are 2.5× faster than Governance</strong>
+                    <span>60 min median vs. 61 hours; speed drives capital saved</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Authority Performance</h2>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Authority</th>
+                        <th>Response</th>
+                        <th>Success</th>
+                        <th>Prevented</th>
+                    </tr>
+                    <tr>
+                        <td><span class="badge blue">Signer Set</span></td>
+                        <td>~60 min</td>
+                        <td>51.6%</td>
+                        <td>$1.63B</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">Delegated Body</span></td>
+                        <td>~45 min</td>
+                        <td>55.6%</td>
+                        <td>$0.88B</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge purple">Governance</span></td>
+                        <td>~61 hours</td>
+                        <td>89.8%</td>
+                        <td>$0.40B</td>
+                    </tr>
+                </table>
+            </div>
+            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 12px;">
+                <strong>Insight:</strong> Governance achieves highest success rate but lowest capital prevented—by the
+                time votes conclude, funds are gone.
+            </p>
+        </div>
+    </div>
+
+    <div class="two-column">
+        <div class="section">
+            <h2>📁 What's Included</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">📄 822-line research report
+                    with methodology</li>
+                <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">📊 50 interactive
+                    visualizations</li>
+                <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">🗃️ 3 refined datasets (CSV,
+                    API-ready)</li>
+                <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">📚 35+ post-mortem
+                    references</li>
+                <li style="padding: 8px 0;">🔗 NotebookLM for interactive exploration</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎯 The Framework</h2>
+            <p style="margin-bottom: 12px;">LIF proposes a 2-dimensional taxonomy for classifying interventions:</p>
+            <p style="margin-bottom: 8px;"><strong>Scope (Precision):</strong> Network → Asset → Protocol → Module →
+                Account</p>
+            <p style="margin-bottom: 12px;"><strong>Authority (Legitimacy):</strong> Signer Set → Delegated Body →
+                Governance</p>
+            <p style="font-size: 0.9rem; opacity: 0.8;">The "Optimistic Freeze" model: Emergency Council acts
+                immediately under pre-approved rules; DAO ratifies within 24-48h or action lapses.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>
+            <strong>Elem Oghenekaro</strong><br>
+            <a href="https://x.com/elemoghenekaro">@e3o8o</a> · <a
+                href="mailto:karo@parametrig.com">karo@parametrig.com</a>
+        </div>
+        <div style="text-align: right;">
+            <strong>Resources</strong><br>
+            <a href="https://github.com/e3o8o/legitimate-intervention-framework">GitHub</a> ·
+            <a href="https://notebooklm.google.com/notebook/a0b24efe-8d1d-4949-83a3-8d204a43ec27">NotebookLM</a>
+        </div>
+    </div>
+</body>
+
+</html>

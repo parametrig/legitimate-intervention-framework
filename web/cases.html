@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervention Database | LIF</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+        rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <header>
+        <a href="/" class="site-title">LIF Research</a>
+        <nav class="nav-links">
+            <a href="index.html">Summary</a>
+            <a href="research.html">Research</a>
+            <a href="cases.html" class="active">Database</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <div class="registry-container">
+        <h1>Intervention Database</h1>
+        <p style="max-width: 600px;">A database of 120 documented intervention attempts between 2016 and 2026. This
+            database tracks the <span style="background:var(--highlight-color)">$2.77 billion</span> that was
+            successfully saved.</p>
+
+        <input type="text" class="search-bar" placeholder="Search by protocol, vector, or authority..." id="search">
+
+        <table class="case-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Protocol</th>
+                    <th>Loss / Saved</th>
+                    <th>Authority</th>
+                    <th>Mechanism</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Balancer -->
+                <tr class="case-row">
+                    <td style="white-space:nowrap;">Nov 2025</td>
+                    <td><strong>Balancer / Gnosis</strong><br><span style="font-size:0.85rem; color:#666;">AM Logic
+                            Bug</span></td>
+                    <td>
+                        <div style="color:#dc2626;">-$12.1M</div>
+                        <div style="color:#16a34a;">+$45.7M Saved</div>
+                    </td>
+                    <td><span class="tag multisig">Multisig</span> + <span class="tag gov">Gov</span></td>
+                    <td>
+                        Pause (Hypernative)<br>Hard Fork (Gnosis)
+                        <details>
+                            <summary>View Timeline</summary>
+                            <p style="font-size:0.9rem; margin-top:0.5rem; color:#444;">
+                                <strong>T+15m:</strong> Hypernative Pauses V6 Pools<br>
+                                <strong>T+90m:</strong> StakeWise burns $20M<br>
+                                <strong>T+30d:</strong> Gnosis DAO votes to fork state
+                            </p>
+                        </details>
+                    </td>
+                </tr>
+
+                <!-- Flow -->
+                <tr class="case-row">
+                    <td style="white-space:nowrap;">Dec 2025</td>
+                    <td><strong>Flow Blockchain</strong><br><span style="font-size:0.85rem; color:#666;">Minting
+                            Bug</span></td>
+                    <td>
+                        <div style="color:#dc2626;">Risk: $7.07B</div>
+                        <div style="color:#16a34a;">Saved: $7.02B</div>
+                    </td>
+                    <td><span class="tag council">Council</span></td>
+                    <td>
+                        State Freeze
+                        <details>
+                            <summary>View Details</summary>
+                            <p style="font-size:0.9rem; margin-top:0.5rem; color:#444;">
+                                Largest intervention in history. State frozen within 45 minutes of detection. 99.25%
+                                recovery rate.
+                            </p>
+                        </details>
+                    </td>
+                </tr>
+
+                <!-- Sui -->
+                <tr class="case-row">
+                    <td style="white-space:nowrap;">May 2025</td>
+                    <td><strong>Sui / Cetus</strong><br><span style="font-size:0.85rem; color:#666;">Move Logic
+                            Error</span></td>
+                    <td>
+                        <div style="color:#dc2626;">-$220M</div>
+                        <div style="color:#16a34a;">+$162M Saved</div>
+                    </td>
+                    <td><span class="tag gov">Validators</span></td>
+                    <td>
+                        Consensus Freeze
+                        <details>
+                            <summary>View Details</summary>
+                            <p style="font-size:0.9rem; margin-top:0.5rem; color:#444;">
+                                90.9% of stake voted to freeze specific accounts. First major use of "Surgical Consensus
+                                Intervention."
+                            </p>
+                        </details>
+                    </td>
+                </tr>
+
+                <!-- The DAO -->
+                <tr class="case-row">
+                    <td style="white-space:nowrap;">Jun 2016</td>
+                    <td><strong>The DAO</strong><br><span style="font-size:0.85rem; color:#666;">Reentrancy</span></td>
+                    <td>
+                        <div style="color:#dc2626;">-$60M</div>
+                        <div style="color:#16a34a;">Recov: ~$40M</div>
+                    </td>
+                    <td><span class="tag gov">Social</span></td>
+                    <td>
+                        Hard Fork (Ethereum)
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+
+</body>
+
+</html>

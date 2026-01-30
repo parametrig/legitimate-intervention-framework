@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Library | LIF</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
+
+</head>
+
+<body>
+
+    <!-- Header (Same as Index) -->
+    <header>
+        <a href="/" class="site-title">LIF Research</a>
+        <nav class="nav-links">
+            <a href="index.html">Summary</a>
+            <a href="research.html" class="active">Research</a>
+            <a href="cases.html">Database</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <div class="research-container">
+        <!-- Scroll Progress Indicator -->
+        <nav class="scroll-indicator" id="scrollIndicator">
+            <div class="scroll-track">
+                <div class="scroll-line"></div>
+                <div class="scroll-marker" id="scrollMarker"></div>
+                <div class="scroll-sections" id="scrollSections">
+                    <div class="scroll-section active" data-target="market">
+                        <div class="section-bar medium"></div>
+                        <span class="section-label">Market</span>
+                    </div>
+                    <div class="scroll-section" data-target="vectors">
+                        <div class="section-bar medium"></div>
+                        <span class="section-label">Vectors</span>
+                    </div>
+                    <div class="scroll-section" data-target="temporal">
+                        <div class="section-bar short"></div>
+                        <span class="section-label">Time</span>
+                    </div>
+                    <div class="scroll-section" data-target="interventions">
+                        <div class="section-bar long"></div>
+                        <span class="section-label">Interventions</span>
+                    </div>
+                    <div class="scroll-section" data-target="authority">
+                        <div class="section-bar medium"></div>
+                        <span class="section-label">Authority</span>
+                    </div>
+                    <div class="scroll-section" data-target="matrix">
+                        <div class="section-bar long"></div>
+                        <span class="section-label">Scope</span>
+                    </div>
+                    <div class="scroll-section" data-target="impact">
+                        <div class="section-bar medium"></div>
+                        <span class="section-label">Impact</span>
+                    </div>
+                    <div class="scroll-section" data-target="speed">
+                        <div class="section-bar short"></div>
+                        <span class="section-label">Speed</span>
+                    </div>
+                    <div class="scroll-section" data-target="detailed">
+                        <div class="section-bar short"></div>
+                        <span class="section-label">Detailed</span>
+                    </div>
+                    <div class="scroll-section" data-target="strategic">
+                        <div class="section-bar medium"></div>
+                        <span class="section-label">Strategy</span>
+                    </div>
+                </div>
+                <div class="scroll-progress" id="scrollProgress">0%</div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <div id="market" class="research-section" data-id="market">
+                <h2 class="category-header">Market Analysis</h2>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>01. Annual Losses</h3>
+                        <img src="charts/chart01_annual_losses.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>02. Cumulative Losses</h3>
+                        <img src="charts/chart02_cumulative_losses.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>03. Top 20 Magnitude</h3>
+                        <img src="charts/chart03_top20_magnitude.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>04. LIF Relevance</h3>
+                        <img src="charts/chart04_relevance_pie.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>05. Loss Distribution (Power Law)</h3>
+                        <img src="charts/chart05_loss_distribution.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>06. Concentration (Lorenz Curve)</h3>
+                        <img src="charts/chart06_loss_concentration_lorenz.png" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <div id="vectors" class="research-section" data-id="vectors">
+                <h2 class="category-header">Attack Vectors & Methods</h2>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>09. Distribution by Vector</h3>
+                        <img src="charts/chart09_vector_distribution.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>10. Losses by Vector</h3>
+                        <img src="charts/chart10_vector_losses.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>11. Chain Distribution</h3>
+                        <img src="charts/chart11_chain_distribution.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>12. Vector Evolution</h3>
+                        <img src="charts/chart12_vector_evolution.png" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <div id="temporal" class="research-section" data-id="temporal">
+                <h2 class="category-header">Temporal Patterns</h2>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>13. Macro Timeline</h3>
+                        <img src="charts/chart13_macro_timeline.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>14. Temporal Heatmap</h3>
+                        <img src="charts/chart14_pattern_temporal.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>15. Month/Day Heatmap</h3>
+                        <img src="charts/chart15_timeline_heatmap_x_month.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>16. Sophistication Timeline</h3>
+                        <img src="charts/chart16_sophistication_timeline.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>17. Risk Matrix</h3>
+                        <img src="charts/chart17_risk_matrix.png" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <div id="interventions" class="research-section" data-id="interventions">
+                <h2 class="category-header">Intervention Reality</h2>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>18. Intervention Timeline</h3>
+                        <img src="charts/chart18_intervention_timeline.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>19. Hacks vs Interventions</h3>
+                        <img src="charts/chart19_hacks_vs_interventions.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>20. Success Timeline</h3>
+                        <img src="charts/chart20_success_timeline.png" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <div id="authority" class="research-section" data-id="authority">
+                <h2 class="category-header">Authority Analysis</h2>
+                <p>Analyzing WHO is intervening: Multisigs, Security Councils, or Token Governance.</p>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>21. Authority Performance</h3>
+                        <img src="charts/chart21_authority_performance.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>23. Effectiveness by Authority</h3>
+                        <img src="charts/chart23_authority_effectiveness_all.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>24. Detailed Metrics</h3>
+                        <img src="charts/chart24_authority_effectiveness_metrics.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>25. Authority Heatmap</h3>
+                        <img src="charts/chart25_intervention_heatmap_combined.png" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <div id="matrix" class="research-section" data-id="matrix">
+                <h2 class="category-header">Scope & Taxonomy</h2>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>26. Scope Distribution</h3>
+                        <img src="charts/chart26_scope_distribution_combined.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>27. Authority Distribution</h3>
+                        <img src="charts/chart27_authority_distribution_combined.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>28. Matrix Heatmap (The Framework)</h3>
+                        <img src="charts/chart28_matrix_heatmap_combined.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>29. Intervention Value</h3>
+                        <img src="charts/chart29_intervention_value_combined.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>30. Scope Loss</h3>
+                        <img src="charts/chart30_scope_loss.png" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <div id="impact" class="research-section" data-id="impact">
+                <h2 class="category-header">Economic Impact</h2>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>31. Scope Evolution</h3>
+                        <img src="charts/chart31_scope_evolution_combined.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>32. Prevented vs Incurred</h3>
+                        <img src="charts/chart32_prevented_vs_incurred_combined.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>33. Speed Scatter</h3>
+                        <img src="charts/chart33_speed_scatter_metrics.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>34. Incurred Loss by Authority</h3>
+                        <img src="charts/chart34_incurred_loss_by_authority_combined.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>35. Prevented Loss (Total)</h3>
+                        <img src="charts/chart35_prevented_loss.png" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <div id="speed" class="research-section" data-id="speed">
+                <h2 class="category-header">Speed & Success</h2>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>37. Response Time Analysis</h3>
+                        <img src="charts/chart37_response_time.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>38. Success vs Time</h3>
+                        <img src="charts/chart38_success_vs_time.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>40. Success Timeline (High Res)</h3>
+                        <img src="charts/chart40_success_timeline.png" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <div id="detailed" class="research-section" data-id="detailed">
+                <h2 class="category-header">Detailed Metrics</h2>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>41. Success Timeline (Case Level)</h3>
+                        <img src="charts/chart41_success_timeline_case.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>42. Detect vs Contain</h3>
+                        <img src="charts/chart42_detect_vs_contain_detailed.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>43. Success Matrix (Basic)</h3>
+                        <img src="charts/chart43_success_matrix.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>44. Success Matrix (Enhanced)</h3>
+                        <img src="charts/chart44_success_matrix_enhanced.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>45. Effectiveness Leaderboard</h3>
+                        <img src="charts/chart45_effectiveness_leaderboard.png" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <div id="strategic" class="research-section" data-id="strategic">
+                <h2 class="category-header">Strategic ROI & Blueprint</h2>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>46. Risk-Adjusted Performance</h3>
+                        <img src="charts/chart46_risk_adjusted_performance.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>47. Comprehensive Analysis Matrix</h3>
+                        <img src="charts/chart47_comprehensive_lif_analysis.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>48. ROI Rankings</h3>
+                        <img src="charts/chart48_strategic_roi_rankings.png" loading="lazy">
+                    </div>
+                    <div class="chart-card">
+                        <h3>50. Loss Prevented vs Incurred</h3>
+                        <img src="charts/chart50_loss_prevented_vs_incurred.png" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

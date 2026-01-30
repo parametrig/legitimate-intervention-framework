@@ -38,7 +38,7 @@ This extension clarifies:
 
 ## Part 1: Emergency Council Power Scope
 
-![EC Power Scope](../visualizations/lif_ec_power_scope.png)
+![EC Power Scope](../visualizations/archived/v0_legacy/lif_ec_power_scope.png)
 *Figure 1: Emergency Council power scope defines what the EC can and cannot do.*
 
 ### 1.1 Proposed Powers (Bounded)
@@ -75,7 +75,7 @@ The EC should **not** have the ability to:
 
 ## Part 2: Existing Intervention Surfaces on Gnosis Chain
 
-![Intervention Layers](../visualizations/lif_intervention_layers.png)
+![Intervention Layers](../visualizations/archived/v0_legacy/lif_intervention_layers.png)
 *Figure 2: Intervention layers shows the architecture of emergency response surfaces on Gnosis Chain.*
 
 ### 2.1 Bridge Governance Board (BGB)
@@ -187,7 +187,7 @@ Gnosis has already demonstrated this path.
 
 ## Part 5: The "Optimistic Freeze" Model (Refined)
 
-![Optimistic Freeze Technical](../visualizations/lif_optimistic_freeze_technical.png)
+![Optimistic Freeze Technical](../visualizations/archived/v0_legacy/lif_optimistic_freeze_technical.png)
 *Figure 3: Optimistic Freeze model — actions expire unless ratified within the challenge window.*
 
 ### 5.1 Key Properties
