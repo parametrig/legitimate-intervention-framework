@@ -151,12 +151,12 @@ header.transparent {
 /* Main Grid Layout */
 .container {
     display: grid;
-    grid-template-columns: 40px 1fr 1fr;
+    grid-template-columns: 20px 1fr 1fr;
     /* Timeline | Content | Chart */
-    gap: 4rem;
+    gap: 2rem;
     max-width: 1700px;
-    margin: 0 auto;
-    padding: 140px 2% 10rem;
+    margin: 0;
+    padding: 60px 20px 10rem;
     position: relative;
 }
 
@@ -417,8 +417,8 @@ section.active {
 /* About / Editorial Layout */
 .editorial-container {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 140px 24px 8rem;
+    margin: 0;
+    padding: 60px 72px 8rem;
 }
 
 .hero-tagline {
@@ -602,8 +602,8 @@ section.active {
 /* Database / Registry Page */
 .registry-container {
     max-width: 1600px;
-    margin: 0 auto;
-    padding: 140px 5% 4rem;
+    margin: 0;
+    padding: 60px 72px 4rem;
 }
 
 .search-bar {
@@ -667,9 +667,9 @@ section.active {
 /* Research Page Specifics */
 .research-container {
     display: block;
-    padding: 140px 5% 10rem 40px;
+    padding: 60px 72px 10rem;
     max-width: 1700px;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .chart-grid {
@@ -702,7 +702,7 @@ section.active {
 .category-header {
     font-family: var(--font-serif);
     font-size: 2rem;
-    margin-top: 4rem;
+    margin-top: 0;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #eee;
