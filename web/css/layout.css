@@ -1,0 +1,448 @@
+/* =========================================
+   LAYOUT.CSS
+   Navbar, Footer, Shared Components
+   ========================================= */
+
+/* Header & Metadata */
+header {
+    padding: 1.5rem 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    transition: background-color 0.4s ease, border-color 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 4%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+header.nav-hidden {
+    transform: translateY(-100%);
+}
+
+header.transparent {
+    background-color: transparent;
+    border-bottom: none;
+}
+
+.site-title {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h2);
+    text-decoration: none;
+}
+
+.nav-links a {
+    margin-left: 2rem;
+    text-decoration: none;
+    font-size: var(--fs-small);
+    color: #666;
+}
+
+.nav-links a:hover {
+    color: #000;
+}
+
+/* Navigation Active State */
+.nav-links a.active {
+    color: #000;
+    font-weight: 600;
+}
+
+/* Metadata Bar (Used in Hero Sections) */
+.metadata-bar {
+    font-family: var(--font-serif);
+    font-size: var(--fs-tiny);
+    color: #999;
+    margin-bottom: 2.5rem;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    padding-top: 0.2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
+
+.metadata-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #999;
+    transition: color 0.2s ease;
+}
+
+.metadata-item:hover {
+    color: var(--text-color);
+}
+
+.metadata-item i,
+.metadata-item svg {
+    width: 12px !important;
+    height: 12px !important;
+    opacity: 0.7;
+}
+
+/* -------------------------------------------
+   Shared Component: Scroll Indicator
+   Used in Index and Research
+   ------------------------------------------- */
+.scroll-indicator {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    align-items: flex-start;
+    font-family: var(--font-serif);
+    padding-left: 12px;
+}
+
+.scroll-track {
+    position: relative;
+    width: 40px;
+    padding: 12px 0;
+    transition: width 0.3s ease;
+}
+
+.scroll-indicator:hover .scroll-track {
+    width: 180px;
+}
+
+.scroll-line {
+    position: absolute;
+    left: 6px;
+    top: 12px;
+    bottom: 12px;
+    width: 1px;
+    background: #e5e5e5;
+}
+
+.scroll-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 8px solid #000;
+    transition: top 0.2s cubic-bezier(0.2, 0, 0.2, 1);
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.15));
+}
+
+.scroll-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.scroll-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.scroll-section:hover .section-bar {
+    background: #000;
+}
+
+.scroll-section.active .section-bar {
+    background: #000;
+}
+
+.section-bar {
+    height: 2px;
+    background: #d4d4d4;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.section-bar.short {
+    width: 6px;
+}
+
+.section-bar.medium {
+    width: 14px;
+}
+
+.section-bar.long,
+.section-bar.large {
+    width: 24px;
+}
+
+.section-label {
+    font-size: var(--fs-small);
+    color: #666;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.scroll-indicator:hover .section-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-section.active .section-label {
+    color: #000;
+    font-weight: 600;
+}
+
+.scroll-section:hover .section-label {
+    color: #000;
+}
+
+.scroll-progress {
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    font-size: var(--fs-tiny);
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-weight: 500;
+}
+
+.scroll-indicator:hover .scroll-progress {
+    opacity: 1;
+}
+
+/* Mobile Scroll Indicator Overrides (Edge Click) */
+@media (max-width: 1024px) {
+    .scroll-indicator {
+        opacity: 1;
+        pointer-events: auto;
+        height: 100vh;
+        top: 0;
+        transform: none;
+        width: 40px;
+        padding-left: 0;
+        align-items: center;
+        background: transparent;
+    }
+
+    .scroll-indicator .scroll-track {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+
+    .scroll-indicator.active .scroll-track {
+        opacity: 1;
+        transform: translateX(12px);
+        pointer-events: auto;
+    }
+}
+
+/* -------------------------------------------
+   Shared Component: Global Wallet Styles
+   Used in About and potential others
+   ------------------------------------------- */
+.wallet-address-container {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.wallet-address-container:hover {
+    background: #f0f0f0;
+}
+
+.wallet-text {
+    word-break: break-all;
+    line-height: 1.5;
+}
+
+.wallet-label {
+    font-weight: 700;
+    color: #000;
+    margin-right: 0.5rem;
+}
+
+.wallet-ens {
+    color: #666;
+    margin-left: 0.5rem;
+}
+
+.wallet-icon-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 2px;
+}
+
+.copy-icon {
+    width: 16px;
+    height: 16px;
+    color: #999;
+}
+
+.wallet-address-container:hover .copy-icon {
+    color: #333;
+}
+
+.wallet-feedback {
+    position: absolute;
+    right: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    color: #059669;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .wallet-feedback {
+        right: 0;
+        top: calc(100% + 4px);
+        transform: none;
+    }
+}
+
+/* -------------------------------------------
+   Shared Component: Lightbox
+   ------------------------------------------- */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.visible {
+    opacity: 1;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.visible img {
+    transform: scale(1);
+}
+
+/* -------------------------------------------
+   Shared Component: Expandable Sections
+   Used for Methodology, Data Sources, etc.
+   ------------------------------------------- */
+.expandable-header {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0;
+}
+
+.expandable-header h1,
+.expandable-header h2,
+.expandable-header h3,
+.expandable-header h4 {
+    margin: 0;
+}
+
+.expandable-header:hover {
+    opacity: 0.7;
+}
+
+.expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.expandable-content.open {
+    max-height: 2000px;
+}
+
+.chevron {
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    flex-shrink: 0;
+}
+
+.chevron svg,
+.chevron i {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.chevron.open {
+    transform: rotate(90deg);
+}
+
+/* -------------------------------------------
+   Shared Component: Insight Panels
+   Used in Research Page Charts
+   ------------------------------------------- */
+.insight-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #fafafa;
+}
+
+.insight-content {
+    padding: 1.5rem;
+    font-size: var(--fs-small);
+    color: var(--text-color);
+    line-height: var(--lh-normal);
+    border-top: 1px solid #eee;
+}
+
+.insight-content ul {
+    margin-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.insight-content li {
+    margin-bottom: 0.5rem;
+}

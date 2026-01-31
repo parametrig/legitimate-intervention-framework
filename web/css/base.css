@@ -1,0 +1,129 @@
+/* =========================================
+   BASE.CSS
+   Variables, Reset, Typography, Utilities
+   ========================================= */
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors (NCF Theme) */
+    --bg-color: #faf9f6;
+    --text-color: #1a1a1a;
+    --accent-color: #1a1a1a;
+    --highlight-color: #e8f5e9;
+    --dot-color: #d4d4d4;
+    --dot-active: #1a1a1a;
+    --font-serif: 'Newsreader', Georgia, serif;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    /* Font Sizes (NCF Standard) */
+    --fs-h1: 3rem;
+    /* 48px - Hero */
+    --fs-h2: 2rem;
+    /* 32px - Section Headers */
+    --fs-h3: 1.5rem;
+    /* 24px - Subheaders */
+    --fs-h4: 1.125rem;
+    /* 18px - Dropdown/Small Headers */
+    --fs-p: 1.125rem;
+    /* 18px - Body Text */
+    --fs-lead: 1.25rem;
+    /* 20px - Lead Text */
+    --fs-small: 0.875rem;
+    /* 14px */
+    --fs-tiny: 0.75rem;
+    /* 12px */
+
+    /* Line Heights */
+    --lh-tight: 1.1;
+    --lh-normal: 1.625;
+    --lh-loose: 2;
+}
+
+/* Mobile Typography Scale */
+@media (max-width: 768px) {
+    :root {
+        --fs-h1: 2.5rem;
+        --fs-h2: 1.5rem;
+        --fs-h3: 1.25rem;
+        --fs-h4: 1.125rem;
+        --fs-p: 1rem;
+        --fs-lead: 1.125rem;
+    }
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-serif);
+    font-size: var(--fs-p);
+    line-height: var(--lh-normal);
+    -webkit-font-smoothing: antialiased;
+    /* Prevent horizontal scroll globally on mobile */
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+/* Typography Reset */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: var(--lh-tight);
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: var(--fs-h1);
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: var(--fs-h2);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: 1rem;
+}
+
+h4 {
+    font-size: var(--fs-h4);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+p {
+    font-size: var(--fs-p);
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.text-small {
+    font-size: var(--fs-small);
+    color: var(--text-color);
+    line-height: var(--lh-normal);
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
