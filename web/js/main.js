@@ -407,6 +407,18 @@ function filterCases(cases) {
     });
 }
 
+
+// Handle sort click
+window.handleSort = function (column) {
+    if (currentSort.column === column) {
+        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+    } else {
+        currentSort.column = column;
+        currentSort.direction = 'desc'; // Default to newest/highest
+    }
+    renderTable();
+};
+
 // Sort cases
 function sortCases(cases) {
     const { column, direction } = currentSort;
@@ -463,14 +475,13 @@ function renderRow(c, isIntervention = true) {
         <tr class="case-row" data-id="${c.id}" onclick="showCaseDetail('${c.id}')">
             <td style="white-space:nowrap;">${formatDate(c.date)}</td>
             <td>
-                <strong>${c.protocol || '—'}</strong>
+                <strong>${c.protocol || '—'}</strong> ${c.has_rationale ? '<span class="rationale-badge" title="Detailed rationale available"><i data-lucide="file-text"></i></span>' : ''}
                 <br><span class="chain-label">${c.chain || '—'}</span>
-                ${c.has_rationale ? '<span class="rationale-badge" title="Detailed rationale available"><i data-lucide="file-text"></i></span>' : ''}
             </td>
             <td>
                 <div class="loss-amount">-${formatCurrency(c.loss_usd)}</div>
                 ${c.loss_prevented_usd ? `<div class="saved-amount">+${formatCurrency(c.loss_prevented_usd)} saved</div>` : ''}
-                ${c.success_pct !== null ? `<div class="success-bar ${successClass}" style="width: ${c.success_pct}%"></div>` : ''}
+                ${c.success_pct !== null ? `<div class="success-container"><div class="success-bar ${successClass}" style="width: ${c.success_pct}%"></div></div>` : ''}
             </td>
             <td>
                 ${c.authority ? `<span class="tag ${getAuthorityClass(c.authority)}">${c.authority}</span>` : '—'}
@@ -526,9 +537,9 @@ function renderTable() {
         resultsCount.textContent = `Showing ${sorted.length} of ${data.length} cases`;
     }
     if (resultsTotals && isIntervention) {
-        resultsTotals.innerHTML = `<span class="text-loss">• -${formatCurrency(stats.totalLoss)} losses</span> <span class="text-saved">• +${formatCurrency(stats.totalSaved)} saved</span>`;
+        resultsTotals.innerHTML = `<span class="text-loss">-${formatCurrency(stats.totalLoss)} losses</span> <span class="text-saved">+${formatCurrency(stats.totalSaved)} saved</span>`;
     } else if (resultsTotals) {
-        resultsTotals.innerHTML = `<span class="text-loss">• ${formatCurrency(stats.totalLoss)} total losses</span>`;
+        resultsTotals.innerHTML = `<span class="text-loss">${formatCurrency(stats.totalLoss)} total losses</span>`;
     }
 
     // Re-init icons
@@ -540,111 +551,103 @@ function renderTable() {
 // Show case detail modal
 function showCaseDetail(caseId) {
     const modal = document.getElementById('caseModal');
-    const modalBody = document.getElementById('modalBody');
-    if (!modal || !modalBody) return;
+    if (!modal) return;
 
     // Find case
     let c = allInterventions.find(x => x.id === caseId);
     if (!c) c = allExploits.find(x => x.id === caseId);
     if (!c) return;
 
-    // Build modal content - handle empty details gracefully
     const hasTimingData = c.time_to_detect_min !== null || c.time_to_contain_min !== null;
+    const successRate = c.success_pct !== null ? `${c.success_pct}%` : '—';
 
-    // Create a rich narrative for cases with missing descriptions
-    const lossText = c.loss_usd > 0 ? `losses of ${formatCurrency(c.loss_usd)}` : 'no losses';
-    const savedText = c.loss_prevented_usd > 0 ? `successfully preventing ${formatCurrency(c.loss_prevented_usd)}` : '';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeCaseModal()">&times;</button>
+            <div class="modal-header">
+                <h2>${c.protocol || 'Unknown Protocol'}</h2>
+                <div class="modal-meta">
+                    <span>${formatDate(c.date)}</span>
+                    ${c.chain ? `<span class="modal-chain">${c.chain}</span>` : ''}
+                    ${c.authority ? `<span class="tag ${getAuthorityClass(c.authority)}">${c.authority}</span>` : ''}
+                </div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="stat-grid">
+                    <div class="stat-card loss">
+                        <span class="stat-label">Loss</span>
+                        <span class="stat-value">${formatCurrency(c.loss_usd)}</span>
+                    </div>
+                    <div class="stat-card saved">
+                        <span class="stat-label">Saved</span>
+                        <span class="stat-value">${formatCurrency(c.loss_prevented_usd)}</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Success Rate</span>
+                        <span class="stat-value">${successRate}</span>
+                    </div>
+                </div>
 
-    const defaultDescription = `
-        On ${formatDate(c.date)}, <strong>${c.protocol}</strong>${c.chain ? ' on ' + c.chain : ''} experienced a security incident 
-        classified as <strong>${c.vector || 'Unknown Vector'}</strong>. 
-        <br><br>
-        This triggered a <strong>${c.scope || 'Protocol'}</strong>-level intervention by <strong>${c.authority || 'Authorized Actors'}</strong>, 
-        ${savedText ? savedText : 'resulting in ' + lossText}.
-    `;
+                <div class="detail-grid">
+                    <div class="modal-section">
+                        <h3>Classification</h3>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-label">Vector</span>
+                                <span class="info-value">${c.vector || '—'}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Scope</span>
+                                <span class="info-value">${c.scope || '—'}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Authority</span>
+                                <span class="info-value">${c.authority || '—'}</span>
+                            </div>
+                        </div>
+                    </div>
 
-    modalBody.innerHTML = `
-        <h2>${c.protocol || 'Unknown Protocol'}</h2>
-        <div class="modal-meta">
-            <span class="modal-date">${formatDate(c.date)}</span>
-            <span class="modal-chain">${c.chain || '—'}</span>
-            ${c.authority ? `<span class="tag ${getAuthorityClass(c.authority)}">${c.authority}</span>` : ''}
-        </div>
-        
-        <div class="modal-stats">
-            <div class="stat-box loss">
-                <span class="stat-label">Loss</span>
-                <span class="stat-value">${formatCurrency(c.loss_usd)}</span>
-            </div>
-            ${c.loss_prevented_usd ? `
-            <div class="stat-box saved">
-                <span class="stat-label">Saved</span>
-                <span class="stat-value">${formatCurrency(c.loss_prevented_usd)}</span>
-            </div>
-            ` : ''}
-            ${c.success_pct !== null ? `
-            <div class="stat-box success">
-                <span class="stat-label">Success</span>
-                <span class="stat-value">${c.success_pct}%</span>
-            </div>
-            ` : ''}
-        </div>
-        
-        <div class="modal-section">
-            <h3>Classification</h3>
-            <div class="classification-grid">
-                <div class="classification-item">
-                    <span class="classification-label">Vector</span>
-                    <span class="classification-value">${c.vector || '—'}</span>
+                    <div class="modal-section">
+                        <h3>Timing</h3>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-label">Time to Detect</span>
+                                <span class="info-value">${c.time_to_detect_min !== null ? c.time_to_detect_min + ' min' : '—'}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Time to Contain</span>
+                                <span class="info-value">${c.time_to_contain_min !== null ? c.time_to_contain_min + ' min' : '—'}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="classification-item">
-                    <span class="classification-label">Scope</span>
-                    <span class="classification-value">${c.scope || '—'}</span>
+
+                <div class="modal-section">
+                    <h3>Incident Narrative</h3>
+                    <div class="modal-narrative">
+                        ${c.description || c.intervention_notes || 'No detailed description available for this case.'}
+                    </div>
                 </div>
-                <div class="classification-item">
-                    <span class="classification-label">Authority</span>
-                    <span class="classification-value">${c.authority || '—'}</span>
+
+                ${c.has_rationale && c.rationale ? `
+                <div class="rationale-section">
+                    <h3><i data-lucide="file-text"></i> Classification Rationale</h3>
+                    <div class="rationale-content">
+                        ${c.rationale}
+                    </div>
                 </div>
+                ` : ''}
+            </div>
+
+            <div class="modal-footer">
+                ${c.source_url ? `
+                    <a href="${c.source_url}" target="_blank" class="source-link">
+                        Source Document <i data-lucide="external-link"></i>
+                    </a>
+                ` : ''}
             </div>
         </div>
-        
-        ${hasTimingData ? `
-        <div class="modal-section">
-            <h3>Response Timing</h3>
-            <div class="classification-grid">
-                <div class="classification-item">
-                    <span class="classification-label">Time to Detect</span>
-                    <span class="classification-value">${c.time_to_detect_min !== null ? c.time_to_detect_min + ' min' : '—'}</span>
-                </div>
-                <div class="classification-item">
-                    <span class="classification-label">Time to Contain</span>
-                    <span class="classification-value">${c.time_to_contain_min !== null ? c.time_to_contain_min + ' min' : '—'}</span>
-                </div>
-            </div>
-        </div>
-        ` : ''}
-        
-        <div class="modal-section">
-            <h3>Incident Details</h3>
-            <p>${c.description || c.intervention_notes || defaultDescription || 'No detailed description available for this case.'}</p>
-        </div>
-        
-        ${c.has_rationale && c.rationale ? `
-        <div class="modal-section rationale-section">
-            <h3><i data-lucide="file-text"></i> Classification Rationale</h3>
-            <div class="rationale-content">
-                ${c.rationale}
-            </div>
-        </div>
-        ` : ''}
-        
-        ${c.source_url ? `
-        <div class="modal-section">
-            <a href="${c.source_url}" target="_blank" class="source-btn">
-                <i data-lucide="external-link"></i> View Source
-            </a>
-        </div>
-        ` : ''}
     `;
 
     modal.classList.add('active');
@@ -730,19 +733,7 @@ function setupDatabaseListeners() {
         });
     });
 
-    // Sortable columns
-    document.querySelectorAll('.sortable').forEach(th => {
-        th.addEventListener('click', () => {
-            const column = th.dataset.sort;
-            if (currentSort.column === column) {
-                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
-            } else {
-                currentSort.column = column;
-                currentSort.direction = 'desc';
-            }
-            renderTable();
-        });
-    });
+
 
     // Modal close on backdrop click
     const modal = document.getElementById('caseModal');

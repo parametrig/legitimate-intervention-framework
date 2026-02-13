@@ -92,7 +92,6 @@
                     </div>
                 </div>
                 <p class="text-small" style="margin-top: 1rem; color: #888; display: flex; gap: 0.4rem;">
-                    <em>Note:</em>
                     <em>Effectiveness is calculated based on the ratio of saved funds to total funds at risk
                         at the time of intervention.<br>"Success Rate" is calculated as (Saved / (Saved + Loss)) *
                         100.</em>
@@ -153,20 +152,27 @@
         </div>
 
         <!-- Data Table -->
-        <table class="case-table" id="casesTable">
-            <thead>
-                <tr>
-                    <th class="sortable" data-sort="date">Date <i data-lucide="chevrons-up-down"></i></th>
-                    <th class="sortable" data-sort="protocol">Protocol <i data-lucide="chevrons-up-down"></i></th>
-                    <th class="sortable" data-sort="loss_usd">Loss / Saved <i data-lucide="chevrons-up-down"></i></th>
-                    <th>Authority</th>
-                    <th>Details</th>
-                </tr>
-            </thead>
-            <tbody id="casesBody">
-                <!-- Dynamically populated -->
-            </tbody>
-        </table>
+        <!-- Case Table Wrapper for Responsive Scrolling -->
+        <div class="table-wrapper">
+            <table class="case-table" id="casesTable">
+                <thead>
+                    <tr>
+                        <th class="sortable" onclick="handleSort('date')">Date <i data-lucide="arrow-up-down"></i></th>
+                        <th class="sortable" onclick="handleSort('protocol')">Case <i data-lucide="arrow-up-down"></i>
+                        </th>
+                        <th class="sortable" onclick="handleSort('loss_usd')">Loss / Saved <i
+                                data-lucide="arrow-up-down"></i></th>
+                        <th class="sortable" onclick="handleSort('authority')">Authority <i
+                                data-lucide="arrow-up-down"></i></th>
+                        <th class="sortable" onclick="handleSort('vector')">Vector <i data-lucide="arrow-up-down"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="casesBody">
+                    <!-- Dynamic Rows -->
+                </tbody>
+            </table>
+        </div>
 
         <!-- Loading State -->
         <div id="loadingState" class="loading-state">

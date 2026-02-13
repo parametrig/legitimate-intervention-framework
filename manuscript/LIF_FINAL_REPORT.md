@@ -14,7 +14,7 @@
 
 ## Executive Summary
 
-The cryptocurrency industry has lost **$80.48 billion** to exploits, hacks, and systemic failures since 2014. This research analyzes **718 exploit cases** and **120 documented interventions** to answer a fundamental question: *When is it legitimate for a decentralized system to override its own rules?*
+The cryptocurrency industry has lost **$78.54 billion** to exploits, hacks, and systemic failures since 2014. This research analyzes **705 exploit cases** and **130 documented interventions** to answer a fundamental question: *When is it legitimate for a decentralized system to override its own rules?*
 
 ### The Uncomfortable Truth
 
@@ -82,22 +82,22 @@ Intervention Metrics (Manual)
     │  • Classify scope and authority
     ▼
 Final Datasets
-    • lif_exploits_final.csv (718 cases)
-    • lif_all_interventions.csv (114 DeFi interventions)
-    • lif_intervention_metrics.csv (30 detailed cases)
+    • lif_exploits_final.csv (705 cases)
+    • lif_all_interventions.csv (136 DeFi interventions)
+    • lif_intervention_metrics.csv (52 detailed cases)
 ```
 
 ### Dataset Construction
 
-**Main Exploits Dataset (718 cases):**
+**Main Exploits Dataset (705 cases):**
 - Deduplicated from 1903 raw records across all sources
 - Standardized to consistent schema (see `methodology/data_dictionary.md`)
 - Tagged for LIF relevance based on technical nature and intervention eligibility
 
 **Intervention Datasets:**
-- **All Interventions (114 cases):** Every DeFi exploit where `is_intervention = True`
-- **Metrics Dataset (30 cases):** Hand-curated subset with detailed timing data, sourced from official post-mortems, on-chain evidence, and security team disclosures
-- **Combined Unique (120 cases):** 114 + 6 proactive-only cases (from metrics dataset)
+- **All Interventions (130 cases):** Every DeFi exploit where `is_intervention = True`
+- **Metrics Dataset (52 cases):** Hand-curated subset with detailed timing data, sourced from official post-mortems, on-chain evidence, and security team disclosures
+- **Combined Unique (136 cases):** 130 + 6 proactive-only cases (from metrics dataset)
 
 ### Analysis Approach
 
@@ -145,13 +145,13 @@ All data and code are available at [github.com/e3o8o/legitimate-intervention-fra
 
 The cryptocurrency industry likes to believe it has moved past its "Wild West" phase. The data tells a different story.
 
-Between 2014 and January 2026, we documented **718 exploit cases** resulting in **$80.48 billion** in cumulative losses. To put this in perspective:
+Between 2014 and January 2026, we documented **705 exploit cases** resulting in **$78.54 billion** in cumulative losses. To put this in perspective:
 - This exceeds the GDP of Luxembourg
 - It is larger than the market capitalization of 95% of publicly traded companies
 - It represents roughly **15% of the industry's all-time high market cap**
 
 ![Chart 2](../visualizations/v1.2/chart02_cumulative_losses.png)
-*Cumulative losses show $80.48B total. The LIF-relevant subset—cases where intervention was technically possible—represents $10.21B.*
+*Cumulative losses show $78.54B total. The LIF-relevant subset—cases where intervention was technically possible—represents $9.60B.*
 
 Yet raw totals obscure an important pattern: **losses are extraordinarily concentrated**.
 
@@ -160,7 +160,7 @@ Yet raw totals obscure an important pattern: **losses are extraordinarily concen
 ![Chart 5](../visualizations/v1.2/chart05_loss_distribution.png)
 *Loss distribution follows a power law. The top 1.4% of cases cause 80% of total losses.*
 
-When we ranked all 718 incidents by magnitude, we discovered:
+When we ranked all 705 incidents by magnitude, we discovered:
 
 - **9 incidents** (1.3%) account for **80% of all losses**
 - **66 incidents** (9.2%) account for **95% of all losses**
@@ -179,15 +179,15 @@ Not all losses are intervention-eligible. Our taxonomy distinguishes between:
 
 | Category | Cases | Value | Notes |
 |:---------|:------|:------|:------|
-| **Systemic Failures** | 24 | $48.2B | Terra, FTX, 3AC—economic design flaws |
-| **Rug Pulls** | 187 | $22.1B | Malicious actors, no innocent protocol to save |
-| **LIF-Relevant** | 424 | $10.21B | Technical exploits with intervention-eligible protocols |
-| **Total** | 718 | $80.48B | — |
+| **Systemic Failures** | 10 | $61.80B | Terra, FTX—economic design flaws |
+| **Rug Pulls/Other** | 94 | $7.41B | Malicious actors, phishing, unpausable bugs |
+| **LIF-Relevant** | 601 | $9.60B | Technical exploits with intervention-eligible protocols |
+| **Total** | 705 | $78.54B | — |
 
 ![Chart 4](../visualizations/v1.2/chart04_relevance_pie.png)
 *LIF-relevant cases are 59.1% of incident count but only 12.7% of value—targeting "everyday" technical risk rather than rare $40B+ systemic collapses.*
 
-The Legitimate Intervention Framework focuses on the **$10.21 billion** in tractable technical exploits—events where a well-designed pause, freeze, or recovery mechanism could have made a difference.
+The Legitimate Intervention Framework focuses on the **$9.60 billion** in tractable technical exploits—events where a well-designed pause, freeze, or recovery mechanism could have made a difference.
 
 ### 1.4 Attack Vector Analysis
 
@@ -612,8 +612,8 @@ Proof that pure governance architectures cannot contain high-velocity exploits o
 ### 6.1 Statistical Confidence
 
 This research is based on:
-- **718 exploit cases** (2014-2026)
-- **120 unique interventions** (verified cross-reference)
+- **705 exploit cases** (2014-2026)
+- **130 unique interventions** (verified cross-reference)
 - **50 analytical visualizations**
 
 | Metric | Confidence Notes |
@@ -670,7 +670,7 @@ For researchers:
 | Chart | Title | Key Insight |
 |:------|:------|:------------|
 | [01](../visualizations/v1.2/chart01_annual_losses.png) | Annual Losses | 2022 catastrophe ($58B), 2025 resurgence ($3.76B) |
-| [02](../visualizations/v1.2/chart02_cumulative_losses.png) | Cumulative Losses | $80.48B total, $10.21B LIF-relevant |
+| [02](../visualizations/v1.2/chart02_cumulative_losses.png) | Cumulative Losses | $78.54B total, $9.60B LIF-relevant |
 | [03](../visualizations/v1.2/chart03_top20_magnitude.png) | Top 20 Incidents | Dominated by systemic failures (Terra, FTX) |
 | [04](../visualizations/v1.2/chart04_relevance_pie.png) | LIF Relevance | 59.1% of incidents, 12.7% of value |
 | [05](../visualizations/v1.2/chart05_loss_distribution.png) | Loss Distribution | Power law: 1.4% causes 80% of losses |
