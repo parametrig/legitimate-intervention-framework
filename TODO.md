@@ -47,11 +47,11 @@
 - [x] Update `scripts/core/generate_web_data.py` schema for:
   - [x] `web/data/exploits.json`
   - [x] `web/data/interventions.json`
-- [ ] Add aggregated series exports for interactive charts (location TBD, e.g. `web/data/series/*.json`)
-  - [ ] yearly totals
-  - [ ] 4-layer yearly losses (paper-aligned)
-  - [ ] vector distribution
-  - [ ] cumulative totals
+- [x] Add aggregated series exports for interactive charts (location TBD, e.g. `web/data/series/*.json`)
+  - [x] yearly totals
+  - [x] 4-layer yearly losses (paper-aligned)
+  - [x] vector distribution
+  - [x] cumulative totals
 - [x] Regenerate JSON outputs and replace old ones safely
 - [x] Ensure `web/js/main.js` remains compatible (or update it with backward compatibility)
 
@@ -92,7 +92,7 @@
 - [x] Update notebook markdown narrative as needed during the audit
 - [x] Implement **4-layer annual loss** figure aligned with `paper/figures/lof02_four_layer_timeline.png`
 - [x] Ensure chart outputs used on web are regenerated from the corrected notebook
-- [ ] Export aggregated series JSON for interactive charts
+- [x] Export aggregated series JSON for interactive charts
 
 ## 7) Documentation + reports consistency sweep
 - [x] Update repo `README.md` stats and “Last Updated”

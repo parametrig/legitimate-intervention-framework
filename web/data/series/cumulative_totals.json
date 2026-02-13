@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-02-13T16:28:42.628240+00:00",
+  "source_files": {
+    "exploits": "data/refined/lif_exploits_final.csv",
+    "all_interventions": "data/refined/lif_all_interventions.csv",
+    "metrics": "data/refined/lif_intervention_metrics.csv"
+  },
+  "series": {
+    "cumulative_loss_usd": {
+      "2014": 462000000.0,
+      "2016": 590000000.0,
+      "2017": 688764000.0,
+      "2018": 4072764000.0,
+      "2019": 6134164000.0,
+      "2020": 6557799000.0,
+      "2021": 11207935892.0,
+      "2022": 68200704625.0,
+      "2023": 73415739134.0,
+      "2024": 75565675165.0,
+      "2025": 78765958747.0,
+      "2026": 78805538747.0
+    }
+  }
+}

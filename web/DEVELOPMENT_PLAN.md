@@ -70,7 +70,14 @@ The deep-link contract must remain stable across refactors.
 Generate:
 - `web/data/exploits.json`
 - `web/data/interventions.json`
-- Additional aggregated series JSON for interactive charts (directory to be finalized)
+- Aggregated series JSON for interactive charts:
+  - `web/data/series/yearly_totals.json`
+  - `web/data/series/cumulative_totals.json`
+  - `web/data/series/vector_distribution.json`
+  - `web/data/series/four_layer_yearly_losses.json`
+ 
+Generate with:
+- `python3 scripts/core/generate_web_series.py`
 
 ### Charts
 - `scripts/analysis/lif_charts_v1.ipynb` must be audited for:
@@ -85,7 +92,7 @@ flowchart TD
   A --> C[generate_web_data.py -> exploits.json]
   D[CSV: lif_all_interventions.csv] --> E[generate_web_data.py -> interventions.json]
   F[CSV: lif_intervention_metrics.csv] --> E
-  A --> G[lif_charts_v1.ipynb -> chart series JSON]
+  A --> G[generate_web_series.py -> web/data/series/*.json]
   B --> H[Website: summary/research copy uses stats]
   C --> I[Website: database view]
   E --> I
