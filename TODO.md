@@ -38,10 +38,10 @@
 - [ ] Confirm IPFS constraints are met (no server routing assumptions)
 
 ## 1) Fix stale stats references + standardize stats file
-- [ ] Decide final schema for `data/refined/lif_stats.json` (fields used by web + docs)
-- [ ] Update/merge scripts so exactly one generator writes `lif_stats.json`
-- [ ] Remove/stop generating `lif_stats_v1.0.json` (or mark deprecated)
-- [ ] Ensure notebook and any web copy refer to `lif_stats.json`
+- [x] Decide final schema for `data/refined/lif_stats.json` (fields used by web + docs)
+- [x] Update/merge scripts so exactly one generator writes `lif_stats.json`
+- [x] Remove/stop generating `lif_stats_v1.0.json` (or mark deprecated)
+- [x] Ensure notebook and any web copy refer to `lif_stats.json`
 
 ## 2) Regenerate web data exports (and make them interactivity-ready)
 - [ ] Update `scripts/core/generate_web_data.py` schema for:
@@ -88,17 +88,17 @@
 - [ ] Ensure deep links are stable across refactors
 
 ## 6) Notebook review + chart correctness (paper alignment)
-- [ ] Audit `scripts/analysis/lif_charts_v1.ipynb` for outdated logic
-- [ ] Update notebook markdown narrative as needed during the audit
-- [ ] Implement **4-layer annual loss** figure aligned with `paper/figures/lof02_four_layer_timeline.png`
-- [ ] Ensure chart outputs used on web are regenerated from the corrected notebook
+- [x] Audit `scripts/analysis/lif_charts_v1.ipynb` for outdated logic
+- [x] Update notebook markdown narrative as needed during the audit
+- [x] Implement **4-layer annual loss** figure aligned with `paper/figures/lof02_four_layer_timeline.png`
+- [x] Ensure chart outputs used on web are regenerated from the corrected notebook
 - [ ] Export aggregated series JSON for interactive charts
 
 ## 7) Documentation + reports consistency sweep
-- [ ] Update repo `README.md` stats and “Last Updated”
-- [ ] Update `methodology/*.md` stats
-- [ ] Update manuscript reports that embed old numbers
-- [ ] Update `web/DEVELOPMENT_PLAN.md` to reflect the new IA + pipeline + accurate metrics
+- [x] Update repo `README.md` stats and “Last Updated”
+- [x] Update `methodology/*.md` stats
+- [x] Update manuscript reports that embed old numbers
+- [x] Update `web/DEVELOPMENT_PLAN.md` to reflect the new IA + pipeline + accurate metrics
 
 ## 8) Old DB/build artifacts cleanup
 - [ ] Identify any database/cache/build artifacts created from old data
@@ -120,3 +120,5 @@
 
 ## Done Log
 - [x] Confirm dataset source-of-truth stats (705/601/$78.805B; 130; 52)
+- [x] Formalize prevented definitions in `lif_stats.json` (`definitions.prevented_usd`) + methodology note; rerun notebook to regenerate outputs
+- [x] Prevented definitions formalization, notebook markdown sweep, and regenerated lif_stats.json

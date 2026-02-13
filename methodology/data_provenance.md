@@ -39,8 +39,8 @@ The LIF dataset integrates information from multiple authoritative sources:
 
 | Dataset | Status | Records | Last Updated |
 |:--------|:-------|:--------|:-------------|
-| lif_exploits_final.csv | Complete | 706 | 2026-02-03 |
-| lif_all_interventions.csv | Complete | 132 | 2026-02-03 |
+| lif_exploits_final.csv | Complete | 705 | 2026-02-13 |
+| lif_all_interventions.csv | Complete | 130 | 2026-02-13 |
 | lif_intervention_metrics.csv | Complete | 52 | 2026-02-03 |
 
 ---

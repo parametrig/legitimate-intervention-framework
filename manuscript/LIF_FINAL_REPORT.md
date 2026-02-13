@@ -14,7 +14,7 @@
 
 ## Executive Summary
 
-The cryptocurrency industry has lost **$78.54 billion** to exploits, hacks, and systemic failures since 2014. This research analyzes **705 exploit cases** and **130 documented interventions** to answer a fundamental question: *When is it legitimate for a decentralized system to override its own rules?*
+The cryptocurrency industry has lost **$78.81 billion** to exploits, hacks, and systemic failures since 2014. This research analyzes **705 exploit cases** and **130 documented interventions** to answer a fundamental question: *When is it legitimate for a decentralized system to override its own rules?*
 
 ### The Uncomfortable Truth
 
@@ -22,7 +22,7 @@ We discovered that the debate over "Code is Law" versus "Intervention" is alread
 
 - **21% of blockchains** already have fund-freezing capabilities (Bybit Security Lab, Nov 2025)
 - **80.6%** of at-risk capital saw intervention attempts in our dataset
-- **$2.77 billion** was successfully prevented through coordinated action
+- **$2.51 billion** was prevented through coordinated intervention events
 
 The question is no longer *whether* to intervene, but *how* to do so legitimately.
 
@@ -31,7 +31,7 @@ The question is no longer *whether* to intervene, but *how* to do so legitimatel
 | Metric | Finding |
 |:-------|:--------|
 | **Total Market** | $12.99B in LIF-addressable risk |
-| **Prevented** | $2.77B (21.4% of market) |
+| **Prevented** | $2.51B (19.4% of market) |
 | **Effectiveness Gap** | Only 26.5% of covered risk was saved |
 | **Speed Premium** | Signer Sets prevent 2.5× more capital than Governance |
 | **Learning Curve** | 10.9% success (2024) → 82.5% success (2025) |
@@ -140,24 +140,24 @@ All data and code are available at [github.com/e3o8o/legitimate-intervention-fra
 
 ### 1.1 A History Written in Losses
 
-![Chart 1](../visualizations/v1.2/chart01_annual_losses.png)
+![Chart 1](../visualizations/v1.0/chart01_annual_losses.png)
 *Annual exploit losses reveal 2022 as the catastrophe year ($58.06B), driven by Terra/Luna and FTX. The 2025 resurgence ($3.76B) signals that the threat is not receding.*
 
 The cryptocurrency industry likes to believe it has moved past its "Wild West" phase. The data tells a different story.
 
-Between 2014 and January 2026, we documented **705 exploit cases** resulting in **$78.54 billion** in cumulative losses. To put this in perspective:
+Between 2014 and January 2026, we documented **705 exploit cases** resulting in **$78.81 billion** in cumulative losses. To put this in perspective:
 - This exceeds the GDP of Luxembourg
 - It is larger than the market capitalization of 95% of publicly traded companies
 - It represents roughly **15% of the industry's all-time high market cap**
 
-![Chart 2](../visualizations/v1.2/chart02_cumulative_losses.png)
-*Cumulative losses show $78.54B total. The LIF-relevant subset—cases where intervention was technically possible—represents $9.60B.*
+![Chart 2](../visualizations/v1.0/chart02_cumulative_losses.png)
+*Cumulative losses show $78.81B total. The LIF-relevant subset—cases where intervention was technically possible—represents $9.60B.*
 
 Yet raw totals obscure an important pattern: **losses are extraordinarily concentrated**.
 
 ### 1.2 The Power Law of Catastrophe
 
-![Chart 5](../visualizations/v1.2/chart05_loss_distribution.png)
+![Chart 5](../visualizations/v1.0/chart05_loss_distribution.png)
 *Loss distribution follows a power law. The top 1.4% of cases cause 80% of total losses.*
 
 When we ranked all 705 incidents by magnitude, we discovered:
@@ -170,7 +170,7 @@ This Pareto concentration has profound implications for intervention design:
 
 > An intervention capability is only as valuable as its ability to respond to "super-hacks"—the rare catastrophic events that dominate total ecosystem damage.
 
-![Chart 6](../visualizations/v1.2/chart06_loss_concentration_lorenz.png)
+![Chart 6](../visualizations/v1.0/chart06_loss_concentration_lorenz.png)
 *Lorenz curve shows extreme skew. Addressing the top ~66 technical incidents would cover 80% of the preventable market.*
 
 ### 1.3 The Addressable Market
@@ -182,16 +182,16 @@ Not all losses are intervention-eligible. Our taxonomy distinguishes between:
 | **Systemic Failures** | 10 | $61.80B | Terra, FTX—economic design flaws |
 | **Rug Pulls/Other** | 94 | $7.41B | Malicious actors, phishing, unpausable bugs |
 | **LIF-Relevant** | 601 | $9.60B | Technical exploits with intervention-eligible protocols |
-| **Total** | 705 | $78.54B | — |
+| **Total** | 705 | $78.81B | — |
 
-![Chart 4](../visualizations/v1.2/chart04_relevance_pie.png)
+![Chart 4](../visualizations/v1.0/chart04_relevance_pie.png)
 *LIF-relevant cases are 59.1% of incident count but only 12.7% of value—targeting "everyday" technical risk rather than rare $40B+ systemic collapses.*
 
 The Legitimate Intervention Framework focuses on the **$9.60 billion** in tractable technical exploits—events where a well-designed pause, freeze, or recovery mechanism could have made a difference.
 
 ### 1.4 Attack Vector Analysis
 
-![Chart 9](../visualizations/v1.2/chart09_vector_distribution.png)
+![Chart 9](../visualizations/v1.0/chart09_vector_distribution.png)
 *Logic Bugs (231) and Key Compromises (154) lead attacking vectors by frequency.*
 
 Understanding *how* attacks occur reveals where intervention is most needed:
@@ -204,10 +204,10 @@ Understanding *how* attacks occur reveals where intervention is most needed:
 | Oracle Manipulation | 67 | $0.98B | High—circuit breakers effective |
 | Reentrancy | 45 | $0.71B | High—well-understood patterns |
 
-![Chart 10](../visualizations/v1.2/chart10_vector_losses.png)
+![Chart 10](../visualizations/v1.0/chart10_vector_losses.png)
 *By value, Logic Bugs ($5.59B) and Key Compromises ($4.39B) define the addressable market.*
 
-![Chart 12](../visualizations/v1.2/chart12_vector_evolution.png)
+![Chart 12](../visualizations/v1.0/chart12_vector_evolution.png)
 *Attack vector evolution shows Flash Loan attacks declining while Key Compromise and Logic Bugs remain persistent threats.*
 
 ### 1.5 The AI Acceleration
@@ -218,7 +218,7 @@ A December 2025 red team study by Anthropic demonstrated that AI agents can now 
 - Generate exploit payloads with 55.8% success against human benchmarks  
 - Execute end-to-end attacks for **$1.22 in compute costs**
 
-![Chart 17](../visualizations/v1.2/chart17_risk_matrix.png)
+![Chart 17](../visualizations/v1.0/chart17_risk_matrix.png)
 *Risk matrix identifies the "Kill Zone"—Logic Bugs and Key Compromises in the high-frequency, high-severity quadrant.*
 
 This changes the calculus fundamentally. The "Sovereign Individual" model—where each user is responsible for their own security—assumes a human adversary with human limitations. Against an automated adversary that doubles in capability every 1.3 months, individual vigilance is insufficient.
@@ -229,18 +229,18 @@ This changes the calculus fundamentally. The "Sovereign Individual" model—wher
 
 ### 2.1 Intervention Is Already Here
 
-![Chart 18](../visualizations/v1.2/chart18_intervention_timeline.png)
+![Chart 18](../visualizations/v1.0/chart18_intervention_timeline.png)
 *Cumulative intervention timeline shows $1.35B in addressable incidents, steepening dramatically in 2024/2025.*
 
 The debate over whether decentralized systems should have intervention capabilities is already settled in practice:
 
 - **21%** of 166 surveyed blockchains have active fund-freezing functions (Bybit Security Lab)
 - **19% more** could introduce similar capabilities with minor changes
-- **120 documented interventions** occurred in our dataset (2016-2026)
+- **130 documented interventions** occurred in our dataset (2016-2026)
 
 The question is not *whether* intervention happens, but *how transparently* it is governed.
 
-![Chart 19](../visualizations/v1.2/chart19_hacks_vs_interventions.png)
+![Chart 19](../visualizations/v1.0/chart19_hacks_vs_interventions.png)
 *2025 achieved a 20.4% intervention rate (23 interventions vs. 113 hacks)—a significant improvement over prior years.*
 
 ### 2.2 The Intervention Taxonomy
@@ -265,12 +265,12 @@ We classify interventions along two dimensions:
 | Delegated Body | Council with bounded mandate | Medium | Medium |
 | Governance | Token-holder vote | Slowest | Highest |
 
-![Chart 28](../visualizations/v1.2/chart28_matrix_heatmap_combined.png)
+![Chart 28](../visualizations/v1.0/chart28_matrix_heatmap_combined.png)
 *The "Safety Square"—Protocol×Governance (33 cases) and Account×Delegated Body (42 cases) dominate real-world interventions.*
 
 ### 2.3 Authority Performance: The Speed-Legitimacy Tradeoff
 
-![Chart 21](../visualizations/v1.2/chart21_authority_performance.png)
+![Chart 21](../visualizations/v1.0/chart21_authority_performance.png)
 *Signer Sets are fastest responders (~1 hour); Delegated Bodies and Signer Sets outperform Governance in capital saved.*
 
 Our data reveals a clear tradeoff:
@@ -281,7 +281,7 @@ Our data reveals a clear tradeoff:
 | **Delegated Body** | ~45 minutes | 55.6% | $0.88B |
 | **Governance** | ~61 hours | 89.8% | $0.40B |
 
-![Chart 37](../visualizations/v1.2/chart37_response_time.png)
+![Chart 37](../visualizations/v1.0/chart37_response_time.png)
 *The Speed Gap: Signer Sets (60 min), Delegated Bodies (45 min), Governance (3,660 min / 61h).*
 
 Governance achieves the highest *success rate* (89.8%) but the lowest *capital prevented* ($0.40B). Why? By the time a governance vote concludes, most movable funds have already been extracted.
@@ -290,7 +290,7 @@ Governance achieves the highest *success rate* (89.8%) but the lowest *capital p
 
 ### 2.4 The Learning Curve
 
-![Chart 40](../visualizations/v1.2/chart40_success_timeline.png)
+![Chart 40](../visualizations/v1.0/chart40_success_timeline.png)
 *2024 Crisis (10.9% success) → 2025 Recovery (82.5% success). The industry is learning.*
 
 Perhaps the most encouraging finding is the dramatic improvement in intervention effectiveness:
@@ -317,7 +317,7 @@ Protocols learned from the 2024 crisis. They invested in:
 2. **Emergency subDAOs** with clear mandates (e.g., Curve, Balancer V3)
 3. **Surgical capabilities** (account-level freezes vs. protocol-wide halts)
 
-![Chart 31](../visualizations/v1.2/chart31_scope_evolution_combined.png)
+![Chart 31](../visualizations/v1.0/chart31_scope_evolution_combined.png)
 *Shift from Protocol pauses (2021) to Account surgical freezes (2024)—evidence of tooling maturity.*
 
 ---
@@ -326,16 +326,16 @@ Protocols learned from the 2024 crisis. They invested in:
 
 ### 3.1 Coverage vs. Effectiveness
 
-![Chart 47](../visualizations/v1.2/chart47_comprehensive_lif_analysis.png)
-*LIF Market Analysis: $12.99B total, $2.77B prevented (21.4%), 80.6% coverage, 26.5% effectiveness.*
+![Chart 47](../visualizations/v1.0/chart47_comprehensive_lif_analysis.png)
+*LIF Market Analysis: $12.99B total, $2.51B prevented (19.4%), 80.6% coverage, 26.5% effectiveness.*
 
 The most important finding of this research:
 
 | Segment | Value | % of Market |
 |:--------|:------|:------------|
-| **Successfully Prevented** | $2.77B | 21.4% |
+| **Successfully Prevented** | $2.51B | 19.4% |
 | **Incurred (Despite Intervention)** | $7.70B | 59.3% |
-| **Incurred (No Intervention)** | $2.51B | 19.4% |
+| **Incurred (No Intervention)** | $2.78B | 21.4% |
 | **Total LIF Market** | $12.99B | 100% |
 
 The industry has achieved **high coverage** (80.6% of at-risk capital saw intervention attempts) but **low effectiveness** (only 26.5% of covered risk was saved).
@@ -344,7 +344,7 @@ The industry has achieved **high coverage** (80.6% of at-risk capital saw interv
 
 ### 3.2 The Bimodal Distribution
 
-![Chart 36](../visualizations/v1.2/chart36_success_distribution.png)
+![Chart 36](../visualizations/v1.0/chart36_success_distribution.png)
 *Interventions are either near-complete successes (90%+) or significant failures (<10%). Few middle outcomes.*
 
 Intervention outcomes cluster at extremes:
@@ -357,12 +357,12 @@ This bimodal pattern suggests that intervention success depends heavily on:
 2. **Pre-positioning** (having the right tools and authorities in place)
 3. **Coordination rehearsal** (having practiced the response)
 
-![Chart 42](../visualizations/v1.2/chart42_detect_vs_contain_detailed.png)
+![Chart 42](../visualizations/v1.0/chart42_detect_vs_contain_detailed.png)
 *For Signer Sets, containment is a direct function of detection speed. Every minute of detection delay increases loss.*
 
 ### 3.3 The $7.70B Opportunity
 
-![Chart 32](../visualizations/v1.2/chart32_prevented_vs_incurred_combined.png)
+![Chart 32](../visualizations/v1.0/chart32_prevented_vs_incurred_combined.png)
 *ROI analysis: Signer Sets dominate the "Low Loss / High Saved" quadrant; Governance handles "last line" recovery.*
 
 The **$7.70 billion** incurred despite intervention represents the addressable opportunity for improved intervention systems. To capture more of this value, protocols need:
@@ -372,7 +372,7 @@ The **$7.70 billion** incurred despite intervention represents the addressable o
 3. **Surgical precision** — Account-level rather than protocol-level pauses
 4. **Transparent governance** — Clear authority, mandatory post-mortems
 
-![Chart 48](../visualizations/v1.2/chart48_strategic_roi_rankings.png)
+![Chart 48](../visualizations/v1.0/chart48_strategic_roi_rankings.png)
 *Strategic ROI Rankings: Signer Sets (65.5) win on the balance of success, speed, and cost.*
 
 ---
@@ -669,68 +669,68 @@ For researchers:
 ### Market Analysis (Charts 1-17)
 | Chart | Title | Key Insight |
 |:------|:------|:------------|
-| [01](../visualizations/v1.2/chart01_annual_losses.png) | Annual Losses | 2022 catastrophe ($58B), 2025 resurgence ($3.76B) |
-| [02](../visualizations/v1.2/chart02_cumulative_losses.png) | Cumulative Losses | $78.54B total, $9.60B LIF-relevant |
-| [03](../visualizations/v1.2/chart03_top20_magnitude.png) | Top 20 Incidents | Dominated by systemic failures (Terra, FTX) |
-| [04](../visualizations/v1.2/chart04_relevance_pie.png) | LIF Relevance | 59.1% of incidents, 12.7% of value |
-| [05](../visualizations/v1.2/chart05_loss_distribution.png) | Loss Distribution | Power law: 1.4% causes 80% of losses |
-| [06](../visualizations/v1.2/chart06_loss_concentration_lorenz.png) | Lorenz Curve | Extreme concentration |
-| [07](../visualizations/v1.2/chart07_median_loss.png) | Median Comparison | Interventions target larger incidents |
-| [08](../visualizations/v1.2/chart08_three_layer_stacked_area.png) | Loss Layers | Systemic spikes ephemeral; LIF persistent |
-| [09](../visualizations/v1.2/chart09_vector_distribution.png) | Vector Frequency | Logic Bugs (231), Key Compromises (154) |
-| [10](../visualizations/v1.2/chart10_vector_losses.png) | Vector Losses | Logic Bugs ($5.59B), Key Compromises ($4.39B) |
-| [11](../visualizations/v1.2/chart11_chain_distribution.png) | Chain Distribution | Bridges and CeFi dominate |
-| [12](../visualizations/v1.2/chart12_vector_evolution.png) | Vector Evolution | Flash Loans declining; Logic Bugs persistent |
-| [13](../visualizations/v1.2/chart13_macro_timeline.png) | Macro Timeline | 2025 averages 9.4 incidents/month |
-| [14](../visualizations/v1.2/chart14_pattern_temporal.png) | Seasonal Patterns | August quietest; Nov/Jun see highest losses |
-| [15](../visualizations/v1.2/chart15_timeline_heatmap_x_month.png) | Timeline Heatmap | 2024 "Red Wall" (sustained double-digit monthly) |
-| [16](../visualizations/v1.2/chart16_sophistication_timeline.png) | Sophistication | Recent mega-hacks split between Key/Logic |
-| [17](../visualizations/v1.2/chart17_risk_matrix.png) | Risk Matrix | "Kill Zone" identified |
+| [01](../visualizations/v1.0/chart01_annual_losses.png) | Annual Losses | 2022 catastrophe ($58B), 2025 resurgence ($3.76B) |
+| [02](../visualizations/v1.0/chart02_cumulative_losses.png) | Cumulative Losses | $78.81B total, $9.60B LIF-relevant |
+| [03](../visualizations/v1.0/chart03_top20_magnitude.png) | Top 20 Incidents | Dominated by systemic failures (Terra, FTX) |
+| [04](../visualizations/v1.0/chart04_relevance_pie.png) | LIF Relevance | 59.1% of incidents, 12.7% of value |
+| [05](../visualizations/v1.0/chart05_loss_distribution.png) | Loss Distribution | Power law: 1.4% causes 80% of losses |
+| [06](../visualizations/v1.0/chart06_loss_concentration_lorenz.png) | Lorenz Curve | Extreme concentration |
+| [07](../visualizations/v1.0/chart07_median_loss.png) | Median Comparison | Interventions target larger incidents |
+| [08](../visualizations/v1.0/chart08_four_layer_timeline.png) | Loss Layers | Systemic spikes ephemeral; LIF persistent |
+| [09](../visualizations/v1.0/chart09_vector_distribution.png) | Vector Frequency | Logic Bugs (231), Key Compromises (154) |
+| [10](../visualizations/v1.0/chart10_vector_losses.png) | Vector Losses | Logic Bugs ($5.59B), Key Compromises ($4.39B) |
+| [11](../visualizations/v1.0/chart11_chain_distribution.png) | Chain Distribution | Bridges and CeFi dominate |
+| [12](../visualizations/v1.0/chart12_vector_evolution.png) | Vector Evolution | Flash Loans declining; Logic Bugs persistent |
+| [13](../visualizations/v1.0/chart13_macro_timeline.png) | Macro Timeline | 2025 averages 9.4 incidents/month |
+| [14](../visualizations/v1.0/chart14_pattern_temporal.png) | Seasonal Patterns | August quietest; Nov/Jun see highest losses |
+| [15](../visualizations/v1.0/chart15_timeline_heatmap_x_month.png) | Timeline Heatmap | 2024 "Red Wall" (sustained double-digit monthly) |
+| [16](../visualizations/v1.0/chart16_sophistication_timeline.png) | Sophistication | Recent mega-hacks split between Key/Logic |
+| [17](../visualizations/v1.0/chart17_risk_matrix.png) | Risk Matrix | "Kill Zone" identified |
 
 ### Intervention Analysis (Charts 18-35)
 | Chart | Title | Key Insight |
 |:------|:------|:------------|
-| [18](../visualizations/v1.2/chart18_intervention_timeline.png) | Intervention Timeline | $1.35B addressable, steepening 2024/2025 |
-| [19](../visualizations/v1.2/chart19_hacks_vs_interventions.png) | Hacks vs Interventions | 20.4% intervention rate in 2025 |
-| [20](../visualizations/v1.2/chart20_success_timeline.png) | Success Timeline | 86.0% funds saved in 2025 events |
-| [21](../visualizations/v1.2/chart21_authority_performance.png) | Authority Performance | Signer Sets fastest |
-| [22](../visualizations/v1.2/chart22_loss_magnitude.png) | Loss Magnitude | Interventions target high-value ($34M median) |
-| [23](../visualizations/v1.2/chart23_authority_effectiveness_all.png) | Authority Effectiveness | Delegated Bodies: $7.6B+ prevented |
-| [24](../visualizations/v1.2/chart24_authority_effectiveness_metrics.png) | Metrics Dataset | Documented effectiveness |
-| [25](../visualizations/v1.2/chart25_intervention_heatmap_combined.png) | Intervention Heatmap | Scaled from ~0 to 30+ cases |
-| [26](../visualizations/v1.2/chart26_scope_distribution_combined.png) | Scope Distribution | Protocol (56), Account (50) dominant |
-| [27](../visualizations/v1.2/chart27_authority_distribution_combined.png) | Authority Distribution | Delegated Bodies preferred (53 cases) |
-| [28](../visualizations/v1.2/chart28_matrix_heatmap_combined.png) | Matrix Heatmap | "Safety Square" identified |
-| [29](../visualizations/v1.2/chart29_intervention_value_combined.png) | Intervention Value | Account scope captures most value ($7.4B+) |
-| [30](../visualizations/v1.2/chart30_scope_loss.png) | Scope vs Loss | Network/Asset for major breaches |
-| [31](../visualizations/v1.2/chart31_scope_evolution_combined.png) | Scope Evolution | Protocol → Account shift (tooling maturity) |
-| [32](../visualizations/v1.2/chart32_prevented_vs_incurred_combined.png) | ROI Analysis | Signer Sets in optimal quadrant |
-| [33](../visualizations/v1.2/chart33_speed_scatter_metrics.png) | Speed Scatter | Detection vs containment |
-| [34](../visualizations/v1.2/chart34_incurred_loss_by_authority_combined.png) | Incurred by Authority | Signer Sets: $3.0B front-line |
-| [35](../visualizations/v1.2/chart35_prevented_loss.png) | Prevented Loss | Signer Sets: $0.78B (excl. outliers) |
+| [18](../visualizations/v1.0/chart18_intervention_timeline.png) | Intervention Timeline | $1.35B addressable, steepening 2024/2025 |
+| [19](../visualizations/v1.0/chart19_hacks_vs_interventions.png) | Hacks vs Interventions | 20.4% intervention rate in 2025 |
+| [20](../visualizations/v1.0/chart20_success_timeline_dual.png) | Success Timeline | 86.0% funds saved in 2025 events |
+| [21](../visualizations/v1.0/chart21_authority_performance.png) | Authority Performance | Signer Sets fastest |
+| [22](../visualizations/v1.0/chart22_loss_magnitude.png) | Loss Magnitude | Interventions target high-value ($34M median) |
+| [23](../visualizations/v1.0/chart23_authority_effectiveness_all.png) | Authority Effectiveness | Delegated Bodies: $7.6B+ prevented |
+| [24](../visualizations/v1.0/chart24_authority_effectiveness_metrics.png) | Metrics Dataset | Documented effectiveness |
+| [25](../visualizations/v1.0/chart25_intervention_heatmap_combined.png) | Intervention Heatmap | Scaled from ~0 to 30+ cases |
+| [26](../visualizations/v1.0/chart26_scope_distribution_combined.png) | Scope Distribution | Protocol (56), Account (50) dominant |
+| [27](../visualizations/v1.0/chart27_authority_distribution_combined.png) | Authority Distribution | Delegated Bodies preferred (53 cases) |
+| [28](../visualizations/v1.0/chart28_matrix_heatmap_combined.png) | Matrix Heatmap | "Safety Square" identified |
+| [29](../visualizations/v1.0/chart29_intervention_value_combined.png) | Intervention Value | Account scope captures most value ($7.4B+) |
+| [30](../visualizations/v1.0/chart30_scope_loss.png) | Scope vs Loss | Network/Asset for major breaches |
+| [31](../visualizations/v1.0/chart31_scope_evolution_combined.png) | Scope Evolution | Protocol → Account shift (tooling maturity) |
+| [32](../visualizations/v1.0/chart32_prevented_vs_incurred_combined.png) | ROI Analysis | Signer Sets in optimal quadrant |
+| [33](../visualizations/v1.0/chart33_speed_scatter_metrics.png) | Speed Scatter | Detection vs containment |
+| [34](../visualizations/v1.0/chart34_incurred_loss_by_authority_combined.png) | Incurred by Authority | Signer Sets: $3.0B front-line |
+| [35](../visualizations/v1.0/chart35_prevented_loss.png) | Prevented Loss | Signer Sets: $0.78B (excl. outliers) |
 
 ### Effectiveness Analysis (Charts 36-46)
 | Chart | Title | Key Insight |
 |:------|:------|:------------|
-| [36](../visualizations/v1.2/chart36_success_distribution.png) | Success Distribution | Bimodal: 90%+ or <10% |
-| [37](../visualizations/v1.2/chart37_response_time.png) | Response Time | Speed Gap: 60 min vs 61 hours |
-| [38](../visualizations/v1.2/chart38_success_vs_time.png) | Success vs Time | Authority specialization > speed alone |
-| [39](../visualizations/v1.2/chart39_risk_matrix_scatter.png) | Risk Matrix Scatter | Fast/Low vs Slow/High quadrants |
-| [40](../visualizations/v1.2/chart40_success_timeline.png) | Success Timeline | 10.9% (2024) → 82.5% (2025) |
-| [41](../visualizations/v1.2/chart41_success_timeline_case.png) | Case Timeline | 2025 "Success Clustering" |
-| [42](../visualizations/v1.2/chart42_detect_vs_contain_detailed.png) | Detect vs Contain | Containment = f(detection) for Signer Sets |
-| [43](../visualizations/v1.2/chart43_success_matrix.png) | Success Matrix | Signer Sets excel at Asset (82%) |
-| [44](../visualizations/v1.2/chart44_success_matrix_enhanced.png) | Enhanced Matrix | Full dataset reveals patterns |
-| [45](../visualizations/v1.2/chart45_effectiveness_leaderboard.png) | Effectiveness Leaderboard | Delegated Bodies (68.6) > Signer Sets (65.6) |
-| [46](../visualizations/v1.2/chart46_risk_adjusted_performance.png) | Risk-Adjusted | Small incidents: 100%; Medium: challenge |
+| [36](../visualizations/v1.0/chart36_success_distribution.png) | Success Distribution | Bimodal: 90%+ or <10% |
+| [37](../visualizations/v1.0/chart37_response_time.png) | Response Time | Speed Gap: 60 min vs 61 hours |
+| [38](../visualizations/v1.0/chart38_success_vs_time.png) | Success vs Time | Authority specialization > speed alone |
+| [39](../visualizations/v1.0/chart39_risk_matrix_scatter.png) | Risk Matrix Scatter | Fast/Low vs Slow/High quadrants |
+| [40](../visualizations/v1.0/chart40_success_timeline.png) | Success Timeline | 10.9% (2024) → 82.5% (2025) |
+| [41](../visualizations/v1.0/chart41_success_timeline_case.png) | Case Timeline | 2025 "Success Clustering" |
+| [42](../visualizations/v1.0/chart42_detect_vs_contain_detailed.png) | Detect vs Contain | Containment = f(detection) for Signer Sets |
+| [43](../visualizations/v1.0/chart43_success_matrix.png) | Success Matrix | Signer Sets excel at Asset (82%) |
+| [44](../visualizations/v1.0/chart44_success_matrix_enhanced.png) | Enhanced Matrix | Full dataset reveals patterns |
+| [45](../visualizations/v1.0/chart45_effectiveness_leaderboard.png) | Effectiveness Leaderboard | Delegated Bodies (68.6) > Signer Sets (65.6) |
+| [46](../visualizations/v1.0/chart46_risk_adjusted_performance.png) | Risk-Adjusted | Small incidents: 100%; Medium: challenge |
 
 ### Strategic Insights (Charts 47-50)
 | Chart | Title | Key Insight |
 |:------|:------|:------------|
-| [47](../visualizations/v1.2/chart47_comprehensive_lif_analysis.png) | Market Analysis | $12.99B total, 26.5% effectiveness |
-| [48](../visualizations/v1.2/chart48_strategic_roi_rankings.png) | ROI Rankings | Signer Sets (65.5) win on balance |
-| [49](../visualizations/v1.2/chart49_roi_magnitude.png) | ROI by Model | Signer Set × Network leads |
-| [50](../visualizations/v1.2/chart50_loss_prevented_vs_incurred.png) | Prevention Rate | Signer Sets: 54.9% rate |
+| [47](../visualizations/v1.0/chart47_comprehensive_lif_analysis.png) | Market Analysis | $12.99B total, 26.5% effectiveness |
+| [48](../visualizations/v1.0/chart48_strategic_roi_rankings.png) | ROI Rankings | Signer Sets (65.5) win on balance |
+| [49](../visualizations/v1.0/chart49_roi_magnitude.png) | ROI by Model | Signer Set × Network leads |
+| [50](../visualizations/v1.0/chart50_loss_prevented_vs_incurred.png) | Prevention Rate | Signer Sets: 54.9% rate |
 
 ---
 

@@ -1,6 +1,6 @@
 # LIF Dataset Summary
 
-**Last Updated:** 2026-02-03  
+**Last Updated:** 2026-02-13  
 **Version:** 1.0
 
 ---
@@ -23,8 +23,9 @@ The Legitimate Intervention Framework (LIF) dataset contains standardized, high-
 | **LIF-Relevant Cases** | 601 |
 | **Total Intervention Cases** | 130 |
 | **High-Fidelity Metrics Cases** | 52 (includes proactive cases) |
-| **Total Losses** | $78,542,078,747 |
-| **Total Prevented** | $2,121,149,380 |
+| **Total Losses** | $78,805,538,747 |
+| **Total Prevented (Interventions Dataset)** | $2,511,574,380 |
+| **Total Prevented (Metrics Subset)** | $1,666,149,380 |
 | **Date Range** | 2014-03-01 to 2026-01-21 |
 
 ---
@@ -70,13 +71,13 @@ The dataset separates cases into distinct layers based on intervention potential
 ## Dataset Files
 
 ### 1. `data/refined/lif_exploits_final.csv`
-- **Records:** 706
+- **Records:** 705
 - **Description:** Complete database of all exploit incidents
 - **Fields:** 26 columns including incident details, classifications, and intervention data
 - **Format:** CSV with headers
 
 ### 2. `data/refined/lif_all_interventions.csv`
-- **Records:** 132
+- **Records:** 130
 - **Description:** Subset of exploits with intervention mechanisms activated
 - **Fields:** 26 columns (same schema as exploits)
 - **Format:** CSV with headers

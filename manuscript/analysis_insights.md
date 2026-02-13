@@ -2,14 +2,14 @@
 
 **Generated**: February 3, 2026  
 **Dataset Version**: v1.0 (LIF v1.0 Release)  
-**Total Cases**: 137 unique interventions (131 exploit-linked + 6 proactive-only)
+**Total Cases**: 136 unique interventions (130 exploit-linked + 6 proactive-only)
 
 ---
 
 ## 📊 Dataset Overview
 
 ### Key Statistics (Updated v1.0)
-- **Total Exploits**: 705 cases ($78.54B total losses)
+- **Total Exploits**: 705 cases ($78.81B total losses)
 - **LIF-Relevant Exploits**: 601 cases ($9.60B addressable market)
 - **Systemic Failures**: 10 cases ($61.80B) - Economic collapses not addressable by emergency mechanisms
 - **Other Non-Addressable**: 94 cases ($7.41B) - Rug pulls, phishing, unpausable bugs
@@ -20,7 +20,7 @@
 ### Loss Breakdown (Figma Table 1)
 | Category | Loss (Billions USD) | Percentage | Cases |
 |:---------|:-------------------|:-----------|:------|
-| **Total Recorded Loss** | $78.54B | 100% | 705 |
+| **Total Recorded Loss** | $78.81B | 100% | 705 |
 | **Technical Addressable** | $21.78B | 27.8% | 640 |
 | **LIF-Relevant** | $9.60B | 12.2% | 601 |
 | **Non-Technical** | $56.72B | 72.2% | 65 |
@@ -35,10 +35,10 @@
 | 2019 | $2.06B |
 | 2020 | $0.42B |
 | 2021 | $4.65B |
-| 2022 | $56.69B |
+| 2022 | $56.99B |
 | 2023 | $5.22B |
 | 2024 | $2.15B |
-| 2025 | $3.46B |
+| 2025 | $3.20B |
 | 2026 | $0.04B |
 
 ### Top 10 Exploits (Figma Table 3 - For Chart 3)
@@ -98,10 +98,10 @@
 
 | Metric | Value |
 |:-------|:------|
-| Peak Year | 2022 ($56.69B) |
+| Peak Year | 2022 ($56.99B) |
 | 2024 Losses | $2.15B (96% decrease from peak) |
-| 2025 Losses | $3.46B (resurgence trend) |
-| Total (2014-2026) | $78.77B |
+| 2025 Losses | $3.20B (resurgence trend) |
+| Total (2014-2026) | $78.81B |
 
 **Figure**: `chart01_annual_losses.png`
 
@@ -113,7 +113,7 @@
 
 | Layer | Loss (Billions) | % of Total |
 |:------|:----------------|:-----------|
-| Total Recorded | $78.77B | 100% |
+| Total Recorded | $78.81B | 100% |
 | Technical Addressable | $30.46B | 38.7% |
 | LIF-Relevant | $10.08B | 12.8% |
 
@@ -194,7 +194,7 @@
 
 ---
 
-### Chart 8: Three-Layer Stacked Area
+### Chart 8: Four-Layer Loss Timeline
 
 **Key Takeaway**: **Systemic outliers create volatility spikes** (2022: $56.7B), while **technical losses represent consistent baseline risk** ($1-4B/year). Post-2024 reality: technical exploits dominate as primary loss driver.
 
@@ -204,7 +204,7 @@
 | 2024 | $2.2B | $2.0B | $1.5B | $0.2B |
 | 2025 | $3.5B | $3.2B | $2.5B | $0.3B |
 
-**Figure**: `chart08_three_layer_stacked_area.png`
+**Figure**: `chart08_four_layer_timeline.png`
 
 ---
 
@@ -832,10 +832,10 @@
 - **2022 catastrophe**: Peaked at $58.06B, driven by Terra/Luna ($40B) and FTX ($8B)
 - **Market reset**: 91% drop in losses from 2022 to 2024 ($1.87B)
 - **2025 resurgence**: Losses rising again to $3.76B, indicating active threat landscape
-- **Total impact**: $78.54B cumulative losses since 2014
+- **Total impact**: $78.81B cumulative losses since 2014
 
 ### Chart 2: Cumulative Losses
-- **Total recorded loss**: $78.54B (includes Terra/FTX)
+- **Total recorded loss**: $78.81B (includes Terra/FTX)
 - **Technical addressable**: $21.78B (excludes economic/systemic failures)
 - **LIF relevant**: $9.60B (verified intervention-eligible)
 - **Opportunity**: LIF framework targets a $9.60B market, capturing 44.1% of all technical exploits
@@ -1084,9 +1084,9 @@
 
 ### Chart 47: Comprehensive LIF Market Analysis (CORRECTED)
 - **Total LIF-relevant market**: $12.99B across all intervention-eligible cases
-- **Successfully prevented**: $2.77B (21.4% of market) - actual recoveries and frozen assets
+- **Successfully prevented**: $2.51B (19.4% of market) - prevented value across intervention events
 - **Incurred despite intervention**: $7.70B (59.3%) - cases where intervention was attempted but failed
-- **Incurred without intervention**: $2.51B (19.4%) - cases with no intervention attempt
+- **Incurred without intervention**: $2.78B (21.4%) - cases with no intervention attempt
 - **Coverage**: 80.6% of market value saw intervention attempts
 - **Effectiveness**: 26.5% of covered risk was saved
 - **Key insight**: The main challenge is *effectiveness*—improving success rates on the 80% of cases already covered—not expanding coverage

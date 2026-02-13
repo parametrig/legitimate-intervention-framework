@@ -44,7 +44,7 @@ This document defines the schema used in the LIF datasets.
 
 ## 2. All Interventions Dataset Schema
 **File:** `data/refined/lif_all_interventions.csv`  
-**Records:** 132
+**Records:** 130
 
 Same schema as exploits_final, but filtered to only cases with `is_intervention=True`.
 
@@ -125,10 +125,10 @@ High-fidelity intervention cases with detailed timing and effectiveness metrics.
 
 ## Statistics Summary
 
-- **Total Exploit Cases:** 706
-- **Total Intervention Cases:** 132
+- **Total Exploit Cases:** 705
+- **Total Intervention Cases:** 130
 - **High-Fidelity Metrics Cases:** 52
-- **Total Losses:** $78,765,078,747
+- **Total Losses:** $78,805,538,747
 - **Total Prevented:** $2,121,149,380
-- **LIF-Relevant Cases:** 605
+- **LIF-Relevant Cases:** 601
 - **Date Range:** 2014-03-01 to 2026-01-21

@@ -3,7 +3,7 @@
 A standardized dataset of blockchain security incidents and emergency interventions.
 
 **Version:** 1.0  
-**Last Updated:** 2026-02-03
+**Last Updated:** 2026-02-13
 
 ---
 
@@ -19,8 +19,9 @@ A standardized dataset of blockchain security incidents and emergency interventi
 
 ## Financial Summary
 
-- **Total Losses:** $78,542,078,747
-- **Total Prevented:** $2,121,149,380 (from metrics dataset)
+- **Total Losses:** $78,805,538,747
+- **Total Prevented:** $2,511,574,380 (from all interventions dataset)
+- **Total Prevented (Metrics Subset):** $1,666,149,380
 - **LIF-Relevant Cases:** 601
 - **Systemic Failures:** 10 cases ($61.80B)
 - **Other Non-Addressable:** 94 cases ($7.41B)
