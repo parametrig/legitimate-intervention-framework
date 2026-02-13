@@ -1,15 +1,10 @@
 .narrative-layout {
-    display: grid;
-    grid-template-columns: 40px minmax(0, 1fr) minmax(420px, 560px);
-    gap: 3rem;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 100px 4% 10rem;
     position: relative;
+    /* Layout handled by .standard-layout .content-grid */
 }
 
 .narrative-sidebar {
-    width: 40px;
+    display: none;
 }
 
 .narrative-content {
@@ -33,41 +28,128 @@
     opacity: 1;
 }
 
+.narrative-inline-chart-frame {
+    margin-top: 1.25rem;
+    position: relative;
+    width: 100%;
+    height: min(66vh, 520px);
+}
+
+.narrative-inline-chart {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.narrative-inline-chart-fallback {
+    position: absolute;
+    inset: 0;
+    display: none;
+}
+
+.narrative-inline-chart-fallback img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0;
+}
+
+.narrative-inline-chart-frame.is-fallback .narrative-inline-chart {
+    visibility: hidden;
+}
+
+.narrative-inline-chart-frame.is-fallback .narrative-inline-chart-fallback {
+    display: block;
+}
+
+
+
+.page-research-all .narrative-content {
+    max-width: none;
+}
+
 /* Right Column: Sticky Chart Panel */
 .narrative-chart-column {
-    position: relative;
+    position: sticky;
+    top: 69px;
+    height: calc(66vh - 40px);
+    align-self: start;
     min-width: 0;
 }
 
+.page-home .narrative-sticky {
+    margin-top: 44px;
+}
+
+.page-home .narrative-content {
+    max-width: none;
+}
+
+.page-home .narrative-chart-column {
+    height: auto;
+}
+
+.page-home .narrative-sticky {
+    height: auto;
+}
+
+.page-home .narrative-chart-frame {
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.page-home .narrative-chart {
+    height: 100%;
+}
+
+.narrative-chart-caption {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    flex: 0 0 auto;
+}
+
+.narrative-chart-caption-link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 .narrative-sticky {
-    position: sticky;
-    top: 69px;
-    height: 82vh;
+    position: relative;
+    height: 100%;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
 }
 
 .narrative-chart-frame {
     width: 100%;
     position: relative;
     height: 100%;
-    border: 1px solid #eee;
-    background: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-    border-radius: 12px;
-    padding: 16px;
-    overflow: hidden;
+    flex: 1 1 auto;
+    min-height: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    overflow: visible;
 }
 
 .narrative-chart {
     width: 100%;
     height: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 .narrative-chart-fallback {
     position: absolute;
-    inset: 16px;
+    inset: 0;
+    z-index: 1;
     display: none;
 }
 
@@ -75,22 +157,43 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 0;
 }
 
+/* When falling back to static image, show the image ON TOP but keep the
+   chart container in the flow so it retains layout dimensions.
+   This prevents ECharts from initializing with offsetHeight 0. */
 .narrative-chart-frame.is-fallback .narrative-chart {
-    display: none;
+    visibility: hidden;
+    z-index: 1;
 }
 
 .narrative-chart-frame.is-fallback .narrative-chart-fallback {
     display: block;
+    z-index: 3;
+}
+
+.chart-dock-close {
+    display: none;
+}
+
+.chart-dock-reopen {
+    display: none;
 }
 
 /* Mobile Responsive Overrides */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     .narrative-layout {
         grid-template-columns: 1fr;
         max-width: 860px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        gap: 2rem;
+        padding-bottom: calc(33vh + 7rem);
+    }
+
+    .page-home .narrative-layout {
+        grid-template-columns: 1fr;
         padding-left: 2rem;
         padding-right: 2rem;
         gap: 2rem;
@@ -100,9 +203,134 @@
         display: none;
     }
 
-    .narrative-sticky {
+    .narrative-chart-column {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        z-index: 1200;
+        background: var(--bg-color);
+        border-top: 1px solid #e5e5e5;
+        /* Clean padding all around */
+        padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+        height: 38vh;
+        /* Slightly taller to ensure space */
+        min-height: 300px;
+        max-height: 420px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .narrative-sticky,
+    .page-home .narrative-sticky {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+        position: relative;
+        margin-top: 0;
+        /* Reset desktop margin */
+        height: auto;
+    }
+
+    .narrative-chart-caption {
+        order: -1;
         position: relative;
         top: auto;
-        height: 52vh;
+        left: auto;
+        margin: 0 0 12px 0;
+        /* Space below title */
+        padding-right: 40px;
+        /* Space for close button */
+        font-size: 0.95rem;
+        font-weight: 400;
+        text-align: left;
+        width: 100%;
+        line-height: normal;
+        flex: 0 0 auto;
+        /* Don't shrink */
+    }
+
+    /* Close Button at top-right of the sticky container */
+    .chart-dock-close {
+        display: inline-flex;
+        position: absolute;
+        right: -4px;
+        /* Pull slightly to align with edge */
+        top: -4px;
+        /* Pull slightly to align with visual top */
+        z-index: 20;
+        width: 32px;
+        height: 32px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #e5e5e5;
+        background: transparent;
+        border-radius: 999px;
+        cursor: pointer;
+        color: var(--text-color);
+    }
+
+    .narrative-chart-frame {
+        flex: 1 1 auto;
+        width: 100%;
+        min-height: 0;
+        position: relative;
+        /* Anchor for absolute chart */
+        display: block;
+        /* Reset flex center, let absolute positioning handle it */
+    }
+
+    /* Robust Chart Sizing: Absolute Fill */
+    .narrative-chart,
+    .narrative-chart-fallback {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain;
+    }
+
+    body.dock-closed .narrative-chart-column {
+        display: none;
+    }
+
+    .chart-dock-reopen {
+        display: none;
+        position: fixed;
+        right: 16px;
+        bottom: calc(16px + env(safe-area-inset-bottom));
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #e5e5e5;
+        background: var(--bg-color);
+        border-radius: 999px;
+        cursor: pointer;
+        z-index: 1300;
+        color: var(--text-color);
+    }
+
+    body.dock-closed .chart-dock-reopen {
+        display: inline-flex;
+    }
+
+    .page-home .narrative-chart-frame {
+        aspect-ratio: auto;
+    }
+
+    .narrative-inline-chart-frame {
+        height: 46vh;
+        margin-top: 1rem;
+    }
+
+    .page-research-all .narrative-layout {
+        grid-template-columns: 1fr;
+        padding-bottom: 6rem;
     }
 }

@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIF Summary | Legitimate Intervention Framework</title>
+    <title>Summary | Legitimate Overrides</title>
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/pages/narrative.css">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,104 +15,30 @@
         href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
         rel="stylesheet">
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 </head>
 
-<body data-root-prefix="../">
+<body>
 
     <header class="transparent">
-        <nav class="nav-links">
-            <a href="./" class="active">Summary</a>
-            <a href="../research/">Research</a>
-            <a href="../database.html">Database</a>
-            <a href="../about.html">About</a>
+        <nav class="nav-links"><a href="../">Legitimate Overrides</a><a href="../summary/" class="active">Summary</a>
+            <div class="nav-dropdown"><a href="../research/">Research</a>
+                <div class="nav-dropdown-menu"><a href="../research/all/">All charts</a><a
+                        href="../research/threat/">Threat</a><a href="../research/intervention/">Intervention</a><a
+                        href="../research/efficiency/">Efficiency</a><a href="../research/framework/">Framework</a>
+                </div>
+            </div><a href="../database.html">Database</a><a href="../about.html">About</a>
         </nav>
     </header>
 
-    <nav class="scroll-indicator" id="scrollIndicator">
-        <div class="scroll-track">
-            <div class="scroll-line"></div>
-            <div class="scroll-marker" id="scrollMarker"></div>
-            <div class="scroll-sections" id="scrollSections">
-                <div class="scroll-section active" data-target="intro">
-                    <div class="section-bar medium"></div>
-                    <span class="section-label">Intro</span>
-                </div>
-                <div class="scroll-section" data-target="annual">
-                    <div class="section-bar short"></div>
-                    <span class="section-label">Annual</span>
-                </div>
-                <div class="scroll-section" data-target="layers">
-                    <div class="section-bar medium"></div>
-                    <span class="section-label">Layers</span>
-                </div>
-                <div class="scroll-section" data-target="vectors">
-                    <div class="section-bar medium"></div>
-                    <span class="section-label">Vectors</span>
-                </div>
-            </div>
-            <div class="scroll-progress" id="scrollProgress">0%</div>
-        </div>
-    </nav>
-
-    <div class="narrative-layout">
-        <div class="narrative-sidebar"></div>
-
-        <div class="narrative-content">
-            <section class="hero-section active" data-narrative-section data-id="intro" data-chart="chart02_cumulative_losses"
-                data-fallback-src="../charts/chart02_cumulative_losses.png" data-chart-anchor="chart02">
-                <h1>Legitimate Intervention Framework</h1>
-                <p><strong>Elem Oghenekaro</strong>, Dr. Nimrod Talmon</p>
-                <div class="metadata-bar">
-                    <span class="metadata-item">Published January 30, 2026</span>
-                    <a href="#" class="metadata-item"><i data-lucide="file-down"></i> pdf</a>
-                    <a href="#" class="metadata-item"><i data-lucide="volume-2"></i> listen</a>
-                    <a href="#" class="metadata-item"><i data-lucide="youtube"></i> watch</a>
-                </div>
-                <p>Between 2014 and 2026, we documented <strong>705 exploit cases</strong> resulting in <strong>$78.81B</strong>
-                    in cumulative losses. This website is designed to stay maintainable as the dataset grows: CSV → generators →
-                    JSON → interactive charts.</p>
-                <p><a href="../research/all/">Read the full 50-chart narrative →</a></p>
-            </section>
-
-            <section data-narrative-section data-id="annual" data-chart="chart01_annual_losses"
-                data-fallback-src="../charts/chart01_annual_losses.png" data-chart-anchor="chart01">
-                <h2>Annual losses</h2>
-                <p>Annual exploit losses show the baseline scale of the problem and the persistent addressable market.</p>
-            </section>
-
-            <section data-narrative-section data-id="layers" data-chart="chart08_four_layer_timeline"
-                data-fallback-src="../charts/chart08_four_layer_timeline.png" data-chart-anchor="chart08">
-                <h2>Loss layers (paper-aligned)</h2>
-                <p>The four-layer timeline separates intervention-eligible losses from systemic failures and other non-addressable
-                    categories.</p>
-            </section>
-
-            <section data-narrative-section data-id="vectors" data-chart="chart09_vector_distribution"
-                data-fallback-src="../charts/chart09_vector_distribution.png" data-chart-anchor="chart09">
-                <h2>Attack vectors</h2>
-                <p>Vector frequency reveals which classes of failures dominate the exploit landscape.</p>
-            </section>
-        </div>
-
-        <div class="narrative-chart-column">
-            <div class="narrative-sticky">
-                <div class="narrative-chart-frame is-fallback">
-                    <div id="interactiveChart" class="narrative-chart"></div>
-                    <div class="narrative-chart-fallback">
-                        <img id="interactiveChartFallbackImg" src="../charts/chart02_cumulative_losses.png" alt="Chart">
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="standard-layout mixed-layout">
+        <h1>Summary</h1>
+        <p>Elem Oghenekaro, Dr. Nimrod Talmon</p>
+        <p>This page will mirror the concise summary format (AI2027-style) and differs from the landing narrative at
+            <a href="../">/</a>.
+        </p>
+        <p><a href="../research/all/">Read the full research narrative →</a></p>
     </div>
 
-    <script>
-        lucide.createIcons();
-    </script>
-    <script src="../js/echarts_runtime.js"></script>
-    <script src="../js/narrative_runtime.js"></script>
 </body>
 
 </html>

@@ -65,12 +65,6 @@ body {
     font-size: var(--fs-p);
     line-height: var(--lh-normal);
     -webkit-font-smoothing: antialiased;
-    /* Prevent horizontal scroll globally on mobile */
-    overflow-x: hidden;
-}
-
-html {
-    overflow-x: hidden;
 }
 
 /* Typography Reset */
@@ -126,4 +120,94 @@ a {
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
+}
+
+/* -------------------------------------------
+   Standard Layout System
+   Enforces consistent margins across all pages
+   ------------------------------------------- */
+
+.standard-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 4% 6rem;
+}
+
+/* The Grid: Left content, Right sidebar/empty */
+.content-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 480px;
+    gap: 2.5rem;
+    position: relative;
+}
+
+/* For pages where content should only live in the left column */
+.content-grid>.col-main {
+    min-width: 0;
+    /* Prevent grid blowout */
+}
+
+@media (max-width: 768px) {
+    .standard-layout {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* -------------------------------------------
+   Mixed Layout (Reading Text + Full Width Media)
+   For Research, About, Summary pages
+   ------------------------------------------- */
+
+.mixed-layout {
+    width: 100%;
+}
+
+/* Constrain primarily text content matching grid column 1 */
+.mixed-layout>p,
+.mixed-layout>h1,
+.mixed-layout>h2,
+.mixed-layout>h3,
+.mixed-layout>h4,
+.mixed-layout>h5,
+.mixed-layout>ul,
+.mixed-layout>ol,
+.mixed-layout>blockquote,
+.mixed-layout>.editorial-content {
+    max-width: 680px;
+}
+
+/* Allow specific elements to span full width */
+.mixed-layout>.narrative-inline-chart-frame,
+.mixed-layout>.wallet-address-container,
+.mixed-layout>.illustration-container,
+.mixed-layout>.wide-element {
+    max-width: 100%;
+}
+
+/* If editorial-content (about page wrapper) is used, constrain ITS children unless wide */
+.mixed-layout>.editorial-content>p,
+.mixed-layout>.editorial-content>ul {
+    max-width: 680px;
+}
+
+/* Deep nesting support for Research pages (narrative-content -> section -> p) */
+.mixed-layout .narrative-content p,
+.mixed-layout .narrative-content h1,
+.mixed-layout .narrative-content h2,
+.mixed-layout .narrative-content h3,
+.mixed-layout .narrative-content h4,
+.mixed-layout .narrative-content ul,
+.mixed-layout .narrative-content ol {
+    max-width: 680px;
+}
+
+/* Ensure inline charts in Research pages are wide */
+.mixed-layout .narrative-content .narrative-inline-chart-frame {
+    max-width: 100%;
 }

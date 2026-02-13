@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIF Research | Legitimate Intervention Framework</title>
+    <title>Research | Legitimate Overrides</title>
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -15,29 +15,33 @@
         href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
         rel="stylesheet">
 
-    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
 
     <header class="transparent">
-        <nav class="nav-links">
-            <a href="../summary/">Summary</a>
-            <a href="./" class="active">Research</a>
-            <a href="../database.html">Database</a>
-            <a href="../about.html">About</a>
+        <nav class="nav-links"><a href="../">Legitimate Overrides</a><a href="../summary/">Summary</a>
+            <div class="nav-dropdown"><a href="../research/" class="active">Research</a>
+                <div class="nav-dropdown-menu"><a href="../research/all/">All charts</a><a
+                        href="../research/threat/">Threat</a><a href="../research/intervention/">Intervention</a><a
+                        href="../research/efficiency/">Efficiency</a><a href="../research/framework/">Framework</a>
+                </div>
+            </div><a href="../database.html">Database</a><a href="../about.html">About</a>
         </nav>
     </header>
 
-    <div class="research-container" style="padding-top: 110px; max-width: 1000px;">
+    <div class="standard-layout mixed-layout">
         <h1>Research</h1>
-        <p>This site is shifting to a narrative + interactive chart format. Start with the complete report:</p>
+        <p>Choose a theme (focused supplement pages) or read the full narrative:</p>
         <p><a href="./all/" style="font-weight: 600;">Read the full 50-chart narrative →</a></p>
+        <div style="margin-top: 2rem; display: grid; gap: 0.75rem; max-width: 520px;">
+            <a href="./threat/" style="font-weight: 600;">Threat →</a>
+            <a href="./intervention/" style="font-weight: 600;">Intervention →</a>
+            <a href="./efficiency/" style="font-weight: 600;">Efficiency →</a>
+            <a href="./framework/" style="font-weight: 600;">Framework →</a>
+        </div>
     </div>
 
-    <script>
-        lucide.createIcons();
-    </script>
 </body>
 
 </html>
