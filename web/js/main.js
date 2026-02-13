@@ -297,8 +297,16 @@ async function loadDatabaseData() {
             fetch('data/interventions.json'),
             fetch('data/exploits.json')
         ]);
-        allInterventions = await interventionsRes.json();
-        allExploits = await exploitsRes.json();
+        const interventionsPayload = await interventionsRes.json();
+        const exploitsPayload = await exploitsRes.json();
+
+        allInterventions = Array.isArray(interventionsPayload)
+            ? interventionsPayload
+            : (interventionsPayload.records || []);
+
+        allExploits = Array.isArray(exploitsPayload)
+            ? exploitsPayload
+            : (exploitsPayload.records || []);
         return true;
     } catch (error) {
         console.error('Error loading database:', error);

@@ -4,13 +4,15 @@
 import csv
 import json
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Get repository root (two levels up from scripts/core/)
 REPO_ROOT = Path(__file__).parent.parent.parent
 DATA_DIR = REPO_ROOT / "data" / "refined"
 WEB_DATA_DIR = REPO_ROOT / "web" / "data"
 RATIONALES_FILE = REPO_ROOT / "manuscript" / "rationales.md"
+
+SCHEMA_VERSION = "1.0"
 
 def load_csv(filepath):
     """Load CSV file and return list of dicts."""
@@ -26,6 +28,24 @@ def parse_float(val):
         return float(val)
     except (ValueError, TypeError):
         return None
+
+def parse_year(date_str):
+    """Extract year from YYYY-MM-DD date string."""
+    if not date_str:
+        return None
+    try:
+        return int(date_str[:4])
+    except (ValueError, TypeError):
+        return None
+
+def build_envelope(records, source_files):
+    """Build a versioned envelope for web JSON exports."""
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "source_files": source_files,
+        "records": records,
+    }
 
 def extract_rationale_cases():
     """Extract case rationale text from rationales.md."""
@@ -156,6 +176,7 @@ def generate_exploits_json():
         exploit = {
             "id": row.get("incident_id", f"{row.get('protocol', 'Unknown')}_{row.get('date', '')}"),
             "date": row.get("date", ""),
+            "year": parse_year(row.get("date", "")),
             "protocol": row.get("protocol", ""),
             "chain": row.get("chain", ""),
             "loss_usd": parse_float(row.get("loss_usd")),
@@ -244,6 +265,7 @@ def generate_interventions_json():
         intervention = {
             "id": incident_id,
             "date": row.get("date", ""),
+            "year": parse_year(row.get("date", "")),
             "protocol": protocol,
             "chain": row.get("chain", ""),
             "loss_usd": parse_float(row.get("loss_usd")),
@@ -307,6 +329,7 @@ def generate_interventions_json():
             intervention = {
                 "id": incident_id,
                 "date": row.get("date", ""),
+                "year": parse_year(row.get("date", "")),
                 "protocol": protocol,
                 "chain": row.get("chain", ""),
                 "loss_usd": parse_float(row.get("loss_usd")),
@@ -334,30 +357,43 @@ def main():
     """Generate all JSON data files."""
     # Ensure output directory exists
     WEB_DATA_DIR.mkdir(parents=True, exist_ok=True)
-    
+
     # Generate exploits.json
     print("Generating exploits.json...")
-    exploits = generate_exploits_json()
+    exploits_records = generate_exploits_json()
+    exploits = build_envelope(
+        records=exploits_records,
+        source_files={
+            "exploits": str((DATA_DIR / "lif_exploits_final.csv").relative_to(REPO_ROOT)),
+        },
+    )
     with open(WEB_DATA_DIR / "exploits.json", 'w', encoding='utf-8') as f:
         json.dump(exploits, f, indent=2, ensure_ascii=False)
-    print(f"  → {len(exploits)} exploits written")
-    
+    print(f"  → {len(exploits_records)} exploits written")
+
     # Generate interventions.json
     print("Generating interventions.json...")
-    interventions = generate_interventions_json()
+    interventions_records = generate_interventions_json()
+    interventions = build_envelope(
+        records=interventions_records,
+        source_files={
+            "all_interventions": str((DATA_DIR / "lif_all_interventions.csv").relative_to(REPO_ROOT)),
+            "metrics": str((DATA_DIR / "lif_intervention_metrics.csv").relative_to(REPO_ROOT)),
+        },
+    )
     with open(WEB_DATA_DIR / "interventions.json", 'w', encoding='utf-8') as f:
         json.dump(interventions, f, indent=2, ensure_ascii=False)
-    print(f"  → {len(interventions)} interventions written")
-    
+    print(f"  → {len(interventions_records)} interventions written")
+
     # Summary stats
-    total_loss = sum(i["loss_usd"] or 0 for i in interventions)
-    total_saved = sum(i["loss_prevented_usd"] or 0 for i in interventions)
-    dates = [i["date"] for i in interventions if i["date"]]
+    total_loss = sum(i["loss_usd"] or 0 for i in interventions_records)
+    total_saved = sum(i["loss_prevented_usd"] or 0 for i in interventions_records)
+    dates = [i["date"] for i in interventions_records if i["date"]]
     min_year = min(dates)[:4] if dates else "N/A"
     max_year = max(dates)[:4] if dates else "N/A"
     
     print(f"\nSummary:")
-    print(f"  Interventions: {len(interventions)} cases ({min_year}-{max_year})")
+    print(f"  Interventions: {len(interventions_records)} cases ({min_year}-{max_year})")
     print(f"  Total at risk: ${total_loss/1e9:.2f}B")
     print(f"  Total saved: ${total_saved/1e9:.2f}B")
 

@@ -44,16 +44,16 @@
 - [x] Ensure notebook and any web copy refer to `lif_stats.json`
 
 ## 2) Regenerate web data exports (and make them interactivity-ready)
-- [ ] Update `scripts/core/generate_web_data.py` schema for:
-  - [ ] `web/data/exploits.json`
-  - [ ] `web/data/interventions.json`
+- [x] Update `scripts/core/generate_web_data.py` schema for:
+  - [x] `web/data/exploits.json`
+  - [x] `web/data/interventions.json`
 - [ ] Add aggregated series exports for interactive charts (location TBD, e.g. `web/data/series/*.json`)
   - [ ] yearly totals
   - [ ] 4-layer yearly losses (paper-aligned)
   - [ ] vector distribution
   - [ ] cumulative totals
-- [ ] Regenerate JSON outputs and replace old ones safely
-- [ ] Ensure `web/js/main.js` remains compatible (or update it with backward compatibility)
+- [x] Regenerate JSON outputs and replace old ones safely
+- [x] Ensure `web/js/main.js` remains compatible (or update it with backward compatibility)
 
 ## 3) Website information architecture + layout refactor (ai-2027-inspired)
 ### 3.1 Global nav + routes
