@@ -153,10 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     // Support both 'q' and 'search' params
     const searchQuery = urlParams.get('q') || urlParams.get('search');
+    const searchInput = document.getElementById('search');
     if (searchQuery && searchInput) {
         searchInput.value = searchQuery;
-        // Trigger filter
-        filterData(searchQuery);
     }
 
     // Lightbox Logic

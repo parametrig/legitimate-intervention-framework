@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIF Research (All Charts) | Legitimate Intervention Framework</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/pages/narrative.css">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head>
+
+<body data-root-prefix="../../">
+
+    <header class="transparent">
+        <nav class="nav-links">
+            <a href="../../summary/">Summary</a>
+            <a href="../" class="active">Research</a>
+            <a href="../../database.html">Database</a>
+            <a href="../../about.html">About</a>
+        </nav>
+    </header>
+
+    <nav class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-track">
+            <div class="scroll-line"></div>
+            <div class="scroll-marker" id="scrollMarker"></div>
+            <div class="scroll-sections" id="scrollSections">
+                <div class="scroll-section active" data-target="executive">
+                    <div class="section-bar long"></div>
+                    <span class="section-label">Executive</span>
+                </div>
+                <div class="scroll-section" data-target="part1">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">I. Threat</span>
+                </div>
+                <div class="scroll-section" data-target="part2">
+                    <div class="section-bar short"></div>
+                    <span class="section-label">II. Intervention</span>
+                </div>
+                <div class="scroll-section" data-target="part3">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">III. Efficiency</span>
+                </div>
+                <div class="scroll-section" data-target="part4">
+                    <div class="section-bar long"></div>
+                    <span class="section-label">IV. Framework</span>
+                </div>
+            </div>
+            <div class="scroll-progress" id="scrollProgress">0%</div>
+        </div>
+    </nav>
+
+    <div class="narrative-layout">
+        <div class="narrative-sidebar"></div>
+
+        <div class="narrative-content">
+            <section class="hero-section active" data-narrative-section data-id="executive" data-chart="chart02_cumulative_losses"
+                data-fallback-src="../../charts/chart02_cumulative_losses.png" data-chart-anchor="chart02">
+                <h1>Legitimate Intervention Framework</h1>
+                <p class="report-lead">A continuously updatable research corpus: data changes live in CSV, and the web UI renders
+                    generated JSON artifacts.</p>
+                <p><a href="../../summary/">Go to summary →</a></p>
+            </section>
+
+            <section data-narrative-section data-id="part1" data-chart="chart01_annual_losses"
+                data-fallback-src="../../charts/chart01_annual_losses.png" data-chart-anchor="chart01">
+                <h2>Part I — The scale of the threat</h2>
+                <p>Annual losses establish the baseline magnitude of exploit risk.</p>
+            </section>
+
+            <section data-narrative-section data-id="part1b" data-chart="chart08_four_layer_timeline"
+                data-fallback-src="../../charts/chart08_four_layer_timeline.png" data-chart-anchor="chart08">
+                <h3>Loss layers (four-layer)</h3>
+                <p>This chart decomposes annual losses into intervention categories.</p>
+            </section>
+
+            <section data-narrative-section data-id="part1c" data-chart="chart09_vector_distribution"
+                data-fallback-src="../../charts/chart09_vector_distribution.png" data-chart-anchor="chart09">
+                <h3>Vector frequency</h3>
+                <p>Vector distribution indicates which vulnerabilities dominate incident frequency.</p>
+            </section>
+
+            <section data-narrative-section data-id="part2" data-chart="chart18_intervention_timeline"
+                data-fallback-src="../../charts/chart18_intervention_timeline.png" data-chart-anchor="chart18">
+                <h2>Part II — The state of intervention</h2>
+                <p>This section will be rendered interactively as we add chart configs; it currently falls back to the
+                    published chart image.</p>
+            </section>
+
+            <section data-narrative-section data-id="part3" data-chart="chart37_response_time"
+                data-fallback-src="../../charts/chart37_response_time.png" data-chart-anchor="chart37">
+                <h2>Part III — The effectiveness gap</h2>
+                <p>Response time vs legitimacy is the central empirical constraint.</p>
+            </section>
+
+            <section data-narrative-section data-id="part4" data-chart="chart47_comprehensive_lif_analysis"
+                data-fallback-src="../../charts/chart47_comprehensive_lif_analysis.png" data-chart-anchor="chart47">
+                <h2>Part IV — The framework</h2>
+                <p>Comprehensive market decomposition (fallback image until fully interactive config is implemented).</p>
+            </section>
+        </div>
+
+        <div class="narrative-chart-column">
+            <div class="narrative-sticky">
+                <div class="narrative-chart-frame is-fallback">
+                    <div id="interactiveChart" class="narrative-chart"></div>
+                    <div class="narrative-chart-fallback">
+                        <img id="interactiveChartFallbackImg" src="../../charts/chart02_cumulative_losses.png" alt="Chart">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="../../js/echarts_runtime.js"></script>
+    <script src="../../js/narrative_runtime.js"></script>
+</body>
+
+</html>
