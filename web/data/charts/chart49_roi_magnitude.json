@@ -1,0 +1,122 @@
+{
+  "chart": {
+    "title": {
+      "text": "Capital Saved by Intervention Model"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "xAxis": {
+      "type": "value",
+      "name": "Capital Protected ($M)"
+    },
+    "yAxis": {
+      "type": "category",
+      "data": [
+        "Signer Set \u00d7 Protocol",
+        "Signer Set \u00d7 Account",
+        "Governance \u00d7 Account",
+        "Delegated Body \u00d7 Protocol",
+        "Delegated Body \u00d7 Account",
+        "Signer Set \u00d7 Network",
+        "Signer Set \u00d7 Asset",
+        "Delegated Body \u00d7 Network"
+      ]
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          {
+            "value": 104.0,
+            "itemStyle": {
+              "color": "#2563EB"
+            },
+            "label": {
+              "show": true,
+              "position": "right",
+              "formatter": "$104M (25 cases)"
+            }
+          },
+          {
+            "value": 151.0,
+            "itemStyle": {
+              "color": "#2563EB"
+            },
+            "label": {
+              "show": true,
+              "position": "right",
+              "formatter": "$151M (4 cases)"
+            }
+          },
+          {
+            "value": 166.0,
+            "itemStyle": {
+              "color": "#7C3AED"
+            },
+            "label": {
+              "show": true,
+              "position": "right",
+              "formatter": "$166M (3 cases)"
+            }
+          },
+          {
+            "value": 233.0,
+            "itemStyle": {
+              "color": "#16A34A"
+            },
+            "label": {
+              "show": true,
+              "position": "right",
+              "formatter": "$233M (6 cases)"
+            }
+          },
+          {
+            "value": 297.0,
+            "itemStyle": {
+              "color": "#16A34A"
+            },
+            "label": {
+              "show": true,
+              "position": "right",
+              "formatter": "$297M (39 cases)"
+            }
+          },
+          {
+            "value": 483.0,
+            "itemStyle": {
+              "color": "#2563EB"
+            },
+            "label": {
+              "show": true,
+              "position": "right",
+              "formatter": "$483M (6 cases)"
+            }
+          },
+          {
+            "value": 545.0,
+            "itemStyle": {
+              "color": "#2563EB"
+            },
+            "label": {
+              "show": true,
+              "position": "right",
+              "formatter": "$545M (8 cases)"
+            }
+          },
+          {
+            "value": 610.0,
+            "itemStyle": {
+              "color": "#16A34A"
+            },
+            "label": {
+              "show": true,
+              "position": "right",
+              "formatter": "$610M (2 cases)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

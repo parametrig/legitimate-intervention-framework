@@ -52,37 +52,27 @@
 ### ✅ Completed This Sprint
 - **Global Layout:** Implemented `.mixed-layout` for standard reading widths + full-width charts.
 - **Refactoring:** Removed conflicting styles in `narrative.css` and `about.css`.
-- **Pages Updated:** `index.html`, `about.html`, `summary/index.html`, `research/*.html`.
-- **Mobile dock layout:** Fixed chart visibility on small screens
-- **Batch 1 audit:** Locked charts 01, 02, 08, 09 with clean specs
-- **Theme palette:** Enforced consistent colors across all charts
-- **Y-axis fitting:** Smart label fitting prevents clipping
-- **Landing layout:** Caption below chart, proper alignment
-- **Mobile regressions:** Fixed text layout on `/research/all`
+- **Navigation Polish:** Replaced text links with Phosphor icons; standardized global alignment (arrow-left, links-right) across desktop/mobile.
+- **Mobile optimization:** Resized nav typography and adjusted dropdowns to fit 390px viewports.
+-   **Global Layout:** Implemented `.mixed-layout` for standard reading widths + full-width charts.
+-   **Refactoring:** Removed conflicting styles in `narrative.css` and `about.css`.
+-   **Navigation Polish:** Replaced text links with Phosphor icons; standardized global alignment (arrow-left, links-right) across desktop/mobile.
+-   **Mobile optimization:** Resized nav typography and adjusted dropdowns to fit 390px viewports.
+-   **Mobile dock layout:** Fixed chart visibility and header alignment on small screens using Flexbox.
+-   **Mobile Dock Chart Visibility (CRITICAL):** Resolved - charts now render correctly on mobile.
+-   **Batch 1 audit:** Locked charts 01, 02, 08, 09 with clean specs
+-   **Theme palette:** Enforced consistent colors across all charts
+-   **Y-axis fitting:** Smart label fitting prevents clipping
+-   **Landing layout:** Caption below chart, proper alignment
 
 ### 🔄 Current Issues (IMMEDIATE ATTENTION NEEDED)
 
-#### 1. Mobile Dock Chart Visibility (CRITICAL)
-**Problem:** Chart shows `is-fallback` class, `offsetHeight: 0` on mobile
-**Files involved:**
-- `web/css/pages/narrative.css` (lines 215-245)
-- `web/js/echarts_runtime.js` (setActiveInteractiveChart function)
-- `web/js/narrative_runtime.js` (dock management)
-
-**Recent changes attempted:**
-- Changed `.narrative-chart-frame` from `height:100%` to `flex:1 1 0%` with `min-height:180px`
-- Added `display:flex; flex-direction:column` to `.narrative-sticky`
-- Modified close button positioning to `right:10px; top:10px`
-- Added mobile-specific resize triggers in chart rendering
-
-**Status:** Still broken - chart frame collapses to 0 height
-
-#### 2. Chart Interactivity Verification
+#### 1. Chart Interactivity Verification
 **Problem:** Need to verify all 50 charts render interactively, not falling back to PNG
 **Files to check:**
-- `web/data/charts/*.json` (all 50 specs)
-- Console for `is-fallback` class instances
-- Browser network tab for failed JSON loads
+-   `web/data/charts/*.json` (all 50 specs)
+-   Console for `is-fallback` class instances
+-   Browser network tab for failed JSON loads
 
 ---
 
@@ -216,6 +206,6 @@
 
 ---
 
-*Last updated: Feb 13, 2026 - Mobile dock issue in progress*
+*Last updated: Feb 14, 2026 - Navigation and Icons Polished*
 
 

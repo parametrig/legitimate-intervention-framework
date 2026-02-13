@@ -75,9 +75,12 @@ Generate:
   - `web/data/series/cumulative_totals.json`
   - `web/data/series/vector_distribution.json`
   - `web/data/series/four_layer_yearly_losses.json`
+ - Per-chart interactive specs (Option A, on-demand loading):
+   - `web/data/charts/<chart_id>.json`
  
 Generate with:
 - `python3 scripts/core/generate_web_series.py`
+- `python3 scripts/core/generate_web_charts.py`
 
 ### Charts
 - `scripts/analysis/lif_charts_v1.ipynb` must be audited for:
@@ -93,10 +96,11 @@ flowchart TD
   D[CSV: lif_all_interventions.csv] --> E[generate_web_data.py -> interventions.json]
   F[CSV: lif_intervention_metrics.csv] --> E
   A --> G[generate_web_series.py -> web/data/series/*.json]
+  G --> K[generate_web_charts.py -> web/data/charts/<chart_id>.json]
   B --> H[Website: summary/research copy uses stats]
   C --> I[Website: database view]
   E --> I
-  G --> J[Website: interactive charts]
+  K --> J[Website: interactive charts]
 ```
 
 ---

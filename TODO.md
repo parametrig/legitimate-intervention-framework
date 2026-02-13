@@ -139,6 +139,12 @@
   - [ ] links (Terms, Privacy, Request Correction)
   - [ ] correction/tip contact method
 
+## 11) Final Polish & Typography
+- [x] Standardize navigation links to use Phosphor icons (IPFS compatibility)
+- [x] Optimize navigation bar for mobile (fix back arrow visibility & dropdown cutoff)
+- [x] Unify desktop/mobile navigation layout (arrow-left, links-right)
+- [x] Increase typography scale for navigation and metadata for better readability
+
 ---
 
 ## Done Log

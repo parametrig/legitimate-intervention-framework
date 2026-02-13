@@ -1,0 +1,63 @@
+{
+  "chart": {
+    "title": {
+      "text": "Median Response Time by Authority"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Signer Set",
+        "Delegated Body",
+        "Governance"
+      ]
+    },
+    "yAxis": {
+      "type": "log",
+      "name": "Minutes (Log)",
+      "min": 1
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          {
+            "value": 94.0,
+            "itemStyle": {
+              "color": "#2563EB"
+            },
+            "label": {
+              "show": true,
+              "position": "top",
+              "formatter": "94 min"
+            }
+          },
+          {
+            "value": 52.0,
+            "itemStyle": {
+              "color": "#16A34A"
+            },
+            "label": {
+              "show": true,
+              "position": "top",
+              "formatter": "52 min"
+            }
+          },
+          {
+            "value": 720.0,
+            "itemStyle": {
+              "color": "#7C3AED"
+            },
+            "label": {
+              "show": true,
+              "position": "top",
+              "formatter": "720 min"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

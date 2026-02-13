@@ -1,0 +1,53 @@
+{
+  "chart": {
+    "title": {
+      "text": "Total Incurred Loss by Authority"
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "valueFormatter": "${value}B"
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Signer Set",
+        "Delegated Body",
+        "Governance"
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Loss ($B)"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          {
+            "value": 2.9,
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": 2.89,
+            "itemStyle": {
+              "color": "#16A34A"
+            }
+          },
+          {
+            "value": 1.73,
+            "itemStyle": {
+              "color": "#7C3AED"
+            }
+          }
+        ],
+        "label": {
+          "show": true,
+          "position": "top",
+          "formatter": "${c}B"
+        }
+      }
+    ]
+  }
+}

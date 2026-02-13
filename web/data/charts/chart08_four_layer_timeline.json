@@ -1,0 +1,134 @@
+{
+  "chart": {
+    "title": {
+      "text": "Annual DeFi Losses by Category"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "legend": {
+      "data": [
+        "Systemic Failures",
+        "Other Non-Addressable",
+        "Eligible (Missed)",
+        "Actually Intervened"
+      ],
+      "bottom": 0
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        2014,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Loss ($B)"
+    },
+    "series": [
+      {
+        "name": "Actually Intervened",
+        "type": "line",
+        "stack": "total",
+        "areaStyle": {},
+        "itemStyle": {
+          "color": "#16A34A"
+        },
+        "data": [
+          0.0,
+          0.06,
+          0.03,
+          0.0,
+          0.01,
+          0.03,
+          1.27,
+          2.67,
+          0.34,
+          0.82,
+          0.47,
+          0.01
+        ]
+      },
+      {
+        "name": "Eligible (Missed)",
+        "type": "line",
+        "stack": "total",
+        "areaStyle": {},
+        "itemStyle": {
+          "color": "#2563EB"
+        },
+        "data": [
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.08,
+          1.02,
+          0.87,
+          0.9,
+          0.51,
+          0.35,
+          0.0
+        ]
+      },
+      {
+        "name": "Other Non-Addressable",
+        "type": "line",
+        "stack": "total",
+        "areaStyle": {},
+        "itemStyle": {
+          "color": "#9CA3AF"
+        },
+        "data": [
+          0.46,
+          0.07,
+          0.07,
+          0.84,
+          0.05,
+          0.31,
+          0.36,
+          1.45,
+          0.57,
+          0.81,
+          2.38,
+          0.03
+        ]
+      },
+      {
+        "name": "Systemic Failures",
+        "type": "line",
+        "stack": "total",
+        "areaStyle": {},
+        "itemStyle": {
+          "color": "#475569"
+        },
+        "data": [
+          0.0,
+          0.0,
+          0.0,
+          2.4,
+          2.0,
+          0.0,
+          2.0,
+          52.0,
+          3.4,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  }
+}

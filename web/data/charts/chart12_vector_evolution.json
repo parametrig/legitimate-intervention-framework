@@ -1,0 +1,144 @@
+{
+  "chart": {
+    "title": {
+      "text": "Evolution of Top 5 Attack Vectors"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "legend": {
+      "data": [
+        "Logic Bug / Code Error",
+        "Access Control / Key Compromise",
+        "Oracle / Price Manipulation",
+        "Flash Loan / Economic Exploit",
+        "Phishing / Social Engineering"
+      ],
+      "bottom": 0
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Incidents"
+    },
+    "series": [
+      {
+        "name": "Logic Bug / Code Error",
+        "type": "line",
+        "stack": "total",
+        "areaStyle": {
+          "opacity": 0.6
+        },
+        "data": [
+          2,
+          0,
+          6,
+          39,
+          48,
+          50,
+          47,
+          17
+        ],
+        "itemStyle": {
+          "color": "#2563EB"
+        }
+      },
+      {
+        "name": "Access Control / Key Compromise",
+        "type": "line",
+        "stack": "total",
+        "areaStyle": {
+          "opacity": 0.6
+        },
+        "data": [
+          1,
+          1,
+          1,
+          17,
+          30,
+          28,
+          47,
+          27
+        ],
+        "itemStyle": {
+          "color": "#7C3AED"
+        }
+      },
+      {
+        "name": "Oracle / Price Manipulation",
+        "type": "line",
+        "stack": "total",
+        "areaStyle": {
+          "opacity": 0.6
+        },
+        "data": [
+          0,
+          0,
+          2,
+          4,
+          8,
+          13,
+          9,
+          9
+        ],
+        "itemStyle": {
+          "color": "#16A34A"
+        }
+      },
+      {
+        "name": "Flash Loan / Economic Exploit",
+        "type": "line",
+        "stack": "total",
+        "areaStyle": {
+          "opacity": 0.6
+        },
+        "data": [
+          0,
+          0,
+          0,
+          5,
+          9,
+          2,
+          18,
+          1
+        ],
+        "itemStyle": {
+          "color": "#D97706"
+        }
+      },
+      {
+        "name": "Phishing / Social Engineering",
+        "type": "line",
+        "stack": "total",
+        "areaStyle": {
+          "opacity": 0.6
+        },
+        "data": [
+          0,
+          0,
+          1,
+          1,
+          4,
+          5,
+          8,
+          4
+        ],
+        "itemStyle": {
+          "color": "#DC2626"
+        }
+      }
+    ]
+  }
+}

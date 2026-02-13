@@ -1,0 +1,53 @@
+{
+  "chart": {
+    "title": {
+      "text": "Effectiveness Leaderboard\n(70% Success + 30% Speed)"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "xAxis": {
+      "type": "value",
+      "name": "Composite Score",
+      "max": 85
+    },
+    "yAxis": {
+      "type": "category",
+      "data": [
+        "Signer Set",
+        "Governance",
+        "Delegated Body"
+      ]
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          {
+            "value": 53.4,
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": 53.9,
+            "itemStyle": {
+              "color": "#7C3AED"
+            }
+          },
+          {
+            "value": 61.9,
+            "itemStyle": {
+              "color": "#16A34A"
+            }
+          }
+        ],
+        "label": {
+          "show": true,
+          "position": "right",
+          "formatter": "{c}"
+        }
+      }
+    ]
+  }
+}

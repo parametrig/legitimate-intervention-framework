@@ -1,0 +1,145 @@
+{
+  "chart": {
+    "title": {
+      "text": "Annual Exploit Losses"
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "valueFormatter": "${value}B"
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        2014,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Loss ($B)",
+      "axisLabel": {
+        "formatter": "${value}B"
+      }
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          {
+            "value": 0.46,
+            "itemStyle": {
+              "color": "#60A5FA"
+            }
+          },
+          {
+            "value": 0.13,
+            "itemStyle": {
+              "color": "#60A5FA"
+            }
+          },
+          {
+            "value": 0.1,
+            "itemStyle": {
+              "color": "#60A5FA"
+            }
+          },
+          {
+            "value": 3.38,
+            "itemStyle": {
+              "color": "#60A5FA"
+            }
+          },
+          {
+            "value": 2.06,
+            "itemStyle": {
+              "color": "#60A5FA"
+            }
+          },
+          {
+            "value": 0.42,
+            "itemStyle": {
+              "color": "#60A5FA"
+            }
+          },
+          {
+            "value": 4.65,
+            "itemStyle": {
+              "color": "#60A5FA"
+            }
+          },
+          {
+            "value": 56.99,
+            "itemStyle": {
+              "color": "#60A5FA"
+            }
+          },
+          {
+            "value": 5.22,
+            "itemStyle": {
+              "color": "#60A5FA"
+            }
+          },
+          {
+            "value": 2.15,
+            "itemStyle": {
+              "color": "#60A5FA"
+            }
+          },
+          {
+            "value": 3.2,
+            "itemStyle": {
+              "color": "#60A5FA"
+            }
+          },
+          {
+            "value": 0.04,
+            "itemStyle": {
+              "color": "#60A5FA"
+            }
+          }
+        ],
+        "label": {
+          "show": true,
+          "position": "top",
+          "formatter": "${c}B"
+        }
+      },
+      {
+        "type": "line",
+        "data": [
+          0.46,
+          0.13,
+          0.1,
+          3.38,
+          2.06,
+          0.42,
+          4.65,
+          56.99,
+          5.22,
+          2.15,
+          3.2,
+          0.04
+        ],
+        "symbol": "circle",
+        "symbolSize": 8,
+        "lineStyle": {
+          "color": "#2563EB",
+          "width": 2
+        },
+        "itemStyle": {
+          "color": "#2563EB"
+        }
+      }
+    ]
+  }
+}

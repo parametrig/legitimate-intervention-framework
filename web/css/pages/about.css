@@ -3,11 +3,7 @@
    About / Editorial Layout
    ========================================= */
 
-.editorial-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 100px 2rem 4rem;
-}
+
 
 .hero-tagline {
     font-family: var(--font-serif);

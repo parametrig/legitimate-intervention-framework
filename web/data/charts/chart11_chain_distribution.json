@@ -1,0 +1,58 @@
+{
+  "chart": {
+    "title": {
+      "text": "Losses by Chain"
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "valueFormatter": "${value}B"
+    },
+    "xAxis": {
+      "type": "value",
+      "name": "Loss ($B)"
+    },
+    "yAxis": {
+      "type": "category",
+      "data": [
+        "Terra",
+        "CeFi",
+        "Multi-chain",
+        "Ethereum",
+        "Solana"
+      ],
+      "inverse": true
+    },
+    "series": [
+      {
+        "name": "Standard Loss",
+        "type": "bar",
+        "stack": "total",
+        "data": [
+          0.0,
+          25.55,
+          7.06,
+          2.02,
+          0.67
+        ],
+        "itemStyle": {
+          "color": "#475569"
+        }
+      },
+      {
+        "name": "Terra/Luna Outlier",
+        "type": "bar",
+        "stack": "total",
+        "data": [
+          40.0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "itemStyle": {
+          "color": "#DC2626"
+        }
+      }
+    ]
+  }
+}

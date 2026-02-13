@@ -7,8 +7,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const chartEl = document.getElementById('interactiveChart');
     const fallbackImg = document.getElementById('interactiveChartFallbackImg');
+    const dockCloseBtn = document.getElementById('chartDockClose');
+    const dockReopenBtn = document.getElementById('chartDockReopen');
+    const chartCaptionLink = document.getElementById('chartCaptionLink');
 
     const rootPrefix = document.body.getAttribute('data-root-prefix') || '';
+
+    function setDockClosed(closed) {
+        if (closed) {
+            document.body.classList.add('dock-closed');
+        } else {
+            document.body.classList.remove('dock-closed');
+        }
+    }
+
+    if (dockCloseBtn) {
+        dockCloseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            setDockClosed(true);
+        });
+    }
+
+    if (dockReopenBtn) {
+        dockReopenBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            setDockClosed(false);
+        });
+    }
 
     function updateMarker(targetSectionIndex) {
         if (targetSectionIndex >= 0 && scrollSections[targetSectionIndex]) {
@@ -23,6 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const chartId = entryTarget.getAttribute('data-chart');
         const fallbackSrc = entryTarget.getAttribute('data-fallback-src');
 
+        const inlineChartEl = entryTarget.querySelector('[data-inline-chart]');
+        const inlineFallbackImg = entryTarget.querySelector('.narrative-inline-chart-fallback img');
+
         sections.forEach(s => s.classList.remove('active'));
         entryTarget.classList.add('active');
 
@@ -34,20 +62,40 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        if (chartCaptionLink && chartId) {
+            const chartAnchor = entryTarget.getAttribute('data-chart-anchor');
+            const prettyTitleById = {
+                chart02_cumulative_losses: 'Cumulative Exploit Losses',
+                chart01_annual_losses: 'Annual Exploit Losses',
+                chart08_four_layer_timeline: 'Annual DeFi Losses by Category',
+                chart09_vector_distribution: 'Top Attack Vectors (Frequency)',
+            };
+
+            const pretty = prettyTitleById[chartId] || chartId;
+            chartCaptionLink.textContent = pretty;
+
+            if (chartAnchor) {
+                chartCaptionLink.href = `research/all/?chart=${encodeURIComponent(chartAnchor)}`;
+            }
+        }
+
         if (chartId) {
             await setActiveInteractiveChart({
                 rootPrefix,
                 chartId,
-                chartEl,
-                fallbackImgEl: fallbackImg,
+                chartEl: inlineChartEl || chartEl,
+                fallbackImgEl: inlineFallbackImg || fallbackImg,
                 fallbackSrc,
             });
         }
     }
 
+    const isMobile = window.innerWidth <= 768;
     const observerOptions = {
         root: null,
-        rootMargin: '-40% 0px -40% 0px',
+        // On mobile the fixed bottom chart dock reduces the usable viewport height.
+        // If we keep the same margins, sections may never become "intersecting".
+        rootMargin: isMobile ? '-25% 0px -60% 0px' : '-40% 0px -40% 0px',
         threshold: 0,
     };
 
@@ -60,6 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     sections.forEach(section => observer.observe(section));
+
+    if (sections[0]) {
+        activateSection(sections[0]);
+    }
 
     scrollSections.forEach(item => {
         item.addEventListener('click', () => {
@@ -108,7 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (chartParam) {
         const target = document.querySelector(`[data-chart-anchor="${chartParam}"]`) || document.querySelector(`#${chartParam}`);
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const y = target.getBoundingClientRect().top + window.scrollY - 90;
+            window.scrollTo({ top: Math.max(y, 0), behavior: 'smooth' });
+            activateSection(target);
         }
     }
 });

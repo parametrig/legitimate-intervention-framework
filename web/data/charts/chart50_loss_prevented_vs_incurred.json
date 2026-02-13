@@ -1,0 +1,69 @@
+{
+  "chart": {
+    "title": {
+      "text": "Loss Prevented vs Incurred by Authority"
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "valueFormatter": "${value}M"
+    },
+    "legend": {
+      "data": [
+        "Loss Incurred",
+        "Loss Prevented"
+      ],
+      "bottom": 0
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Signer Set",
+        "Delegated Body",
+        "Governance"
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Value ($M)",
+      "axisLabel": {
+        "formatter": "${value}M"
+      }
+    },
+    "series": [
+      {
+        "name": "Loss Incurred",
+        "type": "bar",
+        "data": [
+          2895.7,
+          2892.1,
+          1727.5
+        ],
+        "itemStyle": {
+          "color": "#DC2626"
+        },
+        "label": {
+          "show": true,
+          "position": "top",
+          "formatter": "${c}M"
+        }
+      },
+      {
+        "name": "Loss Prevented",
+        "type": "bar",
+        "data": [
+          1304.7,
+          1145.2,
+          245.7
+        ],
+        "itemStyle": {
+          "color": "#16A34A"
+        },
+        "label": {
+          "show": true,
+          "position": "top",
+          "formatter": "${c}M"
+        }
+      }
+    ]
+  }
+}

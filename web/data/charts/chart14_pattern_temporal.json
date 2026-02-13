@@ -1,0 +1,97 @@
+{
+  "chart": {
+    "title": {
+      "text": "Seasonal Patterns (Excl. Terra/Luna)"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "legend": {
+      "data": [
+        "Exploit Count",
+        "Total Loss ($B)"
+      ],
+      "bottom": 0
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ]
+    },
+    "yAxis": [
+      {
+        "type": "value",
+        "name": "Count",
+        "position": "left"
+      },
+      {
+        "type": "value",
+        "name": "Loss ($B)",
+        "position": "right",
+        "axisLabel": {
+          "formatter": "${value}B"
+        }
+      }
+    ],
+    "series": [
+      {
+        "name": "Exploit Count",
+        "type": "line",
+        "data": [
+          60,
+          64,
+          66,
+          60,
+          68,
+          63,
+          56,
+          37,
+          45,
+          54,
+          62,
+          68
+        ],
+        "itemStyle": {
+          "color": "#2563EB"
+        },
+        "symbol": "circle",
+        "symbolSize": 8
+      },
+      {
+        "name": "Total Loss ($B)",
+        "type": "bar",
+        "yAxisIndex": 1,
+        "data": [
+          7.05,
+          3.16,
+          1.79,
+          1.59,
+          2.13,
+          8.39,
+          0.91,
+          1.11,
+          1.38,
+          1.51,
+          8.89,
+          0.9
+        ],
+        "itemStyle": {
+          "color": "#DC2626",
+          "opacity": 0.3
+        }
+      }
+    ]
+  }
+}

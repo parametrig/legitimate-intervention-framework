@@ -1,0 +1,100 @@
+{
+  "chart": {
+    "title": [
+      {
+        "text": "By Count",
+        "left": "25%",
+        "top": "5%",
+        "textAlign": "center"
+      },
+      {
+        "text": "By Value",
+        "left": "75%",
+        "top": "5%",
+        "textAlign": "center"
+      }
+    ],
+    "tooltip": {
+      "trigger": "item",
+      "formatter": "{b}: {c} ({d}%)"
+    },
+    "legend": {
+      "bottom": 0,
+      "data": [
+        "LIF-Relevant",
+        "Potential Technical",
+        "Systemic/Social"
+      ]
+    },
+    "series": [
+      {
+        "type": "pie",
+        "radius": "50%",
+        "center": [
+          "25%",
+          "55%"
+        ],
+        "data": [
+          {
+            "value": 601,
+            "name": "LIF-Relevant",
+            "itemStyle": {
+              "color": "#16A34A"
+            }
+          },
+          {
+            "value": 59,
+            "name": "Potential Technical",
+            "itemStyle": {
+              "color": "#D97706"
+            }
+          },
+          {
+            "value": 45,
+            "name": "Systemic/Social",
+            "itemStyle": {
+              "color": "#475569"
+            }
+          }
+        ],
+        "label": {
+          "formatter": "{b}\n{c} ({d}%)"
+        }
+      },
+      {
+        "type": "pie",
+        "radius": "50%",
+        "center": [
+          "75%",
+          "55%"
+        ],
+        "data": [
+          {
+            "value": 9.6,
+            "name": "LIF-Relevant",
+            "itemStyle": {
+              "color": "#16A34A"
+            }
+          },
+          {
+            "value": 7.1,
+            "name": "Potential Technical",
+            "itemStyle": {
+              "color": "#D97706"
+            }
+          },
+          {
+            "value": 62.2,
+            "name": "Systemic/Social",
+            "itemStyle": {
+              "color": "#475569"
+            }
+          }
+        ],
+        "label": {
+          "formatter": "{b}\n${c}B ({d}%)"
+        }
+      }
+    ]
+  }
+}

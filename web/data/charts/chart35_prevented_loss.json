@@ -1,0 +1,70 @@
+{
+  "chart": {
+    "title": {
+      "text": "Prevented Loss by Authority"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "legend": {
+      "data": [
+        "Realizable Market",
+        "Flow Outlier"
+      ],
+      "bottom": 0
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Signer Set",
+        "Delegated Body",
+        "Governance"
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Capital Saved ($B)"
+    },
+    "series": [
+      {
+        "name": "Realizable Market",
+        "type": "bar",
+        "stack": "total",
+        "data": [
+          {
+            "value": 1.3,
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": 1.15,
+            "itemStyle": {
+              "color": "#16A34A"
+            }
+          },
+          {
+            "value": 0.25,
+            "itemStyle": {
+              "color": "#7C3AED"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Flow Outlier",
+        "type": "bar",
+        "stack": "total",
+        "data": [
+          0,
+          0,
+          0
+        ],
+        "itemStyle": {
+          "color": "#DC2626",
+          "opacity": 0.3
+        }
+      }
+    ]
+  }
+}

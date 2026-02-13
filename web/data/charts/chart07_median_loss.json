@@ -1,0 +1,53 @@
+{
+  "chart": {
+    "title": {
+      "text": "Median Loss by Subset"
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "valueFormatter": "${value}M"
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "All Interventions",
+        "LIF-Relevant",
+        "High-Fidelity Metrics"
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Median Loss (USD)"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          {
+            "value": 29.79,
+            "itemStyle": {
+              "color": "#7C3AED"
+            }
+          },
+          {
+            "value": 1.9,
+            "itemStyle": {
+              "color": "#7C3AED"
+            }
+          },
+          {
+            "value": 7.06,
+            "itemStyle": {
+              "color": "#7C3AED"
+            }
+          }
+        ],
+        "label": {
+          "show": true,
+          "position": "top",
+          "formatter": "${c}M"
+        }
+      }
+    ]
+  }
+}

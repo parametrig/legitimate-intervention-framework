@@ -1,0 +1,80 @@
+{
+  "chart": {
+    "title": {
+      "text": "Top Attack Vectors (Total Loss)"
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "valueFormatter": "${value}B"
+    },
+    "legend": {
+      "data": [
+        "Standard Loss",
+        "Terra/Luna Outlier"
+      ],
+      "bottom": 0
+    },
+    "xAxis": {
+      "type": "value",
+      "name": "Loss ($B)"
+    },
+    "yAxis": {
+      "type": "category",
+      "data": [
+        "Economic / Systemic Failure",
+        "Access Control / Key Compromise",
+        "Scam / Systemic Failure",
+        "Logic Bug / Code Error",
+        "Blind Signing / Social Engineering (Lazarus)",
+        "Security Breach",
+        "Rugpull / Exit Scam",
+        "Flash Loan / Economic Exploit",
+        "Oracle / Price Manipulation",
+        "Logic Bug / Signature Bypass"
+      ],
+      "inverse": true
+    },
+    "series": [
+      {
+        "name": "Standard Loss",
+        "type": "bar",
+        "stack": "total",
+        "data": [
+          17.4,
+          5.09,
+          4.4,
+          3.37,
+          1.5,
+          1.47,
+          0.84,
+          0.35,
+          0.33,
+          0.33
+        ],
+        "itemStyle": {
+          "color": "#475569"
+        }
+      },
+      {
+        "name": "Terra/Luna Outlier",
+        "type": "bar",
+        "stack": "total",
+        "data": [
+          40.0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "itemStyle": {
+          "color": "#DC2626"
+        }
+      }
+    ]
+  }
+}

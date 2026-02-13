@@ -1,0 +1,741 @@
+{
+  "chart": {
+    "title": {
+      "text": "Risk Matrix: Frequency vs. Severity"
+    },
+    "tooltip": {
+      "trigger": "item",
+      "formatter": "{b}<br/>Frequency: {@[0]}<br/>Avg Loss: ${@[1]}"
+    },
+    "xAxis": {
+      "type": "log",
+      "name": "Frequency",
+      "min": 1
+    },
+    "yAxis": {
+      "type": "log",
+      "name": "Avg Severity (USD)",
+      "min": 10000,
+      "axisLabel": {
+        "formatter": "${value}"
+      }
+    },
+    "series": [
+      {
+        "type": "scatter",
+        "data": [
+          [
+            6,
+            10187666.666666666,
+            ""
+          ],
+          [
+            1,
+            26000000.0,
+            "API Key Compromise"
+          ],
+          [
+            1,
+            7000000.0,
+            "Access Control"
+          ],
+          [
+            154,
+            33064059.844155844,
+            "Access Control"
+          ],
+          [
+            1,
+            7600000.0,
+            "Admin Key Compromise"
+          ],
+          [
+            1,
+            27418034.0,
+            "Admin Key Compromise"
+          ],
+          [
+            1,
+            216000000.0,
+            "Admin Key Compromise"
+          ],
+          [
+            1,
+            59000000.0,
+            "Admin Key Compromise"
+          ],
+          [
+            1,
+            1140000.0,
+            "Admin Key Compromise"
+          ],
+          [
+            1,
+            4750000.0,
+            "Admin Key Compromise"
+          ],
+          [
+            1,
+            2200000.0,
+            "Admin Key Compromise"
+          ],
+          [
+            1,
+            1180000.0,
+            "Admin Key Leak"
+          ],
+          [
+            1,
+            8400000.0,
+            "Admin Key Theft"
+          ],
+          [
+            1,
+            3760000.0,
+            "Admin Key Timing"
+          ],
+          [
+            1,
+            100000.0,
+            "Arbitrage"
+          ],
+          [
+            6,
+            2254666.6666666665,
+            "Arbitrary Call"
+          ],
+          [
+            1,
+            2100000.0,
+            "Arbitrary Call"
+          ],
+          [
+            1,
+            3600000.0,
+            "Arbitrary Calls"
+          ],
+          [
+            1,
+            1500000000.0,
+            "Blind Signing"
+          ],
+          [
+            7,
+            17085201.85714286,
+            "Bridge Attack"
+          ],
+          [
+            3,
+            107023694.0,
+            "Broken Math"
+          ],
+          [
+            1,
+            340000.0,
+            "Business Logic Flaw"
+          ],
+          [
+            1,
+            0.0,
+            "CEX Contagion"
+          ],
+          [
+            1,
+            1050000.0,
+            "CPIMP (Front-running Initialization)"
+          ],
+          [
+            1,
+            103000000.0,
+            "Centralization"
+          ],
+          [
+            1,
+            1600000.0,
+            "Centralized Corruption"
+          ],
+          [
+            1,
+            371000.0,
+            "Collateral Manipulation"
+          ],
+          [
+            1,
+            220000.0,
+            "Contract Reinitialization"
+          ],
+          [
+            1,
+            230000.0,
+            "Contract Vulnerability"
+          ],
+          [
+            1,
+            336000.0,
+            "Contract Vulnerability"
+          ],
+          [
+            1,
+            6900000.0,
+            "Counterfeit Collateral"
+          ],
+          [
+            1,
+            12000000.0,
+            "Counterfeit Contracts"
+          ],
+          [
+            1,
+            42000000.0,
+            "Cross-contract Reentrancy"
+          ],
+          [
+            1,
+            2000000.0,
+            "DNS Hijack"
+          ],
+          [
+            1,
+            570000.0,
+            "DNS Hijack"
+          ],
+          [
+            1,
+            34000000.0,
+            "Denial Of Service"
+          ],
+          [
+            2,
+            7400000.0,
+            "Deprecated Cauldron"
+          ],
+          [
+            1,
+            2150000.0,
+            "Double-decimal Inflation Bug"
+          ],
+          [
+            1,
+            3100000.0,
+            "EIP-7702 delegation"
+          ],
+          [
+            8,
+            7175221875.0,
+            "Economic"
+          ],
+          [
+            1,
+            9800000.0,
+            "Exchange Rate Manipulation (1 wei shares)"
+          ],
+          [
+            1,
+            11000000.0,
+            "Flash Loan"
+          ],
+          [
+            1,
+            15000000.0,
+            "Flash Loan"
+          ],
+          [
+            35,
+            10035679.0,
+            "Flash Loan"
+          ],
+          [
+            1,
+            30500000.0,
+            "Flash Loan"
+          ],
+          [
+            2,
+            5412162.5,
+            "Flash Loan"
+          ],
+          [
+            1,
+            20000000.0,
+            "Flash Loan"
+          ],
+          [
+            2,
+            4122500.0,
+            "Flash Loan"
+          ],
+          [
+            1,
+            15600000.0,
+            "Flash Loan"
+          ],
+          [
+            1,
+            241000.0,
+            "Front-running Attack"
+          ],
+          [
+            1,
+            120000000.0,
+            "Frontend Attack"
+          ],
+          [
+            1,
+            187156.0,
+            "Gas Limit Vulnerability"
+          ],
+          [
+            1,
+            41000000.0,
+            "Governance"
+          ],
+          [
+            1,
+            182000000.0,
+            "Governance Attack"
+          ],
+          [
+            1,
+            2500000.0,
+            "Governance Attack"
+          ],
+          [
+            1,
+            6000000.0,
+            "Governance Attack"
+          ],
+          [
+            1,
+            0.0,
+            "Governance Attack"
+          ],
+          [
+            1,
+            0.0,
+            "Hard Fork"
+          ],
+          [
+            1,
+            5000000.0,
+            "Incentive Flaw"
+          ],
+          [
+            1,
+            101000.0,
+            "Incorrect Burn Logic"
+          ],
+          [
+            10,
+            2739700.0,
+            "Incorrect Validation"
+          ],
+          [
+            1,
+            9730000.0,
+            "Infinite Approval"
+          ],
+          [
+            1,
+            3300000.0,
+            "Infinite Mint"
+          ],
+          [
+            2,
+            264000.0,
+            "Inflation Attack"
+          ],
+          [
+            1,
+            200000000.0,
+            "Infrastructure"
+          ],
+          [
+            1,
+            4800000.0,
+            "Insider Threat"
+          ],
+          [
+            1,
+            26200000.0,
+            "Integer Overflow"
+          ],
+          [
+            1,
+            5000000.0,
+            "Integer Underflow"
+          ],
+          [
+            1,
+            3000000.0,
+            "LayerZero Peer Exploit"
+          ],
+          [
+            1,
+            61500000.0,
+            "Legal"
+          ],
+          [
+            1,
+            10000000.0,
+            "Liquidity Failure"
+          ],
+          [
+            4,
+            374500.0,
+            "Logic Bug"
+          ],
+          [
+            1,
+            640000.0,
+            "Logic Bug"
+          ],
+          [
+            2,
+            6915000.0,
+            "Logic Bug"
+          ],
+          [
+            1,
+            2100000.0,
+            "Logic Bug"
+          ],
+          [
+            209,
+            16129466.688995216,
+            "Logic Bug"
+          ],
+          [
+            1,
+            4400000.0,
+            "Logic Bug"
+          ],
+          [
+            1,
+            48000000.0,
+            "Logic Bug"
+          ],
+          [
+            1,
+            1786520.0,
+            "Logic Bug"
+          ],
+          [
+            1,
+            37500000.0,
+            "Logic Bug"
+          ],
+          [
+            1,
+            11000000.0,
+            "Logic Bug"
+          ],
+          [
+            4,
+            5940000.0,
+            "Logic Bug"
+          ],
+          [
+            1,
+            326000000.0,
+            "Logic Bug"
+          ],
+          [
+            1,
+            197000000.0,
+            "Logic Bug"
+          ],
+          [
+            1,
+            4900000.0,
+            "Logic Bug"
+          ],
+          [
+            1,
+            9000000.0,
+            "Market Manipulation"
+          ],
+          [
+            2,
+            62200000.0,
+            "Market Manipulation"
+          ],
+          [
+            1,
+            2000000.0,
+            "Minting"
+          ],
+          [
+            1,
+            29586973.0,
+            "Minting Exploit"
+          ],
+          [
+            1,
+            300000.0,
+            "Misconfiguration"
+          ],
+          [
+            1,
+            4400000.0,
+            "Multisig Compromise (3-of-4)"
+          ],
+          [
+            1,
+            235000000.0,
+            "Multisig Compromise"
+          ],
+          [
+            1,
+            10000000.0,
+            "Operational Error"
+          ],
+          [
+            1,
+            2600000.0,
+            "Operational Error"
+          ],
+          [
+            1,
+            99100000.0,
+            "Operator Role Compromise"
+          ],
+          [
+            45,
+            7317720.288888888,
+            "Oracle"
+          ],
+          [
+            3,
+            3676666.6666666665,
+            "Oracle Manipulation"
+          ],
+          [
+            1,
+            2000000.0,
+            "Oracle Manipulation (LUNC"
+          ],
+          [
+            1,
+            21800000.0,
+            "Oracle Manipulation (Stale Price"
+          ],
+          [
+            1,
+            36000000.0,
+            "Oracle Manipulation"
+          ],
+          [
+            1,
+            6500000.0,
+            "Oracle Manipulation"
+          ],
+          [
+            1,
+            3000000.0,
+            "Oracle Manipulation"
+          ],
+          [
+            1,
+            186000.0,
+            "Parameter Validation"
+          ],
+          [
+            1,
+            41500000.0,
+            "Partner API Breach (Kiln)"
+          ],
+          [
+            23,
+            11416674.086956521,
+            "Phishing"
+          ],
+          [
+            1,
+            146000.0,
+            "Post Insolvency Check"
+          ],
+          [
+            1,
+            6800000.0,
+            "Precision Loss"
+          ],
+          [
+            1,
+            2000000.0,
+            "Price Oracle"
+          ],
+          [
+            1,
+            44700000.0,
+            "Private Key Compromise (Hot Wallet)"
+          ],
+          [
+            1,
+            3000000.0,
+            "Private Key Leak"
+          ],
+          [
+            1,
+            255000.0,
+            "Private Key Leakage"
+          ],
+          [
+            1,
+            3900000.0,
+            "Privilege Compromise"
+          ],
+          [
+            1,
+            2700000.0,
+            "Proxy Admin Compromise"
+          ],
+          [
+            1,
+            2700000.0,
+            "Proxy Admin Vulnerability"
+          ],
+          [
+            1,
+            6400000.0,
+            "Re-entrancy"
+          ],
+          [
+            3,
+            21300000.0,
+            "Reentrancy"
+          ],
+          [
+            1,
+            49500000.0,
+            "Rogue Developer"
+          ],
+          [
+            1,
+            62500000.0,
+            "Rogue Developer"
+          ],
+          [
+            1,
+            8400000.0,
+            "Rounding Bug"
+          ],
+          [
+            1,
+            9570000.0,
+            "Rounding Error"
+          ],
+          [
+            1,
+            10000000.0,
+            "Rugpull"
+          ],
+          [
+            20,
+            41754150.0,
+            "Rugpull"
+          ],
+          [
+            2,
+            2200000000.0,
+            "Scam"
+          ],
+          [
+            15,
+            97736666.66666667,
+            "Security Breach"
+          ],
+          [
+            1,
+            37000000.0,
+            "Seed Phrase Theft"
+          ],
+          [
+            1,
+            4800000.0,
+            "Self-Transfer"
+          ],
+          [
+            1,
+            7500000.0,
+            "Signature Verification Failure"
+          ],
+          [
+            3,
+            253000.0,
+            "Slippage"
+          ],
+          [
+            2,
+            3186364.0,
+            "Storage Collision"
+          ],
+          [
+            1,
+            1900000.0,
+            "Storage Dependency Vulnerability"
+          ],
+          [
+            1,
+            3100000.0,
+            "Supply Chain Attack"
+          ],
+          [
+            1,
+            0.0,
+            "Supply Chain Attack"
+          ],
+          [
+            1,
+            48000000.0,
+            "Tick Manipulation"
+          ],
+          [
+            1,
+            500000.0,
+            "Token Incompatible"
+          ],
+          [
+            1,
+            355000.0,
+            "Transient Storage Collision"
+          ],
+          [
+            17,
+            7710769.411764706,
+            "Uncategorized"
+          ],
+          [
+            1,
+            9000000.0,
+            "Unchecked Arithmetic Underflow"
+          ],
+          [
+            1,
+            3000000.0,
+            "Validator Control"
+          ],
+          [
+            1,
+            16000000.0,
+            "Voting Power Privilege Exploit (MakerDAO Fork)"
+          ],
+          [
+            2,
+            114500.0,
+            "Weak RNG"
+          ]
+        ],
+        "symbolSize": 20,
+        "itemStyle": {
+          "color": "#D97706"
+        },
+        "label": {
+          "show": true,
+          "formatter": "{@[2]}",
+          "position": "right",
+          "fontSize": 9
+        }
+      }
+    ]
+  }
+}

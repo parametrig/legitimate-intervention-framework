@@ -1,0 +1,73 @@
+{
+  "chart": {
+    "title": {
+      "text": "Authority Effectiveness (High-Confidence)"
+    },
+    "tooltip": {
+      "trigger": "item"
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Delegated Body",
+        "Governance",
+        "Signer Set"
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Avg Success (%)",
+      "max": 110
+    },
+    "series": [
+      {
+        "type": "scatter",
+        "symbolSize": 30,
+        "data": [
+          {
+            "value": [
+              0,
+              48.6
+            ],
+            "itemStyle": {
+              "color": "#16A34A"
+            },
+            "label": {
+              "show": true,
+              "position": "top",
+              "formatter": "$880M (n=8)"
+            }
+          },
+          {
+            "value": [
+              1,
+              77.0
+            ],
+            "itemStyle": {
+              "color": "#7C3AED"
+            },
+            "label": {
+              "show": true,
+              "position": "top",
+              "formatter": "$236M (n=7)"
+            }
+          },
+          {
+            "value": [
+              2,
+              39.1
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            },
+            "label": {
+              "show": true,
+              "position": "top",
+              "formatter": "$550M (n=37)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

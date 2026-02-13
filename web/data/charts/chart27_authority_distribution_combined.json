@@ -1,0 +1,51 @@
+{
+  "chart": {
+    "title": {
+      "text": "Interventions by Authority"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Signer Set",
+        "Delegated Body",
+        "Governance"
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Count"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          {
+            "value": 51,
+            "itemStyle": {
+              "color": "#D97706"
+            }
+          },
+          {
+            "value": 49,
+            "itemStyle": {
+              "color": "#D97706"
+            }
+          },
+          {
+            "value": 37,
+            "itemStyle": {
+              "color": "#D97706"
+            }
+          }
+        ],
+        "label": {
+          "show": true,
+          "position": "top"
+        }
+      }
+    ]
+  }
+}

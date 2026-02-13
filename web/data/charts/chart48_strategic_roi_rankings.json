@@ -1,0 +1,60 @@
+{
+  "chart": {
+    "title": {
+      "text": "Strategic ROI Rankings"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "xAxis": {
+      "type": "value",
+      "name": "ROI Score",
+      "max": 80
+    },
+    "yAxis": {
+      "type": "category",
+      "data": [
+        "Automated",
+        "Governance",
+        "Signer Set",
+        "Delegated Body"
+      ]
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          {
+            "value": 32.3,
+            "itemStyle": {
+              "color": "#D97706"
+            }
+          },
+          {
+            "value": 46.6,
+            "itemStyle": {
+              "color": "#7C3AED"
+            }
+          },
+          {
+            "value": 58.0,
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": 58.9,
+            "itemStyle": {
+              "color": "#16A34A"
+            }
+          }
+        ],
+        "label": {
+          "show": true,
+          "position": "right",
+          "formatter": "{c}"
+        }
+      }
+    ]
+  }
+}

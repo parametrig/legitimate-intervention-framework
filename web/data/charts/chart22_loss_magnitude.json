@@ -1,0 +1,109 @@
+{
+  "chart": {
+    "title": {
+      "text": "Loss Magnitude Distribution (Log Scale)"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "legend": {
+      "data": [
+        "All Exploits",
+        "Interventions"
+      ],
+      "bottom": 0
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "10^4",
+        "10^5",
+        "10^5",
+        "10^5",
+        "10^5",
+        "10^6",
+        "10^6",
+        "10^6",
+        "10^7",
+        "10^7",
+        "10^7",
+        "10^8",
+        "10^8",
+        "10^8",
+        "10^9",
+        "10^9",
+        "10^9",
+        "10^10",
+        "10^10",
+        "10^10"
+      ],
+      "name": "USD Magnitude"
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Frequency"
+    },
+    "series": [
+      {
+        "name": "All Exploits",
+        "type": "bar",
+        "data": [
+          1,
+          0,
+          38,
+          89,
+          74,
+          73,
+          94,
+          84,
+          78,
+          43,
+          46,
+          29,
+          26,
+          7,
+          5,
+          4,
+          3,
+          1,
+          0,
+          1
+        ],
+        "itemStyle": {
+          "color": "#475569",
+          "opacity": 0.7
+        }
+      },
+      {
+        "name": "Interventions",
+        "type": "bar",
+        "data": [
+          1,
+          4,
+          2,
+          1,
+          4,
+          6,
+          16,
+          7,
+          6,
+          19,
+          32,
+          11,
+          6,
+          5,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "itemStyle": {
+          "color": "#2563EB",
+          "opacity": 0.7
+        }
+      }
+    ]
+  }
+}

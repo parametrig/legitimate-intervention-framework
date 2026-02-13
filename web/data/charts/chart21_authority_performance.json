@@ -1,0 +1,63 @@
+{
+  "chart": {
+    "title": {
+      "text": "Authority: Success Rate vs Response Time"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Signer Set",
+        "Delegated Body",
+        "Governance"
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Success (%)",
+      "max": 110
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          {
+            "value": 39.1,
+            "itemStyle": {
+              "color": "#2563EB"
+            },
+            "label": {
+              "show": true,
+              "position": "top",
+              "formatter": "39.1% (6h)"
+            }
+          },
+          {
+            "value": 48.6,
+            "itemStyle": {
+              "color": "#16A34A"
+            },
+            "label": {
+              "show": true,
+              "position": "top",
+              "formatter": "48.6% (10h)"
+            }
+          },
+          {
+            "value": 73.2,
+            "itemStyle": {
+              "color": "#7C3AED"
+            },
+            "label": {
+              "show": true,
+              "position": "top",
+              "formatter": "73.2% (2d)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

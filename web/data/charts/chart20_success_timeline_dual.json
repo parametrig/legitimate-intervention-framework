@@ -1,0 +1,96 @@
+{
+  "chart": {
+    "title": {
+      "text": "Containment vs Capital Preservation Rate"
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "axisPointer": {
+        "type": "cross"
+      }
+    },
+    "legend": {
+      "data": [
+        "Containment Success",
+        "Capital Preservation"
+      ],
+      "bottom": 0
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Rate (%)",
+      "max": 105,
+      "axisLabel": {
+        "formatter": "{value}%"
+      }
+    },
+    "series": [
+      {
+        "name": "Containment Success",
+        "type": "line",
+        "data": [
+          100.0,
+          100.0,
+          0.0,
+          66.0,
+          0.0,
+          48.9,
+          22.4,
+          23.9,
+          33.7,
+          77.0,
+          33.3
+        ],
+        "areaStyle": {
+          "opacity": 0.15
+        },
+        "symbol": "circle",
+        "symbolSize": 8,
+        "itemStyle": {
+          "color": "#16A34A"
+        }
+      },
+      {
+        "name": "Capital Preservation",
+        "type": "line",
+        "data": [
+          50.0,
+          0.0,
+          0.0,
+          39.8,
+          0.0,
+          32.1,
+          26.2,
+          27.2,
+          4.9,
+          39.1,
+          0.0
+        ],
+        "areaStyle": {
+          "opacity": 0.15
+        },
+        "symbol": "diamond",
+        "symbolSize": 8,
+        "itemStyle": {
+          "color": "#2563EB"
+        }
+      }
+    ]
+  }
+}

@@ -185,10 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     });
 
-    // Initialize Icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    // Icons are inline SVG; no runtime initialization needed.
 });
 
 // Global Helpers
@@ -482,7 +479,7 @@ function renderRow(c, isIntervention = true) {
         <tr class="case-row" data-id="${c.id}" onclick="showCaseDetail('${c.id}')">
             <td style="white-space:nowrap;">${formatDate(c.date)}</td>
             <td>
-                <strong>${c.protocol || '—'}</strong> ${c.has_rationale ? '<span class="rationale-badge" title="Detailed rationale available"><i data-lucide="file-text"></i></span>' : ''}
+                <strong>${c.protocol || '—'}</strong> ${c.has_rationale ? '<span class="rationale-badge" title="Detailed rationale available"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>' : ''}
                 <br><span class="chain-label">${c.chain || '—'}</span>
             </td>
             <td>
@@ -497,7 +494,7 @@ function renderRow(c, isIntervention = true) {
             <td>
                 <span class="vector-label">${getVectorLabel(c)}</span>
                 ${c.source_url ? `<a href="${c.source_url}" target="_blank" class="source-link" onclick="event.stopPropagation()">
-                    <i data-lucide="external-link"></i>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                 </a>` : ''}
             </td>
         </tr>
@@ -549,10 +546,7 @@ function renderTable() {
         resultsTotals.innerHTML = `<span class="text-loss">${formatCurrency(stats.totalLoss)} total losses</span>`;
     }
 
-    // Re-init icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    // Icons are inline SVG; no runtime initialization needed.
 }
 
 // Show case detail modal
@@ -639,7 +633,7 @@ function showCaseDetail(caseId) {
 
                 ${c.has_rationale && c.rationale ? `
                 <div class="rationale-section">
-                    <h3><i data-lucide="file-text"></i> Classification Rationale</h3>
+                    <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg> Classification Rationale</h3>
                     <div class="rationale-content">
                         ${c.rationale}
                     </div>
@@ -650,7 +644,7 @@ function showCaseDetail(caseId) {
             <div class="modal-footer">
                 ${c.source_url ? `
                     <a href="${c.source_url}" target="_blank" class="source-link">
-                        Source Document <i data-lucide="external-link"></i>
+                        Source Document <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                     </a>
                 ` : ''}
             </div>
@@ -659,10 +653,6 @@ function showCaseDetail(caseId) {
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
 }
 
 // Close case detail modal
@@ -711,6 +701,12 @@ async function initDatabase() {
 
     // Render initial table
     renderTable();
+
+    // Deep link: open case modal
+    const deepLinkId = urlParams.get('id');
+    if (deepLinkId) {
+        showCaseDetail(deepLinkId);
+    }
 
     // Set up event listeners
     setupDatabaseListeners();
@@ -781,7 +777,4 @@ function toggleInsight(btn) {
     }
 }
 
-// Initialize icons on all pages if Lucide is present
-if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
-}
+// Icons are inline SVG; no runtime initialization needed.

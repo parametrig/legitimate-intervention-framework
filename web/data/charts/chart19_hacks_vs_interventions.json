@@ -1,0 +1,117 @@
+{
+  "chart": {
+    "title": {
+      "text": "Exploits vs Intervention Rate"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "legend": {
+      "data": [
+        "Exploits",
+        "Interventions",
+        "Rate (%)"
+      ],
+      "bottom": 0
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    "yAxis": [
+      {
+        "type": "value",
+        "name": "Count"
+      },
+      {
+        "type": "value",
+        "name": "Rate (%)",
+        "max": 100,
+        "axisLabel": {
+          "formatter": "{value}%"
+        }
+      }
+    ],
+    "series": [
+      {
+        "name": "Exploits",
+        "type": "bar",
+        "data": [
+          3,
+          4,
+          7,
+          4,
+          18,
+          93,
+          147,
+          141,
+          169,
+          109,
+          8
+        ],
+        "itemStyle": {
+          "color": "#475569",
+          "opacity": 0.4
+        }
+      },
+      {
+        "name": "Interventions",
+        "type": "bar",
+        "data": [
+          1,
+          2,
+          3,
+          1,
+          2,
+          17,
+          30,
+          14,
+          31,
+          24,
+          5
+        ],
+        "itemStyle": {
+          "color": "#16A34A"
+        }
+      },
+      {
+        "name": "Rate (%)",
+        "type": "line",
+        "yAxisIndex": 1,
+        "data": [
+          33.3,
+          50.0,
+          42.9,
+          25.0,
+          11.1,
+          18.3,
+          20.4,
+          9.9,
+          18.3,
+          22.0,
+          62.5
+        ],
+        "symbol": "circle",
+        "symbolSize": 8,
+        "lineStyle": {
+          "color": "#2563EB"
+        },
+        "itemStyle": {
+          "color": "#2563EB"
+        }
+      }
+    ]
+  }
+}

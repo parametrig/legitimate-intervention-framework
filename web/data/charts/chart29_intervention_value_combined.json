@@ -1,0 +1,323 @@
+{
+  "chart": {
+    "title": {
+      "text": "Prevented Value by Intervention Scope"
+    },
+    "tooltip": {
+      "trigger": "item"
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Asset",
+        "Account",
+        "Protocol",
+        "Network",
+        "Module"
+      ]
+    },
+    "yAxis": {
+      "type": "log",
+      "name": "Loss Prevented (USD)",
+      "axisLabel": {
+        "formatter": "${value}"
+      }
+    },
+    "series": [
+      {
+        "type": "scatter",
+        "symbolSize": 10,
+        "data": [
+          {
+            "value": [
+              "Account",
+              276100000.0
+            ],
+            "itemStyle": {
+              "color": "#16A34A"
+            }
+          },
+          {
+            "value": [
+              "Network",
+              9400000.0
+            ],
+            "itemStyle": {
+              "color": "#7C3AED"
+            }
+          },
+          {
+            "value": [
+              "Account",
+              20700000.0
+            ],
+            "itemStyle": {
+              "color": "#16A34A"
+            }
+          },
+          {
+            "value": [
+              "Protocol",
+              45700000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Network",
+              12800000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Account",
+              874380.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Protocol",
+              20000000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Account",
+              162000000.0
+            ],
+            "itemStyle": {
+              "color": "#7C3AED"
+            }
+          },
+          {
+            "value": [
+              "Protocol",
+              7180000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Protocol",
+              3350000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Protocol",
+              6500000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Asset",
+              3400000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Asset",
+              32000000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Protocol",
+              10000000.0
+            ],
+            "itemStyle": {
+              "color": "#7C3AED"
+            }
+          },
+          {
+            "value": [
+              "Module",
+              5400000.0
+            ],
+            "itemStyle": {
+              "color": "#16A34A"
+            }
+          },
+          {
+            "value": [
+              "Protocol",
+              197000000.0
+            ],
+            "itemStyle": {
+              "color": "#16A34A"
+            }
+          },
+          {
+            "value": [
+              "Network",
+              470000000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Protocol",
+              36000000.0
+            ],
+            "itemStyle": {
+              "color": "#16A34A"
+            }
+          },
+          {
+            "value": [
+              "Protocol",
+              7200000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Protocol",
+              3800000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Account",
+              150000000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Protocol",
+              1150000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Asset",
+              326000000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Module",
+              20000000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Protocol",
+              9420000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Network",
+              610000000.0
+            ],
+            "itemStyle": {
+              "color": "#16A34A"
+            }
+          },
+          {
+            "value": [
+              "Asset",
+              1300000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Account",
+              4300000.0
+            ],
+            "itemStyle": {
+              "color": "#7C3AED"
+            }
+          },
+          {
+            "value": [
+              "Network",
+              60000000.0
+            ],
+            "itemStyle": {
+              "color": "#7C3AED"
+            }
+          },
+          {
+            "value": [
+              "Asset",
+              182000000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Asset",
+              75000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": [
+              "Module",
+              2000000.0
+            ],
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

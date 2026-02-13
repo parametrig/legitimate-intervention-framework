@@ -1,0 +1,66 @@
+{
+  "chart": {
+    "title": {
+      "text": "Intervention Success Rate Evolution"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        2016,
+        2017,
+        2019,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Success (%)",
+      "max": 110
+    },
+    "series": [
+      {
+        "type": "line",
+        "symbol": "circle",
+        "symbolSize": 10,
+        "lineStyle": {
+          "color": "#16A34A",
+          "width": 3
+        },
+        "itemStyle": {
+          "color": "#16A34A"
+        },
+        "areaStyle": {
+          "color": "#16A34A",
+          "opacity": 0.1
+        },
+        "data": [
+          100.0,
+          100.0,
+          66.0,
+          48.9,
+          22.4,
+          23.9,
+          33.7,
+          77.0,
+          33.3
+        ],
+        "label": {
+          "show": true,
+          "position": "top",
+          "formatter": "{c}%"
+        },
+        "markArea": {
+          "data": []
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "chart": {
+    "title": {
+      "text": "Cumulative Exploit Losses"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "legend": {
+      "data": [
+        "Total Market",
+        "Technical Addressable",
+        "LIF-Relevant"
+      ],
+      "bottom": 0
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        2014,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Cumulative ($B)",
+      "axisLabel": {
+        "formatter": "${value}B"
+      }
+    },
+    "series": [
+      {
+        "name": "Total Market",
+        "type": "line",
+        "areaStyle": {
+          "opacity": 0.15
+        },
+        "data": [
+          0.46,
+          0.59,
+          0.69,
+          4.07,
+          6.13,
+          6.56,
+          11.21,
+          68.2,
+          73.42,
+          75.57,
+          78.77,
+          78.81
+        ],
+        "itemStyle": {
+          "color": "#2563EB"
+        },
+        "lineStyle": {
+          "width": 0
+        }
+      },
+      {
+        "name": "Technical Addressable",
+        "type": "line",
+        "areaStyle": {
+          "opacity": 0.3
+        },
+        "data": [
+          0.46,
+          0.59,
+          0.69,
+          1.67,
+          1.73,
+          2.16,
+          4.67,
+          9.5,
+          11.32,
+          13.41,
+          16.61,
+          16.65
+        ],
+        "itemStyle": {
+          "color": "#D97706"
+        },
+        "lineStyle": {
+          "width": 0
+        }
+      },
+      {
+        "name": "LIF-Relevant",
+        "type": "line",
+        "areaStyle": {
+          "opacity": 0.5
+        },
+        "data": [
+          0.0,
+          0.06,
+          0.09,
+          0.24,
+          0.25,
+          0.36,
+          2.64,
+          6.19,
+          7.43,
+          8.77,
+          9.58,
+          9.6
+        ],
+        "itemStyle": {
+          "color": "#16A34A"
+        },
+        "lineStyle": {
+          "width": 2
+        }
+      }
+    ]
+  }
+}

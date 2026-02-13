@@ -1,0 +1,65 @@
+{
+  "chart": {
+    "title": {
+      "text": "Interventions by Scope"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Asset",
+        "Account",
+        "Protocol",
+        "Network",
+        "Module"
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Count"
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          {
+            "value": 8,
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": 46,
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": 61,
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": 10,
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": 12,
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          }
+        ],
+        "label": {
+          "show": true,
+          "position": "top"
+        }
+      }
+    ]
+  }
+}

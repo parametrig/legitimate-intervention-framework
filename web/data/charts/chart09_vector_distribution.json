@@ -1,0 +1,101 @@
+{
+  "chart": {
+    "title": {
+      "text": "Top 10 Attack Vectors (Frequency)"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "xAxis": {
+      "type": "value",
+      "name": "Count"
+    },
+    "yAxis": {
+      "type": "category",
+      "data": [
+        "Logic Bug / Code Error",
+        "Access Control / Key Compromise",
+        "Oracle / Price Manipulation",
+        "Flash Loan / Economic Exploit",
+        "Phishing / Social Engineering",
+        "Rugpull / Exit Scam",
+        "Uncategorized",
+        "Security Breach",
+        "Incorrect Validation",
+        "Economic / Systemic Failure"
+      ],
+      "inverse": true
+    },
+    "series": [
+      {
+        "type": "bar",
+        "data": [
+          {
+            "value": 209,
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": 154,
+            "itemStyle": {
+              "color": "#475569"
+            }
+          },
+          {
+            "value": 45,
+            "itemStyle": {
+              "color": "#475569"
+            }
+          },
+          {
+            "value": 35,
+            "itemStyle": {
+              "color": "#475569"
+            }
+          },
+          {
+            "value": 23,
+            "itemStyle": {
+              "color": "#475569"
+            }
+          },
+          {
+            "value": 20,
+            "itemStyle": {
+              "color": "#475569"
+            }
+          },
+          {
+            "value": 17,
+            "itemStyle": {
+              "color": "#475569"
+            }
+          },
+          {
+            "value": 15,
+            "itemStyle": {
+              "color": "#475569"
+            }
+          },
+          {
+            "value": 10,
+            "itemStyle": {
+              "color": "#475569"
+            }
+          },
+          {
+            "value": 8,
+            "itemStyle": {
+              "color": "#475569"
+            }
+          }
+        ],
+        "label": {
+          "show": true,
+          "position": "right"
+        }
+      }
+    ]
+  }
+}

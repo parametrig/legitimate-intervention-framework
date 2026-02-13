@@ -1,0 +1,79 @@
+{
+  "chart": {
+    "title": {
+      "text": "Comprehensive LIF Market Analysis"
+    },
+    "tooltip": {
+      "trigger": "item",
+      "valueFormatter": "${value}B"
+    },
+    "legend": {
+      "data": [
+        "Incurred (No Intervention)",
+        "Incurred (Despite Intervention)",
+        "Successfully Prevented"
+      ],
+      "bottom": 0
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "LIF Market"
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Value ($B)",
+      "axisLabel": {
+        "formatter": "${value}B"
+      }
+    },
+    "series": [
+      {
+        "name": "Incurred (No Intervention)",
+        "type": "bar",
+        "stack": "total",
+        "data": [
+          2.08
+        ],
+        "itemStyle": {
+          "color": "#D97706"
+        },
+        "label": {
+          "show": true,
+          "formatter": "${c}B"
+        }
+      },
+      {
+        "name": "Incurred (Despite Intervention)",
+        "type": "bar",
+        "stack": "total",
+        "data": [
+          7.52
+        ],
+        "itemStyle": {
+          "color": "#DC2626"
+        },
+        "label": {
+          "show": true,
+          "formatter": "${c}B"
+        }
+      },
+      {
+        "name": "Successfully Prevented",
+        "type": "bar",
+        "stack": "total",
+        "data": [
+          2.7
+        ],
+        "itemStyle": {
+          "color": "#16A34A"
+        },
+        "label": {
+          "show": true,
+          "formatter": "${c}B"
+        }
+      }
+    ]
+  }
+}
