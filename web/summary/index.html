@@ -69,40 +69,134 @@
             <section data-narrative-section data-id="executive" class="hero-section">
                 <h1>Executive Summary</h1>
                 <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
-                <p class="report-lead">The Legitimate Intervention Framework (LIF) addresses the critical "time vs.
-                    legitimacy" trade-off in
-                    blockchain security. This summary provides a concise overview of the empirical findings and
-                    strategic recommendations derived from our comprehensive analysis of over 300 major DeFi incidents.
-                </p>
-                <p><a href="../research/all/">Read the full research narrative →</a></p>
+                <p class="report-lead">Between 2014 and 2026, we documented <strong>705 exploit cases</strong>
+                    resulting in <strong>$78.81 billion</strong> in cumulative losses. Of these, 601 cases
+                    ($9.60B) were intervention-eligible—incidents where a protocol override could have
+                    prevented or reduced damage. Only <strong>$2.51B</strong> has actually been saved,
+                    leaving a <strong>$7.09B opportunity gap</strong>. This research formalizes the
+                    design space for legitimate emergency intervention in decentralized protocols.</p>
+
+                <table style="width:100%; max-width:680px; margin:2rem 0; border-collapse:collapse; font-size:0.95rem;">
+                    <thead>
+                        <tr style="border-bottom:2px solid #000; text-align:left;">
+                            <th style="padding:0.5rem 1rem 0.5rem 0;">Metric</th>
+                            <th style="padding:0.5rem 0;">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:0.5rem 1rem 0.5rem 0;">Total exploit cases</td>
+                            <td style="padding:0.5rem 0;"><strong>705</strong></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:0.5rem 1rem 0.5rem 0;">Cumulative losses</td>
+                            <td style="padding:0.5rem 0;"><strong>$78.81B</strong></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:0.5rem 1rem 0.5rem 0;">Intervention-eligible losses</td>
+                            <td style="padding:0.5rem 0;"><strong>$9.60B</strong> (601 cases)</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:0.5rem 1rem 0.5rem 0;">Losses prevented</td>
+                            <td style="padding:0.5rem 0;"><strong>$2.51B</strong> (26.0%)</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:0.5rem 1rem 0.5rem 0;">Opportunity gap</td>
+                            <td style="padding:0.5rem 0;"><strong>$7.09B</strong></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:0.5rem 1rem 0.5rem 0;">Loss distribution</td>
+                            <td style="padding:0.5rem 0;">Power law α&thinsp;≈&thinsp;1.33</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.5rem 1rem 0.5rem 0;">Documented interventions</td>
+                            <td style="padding:0.5rem 0;"><strong>130</strong> (52 high-fidelity)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><a href="../research/all/" style="font-weight:600; text-decoration:underline;">Explore the full
+                        research →</a></p>
             </section>
 
             <section data-narrative-section data-id="threat">
                 <h2>I. The Threat Landscape</h2>
-                <p>Since 2020, capital loss in decentralized finance has exceeded $80B. Our analysis identifies "Logic
-                    Bugs" and "Access Control Failures" as the primary vectors, representing over 70% of frequency but
-                    often manageable if addressed within hours rather than days.</p>
+                <p>Losses are dominated by a small number of catastrophic incidents. The distribution follows a
+                    power law (α&thinsp;≈&thinsp;1.33): the top <strong>1.4% of cases</strong> produce
+                    <strong>80% of cumulative losses</strong>, and the top 50 incidents alone account for
+                    over $70B in damage. 2022 peaked at $58B (driven by Terra/Luna and FTX), then dropped
+                    91%—but 2025 saw a resurgence to $3.76B, indicating that the threat is restructuring,
+                    not receding.
+                </p>
+                <p>The leading attack vectors are <strong>Logic Bugs</strong> (231 cases), which exploit
+                    unanticipated state transitions in smart contracts, and <strong>Key Compromise</strong>
+                    (127 cases), which bypass all on-chain safeguards via stolen private keys.
+                    <strong>Oracle Manipulation</strong> carries the highest per-incident severity—a single
+                    flash-loan attack can drain an entire liquidity pool within one transaction block.
+                    The vector evolution shows a strategic shift: from flash-loan attacks (2020–21)
+                    to key compromise and social engineering (2023–24), as attackers increasingly target
+                    the human layer.
+                </p>
+                <p><a href="../research/threat/">Explore threat charts →</a></p>
             </section>
 
             <section data-narrative-section data-id="intervention">
                 <h2>II. The Intervention Gap</h2>
-                <p>Most protocols lack the governance speed to counter fast-moving exploits. LIF defines a tiers of
-                    "legitimate overrides" that allow for rapid containment without sacrificing long-term
-                    decentralization, moving from automated signer sets to social governance.</p>
+                <p>We classify every documented intervention by its <strong>authority level</strong>—who
+                    has the power to act. <strong>Signer Sets</strong> (multisig key holders) dominate at
+                    71.2% of interventions by count, acting with a median response time of 30 minutes.
+                    <strong>Governance</strong> votes achieve the highest containment success rate (73.2%)
+                    but take 30+ days and cover only 11.5% of cases. The middle ground—<strong>Delegated
+                        Bodies</strong> like Security Councils and Emergency subDAOs—handle 17.3% of cases
+                    with a median of 60–90 minutes and protect <strong>$1.10B</strong> in total capital.
+                </p>
+                <p>This reveals the core tradeoff: speed and democratic legitimacy are inversely correlated.
+                    Signer Sets act fast but concentrate authority in a few hands. Governance distributes
+                    power but arrives after assets have been drained. Delegated Bodies represent the
+                    emerging "sweet spot"—elected members with constrained emergency mandates and
+                    mandatory sunset clauses—balancing responsiveness with accountability.</p>
+                <p><a href="../research/intervention/">Explore intervention charts →</a></p>
             </section>
 
             <section data-narrative-section data-id="efficiency">
                 <h2>III. Measuring Efficiency</h2>
-                <p>Our "Containment Success Rate" (CSR) metric reveals a wide disparity between protocols.
-                    High-efficiency protocols can prevent over 90% of potential losses through proactive monitoring and
-                    pre-authorized intervention sets.</p>
+                <p>The data reveals a "golden hour" in exploit response: interventions within 60 minutes
+                    prevent <strong>82.5% of losses</strong> on average. After 24 hours, effectiveness
+                    drops to <strong>10.9%</strong>. The response-time distribution is bimodal—protocols
+                    either react in under an hour or not at all for days, with very few cases in between.
+                    This binary pattern suggests that intervention capability must be pre-built, not
+                    improvised during a crisis.</p>
+                <p>Scope matters as much as speed. We classify interventions along two dimensions:
+                    <strong>Scope</strong> (Account, Module, Protocol, Network) ×
+                    <strong>Authority</strong> (Signer Set, Delegated Body, Governance). The most
+                    effective combination is <strong>Account × Delegated Body</strong> at 92% containment
+                    success—narrow scope limits collateral damage while elected bodies provide legitimacy.
+                    Conversely, <strong>Protocol × Signer Set</strong> achieves only 33%: broad scope
+                    combined with unchecked authority produces unreliable outcomes.
+                </p>
+                <p><a href="../research/efficiency/">Explore efficiency charts →</a></p>
             </section>
 
             <section data-narrative-section data-id="framework">
                 <h2>IV. Strategic Framework</h2>
-                <p>The transition from ad-hoc emergency patches to a standardized intervention framework is essential
-                    for the long-term viability of high-value protocol ecosystems. LIF provides the mathematical and
-                    operational blueprint for this transition.</p>
+                <p>The paper introduces a stochastic cost model that formalizes the intervention decision:
+                    <em>Total Cost = Centralization Cost + Blast Rate + Damage Rate × Time</em>.
+                    The model quantifies the tradeoff between the political cost of centralizing authority
+                    and the financial cost of delayed response. Three predictions are derived and
+                    empirically validated: (1) protocols with tiered authority structures outperform
+                    both pure-multisig and pure-governance designs; (2) the optimal response window
+                    is under 60 minutes; (3) scope-limited interventions produce higher net
+                    recovery than protocol-wide pauses.
+                </p>
+                <p>We propose the <strong>Optimistic Freeze</strong> model—an intervention mechanism
+                    that acts first and seeks ratification later, analogous to optimistic rollups in
+                    scaling. Emergency powers are constrained by a bounded scope (Module or Account level),
+                    time-limited mandates (24–72h before automatic expiry), and mandatory governance
+                    review for extension. A "culture multiplier" amplifies effectiveness: protocols
+                    with established security cultures reduce their blast radius by 40%+ compared
+                    to protocols with equivalent technical safeguards but no community norms for
+                    emergency response.</p>
+                <p><a href="../research/framework/">Explore framework charts →</a></p>
             </section>
         </div>
     </div>
