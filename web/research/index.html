@@ -29,6 +29,32 @@
         </nav>
     </header>
 
+    <nav class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-track">
+            <div class="scroll-line"></div>
+            <div class="scroll-marker" id="scrollMarker"></div>
+            <div class="scroll-sections" id="scrollSections">
+                <div class="scroll-section active" data-target="threat">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">Threat</span>
+                </div>
+                <div class="scroll-section" data-target="intervention">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">Intervention</span>
+                </div>
+                <div class="scroll-section" data-target="efficiency">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">Efficiency</span>
+                </div>
+                <div class="scroll-section" data-target="framework">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">Framework</span>
+                </div>
+            </div>
+            <div class="scroll-progress" id="scrollProgress">0%</div>
+        </div>
+    </nav>
+
     <div class="standard-layout mixed-layout">
         <h1>Research</h1>
         <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
@@ -37,9 +63,9 @@
             empirical analysis. Explore each theme below or <a href="./all/">read the complete 50-chart narrative</a>.
         </p>
 
-        <div class="hero-grid">
+        <div class="hero-grid alternating-sections">
             <!-- Theme 1: Threat -->
-            <div class="theme-hero">
+            <div class="theme-hero section-wrapper" data-narrative-section data-id="threat">
                 <div class="theme-info">
                     <h2>The Threat Landscape</h2>
                     <div class="theme-description">
@@ -57,7 +83,7 @@
             </div>
 
             <!-- Theme 2: Intervention -->
-            <div class="theme-hero">
+            <div class="theme-hero section-wrapper" data-narrative-section data-id="intervention">
                 <div class="theme-info">
                     <h2>Mechanisms of Intervention</h2>
                     <div class="theme-description">
@@ -75,7 +101,7 @@
             </div>
 
             <!-- Theme 3: Efficiency -->
-            <div class="theme-hero">
+            <div class="theme-hero section-wrapper" data-narrative-section data-id="efficiency">
                 <div class="theme-info">
                     <h2>Efficiency & Success</h2>
                     <div class="theme-description">
@@ -93,7 +119,7 @@
             </div>
 
             <!-- Theme 4: Framework -->
-            <div class="theme-hero">
+            <div class="theme-hero section-wrapper" data-narrative-section data-id="framework">
                 <div class="theme-info">
                     <h2>Strategic Framework</h2>
                     <div class="theme-description">
@@ -114,6 +140,7 @@
     </div>
 
     <script src="../js/echarts_runtime.js"></script>
+    <script src="../js/scroll_navigator.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
             const rootPrefix = '../';

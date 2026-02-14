@@ -63,18 +63,18 @@
 ### Phase 10: Scroll Navigator & Visual Polish
 > Goal: Enhance the scroll navigator on all pages and introduce alternating-line design.
 
-- [ ] **Scroll navigator audit**: Ensure `scroll_navigator.js` is loaded and functional on all pages:
-  - [ ] Landing (`index.html`) — 8 sections labeled
-  - [ ] Summary (`summary/index.html`)
-  - [ ] Research hub (`research/index.html`)
-  - [ ] All 4 theme pages (threat, intervention, efficiency, framework)
-- [ ] **Navigator detail**: Ensure each nav dot/label accurately reflects its section title
-- [ ] **Alternating-line styling**: Add subtle alternating background shading for section readability
-  - [ ] Landing page narrative sections
-  - [ ] Research theme pages (chart sections)
-  - [ ] All charts page (chart blocks)
-  - [ ] Summary page sections
-- [ ] Verify scroll navigator doesn't conflict with mobile navigation or back arrow
+- [x] **Scroll navigator audit**: Ensure `scroll_navigator.js` is loaded and functional on all pages:
+  - [x] Landing (`index.html`) — 8 sections labeled
+  - [x] Summary (`summary/index.html`)
+  - [x] Research hub (`research/index.html`)
+  - [x] All 4 theme pages (threat, intervention, efficiency, framework)
+- [x] **Navigator detail**: Ensure each nav dot/label accurately reflects its section title
+- [x] **Alternating-line styling**: Add subtle alternating background shading for section readability
+  - [x] Landing page narrative sections
+  - [x] Research theme pages (chart sections)
+  - [x] All charts page (chart blocks)
+  - [x] Summary page sections
+- [x] Verify scroll navigator doesn't conflict with mobile navigation or back arrow
 
 ### Phase 11: Site-Wide Features
 > Goal: Add global UX elements across all pages.

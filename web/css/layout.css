@@ -290,14 +290,14 @@ header.transparent {
 .scroll-sections {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
 }
 
 .scroll-section {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 0;
+    padding: 2px 0;
     cursor: pointer;
     position: relative;
 }
@@ -590,3 +590,34 @@ header.transparent {
 .insight-content li {
     margin-bottom: 0.5rem;
 }
+
+/* -------------------------------------------
+   Shared Component: Alternating Sections
+   Used for Landing, Summary, and Research pages
+   ------------------------------------------- */
+.alternating-sections>section:nth-of-type(even),
+.alternating-sections .narrative-content>section:nth-of-type(even),
+.alternating-sections .hero-grid>div.section-wrapper:nth-of-type(even) {
+    background-color: var(--bg-alt);
+    margin-left: -100vw;
+    margin-right: -100vw;
+    padding-left: 100vw;
+    padding-right: 100vw;
+}
+
+.alternating-sections>section:nth-of-type(even),
+.alternating-sections .narrative-content>section:nth-of-type(even),
+.alternating-sections .hero-grid>div.section-wrapper:nth-of-type(even) {
+    position: relative;
+    z-index: 1;
+    /* Ensure content sits above background if we used pseudo-elements, 
+       but here we use the element itself. 
+       Note: The negative margin trick works best if the parent has no overflow hidden.
+       Body usually has overflow-x: hidden to prevent scrollbar from this trick.
+    */
+}
+
+/* Fix for negative margin interaction with standard layout padding */
+/* We don't need pseudo element if we use the box-shadow/border-image trick or the margin trick. 
+   The margin trick is standard for full bleed. 
+*/
