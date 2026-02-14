@@ -188,3 +188,45 @@
 - [x] Fix Y-axis label truncation (use breakAll with width: 140px)
 - [x] Reduce chart vertical height from 100vh to 66vh for compact layout
 - [x] Generate all 50 chart JSON specs in `web/data/charts/`
+
+## Phase 5: Website Optimization & Centralization [IN PROGRESS]
+
+### Proposed Repo Structure (CSS)
+```text
+web/css/
+├── tokens.css       # [NEW] Single source of truth for variables
+├── base/
+│   ├── main.css     # Renamed from base.css
+│   └── layout.css   # Grid system & containers
+├── components/
+│   ├── header.css   # Nav & Metadata bars
+│   ├── charts.css   # ECharts containers & controls
+│   └── tables.css   # Data tables (Database page)
+└── pages/
+    ├── landing.css
+    ├── atlas.css    # (The compiled research css)
+    └── narrative.css # Shared for About/Summary
+```
+
+### Tasks
+- [ ] **Design System Foundation**
+    - [ ] Create `web/css/tokens.css` with Authority (Blue/Green/Purple) & Accent (Cyan) colors.
+    - [ ] Restructure `web/css/` directory as proposed above.
+    - [ ] Refactor `base.css` and `layout.css` to consume `tokens.css`.
+    - [ ] Update `echarts_runtime.js` to use `getComputedStyle` for theme injection.
+    - [ ] Clean up legacy CSS (remove `style.css.bak`, consolidate `pages/` styles).
+
+- [ ] **Page Architecture Restructure**
+    - [ ] **Landing Page (`index.html`)**: Strip old charts, implement "Concise Paper" flow, **FIX Sticky Chart**.
+    - [ ] **The Atlas (`research/index.html`)**:
+        - [ ] Create/Update to host all 50 charts (migrate from `research/all`).
+        - [ ] Implement **Detailed Scroll Navigator** (Side TOC).
+        - [ ] Implement Lazy Loading for charts.
+    - [ ] **Summary Page (`summary/index.html`)**: Update to purely Narrative Summary.
+    - [ ] **Cleanup**: Delete `web/research/all/` directory.
+
+- [ ] **Content & Polish**
+    - [ ] Map `LIF_FINAL_REPORT.md` narrative to Summary page.
+    - [ ] Ensure "Research" navbar link points to `/research/` (The Atlas).
+    - [ ] Verify standard color usage across all 50 charts.
+    - [ ] Verify Mobile Responsiveness of the new Atlas view.
