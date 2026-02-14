@@ -131,7 +131,7 @@ function sanitizeEchartsOption(option) {
             for (const t of titles) {
                 if (!t.left && !t.right) t.left = 'center';
                 if (!t.textStyle) t.textStyle = {};
-                if (!t.textStyle.fontSize) t.textStyle.fontSize = isMobile ? 12 : 14;
+                if (!t.textStyle.fontSize) t.textStyle.fontSize = isMobile ? 9 : 11;
                 if (!t.textStyle.fontWeight) t.textStyle.fontWeight = 500;
             }
         }
@@ -145,7 +145,7 @@ function sanitizeEchartsOption(option) {
                 if (!leg.orient) leg.orient = 'horizontal';
                 if (!leg.type && isMobile) leg.type = 'scroll';
                 if (!leg.textStyle) leg.textStyle = {};
-                if (!leg.textStyle.fontSize) leg.textStyle.fontSize = isMobile ? 10 : 11;
+                if (!leg.textStyle.fontSize) leg.textStyle.fontSize = isMobile ? 8 : 10;
             }
         }
 
@@ -178,7 +178,7 @@ function sanitizeEchartsOption(option) {
                     }
 
                     // Enforce mobile font sizing
-                    ax.axisLabel.fontSize = isMobile ? 9 : 11;
+                    ax.axisLabel.fontSize = isMobile ? 7 : 10;
                     ax.axisLabel.fontWeight = 400; // No bold
 
                     if (ax.axisLabel.overflow === 'breakAll') {

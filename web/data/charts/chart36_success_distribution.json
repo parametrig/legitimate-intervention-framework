@@ -19,8 +19,7 @@
         "75%",
         "85%",
         "95%"
-      ],
-      "name": "Success Rate (%)"
+      ]
     },
     "yAxis": {
       "type": "value",

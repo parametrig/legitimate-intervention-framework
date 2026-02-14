@@ -59,6 +59,13 @@
 - **NaN Serialization Fix:** Resolved critical `SyntaxError` by implementing robust recursive NaN cleaning in the Python pipeline.
 - **Narrative Layout Polish:** Centered all headers and adjusted vertical chart height for better readability.
 - **Global Layout & Navigation:** Standardized icons, mobile viewports, and reading width constraints.
+- **Chart Styling Consistency:** Fixed Chart 08 legend/hover issues, Chart 04 title weight, Chart 05 markPoint
+- **Sticky Chart Optimization:** Reduced font sizes (title, legend, labels) for cleaner appearance
+- **About Page Enhancement:** Added collapsible changelog section with current statistics
+- **Data Statistics Update:** Updated all references to reflect 705 incidents ($78.8B losses, 130 interventions)
+- **Mobile UX Improvements:** Adjusted dock positioning (12px margins) and optimized mobile chart fonts (9px/8px/7px)
+- **Chart Label Cleanup:** Removed x-axis labels from Charts 36, 38, 46 for cleaner visual presentation
+- **Documentation Sync:** Updated TODO.md and HANDOVER_CONTEXT.md with current progress status
 
 ### 🔄 Current Issues (IMMEDIATE ATTENTION NEEDED)
 
@@ -78,13 +85,17 @@
 1. **Centralize Formatting:** Implemented robust number abbreviation ($B, $M, $K) globally in `echarts_runtime.js`.
 2. **Integrate Batches:** All 50 charts are now interactive and embedded within the `/research/all` narrative.
 
-### Phase 2: Page-by-Page Cleanup (IN PROGRESS)
+### Phase 2: Page-by-Page Cleanup (COMPLETED)
 - [x] `/research/all`: Final comprehensive integration and narrative flow.
+- [x] `/about`: Added changelog section, updated statistics
+- [x] `/`: Landing page copy updated to match dataset stats
+- [x] Chart styling consistency across all 50 charts
+- [x] Mobile optimization completed (dock positioning, font sizes)
+- [x] Deep-linking implementation stable and functional
 - [ ] `/research`: Theme index alignment
 - [ ] `/research/*`: Individual theme pages (Threat, Intervention, Efficiency, Framework)
 - [ ] `/summary`: Concise summary cleanup
-- [ ] `/`: Landing page cleanup
-- [ ] `/about` & `database.html`: Final touches
+- [ ] `/database.html`: Final touches
 
 ---
 

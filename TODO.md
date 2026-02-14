@@ -32,7 +32,7 @@
 ---
 
 ## 0) Website + repo audit (confirm current state)
-- [ ] Inventory existing web routes/pages and decide final IA mappings (home vs summary vs index)
+- [x] Inventory existing web routes/pages and decide final IA mappings (home vs summary vs index)
 - [x] Confirm chart library choice for interactivity (Chart.js vs ECharts)
 - [x] Confirm deep-link URL conventions for research charts using query params (e.g. `?chart=chart08`)
 - [x] Confirm IPFS constraints are met (no server routing assumptions)
@@ -81,18 +81,18 @@
 - [x] Enforce palette across JSON-spec charts and registry charts
 
 ### 3.3 Copy rewrite (tone aligned with paper)
-- [ ] Rewrite landing copy to be neutral and evidence-first
-- [ ] Ensure all numerical claims match dataset + `lif_stats.json`
+- [x] Rewrite landing copy to be neutral and evidence-first
+- [x] Ensure all numerical claims match dataset + `lif_stats.json`
 
 ## 4) Research pages: thematic + per-chart narrative
 - [ ] Extract/update short insights per chart (seed from `manuscript/analysis_insights.md`)
 - [x] Build theme index on `/research`
 - [x] Theme pages: narrative + subset of charts + references/notes
 - [x] `/research/all`: 50-chart single-column narrative with:
-  - [ ] per-chart anchor
+  - [x] per-chart anchor
   - [ ] short insight block
   - [ ] toggle to grid/multi-column
-  - [ ] query-param deep link support (`?chart=<chart_id>`) that scrolls to the chart
+  - [x] query-param deep link support (`?chart=<chart_id>`) that scrolls to the chart
 
 ## 4.1) Content plan (paper-first)
 - [ ] Landing page: host the full paper (`paper/main.tex`) as the primary narrative, with as many charts in the chart by the side as possible
@@ -103,7 +103,7 @@
 ## 5) Deep-linking improvements
 - [x] Database: implement `?id=<incident_id>` deep link to open modal
 - [x] Research: implement deep-link scroll to theme section / chart
-- [ ] Ensure deep links are stable across refactors
+- [x] Ensure deep links are stable across refactors
 
 ## 6) Notebook review + chart correctness (paper alignment)
 - [x] Audit `scripts/analysis/lif_charts_v1.ipynb` for outdated logic
@@ -157,8 +157,8 @@
 - [ ] Document reproducible rebuild steps
 
 ## 9) About page changelog
-- [ ] Add collapsible changelog section after data sources
-- [ ] Add entries for major updates (dataset update, chart pipeline, IA refactor)
+- [x] Add collapsible changelog section after data sources
+- [x] Add entries for major updates (dataset update, chart pipeline, IA refactor)
 
 ## 10) Site-wide banner + footer
 - [ ] Add dismissible "active development" banner to all pages
@@ -188,6 +188,12 @@
 - [x] Fix Y-axis label truncation (use breakAll with width: 140px)
 - [x] Reduce chart vertical height from 100vh to 66vh for compact layout
 - [x] Generate all 50 chart JSON specs in `web/data/charts/`
+- [x] Chart styling consistency fixes (Chart 08 legend/hover, Chart 04 title weight, Chart 05 markPoint)
+- [x] Sticky chart font size optimization (title, legend, labels reduced for cleaner look)
+- [x] About page changelog section added with current statistics (705 incidents, $78.8B losses, 130 interventions)
+- [x] Mobile dock chart positioning adjusted (12px margins from edges)
+- [x] Mobile chart font sizes further optimized (9px titles, 8px legends, 7px axis labels)
+- [x] Chart x-axis labels removed for cleaner appearance (Charts 36, 38, 46)
 
 ## Phase 5: Website Optimization & Centralization [IN PROGRESS]
 

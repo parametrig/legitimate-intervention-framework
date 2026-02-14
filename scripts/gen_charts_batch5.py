@@ -72,7 +72,7 @@ for auth in sc46["authority"].unique():
 save("chart46_risk_adjusted_performance", {
     "title": {"text": "Performance Under Pressure"},
     "tooltip": {"trigger": "item"},
-    "xAxis": {"type": "log", "name": "Value at Risk (USD)"},
+    "xAxis": {"type": "log"},
     "yAxis": {"type": "value", "name": "Success Rate (%)", "max": 110},
     "series": series46
 })

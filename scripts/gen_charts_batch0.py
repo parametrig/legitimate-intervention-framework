@@ -121,8 +121,8 @@ colors04 = [C["green"], C["amber"], C["slate"]] # LIF, Potential, Systemic
 
 save("chart04_relevance_pie", {
     "title": [
-        {"text": "By Incident Count", "left": "25%", "top": "5%", "textAlign": "center", "textStyle": {"fontSize": 12, "fontWeight": "bold"}},
-        {"text": "By Total Value ($)", "left": "75%", "top": "5%", "textAlign": "center", "textStyle": {"fontSize": 12, "fontWeight": "bold"}}
+        {"text": "By Incident Count", "left": "25%", "top": "5%", "textAlign": "center", "textStyle": {"fontSize": 12}},
+        {"text": "By Total Value ($)", "left": "75%", "top": "5%", "textAlign": "center", "textStyle": {"fontSize": 12}}
     ],
     "tooltip": {"trigger": "item", "formatter": "{b}: {c} ({d}%)"},
     "legend": {"bottom": "0%", "data": ["LIF-Relevant", "Potential Technical", "Systemic/Social"], "itemGap": 20, "textStyle": {"fontSize": 10}},
@@ -160,7 +160,7 @@ bin_labels = [f"10^{x:.1f}" for x in edges[:-1]]
 save("chart05_loss_distribution", {
     "title": {"text": "Loss Distribution (Log Scale)"},
     "tooltip": {"trigger": "axis"},
-    "xAxis": {"type": "category", "data": bin_labels, "name": "Log Loss (USD)"},
+    "xAxis": {"type": "category", "data": bin_labels, "name": " "},
     "yAxis": {"type": "value", "name": "Count"},
     "series": [{
         "type": "bar",
@@ -251,17 +251,12 @@ layer_colors = [C["emerald"], C["lblue"], C["lgray"], C["vlgray"]]
 save("chart08_four_layer_timeline", {
     "title": {"text": "Annual DeFi Losses by Category"},
     "tooltip": {"trigger": "axis"},
-    "grid": {"bottom": "18%", "left": "8%", "right": "25%", "top": "15%"},
+    "grid": {},
     "legend": {
-        "type": "plain", 
-        "data": layer_names[::-1], 
-        "orient": "vertical",
-        "right": "2%",
-        "top": "center",
-        "itemGap": 15, 
-        "textStyle": {"fontSize": 10}
+        "data": layer_names[::-1],
+        "bottom": 0
     },
-    "xAxis": {"type": "category", "data": [int(y) for y in years08], "axisPointer": {"show": True, "type": "shadow"}},
+    "xAxis": {"type": "category", "data": [int(y) for y in years08]},
     "yAxis": {"type": "value", "name": "Loss ($B)",
               "axisLabel": {"formatter": "${value}B"}},
     "series": [

@@ -35,7 +35,7 @@ for auth in sc38["authority"].unique():
 save("chart38_success_vs_time", {
     "title": {"text": "Success Rate vs. Response Time"},
     "tooltip": {"trigger": "item"},
-    "xAxis": {"type": "log", "name": "Response Time (min)"},
+    "xAxis": {"type": "log"},
     "yAxis": {"type": "value", "name": "Success Rate (%)", "max": 110},
     "series": series38
 })

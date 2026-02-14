@@ -6,27 +6,15 @@
     "tooltip": {
       "trigger": "axis"
     },
-    "grid": {
-      "bottom": "18%",
-      "left": "8%",
-      "right": "25%",
-      "top": "15%"
-    },
+    "grid": {},
     "legend": {
-      "type": "plain",
       "data": [
         "Systemic Failures",
         "Other Technical",
         "Eligible (Missed)",
         "Actually Intervened"
       ],
-      "orient": "vertical",
-      "right": "2%",
-      "top": "center",
-      "itemGap": 15,
-      "textStyle": {
-        "fontSize": 10
-      }
+      "bottom": 0
     },
     "xAxis": {
       "type": "category",
@@ -43,11 +31,7 @@
         2024,
         2025,
         2026
-      ],
-      "axisPointer": {
-        "show": true,
-        "type": "shadow"
-      }
+      ]
     },
     "yAxis": {
       "type": "value",

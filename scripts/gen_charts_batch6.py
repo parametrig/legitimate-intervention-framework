@@ -103,7 +103,7 @@ bin_centers = [(edges[i] + edges[i+1])/2 for i in range(len(counts))]
 save("chart36_success_distribution", {
     "title": {"text": "Distribution of Success Rates"},
     "tooltip": {"trigger": "axis"},
-    "xAxis": {"type": "category", "data": [f"{int(e)}%" for e in bin_centers], "name": "Success Rate (%)"},
+    "xAxis": {"type": "category", "data": [f"{int(e)}%" for e in bin_centers]},
     "yAxis": {"type": "value", "name": "Count"},
     "series": [{
         "type": "bar",

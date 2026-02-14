@@ -7,8 +7,7 @@
       "trigger": "item"
     },
     "xAxis": {
-      "type": "log",
-      "name": "Value at Risk (USD)"
+      "type": "log"
     },
     "yAxis": {
       "type": "value",
