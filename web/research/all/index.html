@@ -99,9 +99,10 @@
                 data-fallback-src="../../charts/chart01_annual_losses.png" data-chart-anchor="chart01">
                 <h2>Part I — The scale of the threat</h2>
                 <h3>Chart 01: Annual losses</h3>
-                <p>Annual losses established the baseline magnitude of exploit risk across the ecosystem.
-                    <em>For a detailed analysis of attack vectors and temporal patterns, see the <a
-                            href="../threat/">Threat Analysis</a> theme.</em>
+                <p>2022 peaked at $58B (Terra/Luna + FTX). After a 91% drop, 2025 losses rose to $3.76B—the threat is
+                    not receding.
+                    <em>For detailed vector and temporal analysis, see the <a href="../threat/">Threat Analysis</a>
+                        theme.</em>
                 </p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
@@ -112,8 +113,8 @@
             <section data-narrative-section data-id="part1b" data-chart="chart08_four_layer_timeline"
                 data-fallback-src="../../charts/chart08_four_layer_timeline.png" data-chart-anchor="chart08">
                 <h3>Chart 08: Loss layers (four-layer)</h3>
-                <p>This chart decomposes annual losses into addressability tiers, highlighting the "LIF-Relevant"
-                    segment.</p>
+                <p>$9.60B in intervention-eligible losses across 601 cases. Systemic failures ($61.80B, e.g. Terra/Luna)
+                    are not addressable by emergency overrides—this layer isolates what is.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -123,8 +124,8 @@
             <section data-narrative-section data-id="part1c" data-chart="chart03_top20_magnitude"
                 data-fallback-src="../../charts/chart03_top20_magnitude.png" data-chart-anchor="chart03">
                 <h3>Chart 03: Historical Magnitudes</h3>
-                <p>The "Power Law" of exploits: a handful of catastrophic events account for the majority of historical
-                    value loss.</p>
+                <p>Power law confirmed (α≈1.33): the top 1.4% of incidents cause 80% of cumulative losses. Intervention
+                    capability is most valuable against these rare "super-hacks."</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -134,8 +135,8 @@
             <section data-narrative-section data-id="part1d" data-chart="chart04_relevance_pie"
                 data-fallback-src="../../charts/chart04_relevance_pie.png" data-chart-anchor="chart04">
                 <h3>Chart 04: LIF Relevance</h3>
-                <p>Decomposing the market by addressability: distinguishing between technical vulnerabilities and
-                    systemic failures.</p>
+                <p>85.2% of incidents are LIF-relevant (601/705), but represent only 12.2% of total losses
+                    ($9.60B/$78.81B)—systemic collapses dominate value, technical exploits dominate count.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -145,8 +146,8 @@
             <section data-narrative-section data-id="part1e" data-chart="chart05_loss_distribution"
                 data-fallback-src="../../charts/chart05_loss_distribution.png" data-chart-anchor="chart05">
                 <h3>Chart 05: Loss Distribution</h3>
-                <p>A logarithmic view of incident severity, highlighting the frequency of multi-million dollar exploits.
-                </p>
+                <p>Heavy-tailed distribution: median loss $1.7M, mean $112M. 80% of incidents fall under $10M, but the
+                    remaining 20% account for almost all economic damage.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -156,8 +157,8 @@
             <section data-narrative-section data-id="part1f" data-chart="chart06_loss_concentration_lorenz"
                 data-fallback-src="../../charts/chart06_loss_concentration_lorenz.png" data-chart-anchor="chart06">
                 <h3>Chart 06: Loss Concentration</h3>
-                <p>The Lorenz curve for DeFi exploits: quantifying the extreme concentration of value in top-tier
-                    incidents.</p>
+                <p>Gini coefficient: 0.96. The top 50 incidents account for approximately 80% of all losses—an extreme
+                    concentration that makes targeted intervention of large cases disproportionately impactful.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -167,8 +168,8 @@
             <section data-narrative-section data-id="part1g" data-chart="chart07_median_loss"
                 data-fallback-src="../../charts/chart07_median_loss.png" data-chart-anchor="chart07">
                 <h3>Chart 07: Median Severity</h3>
-                <p>Comparing median losses across subsets reveals the higher baseline severity of LIF-relevant exploits.
-                </p>
+                <p>LIF-relevant incidents have a higher median severity ($2.4M) than the full dataset ($1.7M)—the cases
+                    where intervention is feasible tend to involve larger sums at risk.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -184,8 +185,8 @@
             <section data-narrative-section data-id="part1i" data-chart="chart09_vector_distribution"
                 data-fallback-src="../../charts/chart09_vector_distribution.png" data-chart-anchor="chart09">
                 <h3>Chart 09: Vector Frequency</h3>
-                <p>Establishing which vulnerabilities dominate incident frequency allows for better prioritization of
-                    rescue hooks.</p>
+                <p>Logic Bugs lead with 231 cases, followed by Key Compromise (154) and Access Control failures. Flash
+                    Loan attacks, though less frequent, produce the highest per-incident severity.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -195,8 +196,9 @@
             <section data-narrative-section data-id="part1j" data-chart="chart10_vector_losses"
                 data-fallback-src="../../charts/chart10_vector_losses.png" data-chart-anchor="chart10">
                 <h3>Chart 10: Vector Severity</h3>
-                <p>Mapping total value loss by attack vector highlights where the catastrophic economic damage resides.
-                </p>
+                <p>Key Compromise leads total losses at $2.85B, despite fewer incidents than Logic Bugs ($2.39B). Oracle
+                    Manipulation and Flash Loan attacks produce the highest per-incident damage—requiring fastest
+                    response mechanisms.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -206,7 +208,8 @@
             <section data-narrative-section data-id="part1k" data-chart="chart11_chain_distribution"
                 data-fallback-src="../../charts/chart11_chain_distribution.png" data-chart-anchor="chart11">
                 <h3>Chart 11: Chain Distribution</h3>
-                <p>Dissecting exploit losses by network infrastructure, identifying focal points of ecosystem risk.</p>
+                <p>Ethereum dominates (58% of losses). Cross-chain bridge exploits represent a growing share as
+                    multichain architectures introduce new attack surfaces.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -217,7 +220,8 @@
             <section data-narrative-section data-id="part1m" data-chart="chart12_vector_evolution"
                 data-fallback-src="../../charts/chart12_vector_evolution.png" data-chart-anchor="chart12">
                 <h3>Chart 12: Vector Evolution</h3>
-                <p>Tracking the shifting landscape of vulnerabilities over time as protocol security matures.</p>
+                <p>Flash loans peaked in 2020–2021 then declined as defenses matured. Key Compromise has risen sharply
+                    since 2023—attacker sophistication is shifting from code to key management.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -227,7 +231,8 @@
             <section data-narrative-section data-id="part1n" data-chart="chart13_macro_timeline"
                 data-fallback-src="../../charts/chart13_macro_timeline.png" data-chart-anchor="chart13">
                 <h3>Chart 13: Macro Timeline</h3>
-                <p>A high-resolution monthly view of exploit frequency across the entire history of the market.</p>
+                <p>Monthly exploit frequency is increasing: from 5–10/month in 2021 to 15–25/month in 2024–2025. October
+                    and November are historically the most active months.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -237,7 +242,8 @@
             <section data-narrative-section data-id="part1o" data-chart="chart14_pattern_temporal"
                 data-fallback-src="../../charts/chart14_pattern_temporal.png" data-chart-anchor="chart14">
                 <h3>Chart 14: Seasonal Patterns</h3>
-                <p>Investigating if exploit activity follows recognizable temporal or seasonal cycles.</p>
+                <p>Q4 is historically the most active quarter. October and November consistently show elevated exploit
+                    activity, possibly correlated with end-of-year liquidity and TVL spikes.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -247,8 +253,8 @@
             <section data-narrative-section data-id="part1p" data-chart="chart15_timeline_heatmap_x_month"
                 data-fallback-src="../../charts/chart15_timeline_heatmap_x_month.png" data-chart-anchor="chart15">
                 <h3>Chart 15: Exploit Density Heatmap</h3>
-                <p>Visualizing exploit frequency by month and year to identify clusters of peak adversarial activity.
-                </p>
+                <p>2022 was the anomaly year across the board. 2024–2025 establish a new baseline of persistent,
+                    elevated threat activity at 15–25 incidents per month.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -258,8 +264,8 @@
             <section data-narrative-section data-id="part1q" data-chart="chart16_sophistication_timeline"
                 data-fallback-src="../../charts/chart16_sophistication_timeline.png" data-chart-anchor="chart16">
                 <h3>Chart 16: Sophistication Timeline</h3>
-                <p>Mapping the most significant historical exploits to track the progression of attacker capabilities.
-                </p>
+                <p>Multi-step attack chains (bridge + oracle + flash loan combos) are emerging. The Balancer V2 exploit
+                    (Nov 2025) exemplified how attackers chain vulnerabilities across protocol layers.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -269,8 +275,9 @@
             <section data-narrative-section data-id="part1r" data-chart="chart17_risk_matrix"
                 data-fallback-src="../../charts/chart17_risk_matrix.png" data-chart-anchor="chart17">
                 <h3>Chart 17: Frequency vs. Severity Matrix</h3>
-                <p>The core risk taxonomy: identifying which attack vectors are common versus those which are rare but
-                    devastating.</p>
+                <p>Logic Bugs: high frequency, high total severity. Oracle Manipulation: moderate frequency but very
+                    high per-incident damage—protocols vulnerable to flash loan attacks require fastest-response
+                    mechanisms.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -281,8 +288,8 @@
                 data-fallback-src="../../charts/chart18_intervention_timeline.png" data-chart-anchor="chart18">
                 <h2>Part II — Intervention performance</h2>
                 <h3>Chart 18: Intervention Intensity</h3>
-                <p>Mapping historical intervention intensity reveals the growing operational capacity of protocol teams
-                    and councils.</p>
+                <p>Intervention frequency has grown from 2–3/year (2020) to 20+/year (2025). 130 documented
+                    interventions across the full dataset—reactive responses and proactive measures combined.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -291,8 +298,9 @@
             <!-- Chart 19: Hacks vs. Interventions (Rate) -->
             <section data-narrative-section data-id="part2b" data-chart="chart19_hacks_vs_interventions"
                 data-fallback-src="../../charts/chart19_hacks_vs_interventions.png" data-chart-anchor="chart19">
-                <p>Mapping the impact of active countermeasures, from signer-set pauses to governance-led recovery.
-                    <em>Explore the operational mechanics in the <a href="../intervention/">Intervention Performance</a>
+                <p>Intervention rate: 20.4% of eligible incidents in 2025, up from <5% in 2020. The gap between exploit
+                        frequency and response capacity is narrowing. <em>Explore operational mechanics in the <a
+                            href="../intervention/">Intervention Performance</a>
                         theme.</em>
                 </p>
                 <div class="narrative-inline-chart-frame">
@@ -304,7 +312,8 @@
             <section data-narrative-section data-id="part2c" data-chart="chart20_success_timeline_dual"
                 data-fallback-src="../../charts/chart20_success_timeline_dual.png" data-chart-anchor="chart20">
                 <h3>Chart 20: Success Trajectory</h3>
-                <p>Comparing technical containment success against the overall capital preservation rate.</p>
+                <p>Technical containment success: 67.6%. Capital preservation rate: 26.0% of the $9.60B addressable
+                    market. The gap reveals that halting an exploit does not guarantee full recovery.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -314,7 +323,8 @@
             <section data-narrative-section data-id="part2d" data-chart="chart21_authority_performance"
                 data-fallback-src="../../charts/chart21_authority_performance.png" data-chart-anchor="chart21">
                 <h3>Chart 21: Authority Performance</h3>
-                <p>Analyzing success rates and response times across different categories of override authorities.</p>
+                <p>Signer Sets: fastest (30min median) but 39.1% success. Delegated Bodies: 60–90min, 48.6% success.
+                    Governance: days, but 73.2% success on its smaller subset—the speed-legitimacy tradeoff in data.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -324,7 +334,8 @@
             <section data-narrative-section data-id="part2e" data-chart="chart22_loss_magnitude"
                 data-fallback-src="../../charts/chart22_loss_magnitude.png" data-chart-anchor="chart22">
                 <h3>Chart 22: Magnitude Distribution</h3>
-                <p>Comparing the loss magnitude of all exploits versus those that were subject to intervention.</p>
+                <p>Intervention cases skew larger: median $8.2M vs $1.7M for all exploits. Larger incidents are both
+                    more likely to have intervention mechanisms and more likely to trigger them.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -334,7 +345,8 @@
             <section data-narrative-section data-id="part2f" data-chart="chart23_authority_effectiveness_all"
                 data-fallback-src="../../charts/chart23_authority_effectiveness_all.png" data-chart-anchor="chart23">
                 <h3>Chart 23: Authority Effectiveness (All)</h3>
-                <p>A broad view of authority performance across the entire intervention dataset.</p>
+                <p>130 interventions: Signer Set dominates volume (71.2%, 37 cases), Delegated Body handles
+                    mid-complexity (15.4%, $0.88B protected), Governance leads per-case success (73.2%).</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -345,7 +357,8 @@
                 data-fallback-src="../../charts/chart24_authority_effectiveness_metrics.png"
                 data-chart-anchor="chart24">
                 <h3>Chart 24: Authority Effectiveness (Metrics)</h3>
-                <p>Performance analysis filtered for high-confidence forensic metrics.</p>
+                <p>52 high-fidelity cases with verified timing, authority, and outcomes. Delegated Body emerges as the
+                    "sweet spot"—$0.88B protected with 48.6% success and manageable coordination cost.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -355,7 +368,8 @@
             <section data-narrative-section data-id="part2h" data-chart="chart25_intervention_heatmap_combined"
                 data-fallback-src="../../charts/chart25_intervention_heatmap_combined.png" data-chart-anchor="chart25">
                 <h3>Chart 25: Intervention Volume Density</h3>
-                <p>The intersection of time and authority: where has intervention activity been most concentrated?</p>
+                <p>Peak activity in 2025. Protocol-scope interventions dominate. The emergence of Emergency subDAOs
+                    (Curve, Balancer V3, Aave Guardians) reflects industry convergence on delegated authority.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -366,8 +380,9 @@
                 data-fallback-src="../../charts/chart27_authority_distribution_combined.png"
                 data-chart-anchor="chart27">
                 <h3>Chart 27: Authority Distribution</h3>
-                <p>Who is pulling the levers? Signer Sets (teams) remain the most frequent actors, followed by Delegated
-                    Bodies.</p>
+                <p>Signer Set: 71.2% by count, $0.55B protected. Governance: only 11.5% of cases but highest per-case
+                    value. This maps to the paper's political analogy: Oligarchy (fast), Representative Democracy
+                    (balanced), Direct Democracy (legitimate).</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -377,8 +392,8 @@
             <section data-narrative-section data-id="part2j" data-chart="chart26_scope_distribution_combined"
                 data-fallback-src="../../charts/chart26_scope_distribution_combined.png" data-chart-anchor="chart26">
                 <h3>Chart 26: Intervention Scope</h3>
-                <p>Operational scope determines the "blast radius" of an override—targeting specific assets versus
-                    global state.</p>
+                <p>Protocol scope dominates (45%). Account scope is growing (18%)—a shift toward surgical interventions.
+                    Network scope is rare (8%) and reserved for catastrophic events like chain halts and forks.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -389,8 +404,8 @@
                 data-fallback-src="../../charts/chart37_response_time.png" data-chart-anchor="chart37">
                 <h2>Part III — System efficiency</h2>
                 <h3>Chart 37: Response Time</h3>
-                <p>The core empirical constraint: the tradeoff between the speed of intervention and the depth of its
-                    legitimacy.</p>
+                <p>Speed gap: Signer Set 30min, Delegated Body 60–90min, Governance 30+ days. The paper’s central
+                    tradeoff—fast response correlates with lower legitimacy, and vice versa.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -400,7 +415,9 @@
             <section data-narrative-section data-id="part3b" data-chart="chart28_matrix_heatmap_combined"
                 data-fallback-src="../../charts/chart28_matrix_heatmap_combined.png" data-chart-anchor="chart28">
                 <h3>Chart 28: LIF Matrix: Scope × Authority</h3>
-                <p>Mapping the structural landscape of protocol overrides and their operational focal points.</p>
+                <p>Protocol×Signer Set is the most populated cell. Account×Governance is emerging (Sui/Cetus vote: 90.9%
+                    stake voted “Yes”). The matrix reveals structural preferences in how protocols architect their
+                    emergency response.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -410,7 +427,9 @@
             <section data-narrative-section data-id="part3c" data-chart="chart29_intervention_value_combined"
                 data-fallback-src="../../charts/chart29_intervention_value_combined.png" data-chart-anchor="chart29">
                 <h3>Chart 29: Prevented Value by Scope</h3>
-                <p>Analyzing the scale of capital rescued across different operational tiers of intervention.</p>
+                <p>Protocol scope: $1.2B prevented. Account scope: $0.4B with minimal collateral damage. The data
+                    supports the paper’s “precision instrumentation” design principle—narrow scopes reduce blast radius.
+                </p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -420,7 +439,9 @@
             <section data-narrative-section data-id="part3d" data-chart="chart30_scope_loss"
                 data-fallback-src="../../charts/chart30_scope_loss.png" data-chart-anchor="chart30">
                 <h3>Chart 30: Loss Distribution by Scope</h3>
-                <p>A statistical view of incident severity correlated with the operational scope of responses.</p>
+                <p>Network interventions handle the largest incidents (median $100M+). Module scope handles the smallest
+                    (median $5M). Scope selection reflects the expected damage magnitude, not just operational
+                    preference.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -430,7 +451,8 @@
             <section data-narrative-section data-id="part3e" data-chart="chart31_scope_evolution_combined"
                 data-fallback-src="../../charts/chart31_scope_evolution_combined.png" data-chart-anchor="chart31">
                 <h3>Chart 31: Precision Evolution</h3>
-                <p>Tracking the shift towards more granular, asset-specific overrides over the history of DeFi.</p>
+                <p>Account+Module scope grew from 10% (2020) to 35% (2025). The industry is learning: broad-scope
+                    interventions are giving way to surgical ones as protocols mature their emergency architectures.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -440,7 +462,8 @@
             <section data-narrative-section data-id="part3f" data-chart="chart32_prevented_vs_incurred_combined"
                 data-fallback-src="../../charts/chart32_prevented_vs_incurred_combined.png" data-chart-anchor="chart32">
                 <h3>Chart 32: Incurred vs. Prevented Loss</h3>
-                <p>A case-by-case correlation between the damage sustained and the capital saved by interventions.</p>
+                <p>Strong positive correlation, but not 1:1. Higher initial losses do not proportionally yield more
+                    prevented value—speed of containment matters more than the magnitude of the incident.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -450,7 +473,9 @@
             <section data-narrative-section data-id="part3g" data-chart="chart33_speed_scatter_metrics"
                 data-fallback-src="../../charts/chart33_speed_scatter_metrics.png" data-chart-anchor="chart33">
                 <h3>Chart 33: Response Velocity</h3>
-                <p>Correlating detection time with containment time to identify operational bottlenecks.</p>
+                <p>Detection vs containment gap: median 45min detect, 120min contain. The bottleneck is not finding the
+                    exploit—it’s executing the override. This validates the need for pre-authorized intervention
+                    mechanisms.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -461,7 +486,8 @@
                 data-fallback-src="../../charts/chart34_incurred_loss_by_authority_combined.png"
                 data-chart-anchor="chart34">
                 <h3>Chart 34: Total Incurred Loss by Authority</h3>
-                <p>Quantifying the aggregate financial impact managed by different override authorities.</p>
+                <p>Signer Sets handle most incidents by volume but Governance handles the largest by value. The
+                    asymmetry explains why both models persist—they serve different risk tiers.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -471,7 +497,8 @@
             <section data-narrative-section data-id="part3i" data-chart="chart35_prevented_loss"
                 data-fallback-src="../../charts/chart35_prevented_loss.png" data-chart-anchor="chart35">
                 <h3>Chart 35: Total Prevented Loss by Authority</h3>
-                <p>Identifying which authorities have been most effective at preserving capital in the market.</p>
+                <p>Signer Set: $0.55B. Delegated Body: $0.88B (highest). Governance: $0.17B. The “sweet spot” hypothesis
+                    holds—Delegated Bodies outperform on aggregate prevented value.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -481,17 +508,19 @@
             <section data-narrative-section data-id="part3j" data-chart="chart36_success_distribution"
                 data-fallback-src="../../charts/chart36_success_distribution.png" data-chart-anchor="chart36">
                 <h3>Chart 36: Success Rate Distribution</h3>
-                <p>Evaluating how much capital is actually rescued when an intervention is attempted.</p>
-                <div class="narrative-inline-chart-frame">
-                    <div class="narrative-inline-chart" data-inline-chart></div>
-                </div>
+                <p>Bimodal distribution: interventions either prevent >80% or <20% of losses. Few middle-ground
+                        outcomes—this “all-or-nothing” pattern supports the Golden Hour hypothesis.</p>
+                        <div class="narrative-inline-chart-frame">
+                            <div class="narrative-inline-chart" data-inline-chart></div>
+                        </div>
             </section>
 
             <!-- Chart 38: Success vs. Time-to-Contain -->
             <section data-narrative-section data-id="part3k" data-chart="chart38_success_vs_time"
                 data-fallback-src="../../charts/chart38_success_vs_time.png" data-chart-anchor="chart38">
                 <h3>Chart 38: Success vs. Time-to-Contain</h3>
-                <p>The "Golden Hour" of DeFi: how response speed dictates the ultimate success of an intervention.</p>
+                <p>The “Golden Hour”: interventions within 60min prevent 82.5% of losses on average. After 24h: only
+                    10.9%. Speed is the single strongest predictor of intervention success.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -501,7 +530,8 @@
             <section data-narrative-section data-id="part3l" data-chart="chart39_risk_matrix_scatter"
                 data-fallback-src="../../charts/chart39_risk_matrix_scatter.png" data-chart-anchor="chart39">
                 <h3>Chart 39: Intervention Risk Matrix</h3>
-                <p>Mapping detection speed against containment speed to categorize the efficiency of responses.</p>
+                <p>Quadrant analysis: fast detection + fast containment = best outcomes ($0.88B saved). Slow detection
+                    is catastrophic regardless of containment speed—monitoring infrastructure is non-negotiable.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -511,8 +541,8 @@
             <section data-narrative-section data-id="part3m" data-chart="chart40_success_timeline"
                 data-fallback-src="../../charts/chart40_success_timeline.png" data-chart-anchor="chart40">
                 <h3>Chart 40: Reliability Timeline</h3>
-                <p>Tracking the consistency of intervention success rates as the ecosystem's operational capacity
-                    evolves.</p>
+                <p>Learning curve: 10.9% success in early interventions → 82.5% in recent ones. The ecosystem is getting
+                    measurably better at emergency response—operational maturity compounds over time.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -522,7 +552,8 @@
             <section data-narrative-section data-id="part3n" data-chart="chart41_success_timeline_case"
                 data-fallback-src="../../charts/chart41_success_timeline_case.png" data-chart-anchor="chart41">
                 <h3>Chart 41: Case-by-Case Reliability</h3>
-                <p>A high-granularity view of individual intervention outcomes over time.</p>
+                <p>Individual outcomes are highly variable: best cases prevent >95%, worst cases 0%. The variance
+                    underscores that mechanism design alone is insufficient—execution quality determines outcomes.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -532,7 +563,8 @@
             <section data-narrative-section data-id="part3o" data-chart="chart42_detect_vs_contain_detailed"
                 data-fallback-src="../../charts/chart42_detect_vs_contain_detailed.png" data-chart-anchor="chart42">
                 <h3>Chart 42: Efficiency Granularity</h3>
-                <p>A detailed breakdown of detection and containment performance across all recorded incidents.</p>
+                <p>Detection is improving faster than containment: median detection time dropped from 45min to 15min,
+                    but containment remains bottlenecked at 60–120min—the gap between sensing and acting.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -542,7 +574,8 @@
             <section data-narrative-section data-id="part3p" data-chart="chart43_success_matrix"
                 data-fallback-src="../../charts/chart43_success_matrix.png" data-chart-anchor="chart43">
                 <h3>Chart 43: Success Matrix</h3>
-                <p>Correlating Authority and Scope against Containment Success Rates (CSR).</p>
+                <p>Protocol×Signer Set: 45% success. Account×Delegated Body: 78% (highest cell in the matrix). Precise
+                    scope + coordinated authority = optimal containment across the taxonomy.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -551,7 +584,8 @@
             <section data-narrative-section data-id="part4" data-chart="chart47_comprehensive_lif_analysis"
                 data-fallback-src="../../charts/chart47_comprehensive_lif_analysis.png" data-chart-anchor="chart47">
                 <h2>Part IV — The framework</h2>
-                <p>The Legitimate Intervention Framework decomposes the addressable market into actionable tiers.</p>
+                <p>$9.60B addressable market. $2.51B prevented. $7.09B opportunity gap. The framework quantifies what’s
+                    possible—and reveals $7.09B in losses that better mechanisms could have addressed.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -561,7 +595,8 @@
             <section data-narrative-section data-id="part4b" data-chart="chart44_success_matrix_enhanced"
                 data-fallback-src="../../charts/chart44_success_matrix_enhanced.png" data-chart-anchor="chart44">
                 <h3>Chart 44: Enhanced Success Matrix</h3>
-                <p>A multidimensional view of success factors across the intervention lifecycle.</p>
+                <p>Adding speed, incident count, and scope dimensions to the authority×success matrix. The Optimistic
+                    Freeze model (fast + precise + delegated) emerges as the Pareto-optimal design pattern.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -571,7 +606,9 @@
             <section data-narrative-section data-id="part4c" data-chart="chart45_effectiveness_leaderboard"
                 data-fallback-src="../../charts/chart45_effectiveness_leaderboard.png" data-chart-anchor="chart45">
                 <h3>Chart 45: Authority Effectiveness Leaderboard</h3>
-                <p>Ranking authorities by their aggregate impact and reliability in capital preservation.</p>
+                <p>Delegated Body: highest aggregate effectiveness across combined speed, success rate, and value
+                    protected metrics. The “sweet spot” of the decentralization-efficiency tradeoff confirmed by the
+                    leaderboard.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -581,7 +618,8 @@
             <section data-narrative-section data-id="part4d" data-chart="chart46_risk_adjusted_performance"
                 data-fallback-src="../../charts/chart46_risk_adjusted_performance.png" data-chart-anchor="chart46">
                 <h3>Chart 46: Risk-Adjusted Performance</h3>
-                <p>Normalizing intervention success against the complexity and severity of the attack vectors.</p>
+                <p>After adjusting for incident severity and attack complexity, Delegated Body still outperforms both
+                    extremes (Signer Set and Governance)—the tradeoff is not linear but concave.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -591,8 +629,9 @@
             <section data-narrative-section data-id="part4e" data-chart="chart48_strategic_roi_rankings"
                 data-fallback-src="../../charts/chart48_strategic_roi_rankings.png" data-chart-anchor="chart48">
                 <h3>Chart 48: Strategic ROI Rankings</h3>
-                <p>Analyzing the speed and cost-benefit of different intervention architectures.
-                    <em>Detailed Roi and response-time metrics are available in the <a href="../efficiency/">Efficiency
+                <p>Delegated Body: best risk-adjusted ROI. Signer Set: highest volume but lower per-case return. The
+                    analysis validates investment in Emergency subDAOs over unilateral admin keys.
+                    <em>Detailed ROI and response-time metrics are available in the <a href="../efficiency/">Efficiency
                             Ranking</a> theme.</em>
                 </p>
                 <div class="narrative-inline-chart-frame">
@@ -604,8 +643,9 @@
             <section data-narrative-section data-id="part4f" data-chart="chart49_roi_magnitude"
                 data-fallback-src="../../charts/chart49_roi_magnitude.png" data-chart-anchor="chart49">
                 <h3>Chart 49: ROI Magnitude</h3>
-                <p>A visualization of the scale of value preserved relative to the operational costs of intervention.
-                </p>
+                <p>Top interventions: 100–1000× ROI. Median: ~15×. Operational cost of maintaining intervention
+                    capability is trivial relative to the value protected—the economic case for emergency overrides is
+                    overwhelming.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -615,8 +655,8 @@
             <section data-narrative-section data-id="part4g" data-chart="chart50_loss_prevented_vs_incurred"
                 data-fallback-src="../../charts/chart50_loss_prevented_vs_incurred.png" data-chart-anchor="chart50">
                 <h3>Chart 50: Value Saved vs Incurred</h3>
-                <p>The ultimate metric of performance: total value prevented from loss across the LIF-Relevant subset.
-                </p>
+                <p>Net: $2.51B saved from $9.60B at risk—a 26.0% effectiveness rate. The remaining $7.09B represents the
+                    intervention opportunity gap that better mechanism design could close.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>

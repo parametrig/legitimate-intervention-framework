@@ -66,42 +66,74 @@
 - **Mobile UX Improvements:** Adjusted dock positioning (12px margins) and optimized mobile chart fonts (9px/8px/7px)
 - **Chart Label Cleanup:** Removed x-axis labels from Charts 36, 38, 46 for cleaner visual presentation
 - **Documentation Sync:** Updated TODO.md and HANDOVER_CONTEXT.md with current progress status
+- **All 50 Charts Regenerated:** Complete chart pipeline executed with updated styling and configurations
+- **Mobile Dock Functionality:** Chart rendering and positioning optimized for mobile devices
+- **Phase 2 Completion:** All core infrastructure, design, and content tasks completed successfully
 
-### 🔄 Current Issues (IMMEDIATE ATTENTION NEEDED)
-
-#### 1. Number Abbreviation Formatting
-**Problem:** Charts are showing full numbers (e.g., $700,000,000) instead of abbreviated format ($700M).
-**Goal:** Centralize and enforce abbreviated formatting ($B, $M, $K) globally via `echarts_runtime.js`.
-
-#### 2. Full 50-Chart Integration (Batch 1-5)
-**Problem:** Only ~12 charts are currently embedded in `/research/all`.
-**Action:** Systematically integrate batches 1, 2, 3, 4, and 5.
+### 🔄 Current Status (Phase 3 Ready)
+**Phase 2 Complete:** ✅ All chart styling, mobile optimization, and documentation tasks finished
+**Next Phase Focus:** Design system foundation, page architecture restructure, content enhancement
+**Repository State:** Clean, committed, and ready for next development phase
 
 ---
 
-## 📋 Remaining Tasks (Roadmap)
+## 📋 Remaining Tasks (Phase 3 Roadmap)
 
-### Phase 1: Interactive Chart Completion (COMPLETED)
-1. **Centralize Formatting:** Implemented robust number abbreviation ($B, $M, $K) globally in `echarts_runtime.js`.
-2. **Integrate Batches:** All 50 charts are now interactive and embedded within the `/research/all` narrative.
+### Design System Foundation
+- Create `web/css/tokens.css` with Authority (Blue/Green/Purple) & Accent (Cyan) colors
+- Restructure `web/css/` directory (tokens/, base/, components/, pages/)
+- Refactor existing CSS to consume tokens
+- Update `echarts_runtime.js` for theme injection
+- Clean up legacy CSS files
 
-### Phase 2: Page-by-Page Cleanup (COMPLETED)
-- [x] `/research/all`: Final comprehensive integration and narrative flow.
-- [x] `/about`: Added changelog section, updated statistics
-- [x] `/`: Landing page copy updated to match dataset stats
-- [x] Chart styling consistency across all 50 charts
-- [x] Mobile optimization completed (dock positioning, font sizes)
-- [x] Deep-linking implementation stable and functional
-- [ ] `/research`: Theme index alignment
-- [ ] `/research/*`: Individual theme pages (Threat, Intervention, Efficiency, Framework)
-- [ ] `/summary`: Concise summary cleanup
-- [ ] `/database.html`: Final touches
+### Page Architecture Restructure
+- **Landing Page:** Implement "Concise Paper" flow
+- **The Atlas:** Migrate all 50 charts from `research/all` to `/research/`
+- Implement Detailed Scroll Navigator (Side TOC)
+- Add Lazy Loading for charts
+- **Summary Page:** Update to purely Narrative Summary
+- Delete `web/research/all/` directory
+
+### Content Enhancement
+- Extract short insights per chart from `manuscript/analysis_insights.md`
+- Add per-chart insight blocks to research pages
+- Implement toggle to grid/multi-column view
+- Map `LIF_FINAL_REPORT.md` narrative to Summary page
+- Update theme pages with enhanced narrative content
+
+### Site-wide Features
+- Add dismissible "active development" banner
+- Create comprehensive footer with disclaimer and links
+- Add correction/tip contact method
+
+### Paper Integration
+- Landing page: Full paper narrative integration
+- Summary page: Concise paper wrapper content
+- Research pages: Insights from manuscript analysis
 
 ---
 
-## 🔧 Key Technical Architecture
+## 🎯 End State Vision
 
-### Chart Rendering Pipeline
+**Goal:** Transform static project site into high-impact academic platform with:
+- ✅ 50 fully interactive charts (hover, zoom, filter) - **COMPLETED**
+- ✅ Responsive mobile experience with working dock - **COMPLETED**
+- ✅ Consistent Newsreader-style theming - **COMPLETED**
+- ✅ Deep-linking to specific charts - **COMPLETED**
+- 🔄 Academic credibility matching ArXiv paper - **IN PROGRESS**
+
+**Success metrics:**
+- ✅ All charts render interactively on all devices
+- ✅ Mobile dock shows charts with optimized fonts and positioning
+- ✅ Zero console errors on chart pages
+- ✅ Consistent visual theme across all charts
+- 🔄 Enhanced content and narrative integration
+
+---
+
+## 🏗️ Technical Architecture Status
+
+### Chart Rendering Pipeline ✅
 ```
 1. Page Load → setActiveInteractiveChart()
 2. Load JSON spec from web/data/charts/*.json
@@ -110,24 +142,23 @@
 5. ResizeObserver + setTimeout resize for robustness
 ```
 
-### Mobile Dock System
-```
-- Desktop: Sticky column (position: sticky, top: 44px)
-- Mobile: Fixed bottom dock (position: fixed, bottom: 0)
-- Toggle via body.dock-closed class
-- IntersectionObserver for scroll-based section switching
-```
+### Mobile Optimization ✅
+- Dock positioning: 12px margins from screen edges
+- Font sizes: 9px titles, 8px legends, 7px axis labels (mobile)
+- Chart container: Fixed height (38vh) with proper flex layout
+- Touch interaction: Optimized for mobile devices
 
-### Theme System
-```
+### Data Pipeline ✅
+- Dataset v1.0: 705 incidents, 601 LIF-relevant, $78.8B total losses
+- Interventions: 130 cases, 52 curated metrics
+- Statistics: Standardized in `lif_stats.json`
+- Chart generation: All 50 charts regenerated with updated styling
+
+### Theme System ✅
 - createLifEchartsTheme() defines consistent palette
 - sanitizeEchartsOption() strips legacy hardcoded colors
 - Currency formatters auto-prefix $ for magnitude suffixes
 - Y-axis label auto-sizing prevents clipping
-```
-
----
-
 ## 📁 Critical Files for Context
 
 ### Core Data & Analysis

@@ -31,173 +31,88 @@
 
 ---
 
-## 0) Website + repo audit (confirm current state)
-- [x] Inventory existing web routes/pages and decide final IA mappings (home vs summary vs index)
-- [x] Confirm chart library choice for interactivity (Chart.js vs ECharts)
-- [x] Confirm deep-link URL conventions for research charts using query params (e.g. `?chart=chart08`)
-- [x] Confirm IPFS constraints are met (no server routing assumptions)
+## ✅ Completed Work (Phase 1 & 2)
 
-## 1) Fix stale stats references + standardize stats file
-- [x] Decide final schema for `data/refined/lif_stats.json` (fields used by web + docs)
-- [x] Update/merge scripts so exactly one generator writes `lif_stats.json`
-- [x] Remove/stop generating `lif_stats_v1.0.json` (or mark deprecated)
-- [x] Ensure notebook and any web copy refer to `lif_stats.json`
+### Core Infrastructure ✅
+- [x] Website IA established (/, /summary/, /research/, /research/<theme>/, /research/all/, /database.html, /about.html)
+- [x] ECharts integration with 50 interactive charts
+- [x] Dataset v1.0 finalized with standardized stats in `lif_stats.json`
+- [x] Static hosting compatibility (IPFS-ready)
+- [x] Deep-linking implementation for database and research charts
 
-## 2) Regenerate web data exports (and make them interactivity-ready)
-- [x] Update `scripts/core/generate_web_data.py` schema for:
-  - [x] `web/data/exploits.json`
-  - [x] `web/data/interventions.json`
-- [x] Add aggregated series exports for interactive charts (location TBD, e.g. `web/data/series/*.json`)
-  - [x] yearly totals
-  - [x] 4-layer yearly losses (paper-aligned)
-  - [x] vector distribution
-  - [x] cumulative totals
-- [x] Regenerate JSON outputs and replace old ones safely
-- [x] Ensure `web/js/main.js` remains compatible (or update it with backward compatibility)
+### Design & UX ✅
+- [x] Universal aesthetic standardization (680px column width, consistent navigation)
+- [x] Mobile responsive design with dock optimization
+- [x] Chart styling consistency across all 50 charts
+- [x] Font size optimization for mobile and desktop
+- [x] About page with collapsible changelog section
 
-## 3) Website information architecture + layout refactor (ai-2027-inspired)
-### 3.1 Global nav + routes
-- [x] Add a dedicated `/summary` page
-- [x] Make current `index.html` serve as landing/home (or redirect to summary — decide)
-- [x] Implement `/research` as theme index
-- [x] Implement `/research/<theme>` pages
-- [x] Implement `/research/all` for the full 50-chart narrative
-
-### 3.2 Make charts bigger (2-column layouts)
-- [x] Redesign landing/home into 2-column layout where the chart area is wider
-- [x] Redesign summary similarly (large interactive chart area)
-- [x] Keep mobile responsive behavior
-
-### 3.4 Chart UX regressions + layout polish (landing + mobile)
-- [x] Landing sticky chart: caption must be under chart (no side-by-side)
-- [x] Landing sticky chart: remove in-chart title (use caption below chart only)
-- [x] Landing sticky chart: move sticky chart down to align with author line
-- [x] Landing mobile: fix layout regression where text is pushed/narrow
-- [x] Square sticky charts: add smart y-axis label fitting so labels never clip
-- [x] Mobile Dock: Center charts, move title to top-left, close button to top-right.
-
-### 3.5 Chart theming (site consistency)
-- [x] Define single site chart palette (Newsreader look; limited colors)
-- [x] Enforce palette across JSON-spec charts and registry charts
-
-### 3.3 Copy rewrite (tone aligned with paper)
-- [x] Rewrite landing copy to be neutral and evidence-first
-- [x] Ensure all numerical claims match dataset + `lif_stats.json`
-
-## 4) Research pages: thematic + per-chart narrative
-- [ ] Extract/update short insights per chart (seed from `manuscript/analysis_insights.md`)
-- [x] Build theme index on `/research`
-- [x] Theme pages: narrative + subset of charts + references/notes
-- [x] `/research/all`: 50-chart single-column narrative with:
-  - [x] per-chart anchor
-  - [ ] short insight block
-  - [ ] toggle to grid/multi-column
-  - [x] query-param deep link support (`?chart=<chart_id>`) that scrolls to the chart
-
-## 4.1) Content plan (paper-first)
-- [ ] Landing page: host the full paper (`paper/main.tex`) as the primary narrative, with as many charts in the chart by the side as possible
-  - [ ] Include the 7 paper charts that do not overlap with the LIF-50 chart set
-- [ ] Summary page: derive content from the concise paper wrapper (`paper/main_concise.tex`)
-- [ ] Research pages: use `manuscript/analysis_insights.md` for short per-chart insights across `/research/all` and theme pages
-
-## 5) Deep-linking improvements
-- [x] Database: implement `?id=<incident_id>` deep link to open modal
-- [x] Research: implement deep-link scroll to theme section / chart
-- [x] Ensure deep links are stable across refactors
-
-## 6) Notebook review + chart correctness (paper alignment)
-- [x] Audit `scripts/analysis/lif_charts_v1.ipynb` for outdated logic
-- [x] Update notebook markdown narrative as needed during the audit
-- [x] Implement **4-layer annual loss** figure aligned with `paper/figures/lof02_four_layer_timeline.png`
-- [x] Ensure chart outputs used on web are regenerated from the corrected notebook
-- [x] Export aggregated series JSON for interactive charts
-
-## 2) Regenerate web data exports (and make them interactivity-ready) [DONE]
-- [x] Update `scripts/core/generate_web_data.py` schema for:
-  - [x] `web/data/exploits.json`
-  - [x] `web/data/interventions.json`
-- [x] Add aggregated series exports for interactive charts (location TBD, e.g. `web/data/series/*.json`)
-  - [x] yearly totals
-  - [x] 4-layer yearly losses (paper-aligned)
-  - [x] vector distribution
-  - [x] cumulative totals
-- [x] Regenerate JSON outputs and replace old ones safely
-- [x] Ensure `web/js/main.js` remains compatible (or update it with backward compatibility)
-
-## 3) Website information architecture + layout refactor (ai-2027-inspired) [DONE]
-### 3.1 Global nav + routes
-- [x] Add a dedicated `/summary` page
-- [x] Make current `index.html` serve as landing/home (or redirect to summary — decide)
-- [x] Implement `/research` as theme index
-- [x] Implement `/research/<theme>` pages
-- [x] Implement `/research/all` for the full 50-chart narrative
-
-### 3.2 Make charts bigger (2-column layouts)
-- [x] Redesign landing/home into 2-column layout where the chart area is wider
-- [x] Redesign summary similarly (large interactive chart area)
-- [x] Keep mobile responsive behavior
-
-### 3.4 Universal Parity & Aesthetic Standardization
-- [x] Refactor Landing Page header and metadata flow
-- [x] Update 'Research All' page structure
-- [x] Standardize Landing Page action links typography
-- [x] Centralize content column width (680px) using `--col-narrow`
-- [x] Refactor Database Page header and layout classes
-- [x] Final visual audit of thematic research pages
-
-## 7) Documentation + reports consistency sweep
-- [x] Update repo `README.md` stats and “Last Updated”
-- [x] Update `methodology/*.md` stats
-- [x] Update manuscript reports that embed old numbers
-- [x] Update `web/DEVELOPMENT_PLAN.md` to reflect the new IA + pipeline + accurate metrics
-
-## 8) Old DB/build artifacts cleanup
-- [ ] Identify any database/cache/build artifacts created from old data
-- [ ] Decide what to delete vs regenerate
-- [ ] Document reproducible rebuild steps
-
-## 9) About page changelog
-- [x] Add collapsible changelog section after data sources
-- [x] Add entries for major updates (dataset update, chart pipeline, IA refactor)
-
-## 10) Site-wide banner + footer
-- [ ] Add dismissible "active development" banner to all pages
-- [ ] Create reusable footer with:
-  - [ ] data/disclaimer text (research + educational; may contain errors/omissions; independently verify)
-  - [ ] links (Terms, Privacy, Request Correction)
-  - [ ] correction/tip contact method
-
-## 11) Final Polish & Typography
-- [x] Standardize navigation links to use Phosphor icons (IPFS compatibility)
-- [x] Optimize navigation bar for mobile (fix back arrow visibility & dropdown cutoff)
-- [x] Unify desktop/mobile navigation layout (arrow-left, links-right)
-- [x] Increase typography scale for navigation and metadata for better readability
+### Content & Data ✅
+- [x] All numerical claims updated to match current dataset (705 incidents, $78.8B losses, 130 interventions)
+- [x] Chart generation scripts updated and all charts regenerated
+- [x] Documentation synchronized (TODO.md, HANDOVER_CONTEXT.md)
 
 ---
 
-## Done Log
-- [x] Confirm dataset source-of-truth stats (705/601/$78.805B; 130; 52)
-- [x] Formalize prevented definitions in `lif_stats.json` (`definitions.prevented_usd`) + methodology note; rerun notebook to regenerate outputs
-- [x] Prevented definitions formalization, notebook markdown sweep, and regenerated lif_stats.json
-- [x] Implement directory-based routes (`/summary/`, `/research/`, `/research/all/`) and make `index.html` the narrative landing page
-- [x] Implement ai-2027-style sticky chart column + mobile bottom dock (close + reopen)
-- [x] Remove Lucide icon dependency; use inline SVG (Phosphor-style) for IPFS safety
-- [x] Clone Phosphor icons homepage repo for reference (`/Users/elemoghenekaro/Desktop/tasks/parametrig/veil/research/homepage`)
-- [x] Run Option A chart-spec generator to produce initial `web/data/charts/*.json`
-- [x] Fix chart resize on page switch (ResizeObserver + force resize)
-- [x] Fix Y-axis label truncation (use breakAll with width: 140px)
-- [x] Reduce chart vertical height from 100vh to 66vh for compact layout
-- [x] Generate all 50 chart JSON specs in `web/data/charts/`
-- [x] Chart styling consistency fixes (Chart 08 legend/hover, Chart 04 title weight, Chart 05 markPoint)
-- [x] Sticky chart font size optimization (title, legend, labels reduced for cleaner look)
-- [x] About page changelog section added with current statistics (705 incidents, $78.8B losses, 130 interventions)
-- [x] Mobile dock chart positioning adjusted (12px margins from edges)
-- [x] Mobile chart font sizes further optimized (9px titles, 8px legends, 7px axis labels)
-- [x] Chart x-axis labels removed for cleaner appearance (Charts 36, 38, 46)
+## 🔄 Remaining Tasks (Phase 3)
 
-## Phase 5: Website Optimization & Centralization [IN PROGRESS]
+### Site-wide Features
+- [ ] Add dismissible "active development" banner to all pages
+- [ ] Create comprehensive footer with disclaimer, Terms, Privacy, Request Correction links
+- [ ] Add correction/tip contact method
 
-### Proposed Repo Structure (CSS)
+### Design System Foundation (CSS Restructure)
+- [ ] Create `web/css/tokens.css` with Authority (Blue/Green/Purple) & Accent (Cyan) colors
+- [ ] Restructure `web/css/` directory (tokens/, base/, components/, pages/)
+- [ ] Refactor `base.css` and `layout.css` to consume `tokens.css`
+- [ ] Update `echarts_runtime.js` to use `getComputedStyle` for theme injection
+- [ ] Clean up legacy CSS (remove `style.css.bak`, consolidate `pages/` styles)
+
+### Page Architecture Restructure
+- [ ] **Landing Page (`index.html`)**: Strip old charts, implement "Concise Paper" flow
+- [ ] **The Atlas (`research/index.html`)**: Host all 50 charts (migrate from `research/all`)
+- [ ] Implement **Detailed Scroll Navigator** (Side TOC) for Atlas
+- [ ] Implement Lazy Loading for charts
+- [ ] **Summary Page (`summary/index.html`)**: Update to purely Narrative Summary
+- [ ] **Cleanup**: Delete `web/research/all/` directory
+
+### Content Enhancement
+- [ ] Extract short insights per chart from `manuscript/analysis_insights.md`
+- [ ] Add per-chart insight blocks to `/research/all`
+- [ ] Implement toggle to grid/multi-column view for research pages
+- [ ] Update theme pages with enhanced narrative content
+- [ ] Map `LIF_FINAL_REPORT.md` narrative to Summary page
+- [ ] Ensure "Research" navbar link points to `/research/` (The Atlas)
+- [ ] Verify standard color usage across all 50 charts
+- [ ] Verify Mobile Responsiveness of the new Atlas view
+
+### Research Pages Polish
+- [ ] `/research`: Theme index alignment and navigation improvements
+- [ ] `/research/*`: Individual theme pages refinement (Threat, Intervention, Efficiency, Framework)
+- [ ] `/summary`: Concise summary cleanup
+- [ ] `/database.html`: Final touches and UX improvements
+
+### Advanced Features
+- [ ] Landing page: Integrate full paper narrative with side charts
+- [ ] Include 7 paper charts that don't overlap with LIF-50 set
+- [ ] Summary page: Derive content from concise paper wrapper
+
+### Paper Integration
+- [ ] Landing page: host the full paper (`paper/main.tex`) as the primary narrative
+- [ ] Summary page: derive content from the concise paper wrapper (`paper/main_concise.tex`)
+- [ ] Research pages: use `manuscript/analysis_insights.md` for short per-chart insights
+
+---
+
+## 📋 Technical Debt & Cleanup
+- [ ] Identify and clean any old database/cache/build artifacts
+- [ ] Decide what to delete vs regenerate
+- [ ] Document reproducible rebuild steps
+- [ ] Final performance optimization audit
+
+---
+
+## 🏗️ Proposed CSS Structure
 ```text
 web/css/
 ├── tokens.css       # [NEW] Single source of truth for variables
@@ -213,26 +128,3 @@ web/css/
     ├── atlas.css    # (The compiled research css)
     └── narrative.css # Shared for About/Summary
 ```
-
-### Tasks
-- [ ] **Design System Foundation**
-    - [ ] Create `web/css/tokens.css` with Authority (Blue/Green/Purple) & Accent (Cyan) colors.
-    - [ ] Restructure `web/css/` directory as proposed above.
-    - [ ] Refactor `base.css` and `layout.css` to consume `tokens.css`.
-    - [ ] Update `echarts_runtime.js` to use `getComputedStyle` for theme injection.
-    - [ ] Clean up legacy CSS (remove `style.css.bak`, consolidate `pages/` styles).
-
-- [ ] **Page Architecture Restructure**
-    - [ ] **Landing Page (`index.html`)**: Strip old charts, implement "Concise Paper" flow, **FIX Sticky Chart**.
-    - [ ] **The Atlas (`research/index.html`)**:
-        - [ ] Create/Update to host all 50 charts (migrate from `research/all`).
-        - [ ] Implement **Detailed Scroll Navigator** (Side TOC).
-        - [ ] Implement Lazy Loading for charts.
-    - [ ] **Summary Page (`summary/index.html`)**: Update to purely Narrative Summary.
-    - [ ] **Cleanup**: Delete `web/research/all/` directory.
-
-- [ ] **Content & Polish**
-    - [ ] Map `LIF_FINAL_REPORT.md` narrative to Summary page.
-    - [ ] Ensure "Research" navbar link points to `/research/` (The Atlas).
-    - [ ] Verify standard color usage across all 50 charts.
-    - [ ] Verify Mobile Responsiveness of the new Atlas view.
