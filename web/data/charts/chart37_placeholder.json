@@ -1,0 +1,43 @@
+{
+  "chart": {
+    "title": {
+      "text": "Chart 37 Placeholder"
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ]
+    },
+    "yAxis": {
+      "type": "value",
+      "axisLabel": {
+        "formatter": "${value}B"
+      }
+    },
+    "series": [
+      {
+        "type": "line",
+        "data": [
+          1,
+          2,
+          3,
+          8,
+          4,
+          3,
+          2
+        ],
+        "smooth": true,
+        "lineStyle": {
+          "color": "#2563EB"
+        }
+      }
+    ]
+  }
+}

@@ -12,28 +12,70 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 # ── Color palette (matches notebook COLORS dict) ───────────────────
 C = {
-    "blue":    "#2563EB",
-    "green":   "#16A34A",
-    "purple":  "#7C3AED",
-    "amber":   "#D97706",
-    "red":     "#DC2626",
+    # Base Tones
     "slate":   "#475569",
     "gray":    "#6B7280",
     "lgray":   "#9CA3AF",
-    "lblue":   "#60A5FA",
+    "vlgray":  "#F1F5F9", # Lightest blue-gray for background/systemic
     "ink":     "#1E293B",
+    # Authority / Role Colors (Cool)
+    "blue":    "#2563EB",
+    "teal":    "#0D9488",
+    "purple":  "#7C3AED",
+    "lblue":   "#60A5FA",
+    # Scope / Impact Colors (Vivid)
+    "red":     "#DC2626",
+    "amber":   "#D97706",
+    "indigo":  "#4F46E5",
+    "pink":    "#DB2777",
+    "green":   "#16A34A", # Characterstic LIF Green
+    # Categorical / Subset Tones
+    "emerald": "#059669",
+    "orange":  "#EA580C",
 }
 
+# Authority (Operational roles)
 AUTH_COLORS = {
-    "Signer Set":     C["blue"],
-    "Delegated Body": C["green"],
-    "Governance":     C["purple"],
+    "Signer Set":     C["blue"],    # Core System
+    "Delegated Body": C["teal"],    # Specialized/Council
+    "Governance":     C["purple"],  # Heavy/Slow
     "Unknown":        C["gray"],
 }
 
-SCOPE_ORDER     = ["Asset", "Account", "Protocol", "Network", "Module"]
+# Scope (Technical Impact Layer)
+SCOPE_COLORS = {
+    "Network":  C["red"],      # Critical Infrastructure
+    "Protocol": C["amber"],    # Core Logic
+    "Asset":    C["indigo"],   # Value Layer
+    "Module":   C["pink"],     # Specialized Logic
+    "Account":  C["emerald"],  # User-centric (Standard green)
+}
+
+# Subsets (Data Tiers)
+SUBSET_COLORS = {
+    "All Interventions":      C["slate"],   # Reference line
+    "LIF-Relevant":           C["green"],   # Matches Chart 02 Target
+    "High-Fidelity Metrics":  C["orange"],  # Technical subset
+}
+
+LOSS_COLORS = {
+    "Incurred": C["red"],
+    "Saved":    C["green"],
+    "Prevented": C["green"], # Alias for Saved
+}
+
+SCOPE_ORDER     = ["Network", "Protocol", "Asset", "Account", "Module"]
 AUTHORITY_ORDER = ["Signer Set", "Delegated Body", "Governance"]
 AUTHORITY_MAP   = {"Protocol Team": "Signer Set", "Security Council": "Delegated Body"}
+
+SUBSET_COLORS = {
+    "All Interventions":      C["purple"],
+    "LIF-Relevant":           C["green"],
+    "High-Fidelity Metrics":  C["amber"],
+}
+
+# Helper to remove xAxis name (prevent bottom-right overlap on horizontal bars)
+HIDE_X_NAME = {"name": "", "nameLocation": "middle", "nameGap": 0}
 
 # ── Data loading ───────────────────────────────────────────────────
 def load_data():
@@ -64,16 +106,29 @@ def load_data():
 def save(chart_id: str, option: dict):
     """Write {chart: option} JSON to the output dir."""
     path = OUT / f"{chart_id}.json"
+    # Recursively clean NaNs/Infs before dumping
+    cleaned = _clean_nans(option)
     with open(path, "w") as f:
-        json.dump({"chart": option}, f, indent=2, default=_ser)
+        json.dump({"chart": cleaned}, f, indent=2, default=_ser)
     print(f"  ✓ {path.name}  ({os.path.getsize(path)} bytes)")
 
+def _clean_nans(obj):
+    if isinstance(obj, dict):
+        return {k: _clean_nans(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_clean_nans(v) for v in obj]
+    if isinstance(obj, float) and (np.isnan(obj) or np.isinf(obj)):
+        return None
+    if pd.isna(obj):
+        return None
+    return obj
+
 def _ser(o):
+    if pd.isna(o):                     return None
     if isinstance(o, (np.integer,)):   return int(o)
     if isinstance(o, (np.floating,)):  return round(float(o), 4)
     if isinstance(o, (np.bool_,)):     return bool(o)
     if isinstance(o, (pd.Timestamp,)): return o.isoformat()
-    if pd.isna(o):                     return None
     raise TypeError(f"Cannot serialize {type(o)}")
 
 def fmt_usd(v):

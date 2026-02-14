@@ -5,20 +5,11 @@
 
 
 
-.hero-tagline {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: var(--fs-lead);
-    color: #666;
-    margin-top: -1rem;
-    margin-bottom: 3rem;
-    line-height: 1.4;
-}
+
 
 .editorial-content p {
     font-size: var(--fs-p);
     margin-bottom: 1.5rem;
-    text-align: justify;
     line-height: 1.7;
 }
 

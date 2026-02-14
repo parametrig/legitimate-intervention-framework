@@ -9,10 +9,10 @@
     "xAxis": {
       "type": "category",
       "data": [
+        "Network",
+        "Protocol",
         "Asset",
         "Account",
-        "Protocol",
-        "Network",
         "Module"
       ]
     },
@@ -34,7 +34,7 @@
               276100000.0
             ],
             "itemStyle": {
-              "color": "#16A34A"
+              "color": "#0D9488"
             }
           },
           {
@@ -52,7 +52,7 @@
               20700000.0
             ],
             "itemStyle": {
-              "color": "#16A34A"
+              "color": "#0D9488"
             }
           },
           {
@@ -160,7 +160,7 @@
               5400000.0
             ],
             "itemStyle": {
-              "color": "#16A34A"
+              "color": "#0D9488"
             }
           },
           {
@@ -169,7 +169,7 @@
               197000000.0
             ],
             "itemStyle": {
-              "color": "#16A34A"
+              "color": "#0D9488"
             }
           },
           {
@@ -187,7 +187,7 @@
               36000000.0
             ],
             "itemStyle": {
-              "color": "#16A34A"
+              "color": "#0D9488"
             }
           },
           {
@@ -259,7 +259,7 @@
               610000000.0
             ],
             "itemStyle": {
-              "color": "#16A34A"
+              "color": "#0D9488"
             }
           },
           {

@@ -112,10 +112,38 @@
 - [x] Ensure chart outputs used on web are regenerated from the corrected notebook
 - [x] Export aggregated series JSON for interactive charts
 
-### 6.1 Accuracy-first interactive chart audit (Option 2)
-- [x] Batch 1: verify charts 01, 02, 08, 09 match notebook/data and lock specs
-- [ ] Continue chart-by-chart audit through chart50 (no placeholders)
-- [ ] Verify each chart is interactive (no silent PNG fallback)
+## 2) Regenerate web data exports (and make them interactivity-ready) [DONE]
+- [x] Update `scripts/core/generate_web_data.py` schema for:
+  - [x] `web/data/exploits.json`
+  - [x] `web/data/interventions.json`
+- [x] Add aggregated series exports for interactive charts (location TBD, e.g. `web/data/series/*.json`)
+  - [x] yearly totals
+  - [x] 4-layer yearly losses (paper-aligned)
+  - [x] vector distribution
+  - [x] cumulative totals
+- [x] Regenerate JSON outputs and replace old ones safely
+- [x] Ensure `web/js/main.js` remains compatible (or update it with backward compatibility)
+
+## 3) Website information architecture + layout refactor (ai-2027-inspired) [DONE]
+### 3.1 Global nav + routes
+- [x] Add a dedicated `/summary` page
+- [x] Make current `index.html` serve as landing/home (or redirect to summary — decide)
+- [x] Implement `/research` as theme index
+- [x] Implement `/research/<theme>` pages
+- [x] Implement `/research/all` for the full 50-chart narrative
+
+### 3.2 Make charts bigger (2-column layouts)
+- [x] Redesign landing/home into 2-column layout where the chart area is wider
+- [x] Redesign summary similarly (large interactive chart area)
+- [x] Keep mobile responsive behavior
+
+### 3.4 Universal Parity & Aesthetic Standardization
+- [x] Refactor Landing Page header and metadata flow
+- [x] Update 'Research All' page structure
+- [x] Standardize Landing Page action links typography
+- [x] Centralize content column width (680px) using `--col-narrow`
+- [x] Refactor Database Page header and layout classes
+- [x] Final visual audit of thematic research pages
 
 ## 7) Documentation + reports consistency sweep
 - [x] Update repo `README.md` stats and “Last Updated”

@@ -4,6 +4,8 @@
    ========================================= */
 
 /* Global Reset */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -39,6 +41,9 @@
     /* 14px */
     --fs-tiny: 0.75rem;
     /* 12px */
+
+    /* Widths */
+    --col-narrow: 680px;
 
     /* Line Heights */
     --lh-tight: 1.1;
@@ -136,7 +141,7 @@ a {
 /* The Grid: Left content, Right sidebar/empty */
 .content-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 480px;
+    grid-template-columns: var(--col-narrow) 1fr;
     gap: 2.5rem;
     position: relative;
 }
@@ -168,7 +173,6 @@ a {
     width: 100%;
 }
 
-/* Constrain primarily text content matching grid column 1 */
 .mixed-layout>p,
 .mixed-layout>h1,
 .mixed-layout>h2,
@@ -179,7 +183,7 @@ a {
 .mixed-layout>ol,
 .mixed-layout>blockquote,
 .mixed-layout>.editorial-content {
-    max-width: 680px;
+    max-width: var(--col-narrow);
 }
 
 /* Allow specific elements to span full width */
@@ -193,7 +197,7 @@ a {
 /* If editorial-content (about page wrapper) is used, constrain ITS children unless wide */
 .mixed-layout>.editorial-content>p,
 .mixed-layout>.editorial-content>ul {
-    max-width: 680px;
+    max-width: var(--col-narrow);
 }
 
 /* Deep nesting support for Research pages (narrative-content -> section -> p) */
@@ -204,7 +208,7 @@ a {
 .mixed-layout .narrative-content h4,
 .mixed-layout .narrative-content ul,
 .mixed-layout .narrative-content ol {
-    max-width: 680px;
+    max-width: var(--col-narrow);
 }
 
 /* Ensure inline charts in Research pages are wide */

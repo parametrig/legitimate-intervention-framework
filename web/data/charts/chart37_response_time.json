@@ -1,10 +1,11 @@
 {
   "chart": {
     "title": {
-      "text": "Median Response Time by Authority"
+      "text": "Mean Response Time by Authority"
     },
     "tooltip": {
-      "trigger": "axis"
+      "trigger": "axis",
+      "valueFormatter": "{value} min"
     },
     "xAxis": {
       "type": "category",
@@ -16,44 +17,28 @@
     },
     "yAxis": {
       "type": "log",
-      "name": "Minutes (Log)",
-      "min": 1
+      "name": "Minutes (Log)"
     },
     "series": [
       {
         "type": "bar",
         "data": [
           {
-            "value": 94.0,
+            "value": 387.2,
             "itemStyle": {
               "color": "#2563EB"
-            },
-            "label": {
-              "show": true,
-              "position": "top",
-              "formatter": "94 min"
             }
           },
           {
-            "value": 52.0,
+            "value": 569.7,
             "itemStyle": {
-              "color": "#16A34A"
-            },
-            "label": {
-              "show": true,
-              "position": "top",
-              "formatter": "52 min"
+              "color": "#0D9488"
             }
           },
           {
-            "value": 720.0,
+            "value": 372891.4,
             "itemStyle": {
               "color": "#7C3AED"
-            },
-            "label": {
-              "show": true,
-              "position": "top",
-              "formatter": "720 min"
             }
           }
         ]

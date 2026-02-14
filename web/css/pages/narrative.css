@@ -1,38 +1,90 @@
 .narrative-layout {
     position: relative;
-    /* Layout handled by .standard-layout .content-grid */
+    /* Layout handled by .standard-layout .mixed-layout */
 }
 
-.narrative-sidebar {
-    display: none;
+/* Theme-specific Narrative (High Contrast, Single Column) */
+.theme-narrative-layout {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 4% 6rem;
+}
+
+.theme-narrative-layout .narrative-content {
+    width: 100%;
+}
+
+/* Annotations are now merged into the main flow or moved to blocks */
+.narrative-annotations {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    max-width: 680px;
+}
+
+.annotation-item {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: var(--lh-normal);
+    color: #555;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid #000;
+}
+
+.annotation-item strong {
+    display: block;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .narrative-content {
-    max-width: 900px;
-    min-width: 0;
+    max-width: 100%;
+}
+
+.narrative-content p,
+.narrative-content h2,
+.narrative-content h3,
+.narrative-content h4,
+.narrative-content ul {
+    max-width: 680px;
+}
+
+.narrative-content h2,
+.narrative-content h3 {
+    text-align: left;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+}
+
+.narrative-content h1 {
+    margin-top: 0;
 }
 
 .narrative-content section {
-    min-height: 80vh;
-    padding-bottom: 4rem;
-    opacity: 0.4;
-    transition: opacity 0.5s ease;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid #eee;
 }
 
-.narrative-content section.active {
-    opacity: 1;
+.narrative-content section:last-of-type {
+    border-bottom: none;
 }
 
 .narrative-content .hero-section {
-    min-height: 60vh;
-    opacity: 1;
+    min-height: auto;
+    border-bottom: none;
+    padding-bottom: 4rem;
 }
 
 .narrative-inline-chart-frame {
-    margin-top: 1.25rem;
+    margin: 3rem 0;
     position: relative;
     width: 100%;
-    height: min(66vh, 520px);
+    height: min(70vh, 550px);
+    max-width: 1000px;
+    /* Slightly wider than text for visual rhythm */
 }
 
 .narrative-inline-chart {
@@ -62,8 +114,6 @@
 .narrative-inline-chart-frame.is-fallback .narrative-inline-chart-fallback {
     display: block;
 }
-
-
 
 .page-research-all .narrative-content {
     max-width: none;

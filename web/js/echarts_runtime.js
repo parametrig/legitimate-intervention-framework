@@ -1,3 +1,23 @@
+const LIF_COLORS = {
+    blue: '#2563EB',
+    green: '#16A34A',
+    purple: '#7C3AED',
+    amber: '#D97706',
+    red: '#DC2626',
+    slate: '#475569',
+    gray: '#6B7280',
+    lgray: '#9CA3AF',
+    lblue: '#60A5FA',
+    ink: '#1E293B',
+};
+
+const AUTHORITY_COLORS = {
+    'Signer Set': LIF_COLORS.blue,
+    'Delegated Body': LIF_COLORS.green,
+    'Governance': LIF_COLORS.purple,
+    'Unknown': LIF_COLORS.gray,
+};
+
 let __lifDataCache = null;
 
 async function loadJson(path) {
@@ -40,6 +60,23 @@ function reviveFns(obj) {
     return obj;
 }
 
+function __lifAbbreviateValue(v) {
+    if (v === null || v === undefined || Number.isNaN(v)) return '—';
+    const absV = Math.abs(v);
+
+    // If the value is tiny (e.g. 1.5) but the context is billions, 
+    // we shouldn't abbreviate further. 
+    // However, if the value is large (e.g. 1,500,000,000), we certainly should.
+
+    if (absV >= 1e9) return (v / 1e9).toFixed(1).replace(/\.0$/, '') + 'B';
+    if (absV >= 1e6) return (v / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
+    if (absV >= 1e3) return (v / 1e3).toFixed(1).replace(/\.0$/, '') + 'K';
+
+    // Precision for small numbers
+    if (absV < 10 && absV > 0) return v.toFixed(2).replace(/\.?0+$/, '');
+    return String(v);
+}
+
 function __lifCoerceDollarValueFormatterString(s) {
     if (typeof s !== 'string') return null;
 
@@ -47,90 +84,155 @@ function __lifCoerceDollarValueFormatterString(s) {
     const hasEchartsTemplate = s.includes('{value}');
     if (!hasJsTemplate && !hasEchartsTemplate) return null;
 
-    // Common generator artifact: '${value}'. ECharts supports '{value}'.
-    // We normalize both by converting into a valueFormatter function.
     return (v) => {
         if (v === null || v === undefined || Number.isNaN(v)) return '—';
-        let out = s;
-        out = out.replace('${value}', String(v));
-        out = out.replace('{value}', String(v));
 
-        // For money-like axes our generators often omit the leading '$'.
-        // If the template looks like a magnitude suffix (e.g. "{value}B"), prefix with '$'.
-        if (/^\s*\d/.test(out) && /\d\s*[BMK]$/.test(out)) return `$${out}`;
+        // If the template is JUST the value placeholder, we abbreviate.
+        // If it includes other characters (like a suffix 'B' or 'M'), we assume 
+        // the value is already pre-scaled and we just replace.
+        const isPurePlaceholder = s.trim() === '${value}' || s.trim() === '{value}';
+        const isPureDollarPlaceholder = s.trim() === '$${value}' || s.trim() === '${value}' && s.startsWith('$');
+
+        let valStr;
+        if (isPurePlaceholder || isPureDollarPlaceholder) {
+            valStr = __lifAbbreviateValue(v);
+        } else {
+            valStr = String(v);
+        }
+
+        let out = s;
+        // Handle JS template format from some of our Python generators
+        out = out.replace(/\$\{value\}/g, valStr);
+        // Handle ECharts native template format
+        out = out.replace(/\{value\}/g, valStr);
+
+        // Refined currency prefixing: 
+        if (!out.startsWith('$') && /^\s*-?\d/.test(out)) {
+            const hasCurrencySuffix = /\d\s*[BMKGT]$/.test(out);
+            const templateImpliesCurrency = s.startsWith('$');
+            if (hasCurrencySuffix || templateImpliesCurrency) return `$${out}`;
+        }
         return out;
     };
 }
 
 function sanitizeEchartsOption(option) {
-    // Make JSON specs resilient to generator artifacts that crash ECharts.
     if (!option || typeof option !== 'object') return option;
 
     const LEGACY_PALETTE = new Set(['#2563EB', '#64748B', '#16A34A', '#D97706', '#93C5FD', '#9CA3AF']);
+    const isMobile = window.innerWidth < 768;
 
     const fixup = (node) => {
         if (!node || typeof node !== 'object') return;
 
-        // tooltip.valueFormatter must be a function (string crashes ECharts)
+        // Force titles to middle to avoid overlap with labels, unless explicitly specified
+        if (node.title) {
+            const titles = Array.isArray(node.title) ? node.title : [node.title];
+            for (const t of titles) {
+                if (!t.left && !t.right) t.left = 'center';
+                if (!t.textStyle) t.textStyle = {};
+                if (!t.textStyle.fontSize) t.textStyle.fontSize = isMobile ? 12 : 14;
+                if (!t.textStyle.fontWeight) t.textStyle.fontWeight = 500;
+            }
+        }
+
+        // Standardize Legends
+        if (node.legend) {
+            const legends = Array.isArray(node.legend) ? node.legend : [node.legend];
+            for (const leg of legends) {
+                if (leg.bottom === undefined) leg.bottom = 0;
+                if (!leg.left && !leg.right) leg.left = 'center';
+                if (!leg.orient) leg.orient = 'horizontal';
+                if (!leg.type && isMobile) leg.type = 'scroll';
+                if (!leg.textStyle) leg.textStyle = {};
+                if (!leg.textStyle.fontSize) leg.textStyle.fontSize = isMobile ? 10 : 11;
+            }
+        }
+
+        // tooltip.valueFormatter must be a function
         if (node.tooltip && typeof node.tooltip === 'object') {
             if (typeof node.tooltip.valueFormatter === 'string') {
                 const fn = __lifCoerceDollarValueFormatterString(node.tooltip.valueFormatter);
                 node.tooltip.valueFormatter = fn || ((v) => String(v));
             }
+            if (isMobile && node.tooltip.trigger === 'axis') {
+                node.tooltip.confine = true;
+            }
         }
 
-        // axisLabel.formatter can be string template, but '${value}' is invalid.
+        // axisLabel and grid adjustments
         for (const axisKey of ['xAxis', 'yAxis']) {
             const axis = node[axisKey];
             const axes = Array.isArray(axis) ? axis : (axis ? [axis] : []);
             for (const ax of axes) {
-                if (ax && ax.axisLabel && typeof ax.axisLabel === 'object' && typeof ax.axisLabel.formatter === 'string') {
-                    const fn = __lifCoerceDollarValueFormatterString(ax.axisLabel.formatter);
-                    if (fn) ax.axisLabel.formatter = fn;
+                const name = ax.name || '';
+                if (name.includes('$') || name.toLowerCase().includes('usd')) {
+                    if (!ax.axisLabel) ax.axisLabel = { show: true };
+                    if (!ax.axisLabel.formatter) ax.axisLabel.formatter = '{value}';
                 }
 
-                // breakAll makes labels unreadable for strings like "Access Control / Key Compromise".
-                // Prefer word-ish wrapping.
-                if (ax && ax.axisLabel && typeof ax.axisLabel === 'object') {
+                if (ax.axisLabel && typeof ax.axisLabel === 'object') {
+                    if (typeof ax.axisLabel.formatter === 'string') {
+                        const fn = __lifCoerceDollarValueFormatterString(ax.axisLabel.formatter);
+                        if (fn) ax.axisLabel.formatter = fn;
+                    }
+
+                    // Enforce mobile font sizing
+                    ax.axisLabel.fontSize = isMobile ? 9 : 11;
+                    ax.axisLabel.fontWeight = 400; // No bold
+
                     if (ax.axisLabel.overflow === 'breakAll') {
                         ax.axisLabel.overflow = 'break';
                     }
 
-                    // If labels contain slashes, give them enough width to wrap as two clean lines.
-                    // This avoids the "pressed" look where everything becomes 3+ cramped lines.
                     const data = Array.isArray(ax.data) ? ax.data : [];
                     const hasSlashLabels = data.some(v => typeof v === 'string' && v.includes(' / '));
                     if (hasSlashLabels) {
                         const w = Number(ax.axisLabel.width || 0);
-                        if (!Number.isFinite(w) || w < 170) ax.axisLabel.width = 180;
-                        if (typeof ax.axisLabel.lineHeight !== 'number') ax.axisLabel.lineHeight = 14;
+                        if (!Number.isFinite(w) || w < 170) ax.axisLabel.width = isMobile ? 120 : 180;
+                        if (typeof ax.axisLabel.lineHeight !== 'number') ax.axisLabel.lineHeight = isMobile ? 11 : 14;
                     }
                 }
             }
         }
 
-        // Enforce theme palette by removing legacy per-series colors.
-        // This keeps JSON specs consistent while not destroying intentionally custom palettes.
+        // Series refinements
         if (Array.isArray(node.series)) {
             for (const s of node.series) {
                 if (!s || typeof s !== 'object') continue;
-                if (s.itemStyle && typeof s.itemStyle === 'object' && typeof s.itemStyle.color === 'string') {
-                    if (LEGACY_PALETTE.has(s.itemStyle.color)) {
-                        delete s.itemStyle.color;
-                        if (Object.keys(s.itemStyle).length === 0) delete s.itemStyle;
+
+                // Hide labels globally, rely on tooltips
+                if (!s.label) s.label = {};
+                s.label.show = false;
+
+                // Normalize line weights
+                if (s.type === 'line') {
+                    if (!s.lineStyle) s.lineStyle = {};
+                    s.lineStyle.width = 2; // Normal, not bold
+                }
+
+                // Map Authority Colors
+                if (s.name && AUTHORITY_COLORS[s.name]) {
+                    if (!s.itemStyle) s.itemStyle = {};
+                    s.itemStyle.color = AUTHORITY_COLORS[s.name];
+                }
+
+                // Data point mapping (for pie/custom series)
+                if (Array.isArray(s.data)) {
+                    for (const d of s.data) {
+                        if (d && d.name && AUTHORITY_COLORS[d.name]) {
+                            if (!d.itemStyle) d.itemStyle = {};
+                            d.itemStyle.color = AUTHORITY_COLORS[d.name];
+                        }
                     }
                 }
-                if (s.lineStyle && typeof s.lineStyle === 'object' && typeof s.lineStyle.color === 'string') {
-                    if (LEGACY_PALETTE.has(s.lineStyle.color)) {
-                        delete s.lineStyle.color;
-                        if (Object.keys(s.lineStyle).length === 0) delete s.lineStyle;
-                    }
+
+                // Cleanup legacy colors
+                if (s.itemStyle && typeof s.itemStyle.color === 'string') {
+                    if (LEGACY_PALETTE.has(s.itemStyle.color)) delete s.itemStyle.color;
                 }
-                if (s.areaStyle && typeof s.areaStyle === 'object' && typeof s.areaStyle.color === 'string') {
-                    if (LEGACY_PALETTE.has(s.areaStyle.color)) {
-                        delete s.areaStyle.color;
-                        if (Object.keys(s.areaStyle).length === 0) delete s.areaStyle;
-                    }
+                if (s.lineStyle && typeof s.lineStyle.color === 'string') {
+                    if (LEGACY_PALETTE.has(s.lineStyle.color)) delete s.lineStyle.color;
                 }
             }
         }
@@ -139,12 +241,32 @@ function sanitizeEchartsOption(option) {
             if (Array.isArray(v)) {
                 v.forEach(fixup);
             } else if (v && typeof v === 'object') {
-                fixup(v);
+                if (v !== node) fixup(v);
             }
         }
     };
 
     fixup(option);
+
+    // Dynamic grid based on device
+    if (!option.grid || typeof option.grid !== 'object' || Array.isArray(option.grid)) {
+        option.grid = {
+            left: isMobile ? 45 : 65,
+            right: 25,
+            top: 60,
+            bottom: isMobile ? 65 : 55,
+            containLabel: true
+        };
+    } else {
+        if (isMobile) {
+            option.grid.left = Math.max(Number(option.grid.left || 0), 45);
+            option.grid.bottom = Math.max(Number(option.grid.bottom || 0), 65);
+        } else {
+            option.grid.left = Math.max(Number(option.grid.left || 0), 65);
+            option.grid.bottom = Math.max(Number(option.grid.bottom || 0), 55);
+        }
+    }
+
     return option;
 }
 
@@ -279,23 +401,39 @@ function formatUsdShort(v) {
 function createLifEchartsTheme() {
     return {
         // Keep palette tight for a consistent site look.
-        // Prefer using the theme colors over per-series custom colors.
-        color: ['#2563EB', '#64748B', '#16A34A', '#D97706'],
+        color: [
+            LIF_COLORS.blue,
+            LIF_COLORS.slate,
+            LIF_COLORS.green,
+            LIF_COLORS.amber,
+            LIF_COLORS.red,
+            LIF_COLORS.purple
+        ],
         textStyle: {
             fontFamily: 'Newsreader, Georgia, serif',
             color: '#1a1a1a',
         },
         title: {
+            left: 'center',
             textStyle: {
-                fontWeight: 600,
-                fontSize: 16,
+                fontWeight: 500,
+                fontSize: 15,
             },
         },
         grid: {
-            left: 56,
-            right: 32,
-            top: 56,
-            bottom: 44,
+            left: 65,
+            right: 25,
+            top: 60,
+            bottom: 55,
+            containLabel: true,
+        },
+        legend: {
+            left: 'center',
+            bottom: 0,
+            textStyle: {
+                fontSize: 11,
+                fontWeight: 400
+            }
         },
         tooltip: {
             backgroundColor: 'rgba(255,255,255,0.96)',

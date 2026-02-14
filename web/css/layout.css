@@ -157,21 +157,42 @@ header.transparent {
     font-weight: 600;
 }
 
-/* Metadata Bar (Used in Hero Sections) */
+/* Metadata Bar (Used for Byline and Report Info) */
 .metadata-bar {
     font-family: var(--font-serif);
-    font-size: var(--fs-small);
-    /* Increased from tiny (12px to 14px) */
-    color: #999;
-    margin-bottom: 2.5rem;
-    text-transform: none;
-    letter-spacing: 0.02em;
-    padding-top: 0.2rem;
+    font-size: 1.125rem;
+    color: #666;
+    margin-bottom: 2rem;
+    margin-top: 0;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1.5rem;
-    /* Increased gap slightly */
+    gap: 0.5rem;
+}
+
+.metadata-bar span {
+    display: inline-block;
+}
+
+.report-lead {
+    font-size: var(--fs-lead);
+    color: var(--text-color);
+    line-height: var(--lh-normal);
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.page-title {
+    font-size: var(--fs-h1);
+    margin-bottom: 1.2rem;
+    margin-top: 0;
+    letter-spacing: -0.02em;
+}
+
+.editorial-header {
+    margin-bottom: 4rem;
+    text-align: left;
 }
 
 .metadata-item {

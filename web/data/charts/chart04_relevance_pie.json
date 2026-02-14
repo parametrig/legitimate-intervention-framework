@@ -2,16 +2,24 @@
   "chart": {
     "title": [
       {
-        "text": "By Count",
+        "text": "By Incident Count",
         "left": "25%",
         "top": "5%",
-        "textAlign": "center"
+        "textAlign": "center",
+        "textStyle": {
+          "fontSize": 12,
+          "fontWeight": "bold"
+        }
       },
       {
-        "text": "By Value",
+        "text": "By Total Value ($)",
         "left": "75%",
         "top": "5%",
-        "textAlign": "center"
+        "textAlign": "center",
+        "textStyle": {
+          "fontSize": 12,
+          "fontWeight": "bold"
+        }
       }
     ],
     "tooltip": {
@@ -19,20 +27,28 @@
       "formatter": "{b}: {c} ({d}%)"
     },
     "legend": {
-      "bottom": 0,
+      "bottom": "0%",
       "data": [
         "LIF-Relevant",
         "Potential Technical",
         "Systemic/Social"
-      ]
+      ],
+      "itemGap": 20,
+      "textStyle": {
+        "fontSize": 10
+      }
     },
     "series": [
       {
+        "name": "Volume",
         "type": "pie",
-        "radius": "50%",
+        "radius": [
+          "35%",
+          "55%"
+        ],
         "center": [
           "25%",
-          "55%"
+          "50%"
         ],
         "data": [
           {
@@ -58,15 +74,23 @@
           }
         ],
         "label": {
-          "formatter": "{b}\n{c} ({d}%)"
+          "show": true,
+          "position": "inner",
+          "formatter": "{d}%",
+          "fontSize": 10,
+          "color": "#fff"
         }
       },
       {
+        "name": "Value",
         "type": "pie",
-        "radius": "50%",
+        "radius": [
+          "35%",
+          "55%"
+        ],
         "center": [
           "75%",
-          "55%"
+          "50%"
         ],
         "data": [
           {
@@ -92,7 +116,11 @@
           }
         ],
         "label": {
-          "formatter": "{b}\n${c}B ({d}%)"
+          "show": true,
+          "position": "inner",
+          "formatter": "${c}B",
+          "fontSize": 10,
+          "color": "#fff"
         }
       }
     ]

@@ -8,7 +8,9 @@
     },
     "xAxis": {
       "type": "value",
-      "name": "Capital Protected ($M)"
+      "name": "",
+      "nameLocation": "middle",
+      "nameGap": 0
     },
     "yAxis": {
       "type": "category",
@@ -63,7 +65,7 @@
           {
             "value": 233.0,
             "itemStyle": {
-              "color": "#16A34A"
+              "color": "#0D9488"
             },
             "label": {
               "show": true,
@@ -74,7 +76,7 @@
           {
             "value": 297.0,
             "itemStyle": {
-              "color": "#16A34A"
+              "color": "#0D9488"
             },
             "label": {
               "show": true,
@@ -107,7 +109,7 @@
           {
             "value": 610.0,
             "itemStyle": {
-              "color": "#16A34A"
+              "color": "#0D9488"
             },
             "label": {
               "show": true,

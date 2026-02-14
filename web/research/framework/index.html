@@ -7,16 +7,11 @@
     <title>Research (Framework) | Legitimate Overrides</title>
     <link rel="stylesheet" href="../../css/base.css">
     <link rel="stylesheet" href="../../css/layout.css">
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="../../css/pages/narrative.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 </head>
 
-<body>
+<body data-root-prefix="../../">
 
     <header class="transparent">
         <nav class="nav-links"><a href="../../" class="nav-icon-link" aria-label="Back to home"><svg
@@ -34,21 +29,86 @@
         </nav>
     </header>
 
-    <div class="standard-layout mixed-layout">
-        <h1>Framework</h1>
-        <p>This theme focuses on the legitimacy conditions framework and how to operationalize intervention governance.
-        </p>
-        <p><a href="../all/" style="font-weight: 600;">Open the full 50-chart narrative →</a></p>
+    <nav class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-track">
+            <div class="scroll-line"></div>
+            <div class="scroll-marker" id="scrollMarker"></div>
+            <div class="scroll-sections" id="scrollSections">
+                <div class="scroll-section active" data-target="intro">
+                    <div class="section-bar long"></div>
+                    <span class="section-label">Overview</span>
+                </div>
+                <div class="scroll-section" data-target="analysis">
+                    <div class="section-bar long"></div>
+                    <span class="section-label">LIF Analysis</span>
+                </div>
+            </div>
+            <div class="scroll-progress" id="scrollProgress">0%</div>
+        </div>
+    </nav>
 
-        <h2 style="margin-top: 2.5rem;">Key charts</h2>
-        <div style="display: grid; gap: 0.75rem; max-width: 520px;">
-            <a href="../all/?chart=chart47" style="font-weight: 600;">Comprehensive LIF analysis →</a>
+    <div class="standard-layout mixed-layout narrative-layout">
+        <div class="narrative-content">
+            <section data-narrative-section data-id="intro" class="hero-section">
+                <h1 class="page-title">Strategic Framework</h1>
+                <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
+                <p class="report-lead">The Legitimate Intervention Framework (LIF) provides the architectural
+                    blueprint
+                    for scaling protocol security while maintaining decentralized legitimacy through formalized
+                    override tiers.</p>
+            </section>
+
+            <!-- Chart 47: Comprehensive LIF Analysis -->
+            <section data-narrative-section data-id="analysis" data-chart="chart47_comprehensive_lif_analysis"
+                data-fallback-src="../../charts/chart47_comprehensive_lif_analysis.png">
+                <h2>Comprehensive LIF Analysis</h2>
+                <p>The final framework integrates threat vectors, intervention tiers, and efficiency metrics into a
+                    single operational standard.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 48: Strategic ROI Rankings -->
+            <section data-narrative-section data-id="roi-rankings" data-chart="chart48_strategic_roi_rankings"
+                data-fallback-src="../../charts/chart48_strategic_roi_rankings.png">
+                <h2>Strategic ROI Rankings</h2>
+                <p>Analyzing the speed and cost-benefit of different intervention architectures across the DeFi
+                    ecosystem.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 50: Final Performance Metric -->
+            <section data-narrative-section data-id="prevention-met" data-chart="chart50_loss_prevented_vs_incurred"
+                data-fallback-src="../../charts/chart50_loss_prevented_vs_incurred.png">
+                <h2>Value Saved vs Incurred</h2>
+                <p>The ultimate performance metric: total value prevented from loss relative to the scale of technical
+                    addressability.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
         </div>
 
-        <p style="margin-top: 2rem; color: #666;">Deep-link scrolling for <code>?chart=</code> is planned; these links
-            may currently open the page without scrolling.</p>
+        <div class="narrative-annotations">
+            <div class="annotation-item">
+                <strong>The LIF Standard</strong>
+                We propose a standard 'Intervention Hook' for all TVL-bearing protocols, allowing for legitimate,
+                scope-constrained overrides.
+            </div>
+            <div class="annotation-item">
+                <strong>Financial Case</strong>
+                Preventing just 10% more loss through standardized tools would have saved $8B over the last five years
+                of DeFi operations.
+            </div>
+        </div>
     </div>
 
+    <script src="../../js/echarts_runtime.js"></script>
+    <script src="../../js/scroll_navigator.js"></script>
+    <script src="../../js/narrative_runtime.js"></script>
 </body>
 
 </html>

@@ -34,15 +34,80 @@
         </nav>
     </header>
 
-    <div class="standard-layout mixed-layout">
-        <h1>Summary</h1>
-        <p>Elem Oghenekaro, Dr. Nimrod Talmon</p>
-        <p>This page will mirror the concise summary format (AI2027-style) and differs from the landing narrative at
-            <a href="../">/</a>.
-        </p>
-        <p><a href="../research/all/">Read the full research narrative →</a></p>
+    <nav class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-track">
+            <div class="scroll-line"></div>
+            <div class="scroll-marker" id="scrollMarker"></div>
+            <div class="scroll-sections" id="scrollSections">
+                <div class="scroll-section active" data-target="executive">
+                    <div class="section-bar long"></div>
+                    <span class="section-label">Executive</span>
+                </div>
+                <div class="scroll-section" data-target="threat">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">I. Threat</span>
+                </div>
+                <div class="scroll-section" data-target="intervention">
+                    <div class="section-bar short"></div>
+                    <span class="section-label">II. Intervention</span>
+                </div>
+                <div class="scroll-section" data-target="efficiency">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">III. Efficiency</span>
+                </div>
+                <div class="scroll-section" data-target="framework">
+                    <div class="section-bar long"></div>
+                    <span class="section-label">IV. Framework</span>
+                </div>
+            </div>
+            <div class="scroll-progress" id="scrollProgress">0%</div>
+        </div>
+    </nav>
+
+    <div class="standard-layout mixed-layout narrative-layout">
+        <div class="narrative-content">
+            <section data-narrative-section data-id="executive" class="hero-section">
+                <h1>Executive Summary</h1>
+                <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
+                <p class="report-lead">The Legitimate Intervention Framework (LIF) addresses the critical "time vs.
+                    legitimacy" trade-off in
+                    blockchain security. This summary provides a concise overview of the empirical findings and
+                    strategic recommendations derived from our comprehensive analysis of over 300 major DeFi incidents.
+                </p>
+                <p><a href="../research/all/">Read the full research narrative →</a></p>
+            </section>
+
+            <section data-narrative-section data-id="threat">
+                <h2>I. The Threat Landscape</h2>
+                <p>Since 2020, capital loss in decentralized finance has exceeded $80B. Our analysis identifies "Logic
+                    Bugs" and "Access Control Failures" as the primary vectors, representing over 70% of frequency but
+                    often manageable if addressed within hours rather than days.</p>
+            </section>
+
+            <section data-narrative-section data-id="intervention">
+                <h2>II. The Intervention Gap</h2>
+                <p>Most protocols lack the governance speed to counter fast-moving exploits. LIF defines a tiers of
+                    "legitimate overrides" that allow for rapid containment without sacrificing long-term
+                    decentralization, moving from automated signer sets to social governance.</p>
+            </section>
+
+            <section data-narrative-section data-id="efficiency">
+                <h2>III. Measuring Efficiency</h2>
+                <p>Our "Containment Success Rate" (CSR) metric reveals a wide disparity between protocols.
+                    High-efficiency protocols can prevent over 90% of potential losses through proactive monitoring and
+                    pre-authorized intervention sets.</p>
+            </section>
+
+            <section data-narrative-section data-id="framework">
+                <h2>IV. Strategic Framework</h2>
+                <p>The transition from ad-hoc emergency patches to a standardized intervention framework is essential
+                    for the long-term viability of high-value protocol ecosystems. LIF provides the mathematical and
+                    operational blueprint for this transition.</p>
+            </section>
+        </div>
     </div>
 
+    <script src="../js/scroll_navigator.js"></script>
 </body>
 
 </html>

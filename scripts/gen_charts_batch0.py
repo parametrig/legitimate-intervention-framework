@@ -84,18 +84,18 @@ save("chart02_cumulative_losses", {
     ]
 })
 
-# ── Chart 03: Top 20 Losses (Magnitude) ───────────────────────────
-top20 = exploits.nlargest(20, "loss_usd").sort_values("loss_usd", ascending=True)
-save("chart03_top20_magnitude", {
-    "title": {"text": "Top 20 Historical Losses"},
+# ── Chart 03: Top 10 Losses (Magnitude) ───────────────────────────
+top10 = exploits.nlargest(10, "loss_usd").sort_values("loss_usd", ascending=True)
+save("chart03_top20_magnitude", { # keeping ID for web compatibility
+    "title": {"text": "Top 10 Historical Losses"},
     "tooltip": {"trigger": "axis", "valueFormatter": "${value}B"},
-    "xAxis": {"type": "value", "name": "Loss ($B)"},
-    "yAxis": {"type": "category", "data": top20["protocol"].tolist()},
+    "xAxis": {"type": "value", **HIDE_X_NAME},
+    "yAxis": {"type": "category", "data": top10["protocol"].tolist()},
     "series": [{
         "type": "bar",
         "data": [{"value": round(float(x/1e9), 2),
-                  "itemStyle": {"color": C["red"] if i==len(top20)-1 else C["slate"]}}
-                 for i, x in enumerate(top20["loss_usd"])],
+                  "itemStyle": {"color": C["red"] if i==len(top10)-1 else C["slate"]}}
+                 for i, x in enumerate(top10["loss_usd"])],
         "label": {"show": True, "position": "right", "formatter": "${c}B"}
     }]
 })
@@ -121,29 +121,31 @@ colors04 = [C["green"], C["amber"], C["slate"]] # LIF, Potential, Systemic
 
 save("chart04_relevance_pie", {
     "title": [
-        {"text": "By Count", "left": "25%", "top": "5%", "textAlign": "center"},
-        {"text": "By Value", "left": "75%", "top": "5%", "textAlign": "center"}
+        {"text": "By Incident Count", "left": "25%", "top": "5%", "textAlign": "center", "textStyle": {"fontSize": 12, "fontWeight": "bold"}},
+        {"text": "By Total Value ($)", "left": "75%", "top": "5%", "textAlign": "center", "textStyle": {"fontSize": 12, "fontWeight": "bold"}}
     ],
     "tooltip": {"trigger": "item", "formatter": "{b}: {c} ({d}%)"},
-    "legend": {"bottom": 0, "data": ["LIF-Relevant", "Potential Technical", "Systemic/Social"]},
+    "legend": {"bottom": "0%", "data": ["LIF-Relevant", "Potential Technical", "Systemic/Social"], "itemGap": 20, "textStyle": {"fontSize": 10}},
     "series": [
         {
-            "type": "pie", "radius": "50%", "center": ["25%", "55%"],
+            "name": "Volume",
+            "type": "pie", "radius": ["35%", "55%"], "center": ["25%", "50%"],
             "data": [
                 {"value": int(c_lif), "name": "LIF-Relevant", "itemStyle": {"color": colors04[0]}},
                 {"value": int(c_pot), "name": "Potential Technical", "itemStyle": {"color": colors04[1]}},
                 {"value": int(c_non), "name": "Systemic/Social", "itemStyle": {"color": colors04[2]}},
             ],
-            "label": {"formatter": "{b}\n{c} ({d}%)"}
+            "label": {"show": True, "position": "inner", "formatter": "{d}%", "fontSize": 10, "color": "#fff"}
         },
         {
-            "type": "pie", "radius": "50%", "center": ["75%", "55%"],
+            "name": "Value",
+            "type": "pie", "radius": ["35%", "55%"], "center": ["75%", "50%"],
             "data": [
                 {"value": round(v_lif/1e9, 1), "name": "LIF-Relevant", "itemStyle": {"color": colors04[0]}},
                 {"value": round(v_pot/1e9, 1), "name": "Potential Technical", "itemStyle": {"color": colors04[1]}},
                 {"value": round(v_non/1e9, 1), "name": "Systemic/Social", "itemStyle": {"color": colors04[2]}},
             ],
-             "label": {"formatter": "{b}\n${c}B ({d}%)"}
+             "label": {"show": True, "position": "inner", "formatter": "${c}B", "fontSize": 10, "color": "#fff"}
         }
     ]
 })
@@ -211,11 +213,12 @@ save("chart07_median_loss", {
     "title": {"text": "Median Loss by Subset"},
     "tooltip": {"trigger": "axis", "valueFormatter": "${value}M"},
     "xAxis": {"type": "category", "data": [d["name"] for d in meds]},
-    "yAxis": {"type": "value", "name": "Median Loss (USD)"},
+    "yAxis": {"type": "value", "name": "Median Loss (USD)",
+              "axisLabel": {"formatter": "${value}M"}},
     "series": [{
         "type": "bar",
         "data": [{"value": round(d["val"]/1e6, 2),
-                  "itemStyle": {"color": C["purple"]}} for d in meds],
+                  "itemStyle": {"color": SUBSET_COLORS.get(d["name"], C["purple"])}} for d in meds],
         "label": {"show": True, "position": "top", "formatter": "${c}M"}
     }]
 })
@@ -223,33 +226,49 @@ save("chart07_median_loss", {
 # ── Chart 08: Four Layer Timeline ─────────────────────────────────
 # Stacked area: Intervened -> Eligible-Not -> Other -> Systemic
 groups = []
+# Identify intervention IDs for splitting LIF-Relevant into Intervened vs Missed
+int_ids = set(interventions["incident_id"].unique())
 years08 = sorted(exploits["year"].unique())
-for y in years08:
-    sub = exploits[exploits["year"] == y]
-    # Layer 1: Actually Intervened
-    l1 = sub[(sub["is_lif_relevant"]) & (sub.get("is_intervention",False))]["loss_usd"].sum()
-    # Layer 2: Eligible Not Intervened
-    l2 = sub[(sub["is_lif_relevant"]) & (~sub.get("is_intervention",False))]["loss_usd"].sum()
-    # Layer 3: Other Non-Addressable
-    l3 = sub[(~sub["is_lif_relevant"]) & (~sub["vector_category"].str.contains("Systemic", case=False))]["loss_usd"].sum()
-    # Layer 4: Systemic
-    l4 = sub[(~sub["is_lif_relevant"]) & (sub["vector_category"].str.contains("Systemic", case=False))]["loss_usd"].sum()
+
+for year in years08:
+    sub = exploits[exploits["year"] == year]
+    # Layer 1: Actually Intervened (LIF-Relevant AND in interventions)
+    l1 = sub[sub["incident_id"].isin(int_ids)]["loss_usd"].sum()
+    # Layer 2: Eligible (Missed) (LIF-Relevant AND NOT in interventions)
+    l2 = sub[(sub["is_lif_relevant"]) & (~sub["incident_id"].isin(int_ids))]["loss_usd"].sum()
+    # Layer 3: Technical Potential (Addressable but not LIF-Relevant)
+    is_tech = ~sub["vector_category"].str.contains("Systemic|Economic", case=False, na=False)
+    l3 = sub[is_tech & ~sub["is_lif_relevant"]]["loss_usd"].sum()
+    # Layer 4: Systemic Failures
+    l4 = sub[~is_tech]["loss_usd"].sum()
     groups.append([l1, l2, l3, l4])
 
 garr = np.array(groups) / 1e9
-layer_names = ["Actually Intervened", "Eligible (Missed)", "Other Non-Addressable", "Systemic Failures"]
-layer_colors = [C["green"], C["blue"], C["lgray"], C["slate"]]
+layer_names = ["Actually Intervened", "Eligible (Missed)", "Other Technical", "Systemic Failures"]
+# Using Emerald for more vibrant green to distinguish from blue overlap
+layer_colors = [C["emerald"], C["lblue"], C["lgray"], C["vlgray"]]
 
 save("chart08_four_layer_timeline", {
     "title": {"text": "Annual DeFi Losses by Category"},
     "tooltip": {"trigger": "axis"},
-    "legend": {"data": layer_names[::-1], "bottom": 0}, # reverse for visual order
-    "xAxis": {"type": "category", "data": [int(y) for y in years08]},
-    "yAxis": {"type": "value", "name": "Loss ($B)"},
+    "grid": {"bottom": "18%", "left": "8%", "right": "25%", "top": "15%"},
+    "legend": {
+        "type": "plain", 
+        "data": layer_names[::-1], 
+        "orient": "vertical",
+        "right": "2%",
+        "top": "center",
+        "itemGap": 15, 
+        "textStyle": {"fontSize": 10}
+    },
+    "xAxis": {"type": "category", "data": [int(y) for y in years08], "axisPointer": {"show": True, "type": "shadow"}},
+    "yAxis": {"type": "value", "name": "Loss ($B)",
+              "axisLabel": {"formatter": "${value}B"}},
     "series": [
-        {"name": name, "type": "line", "stack": "total", "areaStyle": {},
-         "itemStyle": {"color": layer_colors[i]},
-         "data": [round(v,2) for v in garr[:,i]]}
+        {"name": name, "type": "line", "stack": "total", "areaStyle": {"opacity": 0.85},
+         "itemStyle": {"color": [C["emerald"], C["lblue"], C["lgray"], C["slate"]][i]},
+         "lineStyle": {"width": 1},
+         "data": [round(v,3) for v in garr[:,i]]}
         for i, name in enumerate(layer_names)
     ]
 })
@@ -259,7 +278,7 @@ vc = exploits["vector_category"].value_counts().head(10)
 save("chart09_vector_distribution", {
     "title": {"text": "Top 10 Attack Vectors (Frequency)"},
     "tooltip": {"trigger": "axis"},
-    "xAxis": {"type": "value", "name": "Count"},
+    "xAxis": {"type": "value", **HIDE_X_NAME},
     "yAxis": {"type": "category", "data": vc.index.tolist(), "inverse": True},
     "series": [{
         "type": "bar",
@@ -294,7 +313,7 @@ save("chart10_vector_losses", {
     "title": {"text": "Top Attack Vectors (Total Loss)"},
     "tooltip": {"trigger": "axis", "valueFormatter": "${value}B"},
     "legend": {"data": ["Standard Loss", "Terra/Luna Outlier"], "bottom": 0},
-    "xAxis": {"type": "value", "name": "Loss ($B)"},
+    "xAxis": {"type": "value", **HIDE_X_NAME},
     "yAxis": {"type": "category", "data": cats10, "inverse": True},
     "series": [
         {"name": "Standard Loss", "type": "bar", "stack": "total",
@@ -321,7 +340,7 @@ for c in cats11:
 save("chart11_chain_distribution", {
     "title": {"text": "Losses by Chain"},
     "tooltip": {"trigger": "axis", "valueFormatter": "${value}B"},
-    "xAxis": {"type": "value", "name": "Loss ($B)"},
+    "xAxis": {"type": "value", **HIDE_X_NAME},
     "yAxis": {"type": "category", "data": cats11, "inverse": True},
     "series": [
         {"name": "Standard Loss", "type": "bar", "stack": "total",

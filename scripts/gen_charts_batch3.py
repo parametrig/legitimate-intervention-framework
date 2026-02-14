@@ -51,7 +51,7 @@ save("chart30_scope_loss", {
     "tooltip": {"trigger": "item"},
     "xAxis": {"type": "category", "data": SCOPE_ORDER},
     "yAxis": {"type": "log", "name": "Loss (USD)", "min": 1000},
-    "series": [{"type": "boxplot", "data": box_data,
+    "series": [{"type": "boxplot", "data": [ [max(1000.0, float(x)) for x in b] for b in box_data],
                 "itemStyle": {"color": C["blue"], "borderColor": C["slate"]}}]
 })
 
@@ -90,20 +90,25 @@ save("chart32_prevented_vs_incurred_combined", {
     ]
 })
 
-# ── Chart 33: Detection vs Containment Scatter ────────────────────
-sc33 = metrics[(metrics["time_to_detect_min"] > 0) & (metrics["time_to_contain_min"] > 0)]
+# ── Chart 33: Detection vs. Containment Time (scatter) ──────────
+sc33 = metrics[(metrics["time_to_detect_min"] >= 0) & (metrics["time_to_contain_min"] >= 0)]
+series33 = []
+for auth in sc33["authority"].unique():
+    ad = sc33[sc33["authority"] == auth]
+    series33.append({
+        "name": auth, "type": "scatter", "symbolSize": 14,
+        "data": [[max(1.0, float(r["time_to_detect_min"])), 
+                  max(1.0, float(r["time_to_contain_min"]))]
+                 for _, r in ad.iterrows()],
+        "itemStyle": {"color": AUTH_COLORS.get(auth, C["gray"])}
+    })
 save("chart33_speed_scatter_metrics", {
     "title": {"text": "Detection vs. Containment Time"},
     "tooltip": {"trigger": "item"},
     "xAxis": {"type": "log", "name": "Detection (min)"},
     "yAxis": {"type": "log", "name": "Containment (min)"},
-    "series": [
-        {"name": auth, "type": "scatter", "symbolSize": 14,
-         "data": [[float(r["time_to_detect_min"]), float(r["time_to_contain_min"])]
-                  for _, r in sc33[sc33["authority"]==auth].iterrows()],
-         "itemStyle": {"color": AUTH_COLORS.get(auth, C["gray"])}}
-        for auth in sc33["authority"].unique()
-    ]
+    "legend": {"bottom": 0},
+    "series": series33
 })
 
 # ── Chart 34: Incurred Loss by Authority (bar) ────────────────────
@@ -122,27 +127,21 @@ save("chart34_incurred_loss_by_authority_combined", {
     }]
 })
 
-# ── Chart 35: Prevented Loss by Authority (stacked bar) ──────────
-flow_id = "Flow Blockchain_2025-12-27"
-base = combined[combined["incident_id"] != flow_id].groupby("authority")["loss_prevented_usd"].sum().sort_values(ascending=False) / 1e9
-flow_case = combined[combined["incident_id"] == flow_id]
-flow_val = float(flow_case["loss_prevented_usd"].iloc[0] / 1e9) if not flow_case.empty else 0
-auths35 = base.index.tolist()
+# ── Chart 35: Prevented Loss by Authority (bar) ──────────────────
+al35 = combined.groupby("authority")["loss_prevented_usd"].sum().sort_values(ascending=False) / 1e9
+auths35 = al35.index.tolist()
 save("chart35_prevented_loss", {
-    "title": {"text": "Prevented Loss by Authority"},
-    "tooltip": {"trigger": "axis"},
-    "legend": {"data": ["Realizable Market","Flow Outlier"], "bottom": 0},
+    "title": {"text": "Total Prevented Loss by Authority"},
+    "tooltip": {"trigger": "axis", "valueFormatter": "${value}B"},
     "xAxis": {"type": "category", "data": auths35},
     "yAxis": {"type": "value", "name": "Capital Saved ($B)"},
-    "series": [
-        {"name": "Realizable Market", "type": "bar", "stack": "total",
-         "data": [{"value": round(float(base[a]), 2),
-                   "itemStyle": {"color": AUTH_COLORS.get(a, C["gray"])}}
-                  for a in auths35]},
-        {"name": "Flow Outlier", "type": "bar", "stack": "total",
-         "data": [round(flow_val, 2) if a == "Delegated Body" else 0 for a in auths35],
-         "itemStyle": {"color": C["red"], "opacity": 0.3}}
-    ]
+    "series": [{
+        "type": "bar",
+        "data": [{"value": round(float(v), 2),
+                  "itemStyle": {"color": AUTH_COLORS.get(a, C["gray"])}}
+                 for a, v in al35.items()],
+        "label": {"show": True, "position": "top", "formatter": "${value}B"}
+    }]
 })
 
 print("\n✅ Batch 3 complete (charts 28-35)")

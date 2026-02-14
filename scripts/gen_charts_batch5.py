@@ -46,7 +46,7 @@ lb = lb.sort_values("composite", ascending=True)  # ascending for horizontal bar
 save("chart45_effectiveness_leaderboard", {
     "title": {"text": "Effectiveness Leaderboard\n(70% Success + 30% Speed)"},
     "tooltip": {"trigger": "axis"},
-    "xAxis": {"type": "value", "name": "Composite Score", "max": 85},
+    "xAxis": {"type": "value", "max": 85, **HIDE_X_NAME},
     "yAxis": {"type": "category", "data": lb.index.tolist()},
     "series": [{
         "type": "bar",
@@ -64,7 +64,7 @@ for auth in sc46["authority"].unique():
     ad = sc46[sc46["authority"] == auth]
     series46.append({
         "name": auth, "type": "scatter", "symbolSize": 16,
-        "data": [[float(r["loss_usd"]), float(r["containment_success_pct"]),
+        "data": [[max(1.0, float(r["loss_usd"])), float(r["containment_success_pct"]),
                   float(r.get("loss_prevented_usd", 0))]
                  for _, r in ad.iterrows()],
         "itemStyle": {"color": AUTH_COLORS.get(auth, C["gray"])}
@@ -94,7 +94,7 @@ sorted_roi = sorted(roi.items(), key=lambda x: x[1]["roi"])  # ascending for hba
 save("chart48_strategic_roi_rankings", {
     "title": {"text": "Strategic ROI Rankings"},
     "tooltip": {"trigger": "axis"},
-    "xAxis": {"type": "value", "name": "ROI Score", "max": 80},
+    "xAxis": {"type": "value", "max": 80, **HIDE_X_NAME},
     "yAxis": {"type": "category", "data": [k for k,v in sorted_roi]},
     "series": [{
         "type": "bar",
@@ -114,7 +114,7 @@ roi49["saved_m"] = roi49["saved"] / 1e6
 save("chart49_roi_magnitude", {
     "title": {"text": "Capital Saved by Intervention Model"},
     "tooltip": {"trigger": "axis"},
-    "xAxis": {"type": "value", "name": "Capital Protected ($M)"},
+    "xAxis": {"type": "value", **HIDE_X_NAME},
     "yAxis": {"type": "category", "data": roi49["model"].tolist()},
     "series": [{
         "type": "bar",

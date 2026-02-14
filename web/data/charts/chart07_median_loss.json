@@ -17,7 +17,10 @@
     },
     "yAxis": {
       "type": "value",
-      "name": "Median Loss (USD)"
+      "name": "Median Loss (USD)",
+      "axisLabel": {
+        "formatter": "${value}M"
+      }
     },
     "series": [
       {
@@ -32,13 +35,13 @@
           {
             "value": 1.9,
             "itemStyle": {
-              "color": "#7C3AED"
+              "color": "#16A34A"
             }
           },
           {
             "value": 7.06,
             "itemStyle": {
-              "color": "#7C3AED"
+              "color": "#D97706"
             }
           }
         ],

@@ -7,17 +7,11 @@
     <title>Research | Legitimate Overrides</title>
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/layout.css">
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
-        rel="stylesheet">
-
+    <link rel="stylesheet" href="../css/pages/research-index.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 </head>
 
-<body>
+<body data-root-prefix="../">
 
     <header class="transparent">
         <nav class="nav-links"><a href="../" class="nav-icon-link" aria-label="Back to home"><svg
@@ -36,16 +30,100 @@
 
     <div class="standard-layout mixed-layout">
         <h1>Research</h1>
-        <p>Choose a theme (focused supplement pages) or read the full narrative:</p>
-        <p><a href="./all/" style="font-weight: 600;">Read the full 50-chart narrative →</a></p>
-        <div style="margin-top: 2rem; display: grid; gap: 0.75rem; max-width: 520px;">
-            <a href="./threat/" style="font-weight: 600;">Threat →</a>
-            <a href="./intervention/" style="font-weight: 600;">Intervention →</a>
-            <a href="./efficiency/" style="font-weight: 600;">Efficiency →</a>
-            <a href="./framework/" style="font-weight: 600;">Framework →</a>
+        <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
+        <p class="report-lead">
+            The Legitimate Intervention Framework (LIF) decomposes over 700 protocol incidents into four pillars of
+            empirical analysis. Explore each theme below or <a href="./all/">read the complete 50-chart narrative</a>.
+        </p>
+
+        <div class="hero-grid">
+            <!-- Theme 1: Threat -->
+            <div class="theme-hero">
+                <div class="theme-info">
+                    <h2>The Threat Landscape</h2>
+                    <div class="theme-description">
+                        Mapping the magnitude of capital loss across 10 years of DeFi exploits. Analyzing vector
+                        evolution from early re-entrancy to multi-step bridge manipulations.
+                    </div>
+                    <a href="./threat/" class="theme-link">Analyze the Threat →</a>
+                </div>
+                <div class="theme-chart-container">
+                    <div id="chart_threat" class="theme-chart"></div>
+                </div>
+            </div>
+
+            <!-- Theme 2: Intervention -->
+            <div class="theme-hero">
+                <div class="theme-info">
+                    <h2>Mechanisms of Intervention</h2>
+                    <div class="theme-description">
+                        Quantifying the distribution of authority between teams, councils, and governance. How override
+                        scope dictates the scale of collateral impact.
+                    </div>
+                    <a href="./intervention/" class="theme-link">Review Mechanisms →</a>
+                </div>
+                <div class="theme-chart-container">
+                    <div id="chart_intervention" class="theme-chart"></div>
+                </div>
+            </div>
+
+            <!-- Theme 3: Efficiency -->
+            <div class="theme-hero">
+                <div class="theme-info">
+                    <h2>Efficiency & Success</h2>
+                    <div class="theme-description">
+                        The "Golden Hour": how response latency determines the ultimate success of capital
+                        preservation. Ranking protocol teams by operational efficiency.
+                    </div>
+                    <a href="./efficiency/" class="theme-link">Evaluate Efficiency →</a>
+                </div>
+                <div class="theme-chart-container">
+                    <div id="chart_efficiency" class="theme-chart"></div>
+                </div>
+            </div>
+
+            <!-- Theme 4: Framework -->
+            <div class="theme-hero">
+                <div class="theme-info">
+                    <h2>Strategic Framework</h2>
+                    <div class="theme-description">
+                        The operational and mathematical blueprint for standardized, legitimate overrides. Toward an
+                        ecosystem-wide security hook.
+                    </div>
+                    <a href="./framework/" class="theme-link">Explore the Framework →</a>
+                </div>
+                <div class="theme-chart-container">
+                    <div id="chart_framework" class="theme-chart"></div>
+                </div>
+            </div>
         </div>
     </div>
 
+    <script src="../js/echarts_runtime.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const rootPrefix = '../';
+
+            // Map IDs to specific charts
+            const previews = [
+                { id: 'chart_threat', chart: 'chart01_annual_losses' },
+                { id: 'chart_intervention', chart: 'chart27_authority_distribution_combined' },
+                { id: 'chart_efficiency', chart: 'chart36_success_distribution' },
+                { id: 'chart_framework', chart: 'chart47_comprehensive_lif_analysis' }
+            ];
+
+            for (const item of previews) {
+                const el = document.getElementById(item.id);
+                if (el) {
+                    await setActiveInteractiveChart({
+                        rootPrefix,
+                        chartId: item.chart,
+                        chartEl: el
+                    });
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

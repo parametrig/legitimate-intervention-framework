@@ -69,99 +69,562 @@
 
     <div class="standard-layout mixed-layout narrative-layout">
         <div class="narrative-content">
+            <!-- Chart 02: Cumulative Exploit Losses -->
             <section class="hero-section active" data-narrative-section data-id="executive"
                 data-chart="chart02_cumulative_losses" data-fallback-src="../../charts/chart02_cumulative_losses.png"
                 data-chart-anchor="chart02">
-                <h1>Legitimate Overrides</h1>
-                <p>Elem Oghenekaro, Dr. Nimrod Talmon</p>
-                <p class="report-lead">A continuously updatable research corpus: data changes live in CSV, and the web
-                    UI renders
-                    generated JSON artifacts.</p>
-                <p><a href="../../summary/">Go to summary →</a></p>
+                <h1 class="page-title">The Legitimate Intervention Framework (LIF)</h1>
+                <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
+                <p class="report-lead">A systematic analysis of DeFi exploit interventions, quantifying the
+                    effectiveness of on-chain overrides and asset recovery across 700+ categorized incidents and 50+
+                    forensic metrics.
+                </p>
+                <p><a href="../../research/">Browse Research Themes →</a></p>
+
+                <div class="theme-quicklinks" style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 2rem;">
+                    Jump to:
+                    <a href="../threat/" style="color: #DC2626; font-weight: 500;">Threat</a> ·
+                    <a href="../intervention/" style="color: #2563EB; font-weight: 500;">Intervention</a> ·
+                    <a href="../efficiency/" style="color: #7C3AED; font-weight: 500;">Efficiency</a> ·
+                    <a href="../framework/" style="color: #16A34A; font-weight: 500;">Framework</a>
+                </div>
+
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
-                    <div class="narrative-inline-chart-fallback">
-                        <img src="../../charts/chart02_cumulative_losses.png" alt="Chart">
-                    </div>
                 </div>
             </section>
 
+            <!-- Chart 01: Annual Exploit Losses -->
             <section data-narrative-section data-id="part1" data-chart="chart01_annual_losses"
                 data-fallback-src="../../charts/chart01_annual_losses.png" data-chart-anchor="chart01">
                 <h2>Part I — The scale of the threat</h2>
-                <p>Annual losses establish the baseline magnitude of exploit risk.</p>
+                <h3>Chart 01: Annual losses</h3>
+                <p>Annual losses established the baseline magnitude of exploit risk across the ecosystem.
+                    <em>For a detailed analysis of attack vectors and temporal patterns, see the <a
+                            href="../threat/">Threat Analysis</a> theme.</em>
+                </p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
-                    <div class="narrative-inline-chart-fallback">
-                        <img src="../../charts/chart01_annual_losses.png" alt="Chart">
-                    </div>
                 </div>
             </section>
 
+            <!-- Chart 08: Loss layers (four-layer) -->
             <section data-narrative-section data-id="part1b" data-chart="chart08_four_layer_timeline"
                 data-fallback-src="../../charts/chart08_four_layer_timeline.png" data-chart-anchor="chart08">
-                <h3>Loss layers (four-layer)</h3>
-                <p>This chart decomposes annual losses into intervention categories.</p>
+                <h3>Chart 08: Loss layers (four-layer)</h3>
+                <p>This chart decomposes annual losses into addressability tiers, highlighting the "LIF-Relevant"
+                    segment.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
-                    <div class="narrative-inline-chart-fallback">
-                        <img src="../../charts/chart08_four_layer_timeline.png" alt="Chart">
-                    </div>
                 </div>
             </section>
 
-            <section data-narrative-section data-id="part1c" data-chart="chart09_vector_distribution"
+            <!-- Chart 03: Historical Magnitudes -->
+            <section data-narrative-section data-id="part1c" data-chart="chart03_top20_magnitude"
+                data-fallback-src="../../charts/chart03_top20_magnitude.png" data-chart-anchor="chart03">
+                <h3>Chart 03: Historical Magnitudes</h3>
+                <p>The "Power Law" of exploits: a handful of catastrophic events account for the majority of historical
+                    value loss.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 04: LIF Relevance -->
+            <section data-narrative-section data-id="part1d" data-chart="chart04_relevance_pie"
+                data-fallback-src="../../charts/chart04_relevance_pie.png" data-chart-anchor="chart04">
+                <h3>Chart 04: LIF Relevance</h3>
+                <p>Decomposing the market by addressability: distinguishing between technical vulnerabilities and
+                    systemic failures.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 05: Loss Distribution (Log Frequency) -->
+            <section data-narrative-section data-id="part1e" data-chart="chart05_loss_distribution"
+                data-fallback-src="../../charts/chart05_loss_distribution.png" data-chart-anchor="chart05">
+                <h3>Chart 05: Loss Distribution</h3>
+                <p>A logarithmic view of incident severity, highlighting the frequency of multi-million dollar exploits.
+                </p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 06: Loss Concentration (Lorenz Curve) -->
+            <section data-narrative-section data-id="part1f" data-chart="chart06_loss_concentration_lorenz"
+                data-fallback-src="../../charts/chart06_loss_concentration_lorenz.png" data-chart-anchor="chart06">
+                <h3>Chart 06: Loss Concentration</h3>
+                <p>The Lorenz curve for DeFi exploits: quantifying the extreme concentration of value in top-tier
+                    incidents.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 07: Median Severity Comparison -->
+            <section data-narrative-section data-id="part1g" data-chart="chart07_median_loss"
+                data-fallback-src="../../charts/chart07_median_loss.png" data-chart-anchor="chart07">
+                <h3>Chart 07: Median Severity</h3>
+                <p>Comparing median losses across subsets reveals the higher baseline severity of LIF-relevant exploits.
+                </p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+
+            <section data-narrative-section data-id="part1l">
+                <h2>Chapter 2 — Attack Anatomy</h2>
+                <p>A deeper look into the temporal and structural patterns of DeFi exploits.</p>
+            </section>
+
+            <!-- Chart 09: Vector Frequency Distribution -->
+            <section data-narrative-section data-id="part1i" data-chart="chart09_vector_distribution"
                 data-fallback-src="../../charts/chart09_vector_distribution.png" data-chart-anchor="chart09">
-                <h3>Vector frequency</h3>
-                <p>Vector distribution indicates which vulnerabilities dominate incident frequency.</p>
+                <h3>Chart 09: Vector Frequency</h3>
+                <p>Establishing which vulnerabilities dominate incident frequency allows for better prioritization of
+                    rescue hooks.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
-                    <div class="narrative-inline-chart-fallback">
-                        <img src="../../charts/chart09_vector_distribution.png" alt="Chart">
-                    </div>
                 </div>
             </section>
 
+            <!-- Chart 10: Vector Severity (USD) -->
+            <section data-narrative-section data-id="part1j" data-chart="chart10_vector_losses"
+                data-fallback-src="../../charts/chart10_vector_losses.png" data-chart-anchor="chart10">
+                <h3>Chart 10: Vector Severity</h3>
+                <p>Mapping total value loss by attack vector highlights where the catastrophic economic damage resides.
+                </p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 11: Loss Distribution by Chain -->
+            <section data-narrative-section data-id="part1k" data-chart="chart11_chain_distribution"
+                data-fallback-src="../../charts/chart11_chain_distribution.png" data-chart-anchor="chart11">
+                <h3>Chart 11: Chain Distribution</h3>
+                <p>Dissecting exploit losses by network infrastructure, identifying focal points of ecosystem risk.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+
+            <!-- Chart 12: Attack Vector Evolution -->
+            <section data-narrative-section data-id="part1m" data-chart="chart12_vector_evolution"
+                data-fallback-src="../../charts/chart12_vector_evolution.png" data-chart-anchor="chart12">
+                <h3>Chart 12: Vector Evolution</h3>
+                <p>Tracking the shifting landscape of vulnerabilities over time as protocol security matures.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 13: Macro Exploit Timeline -->
+            <section data-narrative-section data-id="part1n" data-chart="chart13_macro_timeline"
+                data-fallback-src="../../charts/chart13_macro_timeline.png" data-chart-anchor="chart13">
+                <h3>Chart 13: Macro Timeline</h3>
+                <p>A high-resolution monthly view of exploit frequency across the entire history of the market.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 14: Seasonal Exploit Patterns -->
+            <section data-narrative-section data-id="part1o" data-chart="chart14_pattern_temporal"
+                data-fallback-src="../../charts/chart14_pattern_temporal.png" data-chart-anchor="chart14">
+                <h3>Chart 14: Seasonal Patterns</h3>
+                <p>Investigating if exploit activity follows recognizable temporal or seasonal cycles.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 15: Monthly Exploit Density Heatmap -->
+            <section data-narrative-section data-id="part1p" data-chart="chart15_timeline_heatmap_x_month"
+                data-fallback-src="../../charts/chart15_timeline_heatmap_x_month.png" data-chart-anchor="chart15">
+                <h3>Chart 15: Exploit Density Heatmap</h3>
+                <p>Visualizing exploit frequency by month and year to identify clusters of peak adversarial activity.
+                </p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 16: Sophistication Timeline -->
+            <section data-narrative-section data-id="part1q" data-chart="chart16_sophistication_timeline"
+                data-fallback-src="../../charts/chart16_sophistication_timeline.png" data-chart-anchor="chart16">
+                <h3>Chart 16: Sophistication Timeline</h3>
+                <p>Mapping the most significant historical exploits to track the progression of attacker capabilities.
+                </p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 17: Frequency vs. Severity Risk Matrix -->
+            <section data-narrative-section data-id="part1r" data-chart="chart17_risk_matrix"
+                data-fallback-src="../../charts/chart17_risk_matrix.png" data-chart-anchor="chart17">
+                <h3>Chart 17: Frequency vs. Severity Matrix</h3>
+                <p>The core risk taxonomy: identifying which attack vectors are common versus those which are rare but
+                    devastating.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 18: Intervention Intensity Timeline -->
             <section data-narrative-section data-id="part2" data-chart="chart18_intervention_timeline"
                 data-fallback-src="../../charts/chart18_intervention_timeline.png" data-chart-anchor="chart18">
-                <h2>Part II — The state of intervention</h2>
-                <p>This section will be rendered interactively as we add chart configs; it currently falls back to the
-                    published chart image.</p>
+                <h2>Part II — Intervention performance</h2>
+                <h3>Chart 18: Intervention Intensity</h3>
+                <p>Mapping historical intervention intensity reveals the growing operational capacity of protocol teams
+                    and councils.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
-                    <div class="narrative-inline-chart-fallback">
-                        <img src="../../charts/chart18_intervention_timeline.png" alt="Chart">
-                    </div>
                 </div>
             </section>
 
-            <section data-narrative-section data-id="part3" data-chart="chart37_response_time"
-                data-fallback-src="../../charts/chart37_response_time.png" data-chart-anchor="chart37">
-                <h2>Part III — The effectiveness gap</h2>
-                <p>Response time vs legitimacy is the central empirical constraint.</p>
+            <!-- Chart 19: Hacks vs. Interventions (Rate) -->
+            <section data-narrative-section data-id="part2b" data-chart="chart19_hacks_vs_interventions"
+                data-fallback-src="../../charts/chart19_hacks_vs_interventions.png" data-chart-anchor="chart19">
+                <p>Mapping the impact of active countermeasures, from signer-set pauses to governance-led recovery.
+                    <em>Explore the operational mechanics in the <a href="../intervention/">Intervention Performance</a>
+                        theme.</em>
+                </p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
-                    <div class="narrative-inline-chart-fallback">
-                        <img src="../../charts/chart37_response_time.png" alt="Chart">
-                    </div>
+                </div>
+            </section>
+
+            <!-- Chart 20: Containment Success Trajectory -->
+            <section data-narrative-section data-id="part2c" data-chart="chart20_success_timeline_dual"
+                data-fallback-src="../../charts/chart20_success_timeline_dual.png" data-chart-anchor="chart20">
+                <h3>Chart 20: Success Trajectory</h3>
+                <p>Comparing technical containment success against the overall capital preservation rate.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 21: Authority Performance Over Time -->
+            <section data-narrative-section data-id="part2d" data-chart="chart21_authority_performance"
+                data-fallback-src="../../charts/chart21_authority_performance.png" data-chart-anchor="chart21">
+                <h3>Chart 21: Authority Performance</h3>
+                <p>Analyzing success rates and response times across different categories of override authorities.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 22: Magnitude Distribution (Intervention vs All) -->
+            <section data-narrative-section data-id="part2e" data-chart="chart22_loss_magnitude"
+                data-fallback-src="../../charts/chart22_loss_magnitude.png" data-chart-anchor="chart22">
+                <h3>Chart 22: Magnitude Distribution</h3>
+                <p>Comparing the loss magnitude of all exploits versus those that were subject to intervention.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 23: Authority Effectiveness (Full Set) -->
+            <section data-narrative-section data-id="part2f" data-chart="chart23_authority_effectiveness_all"
+                data-fallback-src="../../charts/chart23_authority_effectiveness_all.png" data-chart-anchor="chart23">
+                <h3>Chart 23: Authority Effectiveness (All)</h3>
+                <p>A broad view of authority performance across the entire intervention dataset.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 24: Authority Effectiveness (High-Confidence Metrics) -->
+            <section data-narrative-section data-id="part2g" data-chart="chart24_authority_effectiveness_metrics"
+                data-fallback-src="../../charts/chart24_authority_effectiveness_metrics.png"
+                data-chart-anchor="chart24">
+                <h3>Chart 24: Authority Effectiveness (Metrics)</h3>
+                <p>Performance analysis filtered for high-confidence forensic metrics.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 25: Intervention Volume Heatmap -->
+            <section data-narrative-section data-id="part2h" data-chart="chart25_intervention_heatmap_combined"
+                data-fallback-src="../../charts/chart25_intervention_heatmap_combined.png" data-chart-anchor="chart25">
+                <h3>Chart 25: Intervention Volume Density</h3>
+                <p>The intersection of time and authority: where has intervention activity been most concentrated?</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 27: Authority Distribution Breakdown -->
+            <section data-narrative-section data-id="part2i" data-chart="chart27_authority_distribution_combined"
+                data-fallback-src="../../charts/chart27_authority_distribution_combined.png"
+                data-chart-anchor="chart27">
+                <h3>Chart 27: Authority Distribution</h3>
+                <p>Who is pulling the levers? Signer Sets (teams) remain the most frequent actors, followed by Delegated
+                    Bodies.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 26: Intervention Scope Distribution -->
+            <section data-narrative-section data-id="part2j" data-chart="chart26_scope_distribution_combined"
+                data-fallback-src="../../charts/chart26_scope_distribution_combined.png" data-chart-anchor="chart26">
+                <h3>Chart 26: Intervention Scope</h3>
+                <p>Operational scope determines the "blast radius" of an override—targeting specific assets versus
+                    global state.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 37: Response Time by Authority -->
+            <section data-narrative-section data-id="part3" data-chart="chart37_response_time"
+                data-fallback-src="../../charts/chart37_response_time.png" data-chart-anchor="chart37">
+                <h2>Part III — System efficiency</h2>
+                <h3>Chart 37: Response Time</h3>
+                <p>The core empirical constraint: the tradeoff between the speed of intervention and the depth of its
+                    legitimacy.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 28: LIF Matrix (Scope x Authority) Heatmap -->
+            <section data-narrative-section data-id="part3b" data-chart="chart28_matrix_heatmap_combined"
+                data-fallback-src="../../charts/chart28_matrix_heatmap_combined.png" data-chart-anchor="chart28">
+                <h3>Chart 28: LIF Matrix: Scope × Authority</h3>
+                <p>Mapping the structural landscape of protocol overrides and their operational focal points.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 29: Prevented Value by Scope -->
+            <section data-narrative-section data-id="part3c" data-chart="chart29_intervention_value_combined"
+                data-fallback-src="../../charts/chart29_intervention_value_combined.png" data-chart-anchor="chart29">
+                <h3>Chart 29: Prevented Value by Scope</h3>
+                <p>Analyzing the scale of capital rescued across different operational tiers of intervention.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 30: Severity Distribution by Scope -->
+            <section data-narrative-section data-id="part3d" data-chart="chart30_scope_loss"
+                data-fallback-src="../../charts/chart30_scope_loss.png" data-chart-anchor="chart30">
+                <h3>Chart 30: Loss Distribution by Scope</h3>
+                <p>A statistical view of incident severity correlated with the operational scope of responses.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 31: Precision Evolution (Scope over Time) -->
+            <section data-narrative-section data-id="part3e" data-chart="chart31_scope_evolution_combined"
+                data-fallback-src="../../charts/chart31_scope_evolution_combined.png" data-chart-anchor="chart31">
+                <h3>Chart 31: Precision Evolution</h3>
+                <p>Tracking the shift towards more granular, asset-specific overrides over the history of DeFi.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 32: Incurred vs. Prevented Loss Correlation -->
+            <section data-narrative-section data-id="part3f" data-chart="chart32_prevented_vs_incurred_combined"
+                data-fallback-src="../../charts/chart32_prevented_vs_incurred_combined.png" data-chart-anchor="chart32">
+                <h3>Chart 32: Incurred vs. Prevented Loss</h3>
+                <p>A case-by-case correlation between the damage sustained and the capital saved by interventions.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 33: Response Velocity (Detection vs. Containment) -->
+            <section data-narrative-section data-id="part3g" data-chart="chart33_speed_scatter_metrics"
+                data-fallback-src="../../charts/chart33_speed_scatter_metrics.png" data-chart-anchor="chart33">
+                <h3>Chart 33: Response Velocity</h3>
+                <p>Correlating detection time with containment time to identify operational bottlenecks.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 34: Aggregate Incurred Loss handled by Authority -->
+            <section data-narrative-section data-id="part3h" data-chart="chart34_incurred_loss_by_authority_combined"
+                data-fallback-src="../../charts/chart34_incurred_loss_by_authority_combined.png"
+                data-chart-anchor="chart34">
+                <h3>Chart 34: Total Incurred Loss by Authority</h3>
+                <p>Quantifying the aggregate financial impact managed by different override authorities.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 35: Total Prevented Loss by Authority -->
+            <section data-narrative-section data-id="part3i" data-chart="chart35_prevented_loss"
+                data-fallback-src="../../charts/chart35_prevented_loss.png" data-chart-anchor="chart35">
+                <h3>Chart 35: Total Prevented Loss by Authority</h3>
+                <p>Identifying which authorities have been most effective at preserving capital in the market.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 36: Success Rate Distribution (Capital Rescued) -->
+            <section data-narrative-section data-id="part3j" data-chart="chart36_success_distribution"
+                data-fallback-src="../../charts/chart36_success_distribution.png" data-chart-anchor="chart36">
+                <h3>Chart 36: Success Rate Distribution</h3>
+                <p>Evaluating how much capital is actually rescued when an intervention is attempted.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 38: Success vs. Time-to-Contain -->
+            <section data-narrative-section data-id="part3k" data-chart="chart38_success_vs_time"
+                data-fallback-src="../../charts/chart38_success_vs_time.png" data-chart-anchor="chart38">
+                <h3>Chart 38: Success vs. Time-to-Contain</h3>
+                <p>The "Golden Hour" of DeFi: how response speed dictates the ultimate success of an intervention.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 39: Intervention Risk Matrix (Speed Category) -->
+            <section data-narrative-section data-id="part3l" data-chart="chart39_risk_matrix_scatter"
+                data-fallback-src="../../charts/chart39_risk_matrix_scatter.png" data-chart-anchor="chart39">
+                <h3>Chart 39: Intervention Risk Matrix</h3>
+                <p>Mapping detection speed against containment speed to categorize the efficiency of responses.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 40: Intervention Success Reliability Timeline -->
+            <section data-narrative-section data-id="part3m" data-chart="chart40_success_timeline"
+                data-fallback-src="../../charts/chart40_success_timeline.png" data-chart-anchor="chart40">
+                <h3>Chart 40: Reliability Timeline</h3>
+                <p>Tracking the consistency of intervention success rates as the ecosystem's operational capacity
+                    evolves.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 41: Case-by-Case Intervention Outcome Reliability -->
+            <section data-narrative-section data-id="part3n" data-chart="chart41_success_timeline_case"
+                data-fallback-src="../../charts/chart41_success_timeline_case.png" data-chart-anchor="chart41">
+                <h3>Chart 41: Case-by-Case Reliability</h3>
+                <p>A high-granularity view of individual intervention outcomes over time.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 42: Efficiency Granularity (High-Res Speed Analysis) -->
+            <section data-narrative-section data-id="part3o" data-chart="chart42_detect_vs_contain_detailed"
+                data-fallback-src="../../charts/chart42_detect_vs_contain_detailed.png" data-chart-anchor="chart42">
+                <h3>Chart 42: Efficiency Granularity</h3>
+                <p>A detailed breakdown of detection and containment performance across all recorded incidents.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 43: Success Matrix (Scope x Authority Efficiency) -->
+            <section data-narrative-section data-id="part3p" data-chart="chart43_success_matrix"
+                data-fallback-src="../../charts/chart43_success_matrix.png" data-chart-anchor="chart43">
+                <h3>Chart 43: Success Matrix</h3>
+                <p>Correlating Authority and Scope against Containment Success Rates (CSR).</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
             </section>
 
             <section data-narrative-section data-id="part4" data-chart="chart47_comprehensive_lif_analysis"
                 data-fallback-src="../../charts/chart47_comprehensive_lif_analysis.png" data-chart-anchor="chart47">
                 <h2>Part IV — The framework</h2>
-                <p>Comprehensive market decomposition (fallback image until fully interactive config is implemented).
+                <p>The Legitimate Intervention Framework decomposes the addressable market into actionable tiers.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 44: Enhanced Success Matrix (Multidimensional) -->
+            <section data-narrative-section data-id="part4b" data-chart="chart44_success_matrix_enhanced"
+                data-fallback-src="../../charts/chart44_success_matrix_enhanced.png" data-chart-anchor="chart44">
+                <h3>Chart 44: Enhanced Success Matrix</h3>
+                <p>A multidimensional view of success factors across the intervention lifecycle.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 45: Authority Effectiveness Leaderboard -->
+            <section data-narrative-section data-id="part4c" data-chart="chart45_effectiveness_leaderboard"
+                data-fallback-src="../../charts/chart45_effectiveness_leaderboard.png" data-chart-anchor="chart45">
+                <h3>Chart 45: Authority Effectiveness Leaderboard</h3>
+                <p>Ranking authorities by their aggregate impact and reliability in capital preservation.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 46: Risk-Adjusted Performance Matrix -->
+            <section data-narrative-section data-id="part4d" data-chart="chart46_risk_adjusted_performance"
+                data-fallback-src="../../charts/chart46_risk_adjusted_performance.png" data-chart-anchor="chart46">
+                <h3>Chart 46: Risk-Adjusted Performance</h3>
+                <p>Normalizing intervention success against the complexity and severity of the attack vectors.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 48: Strategic ROI Rankings by Architecture -->
+            <section data-narrative-section data-id="part4e" data-chart="chart48_strategic_roi_rankings"
+                data-fallback-src="../../charts/chart48_strategic_roi_rankings.png" data-chart-anchor="chart48">
+                <h3>Chart 48: Strategic ROI Rankings</h3>
+                <p>Analyzing the speed and cost-benefit of different intervention architectures.
+                    <em>Detailed Roi and response-time metrics are available in the <a href="../efficiency/">Efficiency
+                            Ranking</a> theme.</em>
                 </p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
-                    <div class="narrative-inline-chart-fallback">
-                        <img src="../../charts/chart47_comprehensive_lif_analysis.png" alt="Chart">
-                    </div>
+                </div>
+            </section>
+
+            <!-- Chart 49: ROI Magnitude (Value vs. Cost) -->
+            <section data-narrative-section data-id="part4f" data-chart="chart49_roi_magnitude"
+                data-fallback-src="../../charts/chart49_roi_magnitude.png" data-chart-anchor="chart49">
+                <h3>Chart 49: ROI Magnitude</h3>
+                <p>A visualization of the scale of value preserved relative to the operational costs of intervention.
+                </p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 50: Final Performance Metric: Value Saved vs Incurred -->
+            <section data-narrative-section data-id="part4g" data-chart="chart50_loss_prevented_vs_incurred"
+                data-fallback-src="../../charts/chart50_loss_prevented_vs_incurred.png" data-chart-anchor="chart50">
+                <h3>Chart 50: Value Saved vs Incurred</h3>
+                <p>The ultimate metric of performance: total value prevented from loss across the LIF-Relevant subset.
+                </p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
             </section>
         </div>
     </div>
     <script src="../../js/echarts_runtime.js"></script>
+    <script src="../../js/scroll_navigator.js"></script>
     <script src="../../js/narrative_runtime.js"></script>
 </body>
 

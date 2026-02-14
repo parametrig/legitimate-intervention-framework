@@ -3,22 +3,12 @@
    Database Registry Layout
    ========================================= */
 
-.registry-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 4% 4rem;
-}
-
-/* Intro */
-.db-intro {
-    max-width: 700px;
-    margin-bottom: 2rem;
-    font-size: var(--fs-lead);
-}
-
-.db-intro .highlight {
+.highlight {
     color: #059669;
+    font-weight: 600;
 }
+
+
 
 /* Sticky Controls & View Toggle */
 .sticky-controls {
@@ -593,6 +583,7 @@ body.navbar-hidden .sticky-controls {
     font-size: var(--fs-small);
     color: #666;
     padding: 0.5rem 0;
+    font-weight: 500;
 }
 
 .expandable-header:hover {

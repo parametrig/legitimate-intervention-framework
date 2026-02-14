@@ -7,16 +7,11 @@
     <title>Research (Intervention) | Legitimate Overrides</title>
     <link rel="stylesheet" href="../../css/base.css">
     <link rel="stylesheet" href="../../css/layout.css">
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="../../css/pages/narrative.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 </head>
 
-<body>
+<body data-root-prefix="../../">
 
     <header class="transparent">
         <nav class="nav-links"><a href="../../" class="nav-icon-link" aria-label="Back to home"><svg
@@ -33,22 +28,125 @@
         </nav>
     </header>
 
-    <div class="standard-layout mixed-layout">
-        <h1>Intervention</h1>
-        <p>This theme focuses on when and how interventions happen, what is saved, and where current capabilities fall
-            short.</p>
-        <p><a href="../all/" style="font-weight: 600;">Open the full 50-chart narrative →</a></p>
+    <nav class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-track">
+            <div class="scroll-line"></div>
+            <div class="scroll-marker" id="scrollMarker"></div>
+            <div class="scroll-sections" id="scrollSections">
+                <div class="scroll-section active" data-target="intro">
+                    <div class="section-bar long"></div>
+                    <span class="section-label">Overview</span>
+                </div>
+                <div class="scroll-section" data-target="authority">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">Authority</span>
+                </div>
+                <div class="scroll-section" data-target="scope">
+                    <div class="section-bar short"></div>
+                    <span class="section-label">Scope</span>
+                </div>
+                <div class="scroll-section" data-target="timeline">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">Timeline</span>
+                </div>
+            </div>
+            <div class="scroll-progress" id="scrollProgress">0%</div>
+        </div>
+    </nav>
 
-        <h2 style="margin-top: 2.5rem;">Key charts</h2>
-        <div style="display: grid; gap: 0.75rem; max-width: 520px;">
-            <a href="../all/?chart=chart18" style="font-weight: 600;">Intervention timeline →</a>
-            <a href="../../database.html" style="font-weight: 600;">Explore interventions in the database →</a>
+    <div class="standard-layout mixed-layout narrative-layout">
+        <div class="narrative-content">
+            <section data-narrative-section data-id="intro" class="hero-section">
+                <h1 class="page-title">Mechanisms of Intervention</h1>
+                <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
+                <p class="report-lead">Analyzing who possesses the authority to intervene during an exploit and the
+                    operational scope of those powers. This section decomposes authority tiers from automated
+                    triggers to social governance.</p>
+            </section>
+
+            <!-- Chart 18: Intervention Intensity Timeline -->
+            <section data-narrative-section data-id="timeline" data-chart="chart18_intervention_timeline"
+                data-fallback-src="../../charts/chart18_intervention_timeline.png">
+                <h2>Intervention Intensity</h2>
+                <p>Mapping historical intervention intensity reveals the growing operational capacity of protocol teams
+                    and councils.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 27: Authority Distribution Breakdown -->
+            <section data-narrative-section data-id="authority" data-chart="chart27_authority_distribution_combined"
+                data-fallback-src="../../charts/chart27_authority_distribution_combined.png">
+                <h2>Interventions by Authority</h2>
+                <p>The distribution of power between Signer Sets (teams), Delegated Bodies (councils), and Governance
+                    (DAOs) determines the speed and legitimacy of any emergency response.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 26: Intervention Scope Distribution -->
+            <section data-narrative-section data-id="scope" data-chart="chart26_scope_distribution_combined"
+                data-fallback-src="../../charts/chart26_scope_distribution_combined.png">
+                <h2>Interventions by Scope</h2>
+                <p>Operational scope determines the "blast radius" of an override—targeting specific assets versus
+                    global state.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 21: Authority Performance Over Time -->
+            <section data-narrative-section data-id="performance" data-chart="chart21_authority_performance"
+                data-fallback-src="../../charts/chart21_authority_performance.png">
+                <h2>Performance Evolution</h2>
+                <p>Success rates and response times have improved as multisig signers and councils have professionalized
+                    their monitoring stacks.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 23: Authority Effectiveness (Full Set) -->
+            <section data-narrative-section data-id="effectiveness" data-chart="chart23_authority_effectiveness_all"
+                data-fallback-src="../../charts/chart23_authority_effectiveness_all.png">
+                <h2>Comparative Effectiveness</h2>
+                <p>Comparing the preservation rates of different override types across various market cycles.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 31: Precision Evolution (Scope over Time) -->
+            <section data-narrative-section data-id="precision" data-chart="chart31_scope_evolution_combined"
+                data-fallback-src="../../charts/chart31_scope_evolution_combined.png">
+                <h2>Precision Trends</h2>
+                <p>Tracking the shift towards more granular, asset-specific overrides which minimize collateral impact
+                    on broader liquidity.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
         </div>
 
-        <p style="margin-top: 2rem; color: #666;">Deep-link scrolling for <code>?chart=</code> is planned; these links
-            may currently open the page without scrolling.</p>
+        <div class="narrative-annotations">
+            <div class="annotation-item">
+                <strong>The Rise of Councils</strong>
+                Delegated bodies (Security Councils) increasingly bridge the gap between team multisigs and slow
+                governance, offering a path to "legitimate speed."
+            </div>
+            <div class="annotation-item">
+                <strong>Granularity Matters</strong>
+                In 2021, most interventions were global pauses. By 2024, the majority of interventions targeted specific
+                assets or modules, reducing downtime.
+            </div>
+        </div>
     </div>
 
+    <script src="../../js/echarts_runtime.js"></script>
+    <script src="../../js/scroll_navigator.js"></script>
+    <script src="../../js/narrative_runtime.js"></script>
 </body>
 
 </html>

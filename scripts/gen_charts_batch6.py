@@ -61,7 +61,7 @@ save("chart18_intervention_timeline", {
     "legend": {"bottom": 0},
     "xAxis": {"type": "time"},
     "yAxis": [
-        {"type": "log", "name": "Incident Value ($)", "nameTextStyle": {"padding": [0, 0, 0, 20]}},
+        {"type": "value", "name": "Incident Value ($)", "axisLabel": {"formatter": "${value}"}},
         {"type": "value", "name": "Cumulative Saved ($M)", "axisLabel": {"formatter": "${value}M"}}
     ],
     "series": series18
@@ -186,8 +186,8 @@ save("chart50_loss_prevented_vs_incurred", {
     "xAxis": {"type": "category", "data": cats50},
     "yAxis": {"type": "value", "name": "Value ($M)", "axisLabel": {"formatter": "${value}M"}},
     "series": [
-        {"name": "Loss Incurred", "type": "bar", "data": v_inc, "itemStyle": {"color": C["red"]}, "label": {"show": True, "position": "top", "formatter": "${c}M"}},
-        {"name": "Loss Prevented", "type": "bar", "data": v_prev, "itemStyle": {"color": C["green"]}, "label": {"show": True, "position": "top", "formatter": "${c}M"}}
+        {"name": "Loss Incurred", "type": "bar", "data": v_inc, "itemStyle": {"color": LOSS_COLORS["Incurred"]}, "label": {"show": True, "position": "top", "formatter": "${c}M"}},
+        {"name": "Loss Prevented", "type": "bar", "data": v_prev, "itemStyle": {"color": LOSS_COLORS["Saved"]}, "label": {"show": True, "position": "top", "formatter": "${c}M"}}
     ]
 })
 

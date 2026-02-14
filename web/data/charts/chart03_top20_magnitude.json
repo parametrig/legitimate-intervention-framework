@@ -1,7 +1,7 @@
 {
   "chart": {
     "title": {
-      "text": "Top 20 Historical Losses"
+      "text": "Top 10 Historical Losses"
     },
     "tooltip": {
       "trigger": "axis",
@@ -9,26 +9,18 @@
     },
     "xAxis": {
       "type": "value",
-      "name": "Loss ($B)"
+      "name": "",
+      "nameLocation": "middle",
+      "nameGap": 0
     },
     "yAxis": {
       "type": "category",
       "data": [
-        "KuCoin",
-        "LIBRA",
-        "PlayDapp",
-        "DMM Bitcoin",
-        "Wormhole",
-        "Mt. Gox",
-        "Vires Finance",
-        "Coincheck",
-        "BNB Chain",
-        "Poly Network",
         "Ronin Bridge",
         "Voyager",
         "Bybit",
-        "PlusToken",
         "Iron Finance",
+        "PlusToken",
         "BitConnect",
         "Genesis Global",
         "Three Arrows Capital",
@@ -40,66 +32,6 @@
       {
         "type": "bar",
         "data": [
-          {
-            "value": 0.28,
-            "itemStyle": {
-              "color": "#475569"
-            }
-          },
-          {
-            "value": 0.29,
-            "itemStyle": {
-              "color": "#475569"
-            }
-          },
-          {
-            "value": 0.29,
-            "itemStyle": {
-              "color": "#475569"
-            }
-          },
-          {
-            "value": 0.3,
-            "itemStyle": {
-              "color": "#475569"
-            }
-          },
-          {
-            "value": 0.33,
-            "itemStyle": {
-              "color": "#475569"
-            }
-          },
-          {
-            "value": 0.46,
-            "itemStyle": {
-              "color": "#475569"
-            }
-          },
-          {
-            "value": 0.5,
-            "itemStyle": {
-              "color": "#475569"
-            }
-          },
-          {
-            "value": 0.53,
-            "itemStyle": {
-              "color": "#475569"
-            }
-          },
-          {
-            "value": 0.57,
-            "itemStyle": {
-              "color": "#475569"
-            }
-          },
-          {
-            "value": 0.61,
-            "itemStyle": {
-              "color": "#475569"
-            }
-          },
           {
             "value": 0.62,
             "itemStyle": {

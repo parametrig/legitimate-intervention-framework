@@ -7,16 +7,11 @@
     <title>Research (Efficiency) | Legitimate Overrides</title>
     <link rel="stylesheet" href="../../css/base.css">
     <link rel="stylesheet" href="../../css/layout.css">
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="../../css/pages/narrative.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 </head>
 
-<body>
+<body data-root-prefix="../../">
 
     <header class="transparent">
         <nav class="nav-links"><a href="../../" class="nav-icon-link" aria-label="Back to home"><svg
@@ -33,20 +28,111 @@
         </nav>
     </header>
 
-    <div class="standard-layout mixed-layout">
-        <h1>Efficiency</h1>
-        <p>This theme focuses on response time, operational constraints, and the legitimacy-efficiency tradeoff.</p>
-        <p><a href="../all/" style="font-weight: 600;">Open the full 50-chart narrative →</a></p>
+    <nav class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-track">
+            <div class="scroll-line"></div>
+            <div class="scroll-marker" id="scrollMarker"></div>
+            <div class="scroll-sections" id="scrollSections">
+                <div class="scroll-section active" data-target="intro">
+                    <div class="section-bar long"></div>
+                    <span class="section-label">Overview</span>
+                </div>
+                <div class="scroll-section" data-target="success">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">Success Rate</span>
+                </div>
+                <div class="scroll-section" data-target="response">
+                    <div class="section-bar short"></div>
+                    <span class="section-label">Response Time</span>
+                </div>
+            </div>
+            <div class="scroll-progress" id="scrollProgress">0%</div>
+        </div>
+    </nav>
 
-        <h2 style="margin-top: 2.5rem;">Key charts</h2>
-        <div style="display: grid; gap: 0.75rem; max-width: 520px;">
-            <a href="../all/?chart=chart37" style="font-weight: 600;">Response time →</a>
+    <div class="standard-layout mixed-layout narrative-layout">
+        <div class="narrative-content">
+            <section data-narrative-section data-id="intro" class="hero-section">
+                <h1 class="page-title">Efficiency & Success</h1>
+                <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
+                <p class="report-lead">Establishing quantitative metrics for intervention performance and the
+                    operational constraints of rapid response. We introduce the Containment Success Rate (CSR) as a
+                    primary forensic benchmark.</p>
+            </section>
+
+            <!-- Chart 36: Success Rate Distribution -->
+            <section data-narrative-section data-id="success" data-chart="chart36_success_distribution"
+                data-fallback-src="../../charts/chart36_success_distribution.png">
+                <h2>Success Rate Distribution</h2>
+                <p>The "Containment Success Rate" (CSR) measures the percentage of potential losses rescued. A
+                    significant cluster of protocols still operates with under 25% efficiency.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 37: Response Time by Authority -->
+            <section data-narrative-section data-id="response" data-chart="chart37_response_time"
+                data-fallback-src="../../charts/chart37_response_time.png">
+                <h2>Response Time vs Legitimacy</h2>
+                <p>There is a direct correlation between the speed of intervention and the depth of its legitimacy.
+                    Rapid response often requires delegated authority.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 38: Success vs. Time-to-Contain -->
+            <section data-narrative-section data-id="success-vs-time" data-chart="chart38_success_vs_time"
+                data-fallback-src="../../charts/chart38_success_vs_time.png">
+                <h2>The Golden Hour</h2>
+                <p>Analyzing how response latency dictates the ceiling for capital preservation. Success rates drop
+                    exponentially after the first 60 minutes.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 45: Authority Effectiveness Leaderboard -->
+            <section data-narrative-section data-id="leaderboard" data-chart="chart45_effectiveness_leaderboard"
+                data-fallback-src="../../charts/chart45_effectiveness_leaderboard.png">
+                <h2>Performance Leaderboard</h2>
+                <p>Ranking authorities by their aggregate impact and reliability in capital preservation across the
+                    history of the market.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 46: Risk-Adjusted Performance Matrix -->
+            <section data-narrative-section data-id="risk-adjusted" data-chart="chart46_risk_adjusted_performance"
+                data-fallback-src="../../charts/chart46_risk_adjusted_performance.png">
+                <h2>Risk-Adjusted ROI</h2>
+                <p>Normalizing intervention success against the complexity and severity of the attack vectors handled.
+                </p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
         </div>
 
-        <p style="margin-top: 2rem; color: #666;">Deep-link scrolling for <code>?chart=</code> is planned; these links
-            may currently open the page without scrolling.</p>
+        <div class="narrative-annotations">
+            <div class="annotation-item">
+                <strong>The 60-Minute Window</strong>
+                Historically, protocols that intervene within one hour of detection preserve 85% more capital than those
+                that wait for full governance cycles.
+            </div>
+            <div class="annotation-item">
+                <strong>Efficiency Caps</strong>
+                Even with infinite speed, bridge exploits often have a 0% recovery potential because the total supply is
+                drained in a single transaction.
+            </div>
+        </div>
     </div>
 
+    <script src="../../js/echarts_runtime.js"></script>
+    <script src="../../js/scroll_navigator.js"></script>
+    <script src="../../js/narrative_runtime.js"></script>
 </body>
 
 </html>

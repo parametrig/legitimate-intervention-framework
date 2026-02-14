@@ -8,8 +8,10 @@
     },
     "xAxis": {
       "type": "value",
-      "name": "ROI Score",
-      "max": 80
+      "max": 80,
+      "name": "",
+      "nameLocation": "middle",
+      "nameGap": 0
     },
     "yAxis": {
       "type": "category",
@@ -45,7 +47,7 @@
           {
             "value": 58.9,
             "itemStyle": {
-              "color": "#16A34A"
+              "color": "#0D9488"
             }
           }
         ],

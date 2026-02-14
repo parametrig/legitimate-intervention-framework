@@ -7,16 +7,11 @@
     <title>Research (Threat) | Legitimate Overrides</title>
     <link rel="stylesheet" href="../../css/base.css">
     <link rel="stylesheet" href="../../css/layout.css">
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="../../css/pages/narrative.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 </head>
 
-<body>
+<body data-root-prefix="../../">
 
     <header class="transparent">
         <nav class="nav-links"><a href="../../" class="nav-icon-link" aria-label="Back to home"><svg
@@ -34,22 +29,186 @@
         </nav>
     </header>
 
-    <div class="standard-layout mixed-layout">
-        <h1>Threat</h1>
-        <p>This theme focuses on the scale, structure, and drivers of exploit losses.</p>
-        <p><a href="../all/" style="font-weight: 600;">Open the full 50-chart narrative →</a></p>
+    <nav class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-track">
+            <div class="scroll-line"></div>
+            <div class="scroll-marker" id="scrollMarker"></div>
+            <div class="scroll-sections" id="scrollSections">
+                <div class="scroll-section active" data-target="intro">
+                    <div class="section-bar long"></div>
+                    <span class="section-label">Overview</span>
+                </div>
+                <div class="scroll-section" data-target="annual">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">Annual Losses</span>
+                </div>
+                <div class="scroll-section" data-target="layers">
+                    <div class="section-bar short"></div>
+                    <span class="section-label">Loss Layers</span>
+                </div>
+                <div class="scroll-section" data-target="vectors">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">Vectors</span>
+                </div>
+            </div>
+            <div class="scroll-progress" id="scrollProgress">0%</div>
+        </div>
+    </nav>
 
-        <h2 style="margin-top: 2.5rem;">Key charts</h2>
-        <div style="display: grid; gap: 0.75rem; max-width: 520px;">
-            <a href="../all/?chart=chart01" style="font-weight: 600;">Annual losses →</a>
-            <a href="../all/?chart=chart08" style="font-weight: 600;">Loss layers (four-layer) →</a>
-            <a href="../all/?chart=chart09" style="font-weight: 600;">Vector frequency →</a>
+    <div class="standard-layout mixed-layout narrative-layout">
+        <div class="narrative-content">
+            <section data-narrative-section data-id="intro" class="hero-section">
+                <h1 class="page-title">The Threat Landscape</h1>
+                <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
+                <p class="report-lead">Establishing the scale and nature of capital loss across the decentralized
+                    finance ecosystem. This analysis quantifies the annual frequency and cumulative impact of
+                    systemic failures.</p>
+            </section>
+
+            <!-- Chart 01: Annual Exploit Losses -->
+            <section data-narrative-section data-id="annual" data-chart="chart01_annual_losses"
+                data-fallback-src="../../charts/chart01_annual_losses.png">
+                <h2>Annual Exploit Losses</h2>
+                <p>Since 2014, the absolute scale of annual loss has grown by orders of magnitude, peaking in 2022 with
+                    the convergence of centralized failures and protocol-level exploits.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 02: Cumulative Exploit Losses -->
+            <section data-narrative-section data-id="cumulative" data-chart="chart02_cumulative_losses"
+                data-fallback-src="../../charts/chart02_cumulative_losses.png">
+                <h2>Cumulative Value Loss</h2>
+                <p>The total capital evaporated from the DeFi economy exceeded $80B by late 2024, representing a
+                    significant percentage of historical Total Value Locked.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 08: Loss layers (four-layer) -->
+            <section data-narrative-section data-id="layers" data-chart="chart08_four_layer_timeline"
+                data-fallback-src="../../charts/chart08_four_layer_timeline.png">
+                <h2>Loss Layers (Four-Layer)</h2>
+                <p>Decomposing losses into addressability tiers allows us to distinguish between systemic failures and
+                    preventable protocol-level incidents.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 03: Historical Magnitudes -->
+            <section data-narrative-section data-id="magnitudes" data-chart="chart03_top20_magnitude"
+                data-fallback-src="../../charts/chart03_top20_magnitude.png">
+                <h2>Catastrophic Magnitudes</h2>
+                <p>A power-law distribution governs DeFi exploits: the top 10 incidents account for nearly 40% of all
+                    cumulative losses.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 04: LIF Relevance -->
+            <section data-narrative-section data-id="relevance" data-chart="chart04_relevance_pie"
+                data-fallback-src="../../charts/chart04_relevance_pie.png">
+                <h2>LIF Addressability</h2>
+                <p>Distinguishing between technical exploits that are eligible for intervention versus systemic/social
+                    failures.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Vectors Section -->
+            <section data-narrative-section data-id="vectors-intro">
+                <h2>Attack Anatomy</h2>
+                <p>Identifying the most common entry points for attackers is critical for prioritizing standardized
+                    intervention hooks across modern smart contracts.</p>
+            </section>
+
+            <!-- Chart 09: Vector Frequency Distribution -->
+            <section data-narrative-section data-id="vectors" data-chart="chart09_vector_distribution"
+                data-fallback-src="../../charts/chart09_vector_distribution.png">
+                <h3>Vector Frequency</h3>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 10: Vector Severity (USD) -->
+            <section data-narrative-section data-id="vector-losses" data-chart="chart10_vector_losses"
+                data-fallback-src="../../charts/chart10_vector_losses.png">
+                <h3>Vector Severity (Value Loss)</h3>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 12: Attack Vector Evolution -->
+            <section data-narrative-section data-id="vector-evolution" data-chart="chart12_vector_evolution"
+                data-fallback-src="../../charts/chart12_vector_evolution.png">
+                <h2>Vector Evolution Timeline</h2>
+                <p>Tracking the shifting landscape of vulnerabilities over time as protocol security matures.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 13: Macro Exploit Timeline -->
+            <section data-narrative-section data-id="macro-timeline" data-chart="chart13_macro_timeline"
+                data-fallback-src="../../charts/chart13_macro_timeline.png">
+                <h2>Historical Density</h2>
+                <p>A monthly view of exploit frequency across the entire history of the market.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 16: Sophistication Timeline -->
+            <section data-narrative-section data-id="sophistication" data-chart="chart16_sophistication_timeline"
+                data-fallback-src="../../charts/chart16_sophistication_timeline.png">
+                <h2>Sophistication Index</h2>
+                <p>Narrative events highlighting the evolution of attacker capabilities and targets.</p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
+
+            <!-- Chart 17: Frequency vs. Severity Risk Matrix -->
+            <section data-narrative-section data-id="risk-matrix" data-chart="chart17_risk_matrix"
+                data-fallback-src="../../charts/chart17_risk_matrix.png">
+                <h2>Risk Taxonomy Matrix</h2>
+                <p>The core taxonomy: identifying vectors that are common versus those which are rare but devastating.
+                </p>
+                <div class="narrative-inline-chart-frame">
+                    <div class="narrative-inline-chart" data-inline-chart></div>
+                </div>
+            </section>
         </div>
 
-        <p style="margin-top: 2rem; color: #666;">Deep-link scrolling for <code>?chart=</code> is planned; these links
-            may currently open the page without scrolling.</p>
+        <div class="narrative-annotations">
+            <div class="annotation-item">
+                <strong>Macro Context</strong>
+                2022 remains the "Annus Horribilis" for DeFi security, with the Terra/Luna collapse acting as a catalyst
+                for overlapping technical failures.
+            </div>
+            <div class="annotation-item">
+                <strong>Forensic Insight</strong>
+                Intervention eligibility (LIF-Relevant) is highest for logical vulnerabilities and oracle manipulations,
+                which often leave distinct on-chain signatures.
+            </div>
+            <div class="annotation-item">
+                <strong>Vector Focus</strong>
+                Access control and flash-loan assisted manipulations dominate frequency, but bridge exploits dominate
+                the absolute value loss (severity).
+            </div>
+        </div>
     </div>
 
+    <script src="../../js/echarts_runtime.js"></script>
+    <script src="../../js/scroll_navigator.js"></script>
+    <script src="../../js/narrative_runtime.js"></script>
 </body>
 
 </html>

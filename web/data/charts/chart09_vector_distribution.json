@@ -8,7 +8,9 @@
     },
     "xAxis": {
       "type": "value",
-      "name": "Count"
+      "name": "",
+      "nameLocation": "middle",
+      "nameGap": 0
     },
     "yAxis": {
       "type": "category",

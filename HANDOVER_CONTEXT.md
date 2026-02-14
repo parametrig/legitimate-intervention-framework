@@ -34,12 +34,17 @@
    - `/database.html` - Searchable incident database
    - `/about.html` - About, sources, changelog
 
-3. **Global Layout Standardized:**
-   - **Base Standard:** 1200px max-width, 4% padding site-wide.
-   - **Mixed Layout:** Text constrained to reading width (~680px), media allowed full width (`.mixed-layout`).
-   - **Consistency:** Applied to Home, About, Summary, and all Research pages.
+3. **Universal Aesthetic Standardization:**
+   - **Hierarchy:** Enforced `h1` → `.metadata-bar` → `.report-lead` as the site-wide entry pattern.
+   - **Column Width:** Centralized "perfect width" to `680px` via `--col-narrow` CSS variable.
+   - **Parity:** Achieved pixel-perfect alignment across Home, Summary, About, Portal, 4 Theme pages, Research All, and Database.
 
-4. **Interactive Charts System:**
+4. **Global Layout Standardized:**
+   - **Base Standard:** 1200px max-width, 4% padding site-wide.
+   - **Mixed Layout:** Text strictly constrained to `var(--col-narrow)`, media allowed full width.
+   - **Database Port:** Refactored the legacy Database portal into the standard narrative system.
+
+5. **Interactive Charts System:**
    - **ECharts 5** integration with custom theme
    - **JSON spec pipeline:** 50 charts in `web/data/charts/*.json`
    - **(Partial)** Hybrid rendering: JSON specs + fallback registry
@@ -50,58 +55,36 @@
 ## 🎯 Current Sprint Status (Feb 14, 2026)
 
 ### ✅ Completed This Sprint
-- **Global Layout:** Implemented `.mixed-layout` for standard reading widths + full-width charts.
-- **Refactoring:** Removed conflicting styles in `narrative.css` and `about.css`.
-- **Navigation Polish:** Replaced text links with Phosphor icons; standardized global alignment (arrow-left, links-right) across desktop/mobile.
-- **Mobile optimization:** Resized nav typography and adjusted dropdowns to fit 390px viewports.
--   **Global Layout:** Implemented `.mixed-layout` for standard reading widths + full-width charts.
--   **Refactoring:** Removed conflicting styles in `narrative.css` and `about.css`.
--   **Navigation Polish:** Replaced text links with Phosphor icons; standardized global alignment (arrow-left, links-right) across desktop/mobile.
--   **Mobile optimization:** Resized nav typography and adjusted dropdowns to fit 390px viewports.
--   **Mobile dock layout:** Fixed chart visibility and header alignment on small screens using Flexbox.
--   **Mobile Dock Chart Visibility (CRITICAL):** Resolved - charts now render correctly on mobile.
--   **Batch 1 audit:** Locked charts 01, 02, 08, 09 with clean specs
--   **Theme palette:** Enforced consistent colors across all charts
--   **Y-axis fitting:** Smart label fitting prevents clipping
--   **Landing layout:** Caption below chart, proper alignment
+- **Batch 0 & 6 Integrated:** Key market overview and strategic summaries are interactive.
+- **NaN Serialization Fix:** Resolved critical `SyntaxError` by implementing robust recursive NaN cleaning in the Python pipeline.
+- **Narrative Layout Polish:** Centered all headers and adjusted vertical chart height for better readability.
+- **Global Layout & Navigation:** Standardized icons, mobile viewports, and reading width constraints.
 
 ### 🔄 Current Issues (IMMEDIATE ATTENTION NEEDED)
 
-#### 1. Chart Interactivity Verification
-**Problem:** Need to verify all 50 charts render interactively, not falling back to PNG
-**Files to check:**
--   `web/data/charts/*.json` (all 50 specs)
--   Console for `is-fallback` class instances
--   Browser network tab for failed JSON loads
+#### 1. Number Abbreviation Formatting
+**Problem:** Charts are showing full numbers (e.g., $700,000,000) instead of abbreviated format ($700M).
+**Goal:** Centralize and enforce abbreviated formatting ($B, $M, $K) globally via `echarts_runtime.js`.
+
+#### 2. Full 50-Chart Integration (Batch 1-5)
+**Problem:** Only ~12 charts are currently embedded in `/research/all`.
+**Action:** Systematically integrate batches 1, 2, 3, 4, and 5.
 
 ---
 
-## 📋 Remaining Tasks (from TODO.md)
+## 📋 Remaining Tasks (Roadmap)
 
-### High Priority (Next Sprint)
-1. **Chart Audit & Regeneration:**
-   - Audit charts 01–50 one-by-one vs notebook/data
-   - Regenerate JSON specs accordingly (no placeholders)
-   - Current status: Only charts 01,02,08,09 are "locked"
+### Phase 1: Interactive Chart Completion (COMPLETED)
+1. **Centralize Formatting:** Implemented robust number abbreviation ($B, $M, $K) globally in `echarts_runtime.js`.
+2. **Integrate Batches:** All 50 charts are now interactive and embedded within the `/research/all` narrative.
 
-2. **Interactivity Verification:**
-   - Verify every chart is truly interactive (tooltips/zoom)
-   - Ensure no silent PNG fallbacks
-
-### Medium Priority
-3. **Content & Copy:**
-   - Rewrite landing copy to be neutral and evidence-first
-   - Ensure numerical claims match `lif_stats.json`
-
-4. **Research Pages:**
-   - Extract short insights per chart from `manuscript/analysis_insights.md`
-   - Add toggle to grid/multi-column on `/research/all`
-   - Implement query-param deep links (`?chart=<chart_id>`)
-
-5. **Site Polish:**
-   - Add dismissible "active development" banner
-   - Create footer with disclaimer and links
-   - Add collapsible changelog to About page
+### Phase 2: Page-by-Page Cleanup (IN PROGRESS)
+- [x] `/research/all`: Final comprehensive integration and narrative flow.
+- [ ] `/research`: Theme index alignment
+- [ ] `/research/*`: Individual theme pages (Threat, Intervention, Efficiency, Framework)
+- [ ] `/summary`: Concise summary cleanup
+- [ ] `/`: Landing page cleanup
+- [ ] `/about` & `database.html`: Final touches
 
 ---
 
