@@ -76,16 +76,12 @@
   - [x] Summary page sections
 - [x] Verify scroll navigator doesn't conflict with mobile navigation or back arrow
 
-### Phase 11: Site-Wide Features
+### Phase 11: Site-Wide Features ✅
 > Goal: Add global UX elements across all pages.
 
-- [ ] **Dismissible banner**: "This site is under active development. Corrections welcome." on all pages
+- [x] **Dismissible banner**: "This site is under active development. Corrections welcome." on all pages
   - Dismiss state saved to `localStorage`
-- [ ] **Site-wide footer**: Comprehensive footer with:
-  - Research disclaimer statement
-  - Links: Terms, Privacy, Request Correction, GitHub, ArXiv
-  - Contact: karo@parametrig.com
-  - Tip/donation address (parametrig.eth)
+- [x] **Site-wide footer**: ~~Comprehensive footer~~ (CANCELLED per user request)
 - [ ] **Correction contact**: Add "Report an error" link/method accessible from every page
 
 ### Phase 12: Design System & CSS Cleanup
