@@ -64,7 +64,7 @@ LOSS_COLORS = {
     "Prevented": C["green"], # Alias for Saved
 }
 
-SCOPE_ORDER     = ["Network", "Protocol", "Asset", "Account", "Module"]
+SCOPE_ORDER     = ["Network", "Asset", "Protocol", "Module", "Account"]
 AUTHORITY_ORDER = ["Signer Set", "Delegated Body", "Governance"]
 AUTHORITY_MAP   = {"Protocol Team": "Signer Set", "Security Council": "Delegated Body"}
 

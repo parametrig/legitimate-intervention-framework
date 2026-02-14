@@ -115,7 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- MOBILE TOGGLE ---
     scrollIndicator.addEventListener('click', (e) => {
-        if (window.innerWidth <= 1024 && e.target === scrollIndicator) {
+        // Only toggle if clicking on the indicator background, not on navigation links or their children
+        if (window.innerWidth <= 1024 && 
+            e.target === scrollIndicator && 
+            !e.target.closest('.nav-icon-link') &&
+            !e.target.closest('.nav-links')) {
             scrollIndicator.classList.toggle('active');
         }
     });

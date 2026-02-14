@@ -76,6 +76,16 @@
 - [ ] **Summary Page (`summary/index.html`)**: Update to purely Narrative Summary
 - [ ] **Cleanup**: Delete `web/research/all/` directory
 
+### Chart Generation Fixes ✅
+- [x] Fix LIF matrix charts ordering: Scope × Authority matrix, Success Rate matrix, Success Rate all interventions
+- [x] Arrange scope categories in correct order: Network > Asset > Protocol > Module > Account
+- [x] Fix "Delegated Body" visibility in smaller charts (stacked text: "Delegated\nBody")
+- [x] Update chart generation scripts (not JSON files) and regenerate using `generate_all_charts.py`
+
+### Mobile UX Issues ✅
+- [x] Fix mobile navigation conflict: Left edge click brings up scroll navigator instead of allowing back arrow click
+- [x] Ensure back arrow in top navigation works properly on mobile without triggering scroll navigator
+
 ### Content Enhancement
 - [ ] Extract short insights per chart from `manuscript/analysis_insights.md`
 - [ ] Add per-chart insight blocks to `/research/all`

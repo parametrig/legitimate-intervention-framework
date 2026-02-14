@@ -10,10 +10,10 @@
       "type": "category",
       "data": [
         "Network",
-        "Protocol",
         "Asset",
-        "Account",
-        "Module"
+        "Protocol",
+        "Module",
+        "Account"
       ]
     },
     "yAxis": {
@@ -31,25 +31,25 @@
             }
           },
           {
-            "value": 61,
-            "itemStyle": {
-              "color": "#2563EB"
-            }
-          },
-          {
             "value": 8,
             "itemStyle": {
               "color": "#2563EB"
             }
           },
           {
-            "value": 46,
+            "value": 61,
             "itemStyle": {
               "color": "#2563EB"
             }
           },
           {
             "value": 12,
+            "itemStyle": {
+              "color": "#2563EB"
+            }
+          },
+          {
+            "value": 46,
             "itemStyle": {
               "color": "#2563EB"
             }
