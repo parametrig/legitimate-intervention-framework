@@ -46,19 +46,19 @@
 ### Phase 9: Database Verification & Deep Linking
 > Goal: Ensure the database page uses the latest JSON data and all cross-linking works.
 
-- [ ] **Verify `exploits.json`**: Confirm it matches `lif_exploits_final.csv` (705 rows, correct fields)
-- [ ] **Verify `interventions.json`**: Confirm it matches `lif_all_interventions.csv` (130 rows)
-- [ ] **Deep linking audit**:
-  - [ ] `database.html?search=<term>` — filters correctly
-  - [ ] `database.html?id=<incident_id>` — opens correct modal
-  - [ ] Links from landing page, summary, theme pages → database cases work
-  - [ ] Links from database → research charts work
-- [ ] **Cross-page linking**: Verify all internal links across the site resolve correctly
-  - [ ] Landing page section links
-  - [ ] Research hub → theme page links
-  - [ ] Theme page chart → `/research/all/?chart=` links
-  - [ ] About page → database, ArXiv, IMDB links
-- [ ] **Modal/detail view**: Verify incident detail modal renders correctly with all fields
+- [x] **Verify `exploits.json`**: Confirm it matches `lif_exploits_final.csv` (705 rows, correct fields)
+- [x] **Verify `interventions.json`**: Confirm it matches `lif_all_interventions.csv` (137 rows, including proactive)
+- [x] **Deep linking audit**:
+  - [x] `database.html?search=<term>` — filters correctly
+  - [x] `database.html?id=<incident_id>` — opens correct modal
+  - [x] Links from landing page, summary, theme pages → database cases work
+  - [x] Links from database → research charts work
+- [x] **Cross-page linking**: Verify all internal links across the site resolve correctly
+  - [x] Landing page section links
+  - [x] Research hub → theme page links
+  - [x] Theme page chart → `/research/all/?chart=` links
+  - [x] About page → database, ArXiv, IMDB links
+- [x] **Modal/detail view**: Verify incident detail modal renders correctly with all fields
 
 ### Phase 10: Scroll Navigator & Visual Polish
 > Goal: Enhance the scroll navigator on all pages and introduce alternating-line design.
@@ -68,7 +68,6 @@
   - [ ] Summary (`summary/index.html`)
   - [ ] Research hub (`research/index.html`)
   - [ ] All 4 theme pages (threat, intervention, efficiency, framework)
-  - [ ] All charts (`research/all/index.html`) — 50 chart labels
 - [ ] **Navigator detail**: Ensure each nav dot/label accurately reflects its section title
 - [ ] **Alternating-line styling**: Add subtle alternating background shading for section readability
   - [ ] Landing page narrative sections
