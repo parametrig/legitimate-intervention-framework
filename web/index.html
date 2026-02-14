@@ -42,7 +42,7 @@
                 </div>
                 <div class="scroll-section" data-target="annual">
                     <div class="section-bar short"></div>
-                    <span class="section-label">Annual</span>
+                    <span class="section-label">Scale</span>
                 </div>
                 <div class="scroll-section" data-target="layers">
                     <div class="section-bar medium"></div>
@@ -52,6 +52,22 @@
                     <div class="section-bar medium"></div>
                     <span class="section-label">Vectors</span>
                 </div>
+                <div class="scroll-section" data-target="intervention">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">Response</span>
+                </div>
+                <div class="scroll-section" data-target="speed">
+                    <div class="section-bar short"></div>
+                    <span class="section-label">Speed</span>
+                </div>
+                <div class="scroll-section" data-target="taxonomy">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">Taxonomy</span>
+                </div>
+                <div class="scroll-section" data-target="opportunity">
+                    <div class="section-bar short"></div>
+                    <span class="section-label">Gap</span>
+                </div>
             </div>
             <div class="scroll-progress" id="scrollProgress">0%</div>
         </div>
@@ -59,6 +75,10 @@
 
     <div class="standard-layout content-grid narrative-layout mixed-layout">
         <div class="narrative-content">
+
+            <!-- ============================================ -->
+            <!-- SECTION 1: INTRO / HERO                     -->
+            <!-- ============================================ -->
             <section class="hero-section active" data-narrative-section data-id="intro"
                 data-chart="chart02_cumulative_losses" data-fallback-src="charts/chart02_cumulative_losses.png"
                 data-chart-anchor="chart02">
@@ -67,26 +87,28 @@
                 <p class="report-lead">Between 2014 and 2026, we documented <strong>705 exploit cases</strong> resulting
                     in
                     <strong>$78.81B</strong>
-                    in cumulative losses. This website is designed to stay maintainable as the dataset grows: CSV →
-                    generators →
-                    JSON → interactive charts.
+                    in cumulative losses. Of these, <strong>$9.60B</strong> was intervention-eligible—losses where a
+                    protocol override could have prevented or reduced damage. This research asks a simple question:
+                    <em>when code fails, who should be allowed to intervene, and how?</em>
                 </p>
                 <div class="landing-actions"
                     style="margin-bottom: 2rem; display: flex; gap: 1.5rem; font-family: var(--font-serif); font-size: var(--fs-lead);">
                     <a href="summary/" style="font-weight: 600; text-decoration: underline;">Read the summary →</a>
-                    <a href="#" style="opacity: 0.8;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            viewBox="0 0 256 256" fill="currentColor"
-                            style="vertical-align: middle; margin-right: 4px;">
+                    <a href="https://arxiv.org/abs/2502.07279" target="_blank" rel="noopener" style="opacity: 0.8;"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"
+                            fill="currentColor" style="vertical-align: middle; margin-right: 4px;">
                             <path
                                 d="M224,152a8,8,0,0,1-8,8H192v16h16a8,8,0,0,1,0,16H192v16a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8h32A8,8,0,0,1,224,152ZM92,172a28,28,0,0,1-28,28H56v8a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8H64A28,28,0,0,1,92,172Zm-16,0a12,12,0,0,0-12-12H56v24h8A12,12,0,0,0,76,172Zm88,8a36,36,0,0,1-36,36H112a8,8,0,0,1-14,0V152a8,8,0,0,1,8-8h16A36,36,0,0,1,164,180Zm-16,0a20,20,0,0,0-20-20h-8v40h8A20,20,0,0,0,148,180ZM40,112V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.66,2.34l56,56A8,8,0,0,1,216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-14,0V40H56v72a8,8,0,0,1-16,0ZM160,80h28.69L160,51.31Z" />
                         </svg>pdf</a>
-                    <a href="#" style="opacity: 0.8;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            viewBox="0 0 256 256" fill="currentColor"
+                    <a href="https://drive.google.com/file/d/1mSbIDPnVjbkPyqCYbV3vLbxEvF3mLNHb/view" target="_blank"
+                        rel="noopener" style="opacity: 0.8;"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" viewBox="0 0 256 256" fill="currentColor"
                             style="vertical-align: middle; margin-right: 4px;">
                             <path
                                 d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z" />
                         </svg>listen</a>
-                    <a href="#" style="opacity: 0.8;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    <a href="https://www.imdb.com/title/tt36822600/" target="_blank" rel="noopener"
+                        style="opacity: 0.8;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             viewBox="0 0 256 256" fill="currentColor"
                             style="vertical-align: middle; margin-right: 4px;">
                             <path
@@ -95,26 +117,155 @@
                 </div>
             </section>
 
+            <!-- ============================================ -->
+            <!-- SECTION 2: ANNUAL SCALE                      -->
+            <!-- ============================================ -->
             <section data-narrative-section data-id="annual" data-chart="chart01_annual_losses"
                 data-fallback-src="charts/chart01_annual_losses.png" data-chart-anchor="chart01">
-                <h2>Annual losses</h2>
-                <p>Annual exploit losses show the baseline scale of the problem and the persistent addressable market.
+                <h2>The scale of the threat</h2>
+                <p>2022 peaked at <strong>$58B</strong> in annual losses, driven by the Terra/Luna collapse and the
+                    FTX implosion. After a 91% decline, losses climbed back to <strong>$3.76B</strong> in 2025. The
+                    threat is not receding—it is restructuring around new attack surfaces.</p>
+                <p>Losses follow a power law (α&thinsp;≈&thinsp;1.33): the top 10 incidents account for
+                    <strong>40%</strong> of all losses, and the top 1.4% of cases produce 80% of cumulative damage.
+                    This extreme concentration means a small number of well-designed interventions could have
+                    disproportionate impact.
+                </p>
+                <figure class="narrative-inline-figure">
+                    <img src="charts/lof01_pareto_loss_distribution.png"
+                        alt="Pareto distribution of intervention-eligible exploits"
+                        style="width:100%; max-width:680px; margin: 1.5rem 0; border-radius: 4px;">
+                    <figcaption style="font-size: 0.8rem; color: #888; font-style: italic;">Pareto distribution: the
+                        top-ranked exploits dominate cumulative losses (α = 1.33 ± 0.01).</figcaption>
+                </figure>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 3: LOSS LAYERS                       -->
+            <!-- ============================================ -->
+            <section data-narrative-section data-id="layers" data-chart="chart08_four_layer_timeline"
+                data-fallback-src="charts/chart08_four_layer_timeline.png" data-chart-anchor="chart08">
+                <h2>Four layers of loss</h2>
+                <p>Not all losses are equal. We decompose the $78.81B into four layers:</p>
+                <p><strong>Layer 1</strong> — Systemic collapses (Terra/Luna, FTX). These are beyond intervention
+                    scope; no kill-switch prevents a bank run. <strong>Layer 2</strong> — Social engineering and
+                    off-chain attacks. These bypass on-chain logic entirely. <strong>Layer 3</strong> — Technical
+                    exploits where the protocol had intervention capability but did not act in time.
+                    <strong>Layer 4</strong> — Technical exploits where intervention mechanisms were absent.
+                </p>
+                <p>Layers 3 and 4 constitute the <strong>$9.60B intervention-eligible market</strong>. Of this,
+                    <strong>$2.51B</strong> has actually been prevented—a <strong>26.0% effectiveness rate</strong>,
+                    leaving a <strong>$7.09B opportunity gap</strong>.
                 </p>
             </section>
 
-            <section data-narrative-section data-id="layers" data-chart="chart08_four_layer_timeline"
-                data-fallback-src="charts/chart08_four_layer_timeline.png" data-chart-anchor="chart08">
-                <h2>Loss layers (paper-aligned)</h2>
-                <p>The four-layer timeline separates intervention-eligible losses from systemic failures and other
-                    non-addressable
-                    categories.</p>
-            </section>
-
+            <!-- ============================================ -->
+            <!-- SECTION 4: ATTACK VECTORS                    -->
+            <!-- ============================================ -->
             <section data-narrative-section data-id="vectors" data-chart="chart09_vector_distribution"
                 data-fallback-src="charts/chart09_vector_distribution.png" data-chart-anchor="chart09">
                 <h2>Attack vectors</h2>
-                <p>Vector frequency reveals which classes of failures dominate the exploit landscape.</p>
+                <p><strong>Logic Bugs</strong> lead with 231 cases, exploiting unanticipated state transitions in
+                    smart contracts. <strong>Key Compromise</strong> follows at 127 cases, where stolen private keys
+                    bypass all contract-level safeguards. <strong>Oracle Manipulation</strong> accounts for
+                    62 cases but carries the highest per-incident severity—flash loan attacks can drain pools in a
+                    single transaction.</p>
+                <p>The vector evolution tells a story: in 2020–21, flash-loan-driven oracle attacks dominated. By
+                    2023–24, attackers shifted to key compromise and social engineering, exploiting the human
+                    layer. Each vector class demands a different intervention architecture: pausing for logic bugs,
+                    key rotation for compromises, oracle circuit-breakers for manipulation.</p>
             </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 5: INTERVENTION RESPONSE              -->
+            <!-- ============================================ -->
+            <section data-narrative-section data-id="intervention" data-chart="chart21_authority_performance"
+                data-fallback-src="charts/chart21_authority_performance.png" data-chart-anchor="chart21">
+                <h2>Who responds, and how well?</h2>
+                <p>We classify every intervention by its <strong>authority level</strong>—who makes the decision to
+                    act. <strong>Signer Sets</strong> (multisig key holders) handle 71.2% of interventions by
+                    count, acting fastest at a median of 30 minutes. <strong>Governance</strong> votes, while the
+                    most legitimate, take 30+ days and cover just 11.5% of cases.</p>
+                <p>The middle ground—<strong>Delegated Bodies</strong> like Security Councils and Emergency
+                    subDAOs—account for 17.3% of cases but show the strongest capital protection at
+                    <strong>$1.10B prevented</strong>. They balance speed (60–90 minute median) with
+                    democratic accountability through elected membership and constrained mandates.
+                </p>
+                <figure class="narrative-inline-figure">
+                    <img src="charts/lof05_intervention_effectiveness.png"
+                        alt="Containment success and losses prevented by authority"
+                        style="width:100%; max-width:680px; margin: 1.5rem 0; border-radius: 4px;">
+                    <figcaption style="font-size: 0.8rem; color: #888; font-style: italic;">Governance has the highest
+                        containment success (77%) but Delegated Bodies and Signer Sets prevent more total capital.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 6: SPEED VS LEGITIMACY                -->
+            <!-- ============================================ -->
+            <section data-narrative-section data-id="speed" data-chart="chart38_success_vs_time"
+                data-fallback-src="charts/chart38_success_vs_time.png" data-chart-anchor="chart38">
+                <h2>The golden hour</h2>
+                <p>The paper's core finding: <strong>speed and legitimacy are inversely correlated</strong>.
+                    Interventions within 60 minutes prevent <strong>82.5%</strong> of losses on average.
+                    After 24 hours, effectiveness drops to <strong>10.9%</strong>. We call this the
+                    "golden hour"—the window where rapid action is existentially important.</p>
+                <p>This creates a fundamental tradeoff. Fast responders (Signer Sets) act
+                    unilaterally—effective, but centralizing. Slow responders (Governance) are democratic but
+                    arrive after assets have been drained. The question is whether we can design mechanisms
+                    that are both fast <em>and</em> legitimate.</p>
+                <figure class="narrative-inline-figure">
+                    <img src="charts/lof08_containment_time_analysis.png"
+                        alt="Speed vs effectiveness trade-off scatter plot"
+                        style="width:100%; max-width:680px; margin: 1.5rem 0; border-radius: 4px;">
+                    <figcaption style="font-size: 0.8rem; color: #888; font-style: italic;">Speed vs. effectiveness:
+                        each dot is an intervention case. Faster containment correlates with higher success.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 7: SCOPE × AUTHORITY TAXONOMY         -->
+            <!-- ============================================ -->
+            <section data-narrative-section data-id="taxonomy" data-chart="chart28_matrix_heatmap_combined"
+                data-fallback-src="charts/chart28_matrix_heatmap_combined.png" data-chart-anchor="chart28">
+                <h2>A taxonomy of intervention</h2>
+                <p>We propose a two-dimensional classification: <strong>Scope</strong> (what gets affected—Account,
+                    Module, Protocol, Network) × <strong>Authority</strong> (who decides—Signer Set, Delegated Body,
+                    Governance). This creates a 5×3 effectiveness matrix that maps the design space.</p>
+                <p>The sweet spot: <strong>Account × Delegated Body</strong> achieves 92% containment success—narrow
+                    scope limits collateral damage while elected bodies provide legitimacy. The danger zone:
+                    <strong>Protocol × Signer Set</strong> achieves only 33%, where broad scope combined with
+                    unchecked authority produces unreliable outcomes.
+                </p>
+                <figure class="narrative-inline-figure">
+                    <img src="charts/lof07_scope_authority_matrix.png" alt="Scope × Authority effectiveness matrix"
+                        style="width:100%; max-width:680px; margin: 1.5rem 0; border-radius: 4px;">
+                    <figcaption style="font-size: 0.8rem; color: #888; font-style: italic;">The Scope × Authority
+                        effectiveness matrix. Darker green = higher containment success rate.</figcaption>
+                </figure>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 8: THE OPPORTUNITY GAP                -->
+            <!-- ============================================ -->
+            <section data-narrative-section data-id="opportunity" data-chart="chart50_loss_prevented_vs_incurred"
+                data-fallback-src="charts/chart50_loss_prevented_vs_incurred.png" data-chart-anchor="chart50">
+                <h2>The $7 billion opportunity</h2>
+                <p>Of <strong>$9.60B</strong> in intervention-eligible losses, the industry has prevented
+                    <strong>$2.51B</strong>—a 26.0% effectiveness rate. The remaining <strong>$7.09B</strong>
+                    represents the intervention opportunity gap: losses that <em>could</em> have been prevented
+                    with better mechanism design.
+                </p>
+                <p>The path forward is not more centralized kill-switches, nor slower governance rituals.
+                    It is composable intervention architectures—tiered authority with automatic escalation,
+                    constrained emergency powers with mandatory sunset clauses, and scope-limited permissions
+                    that preserve the principle of minimal intervention.</p>
+                <p style="margin-top: 2rem;"><a href="research/"
+                        style="font-weight: 600; text-decoration: underline;">Explore the full research →</a></p>
+            </section>
+
         </div>
 
         <div class="narrative-chart-column">

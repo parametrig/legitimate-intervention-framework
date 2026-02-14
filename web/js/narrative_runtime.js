@@ -44,6 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 chart01_annual_losses: 'Annual Exploit Losses',
                 chart08_four_layer_timeline: 'Annual DeFi Losses by Category',
                 chart09_vector_distribution: 'Top Attack Vectors (Frequency)',
+                chart21_authority_performance: 'Authority Performance Comparison',
+                chart38_success_vs_time: 'Success vs. Response Time',
+                chart28_matrix_heatmap_combined: 'Scope × Authority Matrix',
+                chart50_loss_prevented_vs_incurred: 'Value Saved vs. Incurred',
             };
 
             const pretty = prettyTitleById[chartId] || chartId;
