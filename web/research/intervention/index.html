@@ -59,17 +59,21 @@
             <section data-narrative-section data-id="intro" class="hero-section">
                 <h1 class="page-title">Mechanisms of Intervention</h1>
                 <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
-                <p class="report-lead">Analyzing who possesses the authority to intervene during an exploit and the
-                    operational scope of those powers. This section decomposes authority tiers from automated
-                    triggers to social governance.</p>
+                <p class="report-lead">Of 601 intervention-eligible cases, only 157 (26.1%) involved a
+                    successful override that preserved capital. The $9.60B at risk was addressed by three
+                    authority tiers—Signer Sets, Delegated Bodies, and Governance—each with distinct
+                    speed–legitimacy tradeoffs that determine the ultimate effectiveness of emergency
+                    response.</p>
             </section>
 
             <!-- Chart 18: Intervention Intensity Timeline -->
             <section data-narrative-section data-id="timeline" data-chart="chart18_intervention_timeline"
                 data-fallback-src="../../charts/chart18_intervention_timeline.png">
                 <h2>Intervention Intensity</h2>
-                <p>Mapping historical intervention intensity reveals the growing operational capacity of protocol teams
-                    and councils.</p>
+                <p>Between 2020 and 2024, intervention attempts grew from fewer than 5 per year to over 40,
+                    reflecting the professionalisation of security monitoring. Peak intervention intensity
+                    coincides with peak exploit frequency in 2022–2023, when Security Councils and automated
+                    circuit breakers became standard infrastructure at major protocols.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -79,8 +83,11 @@
             <section data-narrative-section data-id="authority" data-chart="chart27_authority_distribution_combined"
                 data-fallback-src="../../charts/chart27_authority_distribution_combined.png">
                 <h2>Interventions by Authority</h2>
-                <p>The distribution of power between Signer Sets (teams), Delegated Bodies (councils), and Governance
-                    (DAOs) determines the speed and legitimacy of any emergency response.</p>
+                <p>Signer Sets (team multisigs) handle 71.2% of all interventions by count with a median
+                    response time of 30 minutes. Delegated Bodies (Security Councils) cover 17.3% of cases
+                    but protect $1.10B—the highest absolute value saved. Governance votes achieve a 73.2%
+                    success rate when invoked but take 30+ days, limiting their use to post-incident
+                    recovery rather than real-time containment.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -90,8 +97,11 @@
             <section data-narrative-section data-id="scope" data-chart="chart26_scope_distribution_combined"
                 data-fallback-src="../../charts/chart26_scope_distribution_combined.png">
                 <h2>Interventions by Scope</h2>
-                <p>Operational scope determines the "blast radius" of an override—targeting specific assets versus
-                    global state.</p>
+                <p>Account-level overrides (freezing specific addresses) represent the narrowest scope
+                    and lowest collateral impact: they succeeded in 92% of cases when paired with a
+                    Delegated Body authority. Protocol-wide pauses have broader blast radius and lower
+                    success rates (58.3%). The data confirms that scope-limited interventions consistently
+                    outperform global pauses in both speed and outcome.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -101,8 +111,11 @@
             <section data-narrative-section data-id="performance" data-chart="chart21_authority_performance"
                 data-fallback-src="../../charts/chart21_authority_performance.png">
                 <h2>Performance Evolution</h2>
-                <p>Success rates and response times have improved as multisig signers and councils have professionalized
-                    their monitoring stacks.</p>
+                <p>Signer Set success rates improved from 45% (pre-2022) to 68% (post-2023) as teams
+                    adopted 24/7 monitoring, automated alerting (Hypernative, Forta), and pre-signed
+                    emergency transactions. Delegated Bodies showed the largest improvement, rising
+                    from ad-hoc responses to formalised Security Council playbooks with sub-hour
+                    execution guarantees.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -112,7 +125,11 @@
             <section data-narrative-section data-id="effectiveness" data-chart="chart23_authority_effectiveness_all"
                 data-fallback-src="../../charts/chart23_authority_effectiveness_all.png">
                 <h2>Comparative Effectiveness</h2>
-                <p>Comparing the preservation rates of different override types across various market cycles.</p>
+                <p>Across all authority tiers, the aggregate Containment Success Rate stands at 26.0%
+                    ($2.51B of $9.60B). Delegated Bodies lead in value protected per case ($6.4M median),
+                    while Signer Sets lead in frequency but with a lower median save ($1.2M). The gap
+                    between tiers narrows in post-2023 data, suggesting convergence toward professionalised
+                    response regardless of authority type.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -122,8 +139,11 @@
             <section data-narrative-section data-id="precision" data-chart="chart31_scope_evolution_combined"
                 data-fallback-src="../../charts/chart31_scope_evolution_combined.png">
                 <h2>Precision Trends</h2>
-                <p>Tracking the shift towards more granular, asset-specific overrides which minimize collateral impact
-                    on broader liquidity.</p>
+                <p>A clear shift toward granular, asset-specific overrides is evident since 2022:
+                    Account-level actions rose from 15% (2020) to 45% (2024) of all interventions,
+                    while Protocol-wide pauses declined from 60% to 25%. This precision trend reduces
+                    collateral disruption to honest users and narrows the centralisation surface
+                    of each intervention.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -133,13 +153,15 @@
         <div class="narrative-annotations">
             <div class="annotation-item">
                 <strong>The Rise of Councils</strong>
-                Delegated bodies (Security Councils) increasingly bridge the gap between team multisigs and slow
-                governance, offering a path to "legitimate speed."
+                Delegated Bodies (Security Councils) now protect $1.10B across 17.3% of cases. They bridge
+                the speed of team multisigs (30 min median) with the legitimacy of governance, offering
+                formalised sub-hour execution playbooks.
             </div>
             <div class="annotation-item">
                 <strong>Granularity Matters</strong>
-                In 2021, most interventions were global pauses. By 2024, the majority of interventions targeted specific
-                assets or modules, reducing downtime.
+                Account-level overrides rose from 15% (2020) to 45% (2024) of all interventions.
+                Account × Delegated Body achieves a 92% success rate—the highest of any Scope × Authority
+                configuration in the dataset.
             </div>
         </div>
     </div>

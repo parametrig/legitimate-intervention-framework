@@ -52,18 +52,24 @@
             <section data-narrative-section data-id="intro" class="hero-section">
                 <h1 class="page-title">Strategic Framework</h1>
                 <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
-                <p class="report-lead">The Legitimate Intervention Framework (LIF) provides the architectural
-                    blueprint
-                    for scaling protocol security while maintaining decentralized legitimacy through formalized
-                    override tiers.</p>
+                <p class="report-lead">The LIF formalises intervention as a stochastic optimisation problem:
+                    <em>Total Cost = C<sub>central</sub> + R<sub>blast</sub> + R<sub>damage</sub> × Δt</em>.
+                    Three empirically validated predictions emerge from the model: tiered authorities
+                    outperform pure designs, the optimal response window is under 60 minutes, and
+                    scope-limited actions beat protocol-wide pauses. The "Optimistic Freeze" proposal
+                    synthesises these findings into a deployable mechanism.
+                </p>
             </section>
 
             <!-- Chart 47: Comprehensive LIF Analysis -->
             <section data-narrative-section data-id="analysis" data-chart="chart47_comprehensive_lif_analysis"
                 data-fallback-src="../../charts/chart47_comprehensive_lif_analysis.png">
                 <h2>Comprehensive LIF Analysis</h2>
-                <p>The final framework integrates threat vectors, intervention tiers, and efficiency metrics into a
-                    single operational standard.</p>
+                <p>The comprehensive LIF analysis integrates all three research pillars: Threat ($78.81B,
+                    705 cases, α ≈ 1.33), Intervention ($9.60B eligible, 26.0% CSR, 3 authority tiers),
+                    and Efficiency (82.5% golden-hour CSR, bimodal response distribution). The Scope × Authority
+                    matrix reveals 9 configurations, with Account × Delegated Body delivering the
+                    optimal balance of speed (sub-hour), legitimacy, and containment success (92%).</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -73,8 +79,12 @@
             <section data-narrative-section data-id="roi-rankings" data-chart="chart48_strategic_roi_rankings"
                 data-fallback-src="../../charts/chart48_strategic_roi_rankings.png">
                 <h2>Strategic ROI Rankings</h2>
-                <p>Analyzing the speed and cost-benefit of different intervention architectures across the DeFi
-                    ecosystem.</p>
+                <p>Ranking intervention architectures by $ saved per unit of centralisation cost reveals
+                    the Delegated Body tier as the highest-ROI investment: each council deployment requires
+                    modest governance overhead but saves $6.4M median per activation. The Signer Set tier
+                    has the lowest per-unit cost but also the lowest CSR when operating alone. The analysis
+                    recommends a tiered "escalation path"—Signer Set → Delegated Body → Governance—
+                    mirroring the findings of the stochastic cost model.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -84,8 +94,11 @@
             <section data-narrative-section data-id="prevention-met" data-chart="chart50_loss_prevented_vs_incurred"
                 data-fallback-src="../../charts/chart50_loss_prevented_vs_incurred.png">
                 <h2>Value Saved vs Incurred</h2>
-                <p>The ultimate performance metric: total value prevented from loss relative to the scale of technical
-                    addressability.</p>
+                <p>The ultimate performance metric: $2.51B preserved against $9.60B at risk (26.0% CSR),
+                    leaving a $7.09B "opportunity gap." The model predicts that deploying scope-limited
+                    Optimistic Freeze hooks across the top-100 TVL protocols would narrow this gap by
+                    40–60%, translating to $2.8–$4.3B in additional capital preservation over the
+                    historical dataset.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -95,13 +108,15 @@
         <div class="narrative-annotations">
             <div class="annotation-item">
                 <strong>The LIF Standard</strong>
-                We propose a standard 'Intervention Hook' for all TVL-bearing protocols, allowing for legitimate,
-                scope-constrained overrides.
+                The "Optimistic Freeze" proposes a standardised intervention hook: scope-constrained,
+                time-bounded pauses that auto-expire after a governance confirmation window. This
+                limits centralisation cost while preserving the 82.5% golden-hour CSR.
             </div>
             <div class="annotation-item">
                 <strong>Financial Case</strong>
-                Preventing just 10% more loss through standardized tools would have saved $8B over the last five years
-                of DeFi operations.
+                The $7.09B opportunity gap represents capital that was technically addressable but not
+                saved. Deploying Optimistic Freeze hooks across top-100 TVL protocols could have
+                prevented $2.8–$4.3B of this loss based on model projections.
             </div>
         </div>
     </div>

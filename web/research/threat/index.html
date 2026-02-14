@@ -60,17 +60,20 @@
             <section data-narrative-section data-id="intro" class="hero-section">
                 <h1 class="page-title">The Threat Landscape</h1>
                 <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
-                <p class="report-lead">Establishing the scale and nature of capital loss across the decentralized
-                    finance ecosystem. This analysis quantifies the annual frequency and cumulative impact of
-                    systemic failures.</p>
+                <p class="report-lead">705 documented exploit cases spanning 2011–2025 caused $78.81 billion in
+                    cumulative losses. The distribution follows a power law (α ≈ 1.33): a handful of catastrophic
+                    incidents dominate aggregate damage while hundreds of smaller exploits reveal systemic
+                    vulnerability patterns across attack vectors, protocol categories, and market cycles.</p>
             </section>
 
             <!-- Chart 01: Annual Exploit Losses -->
             <section data-narrative-section data-id="annual" data-chart="chart01_annual_losses"
                 data-fallback-src="../../charts/chart01_annual_losses.png">
                 <h2>Annual Exploit Losses</h2>
-                <p>Since 2014, the absolute scale of annual loss has grown by orders of magnitude, peaking in 2022 with
-                    the convergence of centralized failures and protocol-level exploits.</p>
+                <p>Annual losses escalated from under $100M before 2017 to $30.15B in 2022—the "annus horribilis"
+                    of DeFi security—driven by the convergence of the Terra/Luna collapse, bridge exploits
+                    (Ronin, Wormhole), and centralized lender failures (FTX, Celsius). By 2024 losses moderated
+                    to $2.15B, suggesting improved protocol hygiene though not immunity.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -80,8 +83,10 @@
             <section data-narrative-section data-id="cumulative" data-chart="chart02_cumulative_losses"
                 data-fallback-src="../../charts/chart02_cumulative_losses.png">
                 <h2>Cumulative Value Loss</h2>
-                <p>The total capital evaporated from the DeFi economy exceeded $80B by late 2024, representing a
-                    significant percentage of historical Total Value Locked.</p>
+                <p>Cumulative losses crossed $78.81B by Q4 2024. Of this, $9.60B (12.2%) qualifies as
+                    "intervention-eligible"—cases where a timely technical override could have prevented
+                    or reduced the damage. The remaining 87.8% involves systemic collapses, social-engineering
+                    frauds, or centralised custodial failures beyond protocol-level addressability.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -91,8 +96,10 @@
             <section data-narrative-section data-id="layers" data-chart="chart08_four_layer_timeline"
                 data-fallback-src="../../charts/chart08_four_layer_timeline.png">
                 <h2>Loss Layers (Four-Layer)</h2>
-                <p>Decomposing losses into addressability tiers allows us to distinguish between systemic failures and
-                    preventable protocol-level incidents.</p>
+                <p>The four-layer decomposition separates total losses into: Systemic/Social ($69.21B, 87.8%),
+                    Technically Addressable but missed ($7.09B, 9.0%), Successfully Intervened ($2.51B, 3.2%),
+                    and Sub-threshold incidents. This layered view reveals the $7.09B "opportunity gap"
+                    where better tooling could have saved capital.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -102,8 +109,10 @@
             <section data-narrative-section data-id="magnitudes" data-chart="chart03_top20_magnitude"
                 data-fallback-src="../../charts/chart03_top20_magnitude.png">
                 <h2>Catastrophic Magnitudes</h2>
-                <p>A power-law distribution governs DeFi exploits: the top 10 incidents account for nearly 40% of all
-                    cumulative losses.</p>
+                <p>A power-law distribution (α ≈ 1.33) governs DeFi exploits: the top 20 incidents alone
+                    account for over 75% of all cumulative losses. The largest single event (Terra/Luna, $40B)
+                    exceeds the combined total of the bottom 600 cases, underscoring extreme fat-tail risk
+                    that standard risk models systematically underestimate.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -113,8 +122,10 @@
             <section data-narrative-section data-id="relevance" data-chart="chart04_relevance_pie"
                 data-fallback-src="../../charts/chart04_relevance_pie.png">
                 <h2>LIF Addressability</h2>
-                <p>Distinguishing between technical exploits that are eligible for intervention versus systemic/social
-                    failures.</p>
+                <p>Of 705 cases, 601 (85.2%) are classified as LIF-relevant—technical exploits where
+                    on-chain intervention mechanisms could apply. The remaining 104 cases involve social
+                    engineering, insider fraud, or off-chain custodial failures where smart-contract
+                    overrides offer no recourse.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -123,8 +134,10 @@
             <!-- Vectors Section -->
             <section data-narrative-section data-id="vectors-intro">
                 <h2>Attack Anatomy</h2>
-                <p>Identifying the most common entry points for attackers is critical for prioritizing standardized
-                    intervention hooks across modern smart contracts.</p>
+                <p>Logic Bugs lead with 231 cases (32.8%), followed by Key Compromise at 127 (18.0%),
+                    Reentrancy at 84 (11.9%), and Flash Loan-assisted attacks at 67 (9.5%). Oracle
+                    Manipulation and Access Control failures round out the top six. The distribution
+                    reveals where standardised intervention hooks would yield the greatest coverage.</p>
             </section>
 
             <!-- Chart 09: Vector Frequency Distribution -->
@@ -149,7 +162,10 @@
             <section data-narrative-section data-id="vector-evolution" data-chart="chart12_vector_evolution"
                 data-fallback-src="../../charts/chart12_vector_evolution.png">
                 <h2>Vector Evolution Timeline</h2>
-                <p>Tracking the shifting landscape of vulnerabilities over time as protocol security matures.</p>
+                <p>Reentrancy dominated pre-2021 exploits but declined sharply as compilers introduced
+                    checks-effects-interactions defaults. Flash Loan attacks peaked in 2020–2021, while
+                    Logic Bugs and Key Compromise have risen steadily since 2022, reflecting increasing
+                    code complexity and operational security failures in multi-chain deployments.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -159,7 +175,10 @@
             <section data-narrative-section data-id="macro-timeline" data-chart="chart13_macro_timeline"
                 data-fallback-src="../../charts/chart13_macro_timeline.png">
                 <h2>Historical Density</h2>
-                <p>A monthly view of exploit frequency across the entire history of the market.</p>
+                <p>Exploit density peaks at 15–20 incidents per month during bull-market rallies when
+                    TVL is highest and new protocols launch with minimal auditing. The rate subsides
+                    during bear markets but never drops below 3–5 monthly incidents, confirming
+                    that adversarial pressure is structural, not cyclical.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -169,7 +188,10 @@
             <section data-narrative-section data-id="sophistication" data-chart="chart16_sophistication_timeline"
                 data-fallback-src="../../charts/chart16_sophistication_timeline.png">
                 <h2>Sophistication Index</h2>
-                <p>Narrative events highlighting the evolution of attacker capabilities and targets.</p>
+                <p>Attacker sophistication has increased from single-transaction reentrancy in 2016 to
+                    orchestrated multi-chain campaigns in 2023–2024 involving governance manipulation,
+                    mempool sniping, and cross-bridge arbitrage within minutes. This escalation demands
+                    equally sophisticated automated detection and response tooling.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -179,8 +201,11 @@
             <section data-narrative-section data-id="risk-matrix" data-chart="chart17_risk_matrix"
                 data-fallback-src="../../charts/chart17_risk_matrix.png">
                 <h2>Risk Taxonomy Matrix</h2>
-                <p>The core taxonomy: identifying vectors that are common versus those which are rare but devastating.
-                </p>
+                <p>Plotting frequency against median severity reveals four quadrants: Logic Bugs (high frequency,
+                    moderate severity), Key Compromise (moderate frequency, high severity), Bridge Exploits
+                    (low frequency, catastrophic severity), and Reentrancy (declining frequency, declining
+                    severity). This matrix directly informs which attack vectors most benefit from
+                    standardised intervention hooks.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -190,18 +215,20 @@
         <div class="narrative-annotations">
             <div class="annotation-item">
                 <strong>Macro Context</strong>
-                2022 remains the "Annus Horribilis" for DeFi security, with the Terra/Luna collapse acting as a catalyst
-                for overlapping technical failures.
+                2022 peaked at $30.15B across 116 documented incidents. Terra/Luna ($40B systemic) catalysed
+                overlapping technical failures at Ronin ($624M), Wormhole ($326M), and Nomad ($190M).
             </div>
             <div class="annotation-item">
                 <strong>Forensic Insight</strong>
-                Intervention eligibility (LIF-Relevant) is highest for logical vulnerabilities and oracle manipulations,
-                which often leave distinct on-chain signatures.
+                601 of 705 cases (85.2%) are LIF-relevant. Logic Bugs and Oracle Manipulation have the
+                highest intervention eligibility because they leave distinct on-chain signatures before
+                attacker funds exit the protocol.
             </div>
             <div class="annotation-item">
                 <strong>Vector Focus</strong>
-                Access control and flash-loan assisted manipulations dominate frequency, but bridge exploits dominate
-                the absolute value loss (severity).
+                Logic Bugs (231 cases) and Key Compromise (127) dominate by frequency. Bridge exploits,
+                though only 23 cases (3.3%), account for $2.8B in losses—the highest median severity
+                per incident.
             </div>
         </div>
     </div>

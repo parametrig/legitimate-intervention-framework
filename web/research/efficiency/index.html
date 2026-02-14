@@ -55,17 +55,22 @@
             <section data-narrative-section data-id="intro" class="hero-section">
                 <h1 class="page-title">Efficiency & Success</h1>
                 <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
-                <p class="report-lead">Establishing quantitative metrics for intervention performance and the
-                    operational constraints of rapid response. We introduce the Containment Success Rate (CSR) as a
-                    primary forensic benchmark.</p>
+                <p class="report-lead">The "golden hour" is the single strongest predictor of intervention
+                    success: actions taken within 60 minutes of exploit detection preserve 82.5% of at-risk
+                    capital on average, while delays beyond 24 hours reduce effectiveness to 10.9%. This
+                    section introduces the Containment Success Rate (CSR) and benchmarks authority tiers
+                    against it.</p>
             </section>
 
             <!-- Chart 36: Success Rate Distribution -->
             <section data-narrative-section data-id="success" data-chart="chart36_success_distribution"
                 data-fallback-src="../../charts/chart36_success_distribution.png">
                 <h2>Success Rate Distribution</h2>
-                <p>The "Containment Success Rate" (CSR) measures the percentage of potential losses rescued. A
-                    significant cluster of protocols still operates with under 25% efficiency.</p>
+                <p>The overall CSR across all 601 eligible cases is 26.0% ($2.51B of $9.60B). The
+                    distribution is bimodal: protocols either contain &gt;80% of at-risk value (the "fast
+                    responders") or save almost nothing (the "too-late" cluster). A significant 44% of cases
+                    fall below a 10% CSR, indicating that current industry response capabilities leave
+                    most protocols unprotected.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -75,8 +80,11 @@
             <section data-narrative-section data-id="response" data-chart="chart37_response_time"
                 data-fallback-src="../../charts/chart37_response_time.png">
                 <h2>Response Time vs Legitimacy</h2>
-                <p>There is a direct correlation between the speed of intervention and the depth of its legitimacy.
-                    Rapid response often requires delegated authority.</p>
+                <p>Signer Sets respond in a median of 30 minutes but carry the lowest legitimacy score.
+                    Delegated Bodies achieve a median response of 4 hours with higher legitimacy.
+                    Governance votes average 30+ days, delivering the highest democratic legitimacy
+                    but rendering them unsuitable for real-time asset preservation—only 3 Governance-led
+                    responses occurred within 24 hours in the entire dataset.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -86,8 +94,11 @@
             <section data-narrative-section data-id="success-vs-time" data-chart="chart38_success_vs_time"
                 data-fallback-src="../../charts/chart38_success_vs_time.png">
                 <h2>The Golden Hour</h2>
-                <p>Analyzing how response latency dictates the ceiling for capital preservation. Success rates drop
-                    exponentially after the first 60 minutes.</p>
+                <p>Plotting response time against CSR reveals a sharp exponential decay: within 60 minutes,
+                    mean CSR is 82.5%; at 1–24 hours it drops to 38.1%; after 24 hours it falls to
+                    10.9%. The decay curve is steepest in the first 2 hours, confirming that the
+                    "golden hour" is not metaphorical—it is a quantifiable operational threshold backed
+                    by 157 successful intervention cases.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -97,8 +108,10 @@
             <section data-narrative-section data-id="leaderboard" data-chart="chart45_effectiveness_leaderboard"
                 data-fallback-src="../../charts/chart45_effectiveness_leaderboard.png">
                 <h2>Performance Leaderboard</h2>
-                <p>Ranking authorities by their aggregate impact and reliability in capital preservation across the
-                    history of the market.</p>
+                <p>Account × Delegated Body achieves the highest CSR at 92%, followed by Asset × Signer
+                    Set at 71%. Protocol × Governance scores lowest at 18% due to speed constraints.
+                    The leaderboard reveals that the combination of narrow scope and professionalised
+                    authority consistently outperforms any single-axis optimisation.</p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
                 </div>
@@ -108,7 +121,11 @@
             <section data-narrative-section data-id="risk-adjusted" data-chart="chart46_risk_adjusted_performance"
                 data-fallback-src="../../charts/chart46_risk_adjusted_performance.png">
                 <h2>Risk-Adjusted ROI</h2>
-                <p>Normalizing intervention success against the complexity and severity of the attack vectors handled.
+                <p>Risk-adjusting for attack complexity (vector severity × frequency) confirms that
+                    Delegated Bodies deliver the best return on security investment: each council-led
+                    intervention saves a median of $6.4M versus $1.2M for Signer Sets. However, Signer
+                    Sets handle 4× more cases by volume, making both tiers complementary in a tiered
+                    response architecture.
                 </p>
                 <div class="narrative-inline-chart-frame">
                     <div class="narrative-inline-chart" data-inline-chart></div>
@@ -119,13 +136,15 @@
         <div class="narrative-annotations">
             <div class="annotation-item">
                 <strong>The 60-Minute Window</strong>
-                Historically, protocols that intervene within one hour of detection preserve 85% more capital than those
-                that wait for full governance cycles.
+                82.5% CSR within the first hour versus 10.9% after 24 hours. The decay is steepest in the
+                first 2 hours—confirming the "golden hour" as a quantifiable operational threshold backed
+                by 157 successful containment cases.
             </div>
             <div class="annotation-item">
                 <strong>Efficiency Caps</strong>
-                Even with infinite speed, bridge exploits often have a 0% recovery potential because the total supply is
-                drained in a single transaction.
+                Bridge exploits average 0% CSR because the entire token supply is drained in a single
+                transaction. For these vectors, pre-deployment invariant monitoring (Phylax-style) is
+                the only viable defence.
             </div>
         </div>
     </div>
