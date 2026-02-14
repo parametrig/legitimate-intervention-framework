@@ -1,0 +1,122 @@
+/* =========================================
+   AUDIO DOCK – Persistent mini-player
+   ========================================= */
+
+#lifAudioDock {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+#lifAudioDock.open {
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.lif-audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0.65rem 1.2rem;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+    font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+}
+
+/* Buttons */
+.lif-audio-btn {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
+    flex-shrink: 0;
+}
+
+.lif-audio-btn:hover {
+    color: #000;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.lif-audio-play {
+    width: 36px;
+    height: 36px;
+}
+
+.lif-audio-close {
+    margin-left: auto;
+    opacity: 0.5;
+}
+
+.lif-audio-close:hover {
+    opacity: 1;
+}
+
+/* Progress bar */
+.lif-audio-progress-wrap {
+    flex: 1;
+    height: 6px;
+    background: #e5e5e5;
+    border-radius: 3px;
+    cursor: pointer;
+    overflow: hidden;
+    min-width: 60px;
+}
+
+.lif-audio-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #333;
+    border-radius: 3px;
+    transition: width 0.15s linear;
+}
+
+/* Time label */
+.lif-audio-time {
+    font-size: 0.75rem;
+    color: #999;
+    white-space: nowrap;
+    min-width: 85px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+    .lif-audio-controls {
+        max-width: 100%;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        padding: 0.5rem 0.8rem calc(0.5rem + env(safe-area-inset-bottom));
+        gap: 0.4rem;
+    }
+
+    .lif-audio-time {
+        font-size: 0.65rem;
+        min-width: 70px;
+    }
+
+    .lif-audio-play {
+        width: 32px;
+        height: 32px;
+    }
+}

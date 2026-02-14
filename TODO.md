@@ -1,140 +1,158 @@
 # Legitimate Intervention Framework (LIF) — TODO Tracker
 
-**Purpose**: This file is the step-by-step execution checklist for bringing the LIF repo + website into a consistent, accurate, and web-interactive state.
-
-**Source of Truth (Dataset v1.0)**
-- `data/refined/lif_exploits_final.csv`: **705 rows**
-- LIF-relevant exploits: **601**
-- Total losses: **$78.805B** (sum of `loss_usd`)
-- `data/refined/lif_all_interventions.csv`: **130 rows**
-- `data/refined/lif_intervention_metrics.csv`: **52 rows**
-
-**Hard requirements**
-- Standardize stats output to **`data/refined/lif_stats.json`** (single file).
-- Static hosting compatible (Cloudflare/Vercel **and** IPFS).
-  - Research subpages must be directory-based: `web/research/<theme>/index.html`.
-- Website IA inspired by `ai-2027.com`:
-  - `/summary` becomes the paper summary (concise-version inspired)
-  - `/research` becomes an index of themes
-  - `/research/<theme>` pages provide focused narrative + relevant charts
-  - `/research/all` provides the full 50-chart narrative view (single column) with a toggle to grid/multi-column
-  - `/about` includes a collapsible changelog section
-- Deep-linking support:
-  - `database.html?search=...` (filter)
-  - `database.html?id=<incident_id>` (open modal)
-  - research deep links use query params for consistency:
-    - `research/<theme>/?chart=<chart_id>`
-    - `research/all/?chart=<chart_id>`
-- Navbar research link includes a dropdown for themes (quick access).
-- Include a dismissible site-wide banner indicating the site is under active development and welcoming corrections.
-- Site-wide footer includes a research/disclaimer statement and links such as Terms, Privacy, Request Correction, and a tip/correction contact.
+**Purpose**: Step-by-step execution checklist for completing the LIF website.
+**Last updated**: Feb 14, 2026
 
 ---
 
-## ✅ Completed Work (Phase 1 & 2)
+## ✅ Completed Phases
 
-### Core Infrastructure ✅
-- [x] Website IA established (/, /summary/, /research/, /research/<theme>/, /research/all/, /database.html, /about.html)
+### Phase 0: Core Infrastructure ✅
+- [x] Website IA established (/, /summary, /research/, /research/<theme>/, /research/all/, /database.html, /about.html)
 - [x] ECharts integration with 50 interactive charts
-- [x] Dataset v1.0 finalized with standardized stats in `lif_stats.json`
-- [x] Static hosting compatibility (IPFS-ready)
-- [x] Deep-linking implementation for database and research charts
-
-### Design & UX ✅
-- [x] Universal aesthetic standardization (680px column width, consistent navigation)
+- [x] Dataset v1.0 finalized (705 exploits, 130 interventions, 52 metrics)
+- [x] Static hosting compatibility (IPFS-ready, directory-based routing)
+- [x] Deep-linking (database.html?search=, ?id=, research/?chart=)
+- [x] Universal aesthetic standardization (680px column, Newsreader typography)
 - [x] Mobile responsive design with dock optimization
-- [x] Chart styling consistency across all 50 charts
-- [x] Font size optimization for mobile and desktop
-- [x] About page with collapsible changelog section
 
-### Content & Data ✅
-- [x] All numerical claims updated to match current dataset (705 incidents, $78.8B losses, 130 interventions)
-- [x] Chart generation scripts updated and all charts regenerated
-- [x] Documentation synchronized (TODO.md, HANDOVER_CONTEXT.md)
+### Content Integration Sprint ✅
+- [x] Phase 1: Landing page expanded to 8 narrative sections
+- [x] Phase 2: 50 chart descriptions enriched with ArXiv data
+- [x] Phase 3: Summary page enriched with key metrics table
+- [x] Phase 4: About page refresh (methodology, limitations, acknowledgements)
+- [x] Phase 5: Research theme pages enriched (26 charts + 9 annotations)
+- [x] Phase 6: Visual polish (8 transparent images)
+- [x] Phase 7: Hero refinement (audio embed, IMDB link, ArXiv PDF link, button reorder)
 
 ---
 
-## 🔄 Remaining Tasks (Phase 3)
+## 🔄 Remaining Phases
 
-### Site-wide Features
-- [ ] Add dismissible "active development" banner to all pages
-- [ ] Create comprehensive footer with disclaimer, Terms, Privacy, Request Correction links
-- [ ] Add correction/tip contact method
+### Phase 8: Persistent Audio Player & Dock ✅
+> Goal: Audio continues playing across page navigation with a persistent mini-player dock.
 
-### Design System Foundation (CSS Restructure)
-- [ ] Create `web/css/tokens.css` with Authority (Blue/Green/Purple) & Accent (Cyan) colors
-- [ ] Restructure `web/css/` directory (tokens/, base/, components/, pages/)
+- [x] **Cross-page audio persistence**: Implement a persistent audio player that survives page navigation
+  - Option A: Service Worker + `<iframe>` shell (SPA-like wrapper)
+  - Option B: `sessionStorage` + `currentTime` resume on each page load (Selected)
+  - Option C: Lightweight SPA wrapper with `fetch` + `history.pushState` for page transitions
+- [x] **Mini-player dock**: Floating dock (similar to mobile chart dock) with play/pause, forward/rewind, progress bar
+  - Appears when user clicks "listen", persists at bottom of viewport
+  - Dismissible via close button (stops playback)
+  - Responsive: works on mobile and desktop
+- [x] **Playback state**: Save `currentTime` to `sessionStorage` so refreshing the page resumes from where user left off
+- [x] Ensure dock doesn't conflict with mobile chart dock or scroll navigator
+
+### Phase 9: Database Verification & Deep Linking
+> Goal: Ensure the database page uses the latest JSON data and all cross-linking works.
+
+- [ ] **Verify `exploits.json`**: Confirm it matches `lif_exploits_final.csv` (705 rows, correct fields)
+- [ ] **Verify `interventions.json`**: Confirm it matches `lif_all_interventions.csv` (130 rows)
+- [ ] **Deep linking audit**:
+  - [ ] `database.html?search=<term>` — filters correctly
+  - [ ] `database.html?id=<incident_id>` — opens correct modal
+  - [ ] Links from landing page, summary, theme pages → database cases work
+  - [ ] Links from database → research charts work
+- [ ] **Cross-page linking**: Verify all internal links across the site resolve correctly
+  - [ ] Landing page section links
+  - [ ] Research hub → theme page links
+  - [ ] Theme page chart → `/research/all/?chart=` links
+  - [ ] About page → database, ArXiv, IMDB links
+- [ ] **Modal/detail view**: Verify incident detail modal renders correctly with all fields
+
+### Phase 10: Scroll Navigator & Visual Polish
+> Goal: Enhance the scroll navigator on all pages and introduce alternating-line design.
+
+- [ ] **Scroll navigator audit**: Ensure `scroll_navigator.js` is loaded and functional on all pages:
+  - [ ] Landing (`index.html`) — 8 sections labeled
+  - [ ] Summary (`summary/index.html`)
+  - [ ] Research hub (`research/index.html`)
+  - [ ] All 4 theme pages (threat, intervention, efficiency, framework)
+  - [ ] All charts (`research/all/index.html`) — 50 chart labels
+- [ ] **Navigator detail**: Ensure each nav dot/label accurately reflects its section title
+- [ ] **Alternating-line styling**: Add subtle alternating background shading for section readability
+  - [ ] Landing page narrative sections
+  - [ ] Research theme pages (chart sections)
+  - [ ] All charts page (chart blocks)
+  - [ ] Summary page sections
+- [ ] Verify scroll navigator doesn't conflict with mobile navigation or back arrow
+
+### Phase 11: Site-Wide Features
+> Goal: Add global UX elements across all pages.
+
+- [ ] **Dismissible banner**: "This site is under active development. Corrections welcome." on all pages
+  - Dismiss state saved to `localStorage`
+- [ ] **Site-wide footer**: Comprehensive footer with:
+  - Research disclaimer statement
+  - Links: Terms, Privacy, Request Correction, GitHub, ArXiv
+  - Contact: karo@parametrig.com
+  - Tip/donation address (parametrig.eth)
+- [ ] **Correction contact**: Add "Report an error" link/method accessible from every page
+
+### Phase 12: Design System & CSS Cleanup
+> Goal: Consolidate CSS into a proper design system.
+
+- [ ] Create `web/css/tokens.css` with design tokens:
+  - Authority colors (Blue / Green / Purple)
+  - Accent color (Cyan)
+  - Typography scale
+  - Spacing scale
+- [ ] Restructure CSS directory:
+  ```
+  web/css/
+  ├── tokens.css
+  ├── base.css
+  ├── layout.css
+  ├── components/
+  │   ├── header.css
+  │   ├── charts.css
+  │   └── tables.css
+  └── pages/
+      ├── landing.css
+      ├── narrative.css
+      ├── about.css
+      ├── database.css
+      ├── research.css
+      └── summary.css
+  ```
 - [ ] Refactor `base.css` and `layout.css` to consume `tokens.css`
-- [ ] Update `echarts_runtime.js` to use `getComputedStyle` for theme injection
-- [ ] Clean up legacy CSS (remove `style.css.bak`, consolidate `pages/` styles)
+- [ ] Update `echarts_runtime.js` to use `getComputedStyle()` for theme colors
+- [ ] Delete `style.css.bak` and any unused CSS
 
-### Page Architecture Restructure
-- [ ] **Landing Page (`index.html`)**: Strip old charts, implement "Concise Paper" flow
-- [ ] **The Atlas (`research/index.html`)**: Host all 50 charts (migrate from `research/all`)
-- [ ] Implement **Detailed Scroll Navigator** (Side TOC) for Atlas
-- [ ] Implement Lazy Loading for charts
-- [ ] **Summary Page (`summary/index.html`)**: Update to purely Narrative Summary
-- [ ] **Cleanup**: Delete `web/research/all/` directory
+### Phase 13: Final QA, Cleanup & Launch Prep
+> Goal: Final pass before deployment.
 
-### Chart Generation Fixes ✅
-- [x] Fix LIF matrix charts ordering: Scope × Authority matrix, Success Rate matrix, Success Rate all interventions
-- [x] Arrange scope categories in correct order: Network > Asset > Protocol > Module > Account
-- [x] Fix "Delegated Body" visibility in smaller charts (stacked text: "Delegated\nBody")
-- [x] Update chart generation scripts (not JSON files) and regenerate using `generate_all_charts.py`
-
-### Mobile UX Issues ✅
-- [x] Fix mobile navigation conflict: Left edge click brings up scroll navigator instead of allowing back arrow click
-- [x] Ensure back arrow in top navigation works properly on mobile without triggering scroll navigator
-
-### Content Enhancement
-- [ ] Extract short insights per chart from `manuscript/analysis_insights.md`
-- [ ] Add per-chart insight blocks to `/research/all`
-- [ ] Implement toggle to grid/multi-column view for research pages
-- [ ] Update theme pages with enhanced narrative content
-- [ ] Map `LIF_FINAL_REPORT.md` narrative to Summary page
-- [ ] Ensure "Research" navbar link points to `/research/` (The Atlas)
-- [ ] Verify standard color usage across all 50 charts
-- [ ] Verify Mobile Responsiveness of the new Atlas view
-
-### Research Pages Polish
-- [ ] `/research`: Theme index alignment and navigation improvements
-- [ ] `/research/*`: Individual theme pages refinement (Threat, Intervention, Efficiency, Framework)
-- [ ] `/summary`: Concise summary cleanup
-- [ ] `/database.html`: Final touches and UX improvements
-
-### Advanced Features
-- [ ] Landing page: Integrate full paper narrative with side charts
-- [ ] Include 7 paper charts that don't overlap with LIF-50 set
-- [ ] Summary page: Derive content from concise paper wrapper
-
-### Paper Integration
-- [ ] Landing page: host the full paper (`paper/main.tex`) as the primary narrative
-- [ ] Summary page: derive content from the concise paper wrapper (`paper/main_concise.tex`)
-- [ ] Research pages: use `manuscript/analysis_insights.md` for short per-chart insights
+- [ ] **Cross-browser testing**: Chrome, Safari, Firefox (desktop + mobile)
+- [ ] **Performance audit**: Lighthouse scores, image optimization, lazy loading for charts
+- [ ] **Accessibility check**: Alt text, ARIA labels, keyboard navigation
+- [ ] **SEO verification**: Meta tags, Open Graph, Twitter Cards on all pages
+- [ ] **Dead link scan**: Verify zero broken links across the site
+- [ ] **Console error sweep**: Zero errors on all pages
+- [ ] **Git cleanup**: Remove tracked large files (`.m4a` in root), ensure `.gitignore` is complete
+- [ ] **Repository README update**: Reflect current site structure and features
+- [ ] **Update HANDOVER_CONTEXT.md** and **TODO.md** to "launch-ready" state
+- [ ] **Deployment**: Push to production (Cloudflare Pages / Vercel / IPFS)
+- [ ] **DNS / Domain**: Verify `legitimate-intervention.org` resolves correctly
 
 ---
 
-## 📋 Technical Debt & Cleanup
-- [ ] Identify and clean any old database/cache/build artifacts
-- [ ] Decide what to delete vs regenerate
-- [ ] Document reproducible rebuild steps
-- [ ] Final performance optimization audit
+## 📋 Technical Notes
 
----
+### Audio Player Architecture Decision
+The persistent audio player needs to survive page navigation. Three approaches:
 
-## 🏗️ Proposed CSS Structure
-```text
-web/css/
-├── tokens.css       # [NEW] Single source of truth for variables
-├── base/
-│   ├── main.css     # Renamed from base.css
-│   └── layout.css   # Grid system & containers
-├── components/
-│   ├── header.css   # Nav & Metadata bars
-│   ├── charts.css   # ECharts containers & controls
-│   └── tables.css   # Data tables (Database page)
-└── pages/
-    ├── landing.css
-    ├── atlas.css    # (The compiled research css)
-    └── narrative.css # Shared for About/Summary
-```
+1. **SPA Wrapper** (Recommended): Wrap the site in a lightweight shell that loads pages via `fetch` + `history.pushState`, keeping the audio `<iframe>` or `<audio>` element persistent in the shell. This is the most seamless UX but requires refactoring navigation.
+
+2. **sessionStorage Resume**: Save `currentTime` to `sessionStorage` on `beforeunload`, resume on next page's `DOMContentLoaded`. Simple but creates a brief silence gap during navigation.
+
+3. **Service Worker**: Cache the audio and use a service worker to manage playback state. Complex but most robust for offline/PWA scenarios.
+
+### Database JSON Sources
+- `web/data/exploits.json` — Generated from `data/refined/lif_exploits_final.csv`
+- `web/data/interventions.json` — Generated from `data/refined/lif_all_interventions.csv`
+- `web/data/charts/*.json` — 50 ECharts specs
+- `web/data/series/*.json` — 4 time series (cumulative, yearly, vector, four-layer)
+
+### Scroll Navigator
+- `web/js/scroll_navigator.js` (4.7KB) — Currently loaded on 7 pages
+- Generates dot indicators from `<section>` elements with `data-section-label` attributes

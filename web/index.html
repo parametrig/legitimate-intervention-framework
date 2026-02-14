@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/pages/narrative.css">
+    <link rel="stylesheet" href="css/components/audio-dock.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,18 +94,15 @@
                 </p>
                 <div class="landing-actions"
                     style="margin-bottom: 2rem; display: flex; align-items: center; gap: 1.5rem; font-family: var(--font-serif); font-size: var(--fs-lead);">
-                    <div id="audioPlayerContainer" style="display: flex; align-items: center;">
-                        <button
-                            onclick="document.getElementById('audioPlayerContainer').innerHTML = '<audio id=\'mainAudio\' controls autoplay preload=\'auto\' style=\'height: 32px; max-width: 240px;\'><source src=\'audio/code_is_law_vs_kill_switch.m4a\' type=\'audio/mp4\'>Your browser does not support the audio element.</audio>';"
-                            style="background: none; border: none; padding: 0; color: inherit; font: inherit; cursor: pointer; opacity: 0.8; display: flex; align-items: center; text-decoration: none;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"
-                                fill="currentColor" style="margin-right: 4px;">
-                                <path
-                                    d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z">
-                                </path>
-                            </svg>listen
-                        </button>
-                    </div>
+                    <button onclick="window.lifAudioPlayer && window.lifAudioPlayer.open();"
+                        style="background: none; border: none; padding: 0; color: inherit; font: inherit; cursor: pointer; opacity: 0.8; display: flex; align-items: center; text-decoration: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"
+                            fill="currentColor" style="margin-right: 4px;">
+                            <path
+                                d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z">
+                            </path>
+                        </svg>listen
+                    </button>
                     <a href="https://arxiv.org/pdf/2602.12260" target="_blank" rel="noopener"
                         style="opacity: 0.8; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                             height="16" viewBox="0 0 256 256" fill="currentColor"
@@ -329,6 +327,7 @@
     <script src="js/echarts_runtime.js"></script>
     <script src="js/narrative_runtime.js"></script>
     <script src="js/scroll_navigator.js"></script>
+    <script src="js/audio_player.js"></script>
 </body>
 
 </html>
