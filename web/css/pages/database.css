@@ -609,6 +609,22 @@ body.navbar-hidden .sticky-controls {
         padding-right: 2rem;
     }
 
+    .case-table {
+        min-width: 720px;
+    }
+
+    .case-row td {
+        padding: 0.95rem 0.75rem;
+    }
+
+    .view-toggle {
+        padding: 0 0.5rem;
+    }
+
+    .toggle-btn {
+        max-width: none;
+    }
+
     .sticky-controls {
         opacity: 1;
         pointer-events: auto;

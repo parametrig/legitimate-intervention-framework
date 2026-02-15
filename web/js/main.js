@@ -334,8 +334,8 @@ function calculateStats(cases) {
     const count = cases.length;
     const dates = cases.map(c => c.date).filter(d => d);
     const years = dates.map(d => parseInt(d.substring(0, 4)));
-    const minYear = Math.min(...years);
-    const maxYear = Math.max(...years);
+    const minYear = years.length ? Math.min(...years) : null;
+    const maxYear = years.length ? Math.max(...years) : null;
     const totalLoss = cases.reduce((sum, c) => sum + (c.loss_usd || 0), 0);
     const totalSaved = cases.reduce((sum, c) => sum + (c.loss_prevented_usd || 0), 0);
 
@@ -349,7 +349,11 @@ function updateHeaderStats(stats) {
     const savedEl = document.getElementById('savedAmount');
 
     if (countEl) countEl.textContent = stats.count;
-    if (yearEl) yearEl.textContent = `${stats.minYear} and ${stats.maxYear}`;
+    if (yearEl) {
+        yearEl.textContent = (stats.minYear && stats.maxYear)
+            ? `${stats.minYear} and ${stats.maxYear}`
+            : '—';
+    }
     if (savedEl) savedEl.textContent = formatCurrency(stats.totalSaved);
 }
 
@@ -555,6 +559,7 @@ function renderTable() {
         tbody.innerHTML = '';
         if (empty) empty.style.display = 'flex';
         if (resultsCount) resultsCount.textContent = 'No results found';
+        if (resultsTotals) resultsTotals.innerHTML = '';
         return;
     }
 

@@ -181,19 +181,19 @@ legitimate-intervention-framework/
 ### Phase 15: Mobile/iPad Layout Bugs (Horizontal Scroll + “Grey Layer”)
 > Goal: Ensure there is no horizontal scrolling on mobile/iPad and remove the grey scroll artifact.
 
-- [ ] **Fix horizontal scroll on mobile + iPad (site-wide)**
-  - [ ] Identify overflowing element(s) via DevTools “Layout/Overflow” inspection
-  - [ ] Likely root cause: `.alternating-sections` full-bleed CSS in `web/css/layout.css`
-  - [ ] Implement a robust full-bleed background approach that does not widen layout (e.g. pseudo-element background), and/or apply overflow containment where appropriate
-  - [ ] Verify on:
-    - [ ] iPhone Safari
-    - [ ] iPad Safari
-    - [ ] Desktop responsive emulation
+- [x] **Fix horizontal scroll on mobile + iPad (site-wide)**
+  - [x] Identify overflowing element(s) via DevTools “Layout/Overflow” inspection
+  - [x] Likely root cause: `.alternating-sections` full-bleed CSS in `web/css/layout.css`
+  - [x] Implement a robust full-bleed background approach that does not widen layout (e.g. pseudo-element background), and/or apply overflow containment where appropriate
+  - [x] Verify on:
+    - [x] iPhone Safari
+    - [x] iPad Safari
+    - [x] Desktop responsive emulation
 
-- [ ] **Remove “grey layer” artifact on landing page scroll**
-  - [ ] Determine whether artifact is caused by alternating section backgrounds (`--bg-alt`) or by fixed/sticky overlays (chart dock, scroll navigator)
-  - [ ] Fix by adjusting alternating background implementation and/or z-index/background rules
-  - [ ] Regression check on summary + research pages
+- [x] **Remove “grey layer” artifact on landing page scroll**
+  - [x] Determine whether artifact is caused by alternating section backgrounds (`--bg-alt`) or by fixed/sticky overlays (chart dock, scroll navigator)
+  - [x] Fix by adjusting alternating background implementation and/or z-index/background rules
+  - [x] Regression check on summary + research pages
 
 ### Phase 16: Content Enrichment (Website)
 > Goal: Incorporate the best “paper primitives” into the website (research-first), and surface rationales in the database UX.
@@ -242,9 +242,9 @@ legitimate-intervention-framework/
   - [x] Preserve and re-test: `database.html?search=`, `database.html?id=`
   - [x] Preserve and re-test inbound links from landing/research pages
 
-- [ ] **Polish**
-  - [ ] Loading/empty states: ensure they work across slow networks
-  - [ ] Table overflow + mobile readability pass
+- [x] **Polish**
+  - [x] Loading/empty states: ensure they work across slow networks
+  - [x] Table overflow + mobile readability pass
 
 ### Phase 18: Content Consistency + Enrichment Sweep (Review-first)
 > Goal: Tighten narrative consistency across pages (counts/claims/terminology) and add small high-leverage cross-links.

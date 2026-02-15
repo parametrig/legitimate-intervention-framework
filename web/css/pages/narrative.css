@@ -404,12 +404,12 @@
 
     /* Stack chart dock above audio player if present */
     body.has-audio-dock .narrative-chart-column {
-        bottom: calc(56px + env(safe-area-inset-bottom));
+        bottom: calc(48px + env(safe-area-inset-bottom));
         border-bottom: 1px solid #e5e5e5;
         /* Add border to separate from audio player */
     }
 
     body.has-audio-dock .chart-dock-reopen {
-        bottom: calc(72px + env(safe-area-inset-bottom));
+        bottom: calc(64px + env(safe-area-inset-bottom));
     }
 }

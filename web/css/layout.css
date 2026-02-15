@@ -598,23 +598,7 @@ header.transparent {
 .alternating-sections>section:nth-of-type(even),
 .alternating-sections .narrative-content>section:nth-of-type(even),
 .alternating-sections .hero-grid>div.section-wrapper:nth-of-type(even) {
-    background-color: var(--bg-alt);
-    margin-left: -100vw;
-    margin-right: -100vw;
-    padding-left: 100vw;
-    padding-right: 100vw;
-}
-
-.alternating-sections>section:nth-of-type(even),
-.alternating-sections .narrative-content>section:nth-of-type(even),
-.alternating-sections .hero-grid>div.section-wrapper:nth-of-type(even) {
-    position: relative;
-    z-index: 1;
-    /* Ensure content sits above background if we used pseudo-elements, 
-       but here we use the element itself. 
-       Note: The negative margin trick works best if the parent has no overflow hidden.
-       Body usually has overflow-x: hidden to prevent scrollbar from this trick.
-    */
+    background-color: var(--bg-color);
 }
 
 /* Fix for negative margin interaction with standard layout padding */
