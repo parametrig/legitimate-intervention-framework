@@ -82,6 +82,10 @@ Generate with:
 - `python3 scripts/core/generate_web_series.py`
 - `python3 scripts/core/generate_web_charts.py`
 
+Notes:
+- `web/data/interventions.json` is an export of the 130 exploit-linked intervention cases in `lif_all_interventions.csv` plus 7 metrics-only proactive cases present only in `lif_intervention_metrics.csv` (137 total records).
+- Each intervention record includes `is_proactive` to distinguish proactive / metrics-only cases.
+
 ### Charts
 - `scripts/analysis/lif_charts_v1.ipynb` must be audited for:
   - Correctness

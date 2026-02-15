@@ -1,8 +1,8 @@
 # Handover Context: Project LIF & Web Development
 
-**Date:** Feb 14, 2026
+**Date:** Feb 15, 2026
 **Status:** ArXiv Published (2602.12260), Conference Applications Submitted, Content Sprint Complete
-**Current Focus:** Persistent Audio Player, Database QA, Visual Polish, Launch Prep
+**Current Focus:** OSS launch cleanup (archive-first), mobile/iPad horizontal scroll fix, “grey layer” scroll artifact, and research-page content enrichment
 
 ---
 
@@ -19,6 +19,12 @@
 3. **50 Interactive Charts:** ECharts 5 with JSON spec pipeline
 4. **Deep Linking:** database search/modal, research chart links
 5. **Universal Aesthetics:** 680px column, Newsreader typography, mobile dock
+
+### Dataset Reality Check (From `data/refined/`)
+- `data/refined/lif_exploits_final.csv`: **705** rows
+- `data/refined/lif_all_interventions.csv`: **130** rows
+- `data/refined/lif_intervention_metrics.csv`: **52** rows
+- The 52 “high-fidelity metrics” set includes **7** `incident_id`s that do not appear in `lif_all_interventions.csv` (these appear to be proactive / non-exploit responses, and should be explained consistently across docs and website copy).
 
 ### Content Integration Sprint (Phases 1-7) ✅
 - 8-section landing page with inline figures and media links
@@ -37,12 +43,23 @@ See [`TODO.md`](./TODO.md) for the full phased plan.
 
 | Phase | Focus | Status |
 |-------|-------|--------|
-| 8 | Persistent Audio Player & Dock | 🔄 Next |
-| 9 | Database Verification & Deep Linking | ⬜ |
-| 10 | Scroll Navigator & Visual Polish | ⬜ |
-| 11 | Site-Wide Features (Banner, Footer) | ⬜ |
+| 8 | Persistent Audio Player & Dock | ✅ |
+| 9 | Database Verification & Deep Linking | ✅ |
+| 10 | Scroll Navigator & Visual Polish | ✅ |
+| 11 | Site-Wide Features (Banner, Footer) | ✅ |
 | 12 | Design System & CSS Cleanup | ⬜ |
-| 13 | Final QA, Cleanup & Launch | ⬜ |
+| 13 | Final QA, Cleanup & Launch | ✅ |
+
+---
+
+## 🧹 New Sprint: OSS Launch Cleanup + Content Enrichment (Review-First)
+
+See `TODO.md` Phase 14–16 for the detailed phased plan.
+
+Key decisions:
+- Internal docs (project-management) are **not public** and should move to `archive/internal/`.
+- PDFs: keep the concise/main PDFs committed (descriptive naming preferred).
+- Anything not needed for the main tree should be **moved into `archive/`** (not deleted) until final review.
 
 ---
 
@@ -76,4 +93,4 @@ See [`TODO.md`](./TODO.md) for the full phased plan.
 
 ---
 
-*Last updated: Feb 14, 2026 — Content Sprint Complete, Phases 8-13 Planned*
+*Last updated: Feb 15, 2026 — OSS cleanup + mobile layout bugs + content enrichment phased plan added to TODO*

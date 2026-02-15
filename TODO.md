@@ -1,7 +1,7 @@
 # Legitimate Intervention Framework (LIF) — TODO Tracker
 
 **Purpose**: Step-by-step execution checklist for completing the LIF website.
-**Last updated**: Feb 14, 2026
+**Last updated**: Feb 15, 2026
 
 ---
 
@@ -47,7 +47,7 @@
 > Goal: Ensure the database page uses the latest JSON data and all cross-linking works.
 
 - [x] **Verify `exploits.json`**: Confirm it matches `lif_exploits_final.csv` (705 rows, correct fields)
-- [x] **Verify `interventions.json`**: Confirm it matches `lif_all_interventions.csv` (137 rows, including proactive)
+- [x] **Verify `interventions.json`**: Confirm it matches `lif_all_interventions.csv` (130 rows)
 - [x] **Deep linking audit**:
   - [x] `database.html?search=<term>` — filters correctly
   - [x] `database.html?id=<incident_id>` — opens correct modal
@@ -82,9 +82,8 @@
 - [x] **Dismissible banner**: "This site is under active development. Corrections welcome." on all pages
   - Dismiss state saved to `localStorage`
 - [x] **Site-wide footer**: ~~Comprehensive footer~~ (CANCELLED per user request)
-- [ ] **Correction contact**: Add "Report an error" link/method accessible from every page
 
-### Phase 12: Design System & CSS Cleanup
+### Phase 12: Design System & CSS Cleanup (Deferred)
 > Goal: Consolidate CSS into a proper design system.
 
 - [ ] Create `web/css/tokens.css` with design tokens:
@@ -114,20 +113,164 @@
 - [ ] Update `echarts_runtime.js` to use `getComputedStyle()` for theme colors
 - [ ] Delete `style.css.bak` and any unused CSS
 
-### Phase 13: Final QA, Cleanup & Launch Prep
+### Phase 13: Final QA, Cleanup & Launch Prep ✅
 > Goal: Final pass before deployment.
 
-- [ ] **Cross-browser testing**: Chrome, Safari, Firefox (desktop + mobile)
-- [ ] **Performance audit**: Lighthouse scores, image optimization, lazy loading for charts
-- [ ] **Accessibility check**: Alt text, ARIA labels, keyboard navigation
-- [ ] **SEO verification**: Meta tags, Open Graph, Twitter Cards on all pages
-- [ ] **Dead link scan**: Verify zero broken links across the site
-- [ ] **Console error sweep**: Zero errors on all pages
-- [ ] **Git cleanup**: Remove tracked large files (`.m4a` in root), ensure `.gitignore` is complete
-- [ ] **Repository README update**: Reflect current site structure and features
-- [ ] **Update HANDOVER_CONTEXT.md** and **TODO.md** to "launch-ready" state
+- [x] **Cross-browser testing**: Chrome, Safari, Firefox (desktop + mobile)
+- [x] **Performance audit**: Lighthouse scores, image optimization, lazy loading for charts
+- [x] **Accessibility check**: Alt text, ARIA labels, keyboard navigation
+- [x] **SEO verification**: Meta tags, Open Graph, Twitter Cards on all pages
+- [x] **Dead link scan**: Verify zero broken links across the site
+- [x] **Console error sweep**: Zero errors on all pages
+- [x] **Git cleanup**: Remove tracked large files (`.m4a` in root), ensure `.gitignore` is complete
+- [x] **Repository README update**: Reflect current site structure and features
+- [x] **Update HANDOVER_CONTEXT.md** and **TODO.md** to "launch-ready" state
 - [ ] **Deployment**: Push to production (Cloudflare Pages / Vercel / IPFS)
 - [ ] **DNS / Domain**: Verify `legitimate-intervention.org` resolves correctly
+
+---
+
+## 🧹 OSS Launch Cleanup + Content Enrichment (Review-First)
+
+### Phase 14: Archive Pass + Repo Hygiene (No deletions without explicit approval)
+> Goal: Prepare repository structure for open-source launch by moving non-essential assets into `archive/` and tightening repo hygiene.
+
+legitimate-intervention-framework/
+├── data/                  # refined datasets (csv/json)
+├── scripts/               # generators (charts, web exports)
+├── web/                   # the static site
+├── manuscript/            # research writing sources
+├── methodology/           # data dictionary/provenance
+├── visualizations/        # research figures (only if needed)
+├── docs/                  # OSS docs (contributing, governance, media)
+├── archive/               # historical assets you want to keep but not ship
+├── README.md
+├── LICENSE
+└── requirements.txt
+
+- [ ] **Create archive structure**
+  - [ ] Add `archive/` top-level directory
+  - [ ] Add `archive/internal/` (private project-management docs + internal references)
+  - [ ] Add `archive/media/` (screenshots, large binaries, legacy visuals)
+  - [ ] Add `archive/manuscript/` (older drafts / non-shipping writeups)
+
+- [ ] **Move internal docs out of main tree (not public)**
+  - [ ] Move `TODO.md` → `archive/internal/TODO.md`
+  - [ ] Move `HANDOVER_CONTEXT.md` → `archive/internal/HANDOVER_CONTEXT.md`
+  - [ ] Replace with minimal public-facing equivalents (TBD) only if needed for contributors (user preference: likely none)
+
+- [ ] **Archive large / temporary assets**
+  - [ ] Move website screenshots (e.g. `web/Screenshot*.png`, `web/screencapture-*.png`) → `archive/media/`
+  - [ ] Ensure only one canonical audio file is shipped for the site (keep under `web/audio/`)
+  - [ ] Move any duplicate/unused large audio files into `archive/media/`
+
+- [ ] **Gnosis framework documents + their embedded images**
+  - [ ] Move `manuscript/gnosis_framework_response*.md` into a dedicated directory (e.g. `archive/gnosis/`)
+  - [ ] Move referenced images from `visualizations/archived/v0_legacy/` into a stable archive location (e.g. `archive/gnosis/visuals/`)
+  - [ ] Update image links inside the moved docs so they still render
+
+- [ ] **Treat `visualizations/` as build artifact (non-canonical)**
+  - [ ] Document that `visualizations/` can be regenerated and is not authoritative
+  - [ ] Confirm website runtime does not depend on `visualizations/` paths
+
+- [ ] **Git hygiene**
+  - [ ] Update `.gitignore` to include `venv/` (in addition to `.venv/`)
+  - [ ] Remove any tracked `.DS_Store` files from git index
+  - [ ] Re-check for tracked large binaries and confirm archive placement
+
+### Phase 15: Mobile/iPad Layout Bugs (Horizontal Scroll + “Grey Layer”)
+> Goal: Ensure there is no horizontal scrolling on mobile/iPad and remove the grey scroll artifact.
+
+- [ ] **Fix horizontal scroll on mobile + iPad (site-wide)**
+  - [ ] Identify overflowing element(s) via DevTools “Layout/Overflow” inspection
+  - [ ] Likely root cause: `.alternating-sections` full-bleed CSS in `web/css/layout.css`
+  - [ ] Implement a robust full-bleed background approach that does not widen layout (e.g. pseudo-element background), and/or apply overflow containment where appropriate
+  - [ ] Verify on:
+    - [ ] iPhone Safari
+    - [ ] iPad Safari
+    - [ ] Desktop responsive emulation
+
+- [ ] **Remove “grey layer” artifact on landing page scroll**
+  - [ ] Determine whether artifact is caused by alternating section backgrounds (`--bg-alt`) or by fixed/sticky overlays (chart dock, scroll navigator)
+  - [ ] Fix by adjusting alternating background implementation and/or z-index/background rules
+  - [ ] Regression check on summary + research pages
+
+### Phase 16: Content Enrichment (Website)
+> Goal: Incorporate the best “paper primitives” into the website (research-first), and surface rationales in the database UX.
+
+- [x] **Decision Framework block (model + predictions)**
+  - [x] Add a “Decision Framework” section on Research pages that explains:
+    - [x] cost model (standing centralization cost + time × damage rate + blast radius)
+    - [x] three predictions and what the dataset shows
+  - [x] Decide placement (preferred: `research/framework/` and/or `research/all/`)
+
+- [x] **Framework page rewrite pass (`/research/framework/`)**
+  - [x] Make the cost model explicit (define each term, not just the equation)
+  - [x] Add the three predictions as scannable bullets and tie each to a chart reference
+  - [x] Add a short “how to use this” checklist for protocol designers
+
+- [x] **Taxonomy explainer (Scope × Authority) in Research**
+  - [x] Add a dedicated taxonomy explainer module/section under Research (preferred over Summary)
+  - [x] Include clear definitions + a small set of example cells
+  - [x] Add 2–4 canonical examples with deep links into the database (`database.html?id=` or `?search=`)
+
+- [x] **Database: show classification rationales**
+  - [x] Audit how `interventions.json` is used in `database.html` modal
+  - [x] Display “Scope rationale” and “Authority rationale” (where available) in the incident detail view
+  - [x] Confirm any proactive-only cases are handled gracefully
+
+- [x] **Consistency pass: links + counts**
+  - [x] Standardize NotebookLM link to: https://notebooklm.google.com/notebook/98177ced-1daf-468f-8e89-81f018a5d25c
+  - [x] Ensure all docs/site copy consistently reflects:
+    - [x] `lif_all_interventions.csv`: 130 rows
+    - [x] `lif_intervention_metrics.csv`: 52 rows
+    - [x] Metrics set includes 7 incident_ids not present in `lif_all_interventions.csv` (proactive / non-exploit responses)
+
+### Phase 17: Database Publish-Ready UX (Defer implementation until review)
+> Goal: Make the database page feel “finished” for public launch while preserving the deep-link contract.
+
+- [ ] **Proactive indicator UX**
+  - [ ] Add a visible badge/label for proactive / metrics-only cases (`is_proactive = true`)
+  - [ ] Add a filter toggle: “Include proactive cases” (default on) and/or “Only proactive”
+  - [ ] Ensure proactive cases render cleanly even if exploit-linked fields are missing
+
+- [ ] **Rationales UX**
+  - [ ] In modal: show “Scope rationale” + “Authority rationale” blocks (if present)
+  - [ ] In table: optionally add an icon or subtle hint that rationales exist (modal-only is acceptable)
+
+- [ ] **Deep-link stability audit**
+  - [ ] Preserve and re-test: `database.html?search=`, `database.html?id=`
+  - [ ] Preserve and re-test inbound links from landing/research pages
+
+- [ ] **Polish**
+  - [ ] Loading/empty states: ensure they work across slow networks
+  - [ ] Table overflow + mobile readability pass
+
+### Phase 18: Content Consistency + Enrichment Sweep (Review-first)
+> Goal: Tighten narrative consistency across pages (counts/claims/terminology) and add small high-leverage cross-links.
+
+- [x] **Research hub (`/web/research/index.html`) consistency pass**
+  - [x] Reconcile vector counts used in the theme hero blurbs with canonical chart data (e.g., Key Compromise count)
+  - [ ] Add 1–2 deep links per theme blurb to the relevant charts (`/research/all/?chart=`)
+
+- [x] **All-charts narrative (`/web/research/all/`) copy audit**
+  - [x] Ensure intervention counts language is consistent (130 exploit-linked interventions; 7 proactive metrics-only are separate)
+  - [x] Add a short “What to do next” block at Part boundaries with deep links (e.g., “open the database filtered to this theme”)
+
+- [x] **Threat page (`/web/research/threat/`) vector-count alignment**
+  - [x] Verify all vector counts in the lead paragraphs match the dataset used for Chart 09/10
+  - [x] Standardize terminology between “Key Compromise”, “Access Control / Key Compromise”, and related labels
+
+- [x] **Landing page (`/web/index.html`) cross-link enrichment**
+  - [x] Add deep links from each section to the relevant Research chart and/or Database filtered view
+  - [x] Add a single sentence clarifying that “Documented interventions” refers to exploit-linked cases (130) and that the web export includes 7 proactive metrics-only records
+
+- [x] **Summary page (`/web/summary/`) dataset nuance**
+  - [x] Add a one-line note near “Documented interventions” clarifying 130 exploit-linked vs 7 proactive metrics-only cases
+  - [x] Add a deep link to the Database interventions view and a deep link to the Framework page’s Decision Framework section
+
+- [x] **Framework page styling consistency**
+  - [x] Refactor “Three predictions”, “How to use this”, and “Taxonomy” sections to use theme-info/theme-description/theme-link structure for consistent spacing and CTA styling
 
 ---
 

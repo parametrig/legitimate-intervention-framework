@@ -2,7 +2,7 @@
 
 **Generated**: February 3, 2026  
 **Dataset Version**: v1.0 (LIF v1.0 Release)  
-**Total Cases**: 136 unique interventions (130 exploit-linked + 6 proactive-only)
+**Total Cases**: 137 unique interventions (130 exploit-linked + 7 proactive-only)
 
 ---
 
@@ -15,7 +15,7 @@
 - **Other Non-Addressable**: 94 cases ($7.41B) - Rug pulls, phishing, unpausable bugs
 - **All Interventions**: 130 exploit-linked cases
 - **Metrics Dataset**: 52 high-quality cases
-- **Combined Unique**: 136 interventions (130 + 6 proactive-only)
+- **Combined Unique**: 137 interventions (130 + 7 proactive-only)
 
 ### Loss Breakdown (Figma Table 1)
 | Category | Loss (Billions USD) | Percentage | Cases |
@@ -85,8 +85,8 @@
 | **Module** | 9 | 6.9% |
 | **Asset** | 6 | 4.6% |
 
-### Proactive-Only Cases (6 unique to metrics)
-- Tether/PDVSA, Liqwid, StakeWise, MakerDAO, Aave v2, Circle/Tornado Cash
+### Proactive-Only Cases (7 unique to metrics)
+- These are metrics-dataset cases that do not correspond to an exploit-linked record in `lif_all_interventions.csv`.
 
 ---
 

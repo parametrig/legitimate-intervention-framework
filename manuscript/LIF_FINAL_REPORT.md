@@ -6,7 +6,7 @@
 
 ---
 
-> **Interactive Data:** [Chat with the full dataset on NotebookLM](https://notebooklm.google.com/notebook/a0b24efe-8d1d-4949-83a3-8d204a43ec27?pli=1)
+> **Interactive Data:** [Chat with the full dataset on NotebookLM](https://notebooklm.google.com/notebook/98177ced-1daf-468f-8e89-81f018a5d25c)
 
 > **Context:** This report contributes to GnosisDAO's ["A Framework for the Future"](https://forum.gnosis.io/t/a-framework-for-the-future/11914) consultation. An academic treatment of this research—*"Legitimate Overrides in Decentralized Protocols"* by Elem Oghenekaro and Dr. Nimrod Talmon—is forthcoming and provides the formal game-theoretic foundations for the intervention design space explored here.
 
@@ -83,7 +83,7 @@ Intervention Metrics (Manual)
     ▼
 Final Datasets
     • lif_exploits_final.csv (705 cases)
-    • lif_all_interventions.csv (136 DeFi interventions)
+    • lif_all_interventions.csv (130 exploit-linked interventions)
     • lif_intervention_metrics.csv (52 detailed cases)
 ```
 
@@ -97,7 +97,7 @@ Final Datasets
 **Intervention Datasets:**
 - **All Interventions (130 cases):** Every DeFi exploit where `is_intervention = True`
 - **Metrics Dataset (52 cases):** Hand-curated subset with detailed timing data, sourced from official post-mortems, on-chain evidence, and security team disclosures
-- **Combined Unique (136 cases):** 130 + 6 proactive-only cases (from metrics dataset)
+- **Combined Unique (137 cases):** 130 + 7 proactive-only cases (from metrics dataset)
 
 ### Analysis Approach
 
@@ -817,6 +817,6 @@ Special thanks to:
 
 **Contact:** [@e3o8o](https://x.com/elemoghenekaro) | [GitHub](https://github.com/e3o8o/legitimate-intervention-framework)
 
-**Interactive Data:** [NotebookLM](https://notebooklm.google.com/notebook/a0b24efe-8d1d-4949-83a3-8d204a43ec27?pli=1)
+**Interactive Data:** [NotebookLM](https://notebooklm.google.com/notebook/98177ced-1daf-468f-8e89-81f018a5d25c)
 
 *Generated: January 30, 2026*

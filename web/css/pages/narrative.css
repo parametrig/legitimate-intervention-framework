@@ -52,6 +52,22 @@
     max-width: 680px;
 }
 
+.narrative-content ul,
+.narrative-content ol {
+    margin-left: 1.25rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding-left: 0.25rem;
+}
+
+.narrative-content li {
+    margin-bottom: 0.35rem;
+}
+
+.narrative-content li:last-child {
+    margin-bottom: 0;
+}
+
 .narrative-content h2,
 .narrative-content h3 {
     text-align: left;

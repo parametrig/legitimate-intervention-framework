@@ -17,6 +17,19 @@ A standardized dataset of blockchain security incidents and emergency interventi
 
 ---
 
+## Website data exports
+
+The website consumes JSON exports generated from the CSVs in `data/refined/`.
+
+| Web export | Records | Description |
+|:----------|:--------|:------------|
+| `web/data/exploits.json` | 705 | JSON export of `lif_exploits_final.csv` |
+| `web/data/interventions.json` | 137 | JSON export of `lif_all_interventions.csv` (130 exploit-linked) plus 7 metrics-only proactive cases from `lif_intervention_metrics.csv` |
+
+Each record in `web/data/interventions.json` includes `is_proactive` to distinguish proactive / metrics-only cases.
+
+---
+
 ## Financial Summary
 
 - **Total Losses:** $78,805,538,747

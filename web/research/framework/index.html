@@ -39,6 +39,18 @@
                     <div class="section-bar long"></div>
                     <span class="section-label">Overview</span>
                 </div>
+                <div class="scroll-section" data-target="predictions">
+                    <div class="section-bar medium"></div>
+                    <span class="section-label">Predictions</span>
+                </div>
+                <div class="scroll-section" data-target="how-to-use">
+                    <div class="section-bar short"></div>
+                    <span class="section-label">How to use this</span>
+                </div>
+                <div class="scroll-section" data-target="taxonomy">
+                    <div class="section-bar long"></div>
+                    <span class="section-label">Taxonomy</span>
+                </div>
                 <div class="scroll-section" data-target="analysis">
                     <div class="section-bar medium"></div>
                     <span class="section-label">LIF Analysis</span>
@@ -61,13 +73,76 @@
             <section data-narrative-section data-id="intro" class="hero-section">
                 <h1 class="page-title">Strategic Framework</h1>
                 <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
-                <p class="report-lead">The LIF formalises intervention as a stochastic optimisation problem:
+                <p class="report-lead">The LIF formalises emergency intervention as a stochastic optimisation problem:
                     <em>Total Cost = C<sub>central</sub> + R<sub>blast</sub> + R<sub>damage</sub> × Δt</em>.
-                    Three empirically validated predictions emerge from the model: tiered authorities
-                    outperform pure designs, the optimal response window is under 60 minutes, and
-                    scope-limited actions beat protocol-wide pauses. The "Optimistic Freeze" proposal
-                    synthesises these findings into a deployable mechanism.
+                    Here,
+                    <em>C<sub>central</sub></em>
+                    is the standing political cost of concentrated override power,
+                    <em>R<sub>blast</sub></em>
+                    is the collateral disruption rate imposed on honest users,
+                    <em>R<sub>damage</sub></em>
+                    is the rate at which losses accrue during an incident, and
+                    <em>Δt</em>
+                    is time-to-containment.
                 </p>
+
+                <section data-narrative-section data-id="predictions">
+                    <h2 style="margin-top: 2rem;">Three predictions</h2>
+
+                    <p style="margin-top: 0.75rem;"><strong>Tiered authorities outperform pure designs.</strong> A first-responder Signer Set,
+                        an accountable Delegated Body, and slower Governance for adjudication beats any single tier.</p>
+
+                    <p style="margin-top: 1.25rem;"><strong>The optimal response window is under 60 minutes.</strong> The “golden hour” dominates
+                        outcomes and the distribution is bimodal (fast containment or near-total failure).</p>
+
+                    <p style="margin-top: 1.25rem;"><strong>Scope-limited interventions beat protocol-wide pauses.</strong> Narrow blast radius
+                        (Account/Asset/Module) preserves liveness while improving containment reliability.</p>
+                </section>
+
+                <section data-narrative-section data-id="how-to-use">
+                    <h2 style="margin-top: 2rem;">How to use this</h2>
+                    <ol style="margin-left: 1.2rem; margin-top: 0.75rem; margin-bottom: 0.75rem;">
+                        <li><strong>Choose the goal state.</strong> Define what “containment” means for your protocol
+                        (freeze, pause, quarantine, rollback, or recovery).</li>
+                    <li><strong>Estimate costs.</strong> For each candidate mechanism, estimate
+                        <em>C<sub>central</sub></em>,
+                        <em>R<sub>blast</sub></em>,
+                        <em>R<sub>damage</sub></em>,
+                        and expected
+                        <em>Δt</em>.</li>
+                    <li><strong>Implement a tiered escalation path.</strong> Fast scoped action first, then
+                        accountable review, then governance adjudication and sunset clauses.</li>
+                </ol>
+
+                <p style="margin-top: 1rem;">Calculator prototype
+                    <a href="https://github.com/e3o8o/legitimate-overrides-paper/blob/main/notebooks/paper_analysis_complete.ipynb"
+                        target="_blank" rel="noopener noreferrer">notebook</a>
+                </p>
+            </section>
+
+            <section data-narrative-section data-id="taxonomy">
+                <h2>Scope × Authority Taxonomy</h2>
+                <p>The taxonomy decomposes emergency mechanisms along two axes:
+                    <strong>Scope</strong> (blast radius) and <strong>Authority</strong> (who can trigger action).
+                    The design goal is not maximal decentralization, but minimal <em>expected cost</em> given the
+                    protocol’s threat model and community constraints.</p>
+                <p><strong>Scope (what can be affected)</strong>: Network, Asset, Protocol, Module, Account.
+                    Narrower scope is more precise and reduces collateral disruption, but may be technically
+                    unavailable depending on architecture.</p>
+                <p><strong>Authority (who can act)</strong>: Signer Set (keys), Delegated Body (council/guardian),
+                    Governance (stake-weighted process). Faster authorities trade legitimacy for speed; slower
+                    authorities trade speed for legitimacy.</p>
+                <h3 style="margin-top: 1.5rem;">Canonical examples</h3>
+                <ul style="margin-left: 1.2rem; margin-top: 0.75rem; margin-bottom: 0.75rem;">
+                    <li><strong>Network × Signer Set</strong>: validator-coordinated chain halt
+                        (<a href="../../database.html?search=BNB%20Chain">BNB Chain</a>).</li>
+                    <li><strong>Asset × Signer Set</strong>: issuer freeze on a stablecoin
+                        (<a href="../../database.html?search=Tether">Tether</a>).</li>
+                    <li><strong>Protocol × Delegated Body</strong>: emergency council/guardian pause powers
+                        (<a href="../../database.html?search=Aave">Aave Guardians</a>).</li>
+                    <li><strong>Account × Governance</strong>: onchain vote to quarantine attacker addresses
+                        (<a href="../../database.html?search=Cetus">Sui / Cetus</a>).</li>
+                </ul>
             </section>
 
             <!-- Chart 47: Comprehensive LIF Analysis -->

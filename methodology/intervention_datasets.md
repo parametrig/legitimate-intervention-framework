@@ -73,7 +73,7 @@ Cases where protocols responded to active exploits:
 Cases where protocols intervened without active exploit:
 - **Example:** MakerDAO PSM pause during USDC depeg
 - **Example:** Tether PDVSA wallet freeze
-- **Count:** 6 cases in metrics dataset
+- **Count:** 7 cases in metrics dataset
 
 ---
 
