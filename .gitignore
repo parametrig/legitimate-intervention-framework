@@ -1,7 +1,7 @@
 .DS_Store
 .venv/
+venv/
 __pycache__/
-.DS_Store
 .ipynb_checkpoints/
 
 data/refined/lif_stats_v1.0.json
