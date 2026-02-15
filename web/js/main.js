@@ -270,6 +270,25 @@ let allExploits = [];
 let currentView = 'interventions';
 let currentSort = { column: 'date', direction: 'desc' };
 
+function applyProactiveFilter(cases) {
+    const proactiveMode = document.getElementById('filterProactive')?.value || 'exploit';
+    if (proactiveMode === 'include') return cases;
+    if (proactiveMode === 'only') return cases.filter(c => c.is_proactive === true);
+    return cases.filter(c => c.is_proactive !== true);
+}
+
+function updateProactiveControlState() {
+    const proactive = document.getElementById('filterProactive');
+    if (!proactive) return;
+
+    if (currentView !== 'interventions') {
+        proactive.disabled = true;
+    } else {
+        proactive.disabled = false;
+        if (!proactive.value) proactive.value = 'exploit';
+    }
+}
+
 // Format currency
 function formatCurrency(value) {
     if (value === null || value === undefined) return '—';
@@ -339,7 +358,7 @@ function updateToggleCounts() {
     const intCountEl = document.getElementById('interventionCount');
     const expCountEl = document.getElementById('exploitCount');
 
-    if (intCountEl) intCountEl.textContent = allInterventions.length;
+    if (intCountEl) intCountEl.textContent = applyProactiveFilter(allInterventions).length;
     if (expCountEl) expCountEl.textContent = allExploits.length;
 }
 
@@ -372,7 +391,8 @@ function getFilters() {
         authority: document.getElementById('filterAuthority')?.value || '',
         scope: document.getElementById('filterScope')?.value || '',
         year: document.getElementById('filterYear')?.value || '',
-        success: document.getElementById('filterSuccess')?.value || ''
+        success: document.getElementById('filterSuccess')?.value || '',
+        proactive: document.getElementById('filterProactive')?.value || 'exploit'
     };
 }
 
@@ -381,6 +401,11 @@ function filterCases(cases) {
     const filters = getFilters();
 
     return cases.filter(c => {
+        if (currentView === 'interventions') {
+            if (filters.proactive === 'only' && c.is_proactive !== true) return false;
+            if (filters.proactive === 'exploit' && c.is_proactive === true) return false;
+        }
+
         // Search filter
         if (filters.search) {
             const searchable = [
@@ -475,11 +500,15 @@ function renderRow(c, isIntervention = true) {
     const successClass = c.success_pct >= 80 ? 'success-high' :
         c.success_pct >= 20 ? 'success-medium' : 'success-low';
 
+    const proactiveTag = (isIntervention && c.is_proactive === true)
+        ? '<span class="tag proactive" title="Proactive / metrics-only case">Proactive</span>'
+        : '';
+
     return `
         <tr class="case-row" data-id="${c.id}" onclick="showCaseDetail('${c.id}')">
             <td style="white-space:nowrap;">${formatDate(c.date)}</td>
             <td>
-                <strong>${c.protocol || '—'}</strong> ${c.has_rationale ? '<span class="rationale-badge" title="Detailed rationale available"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>' : ''}
+                <strong>${c.protocol || '—'}</strong> ${proactiveTag} ${c.has_rationale ? '<span class="rationale-badge" title="Detailed rationale available"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>' : ''}
                 <br><span class="chain-label">${c.chain || '—'}</span>
             </td>
             <td>
@@ -538,7 +567,10 @@ function renderTable() {
     // Update results count
     const stats = calculateStats(sorted);
     if (resultsCount) {
-        resultsCount.textContent = `Showing ${sorted.length} of ${data.length} cases`;
+        const denominator = (currentView === 'interventions')
+            ? applyProactiveFilter(allInterventions).length
+            : data.length;
+        resultsCount.textContent = `Showing ${sorted.length} of ${denominator} cases`;
     }
     if (resultsTotals && isIntervention) {
         resultsTotals.innerHTML = `<span class="text-loss">-${formatCurrency(stats.totalLoss)} losses</span> <span class="text-saved">+${formatCurrency(stats.totalSaved)} saved</span>`;
@@ -562,6 +594,13 @@ function showCaseDetail(caseId) {
     const hasTimingData = c.time_to_detect_min !== null || c.time_to_contain_min !== null;
     const successRate = c.success_pct !== null ? `${c.success_pct}%` : '—';
 
+    const proactiveTag = (c.is_proactive === true)
+        ? '<span class="tag proactive" title="Proactive / metrics-only case">Proactive</span>'
+        : '';
+
+    const scopeRationale = c.scope_rationale || '';
+    const authorityRationale = c.authority_rationale || '';
+
     modal.innerHTML = `
         <div class="modal-content">
             <button class="modal-close" onclick="closeCaseModal()">&times;</button>
@@ -570,6 +609,7 @@ function showCaseDetail(caseId) {
                 <div class="modal-meta">
                     <span>${formatDate(c.date)}</span>
                     ${c.chain ? `<span class="modal-chain">${c.chain}</span>` : ''}
+                    ${proactiveTag}
                     ${c.authority ? `<span class="tag ${getAuthorityClass(c.authority)}">${c.authority}</span>` : ''}
                 </div>
             </div>
@@ -631,6 +671,16 @@ function showCaseDetail(caseId) {
                     </div>
                 </div>
 
+                ${(scopeRationale || authorityRationale) ? `
+                <div class="rationale-section">
+                    <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg> Classification Rationale</h3>
+                    <div class="rationale-content">
+                        ${scopeRationale ? `<div style="margin-bottom: 0.75rem;"><strong>Scope rationale:</strong> ${scopeRationale}</div>` : ''}
+                        ${authorityRationale ? `<div><strong>Authority rationale:</strong> ${authorityRationale}</div>` : ''}
+                    </div>
+                </div>
+                ` : ''}
+
                 ${c.has_rationale && c.rationale ? `
                 <div class="rationale-section">
                     <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg> Classification Rationale</h3>
@@ -671,6 +721,8 @@ function clearFilters() {
     document.getElementById('filterScope').value = '';
     document.getElementById('filterYear').value = '';
     document.getElementById('filterSuccess').value = '';
+    const proactive = document.getElementById('filterProactive');
+    if (proactive) proactive.value = 'exploit';
     renderTable();
 }
 
@@ -693,8 +745,13 @@ async function initDatabase() {
         if (searchInput) searchInput.value = searchTerm;
     }
 
+    // Default filter state (exploit-linked only)
+    const proactive = document.getElementById('filterProactive');
+    if (proactive) proactive.value = 'exploit';
+    updateProactiveControlState();
+
     // Calculate and display stats
-    const stats = calculateStats(allInterventions);
+    const stats = calculateStats(applyProactiveFilter(allInterventions));
     updateHeaderStats(stats);
     updateToggleCounts();
     populateYearFilter();
@@ -705,6 +762,15 @@ async function initDatabase() {
     // Deep link: open case modal
     const deepLinkId = urlParams.get('id');
     if (deepLinkId) {
+        const deepLinkedCase = allInterventions.find(x => x.id === deepLinkId);
+        if (deepLinkedCase?.is_proactive === true) {
+            const proactive = document.getElementById('filterProactive');
+            if (proactive) proactive.value = 'include';
+            const stats = calculateStats(applyProactiveFilter(allInterventions));
+            updateHeaderStats(stats);
+            updateToggleCounts();
+            renderTable();
+        }
         showCaseDetail(deepLinkId);
     }
 
@@ -721,9 +787,18 @@ function setupDatabaseListeners() {
     }
 
     // Filters
-    ['filterAuthority', 'filterScope', 'filterYear', 'filterSuccess'].forEach(id => {
+    ['filterAuthority', 'filterScope', 'filterYear', 'filterSuccess', 'filterProactive'].forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.addEventListener('change', renderTable);
+        if (el) {
+            el.addEventListener('change', () => {
+                if (id === 'filterProactive') {
+                    const stats = calculateStats(applyProactiveFilter(allInterventions));
+                    updateHeaderStats(stats);
+                    updateToggleCounts();
+                }
+                renderTable();
+            });
+        }
     });
 
     // View toggle
@@ -732,6 +807,7 @@ function setupDatabaseListeners() {
             document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentView = btn.dataset.view;
+            updateProactiveControlState();
             renderTable();
         });
     });

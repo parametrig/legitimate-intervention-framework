@@ -229,18 +229,18 @@ legitimate-intervention-framework/
 ### Phase 17: Database Publish-Ready UX (Defer implementation until review)
 > Goal: Make the database page feel “finished” for public launch while preserving the deep-link contract.
 
-- [ ] **Proactive indicator UX**
-  - [ ] Add a visible badge/label for proactive / metrics-only cases (`is_proactive = true`)
-  - [ ] Add a filter toggle: “Include proactive cases” (default on) and/or “Only proactive”
-  - [ ] Ensure proactive cases render cleanly even if exploit-linked fields are missing
+- [x] **Proactive indicator UX**
+  - [x] Add a visible badge/label for proactive / metrics-only cases (`is_proactive = true`)
+  - [x] Add a filter toggle: “Include proactive cases” (default on) and/or “Only proactive”
+  - [x] Ensure proactive cases render cleanly even if exploit-linked fields are missing
 
-- [ ] **Rationales UX**
-  - [ ] In modal: show “Scope rationale” + “Authority rationale” blocks (if present)
-  - [ ] In table: optionally add an icon or subtle hint that rationales exist (modal-only is acceptable)
+- [x] **Rationales UX**
+  - [x] In modal: show “Scope rationale” + “Authority rationale” blocks (if present)
+  - [x] In table: optionally add an icon or subtle hint that rationales exist (modal-only is acceptable)
 
-- [ ] **Deep-link stability audit**
-  - [ ] Preserve and re-test: `database.html?search=`, `database.html?id=`
-  - [ ] Preserve and re-test inbound links from landing/research pages
+- [x] **Deep-link stability audit**
+  - [x] Preserve and re-test: `database.html?search=`, `database.html?id=`
+  - [x] Preserve and re-test inbound links from landing/research pages
 
 - [ ] **Polish**
   - [ ] Loading/empty states: ensure they work across slow networks

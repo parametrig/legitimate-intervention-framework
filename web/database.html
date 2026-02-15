@@ -99,7 +99,7 @@
                 </div>
                 <p class="text-small" style="margin-top: 1rem; color: #888; display: flex; gap: 0.4rem;">
                     <em>Effectiveness is calculated based on the ratio of saved funds to total funds at risk
-                        at the time of intervention.<br>"Success Rate" is calculated as (Saved / (Saved + Loss)) *
+                        at the time of intervention.<br>Success Rate is calculated as (Saved / (Saved + Loss)) *
                         100.</em>
                 </p>
             </div>
@@ -143,9 +143,15 @@
 
                     <select id="filterSuccess" class="filter-select">
                         <option value="">All Outcomes</option>
-                        <option value="high">High Success (>80%)</option>
+                        <option value="high">High Success (&gt;80%)</option>
                         <option value="medium">Medium (20-80%)</option>
                         <option value="low">Low (&lt;20%)</option>
+                    </select>
+
+                    <select id="filterProactive" class="filter-select">
+                        <option value="exploit" selected>Exploit-linked only</option>
+                        <option value="include">Include proactive</option>
+                        <option value="only">Only proactive</option>
                     </select>
                 </div>
             </div>
