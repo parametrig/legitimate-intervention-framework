@@ -1,87 +1,54 @@
 # Legitimate Intervention Framework (LIF) — TODO Tracker
 
 **Purpose**: Step-by-step execution checklist for completing the LIF website.
-**Last updated**: Feb 15, 2026
+**Last updated**: Feb 16, 2026
 
 ---
+
+## 🎯 Now (Launch Blockers + High-Leverage)
+
+- [ ] **Deployment**: Push to production (Cloudflare Pages / Vercel / IPFS)
+- [ ] **DNS / Domain**: Verify `legitimate-intervention.org` resolves correctly
+
+- [ ] **Parameterize base domain at deploy time**
+  - [ ] Avoid hardcoding `https://legitimate-intervention.org` in OG/Twitter image URLs where possible
+
+- [x] **Per-page social cards (stable `og:image` + `twitter:image`)**
+  - [x] Add OG/Twitter tags to pages that currently lack them (summary + research pages)
+  - [x] Assign a **representative chart per page theme** (and keep it stable):
+    - [x] Landing (`/`) → chart19
+    - [x] Summary (`/summary/`) → chart02
+    - [x] Research hub (`/research/`) → chart28
+    - [x] Research All (`/research/all/`) → chart08
+    - [x] Threat (`/research/threat/`) → chart10
+    - [x] Intervention (`/research/intervention/`) → chart21
+    - [x] Efficiency (`/research/efficiency/`) → chart38
+    - [x] Framework (`/research/framework/`) → chart28
+    - [x] Database (`/database.html`) → chart19
+    - [x] About (`/about.html`) → chart19
+  - [x] Ensure OG/Twitter descriptions avoid brittle numbers
+  - [x] Use white-background `_social` versions of chart PNGs for better Twitter rendering
+
+- [ ] **Chart dock titles + captions**
+  - [x] Ensure chart dock header shows human titles (not raw chart ids)
+  - [x] Add missing title mappings for charts used on landing (chart19, chart40, chart41, vector evolution chart)
+
+- [x] **Sticky chart transitions**
+  - [x] Verify scroll-to-scroll chart changes do not flash fallback PNGs (desktop + mobile)
+  - [x] If any chart still flashes, tune the fallback delay and/or add a “latest request wins” guard
 
 ## ✅ Completed Phases
 
-### Phase 0: Core Infrastructure ✅
-- [x] Website IA established (/, /summary, /research/, /research/<theme>/, /research/all/, /database.html, /about.html)
-- [x] ECharts integration with 50 interactive charts
-- [x] Dataset v1.0 finalized (705 exploits, 130 interventions, 52 metrics)
-- [x] Static hosting compatibility (IPFS-ready, directory-based routing)
-- [x] Deep-linking (database.html?search=, ?id=, research/?chart=)
-- [x] Universal aesthetic standardization (680px column, Newsreader typography)
-- [x] Mobile responsive design with dock optimization
-
-### Content Integration Sprint ✅
-- [x] Phase 1: Landing page expanded to 8 narrative sections
-- [x] Phase 2: 50 chart descriptions enriched with ArXiv data
-- [x] Phase 3: Summary page enriched with key metrics table
-- [x] Phase 4: About page refresh (methodology, limitations, acknowledgements)
-- [x] Phase 5: Research theme pages enriched (26 charts + 9 annotations)
-- [x] Phase 6: Visual polish (8 transparent images)
-- [x] Phase 7: Hero refinement (audio embed, IMDB link, ArXiv PDF link, button reorder)
+### Summary ✅ (compressed)
+- [x] IA + 50 interactive charts + dataset v1.0 wired to web exports
+- [x] Landing/Summary/About/Research pages populated and styled
+- [x] Deep links + scroll navigator + mobile dock + audio dock
+- [x] Baseline QA + SEO tags
+- [x] Feb 16: sticky chart sizing/typography tweaks + reduced fallback flash during swaps
 
 ---
 
-## 🔄 Remaining Phases
-
-### Phase 8: Persistent Audio Player & Dock ✅
-> Goal: Audio continues playing across page navigation with a persistent mini-player dock.
-
-- [x] **Cross-page audio persistence**: Implement a persistent audio player that survives page navigation
-  - Option A: Service Worker + `<iframe>` shell (SPA-like wrapper)
-  - Option B: `sessionStorage` + `currentTime` resume on each page load (Selected)
-  - Option C: Lightweight SPA wrapper with `fetch` + `history.pushState` for page transitions
-- [x] **Mini-player dock**: Floating dock (similar to mobile chart dock) with play/pause, forward/rewind, progress bar
-  - Appears when user clicks "listen", persists at bottom of viewport
-  - Dismissible via close button (stops playback)
-  - Responsive: works on mobile and desktop
-- [x] **Playback state**: Save `currentTime` to `sessionStorage` so refreshing the page resumes from where user left off
-- [x] Ensure dock doesn't conflict with mobile chart dock or scroll navigator
-
-### Phase 9: Database Verification & Deep Linking
-> Goal: Ensure the database page uses the latest JSON data and all cross-linking works.
-
-- [x] **Verify `exploits.json`**: Confirm it matches `lif_exploits_final.csv` (705 rows, correct fields)
-- [x] **Verify `interventions.json`**: Confirm it matches `lif_all_interventions.csv` (130 rows)
-- [x] **Deep linking audit**:
-  - [x] `database.html?search=<term>` — filters correctly
-  - [x] `database.html?id=<incident_id>` — opens correct modal
-  - [x] Links from landing page, summary, theme pages → database cases work
-  - [x] Links from database → research charts work
-- [x] **Cross-page linking**: Verify all internal links across the site resolve correctly
-  - [x] Landing page section links
-  - [x] Research hub → theme page links
-  - [x] Theme page chart → `/research/all/?chart=` links
-  - [x] About page → database, ArXiv, IMDB links
-- [x] **Modal/detail view**: Verify incident detail modal renders correctly with all fields
-
-### Phase 10: Scroll Navigator & Visual Polish
-> Goal: Enhance the scroll navigator on all pages and introduce alternating-line design.
-
-- [x] **Scroll navigator audit**: Ensure `scroll_navigator.js` is loaded and functional on all pages:
-  - [x] Landing (`index.html`) — 8 sections labeled
-  - [x] Summary (`summary/index.html`)
-  - [x] Research hub (`research/index.html`)
-  - [x] All 4 theme pages (threat, intervention, efficiency, framework)
-- [x] **Navigator detail**: Ensure each nav dot/label accurately reflects its section title
-- [x] **Alternating-line styling**: Add subtle alternating background shading for section readability
-  - [x] Landing page narrative sections
-  - [x] Research theme pages (chart sections)
-  - [x] All charts page (chart blocks)
-  - [x] Summary page sections
-- [x] Verify scroll navigator doesn't conflict with mobile navigation or back arrow
-
-### Phase 11: Site-Wide Features ✅
-> Goal: Add global UX elements across all pages.
-
-- [x] **Dismissible banner**: "This site is under active development. Corrections welcome." on all pages
-  - Dismiss state saved to `localStorage`
-- [x] **Site-wide footer**: ~~Comprehensive footer~~ (CANCELLED per user request)
+## 🔄 Remaining Work
 
 ### Phase 12: Design System & CSS Cleanup (Deferred)
 > Goal: Consolidate CSS into a proper design system.
@@ -113,27 +80,14 @@
 - [ ] Update `echarts_runtime.js` to use `getComputedStyle()` for theme colors
 - [ ] Delete `style.css.bak` and any unused CSS
 
-### Phase 13: Final QA, Cleanup & Launch Prep ✅
-> Goal: Final pass before deployment.
-
-- [x] **Cross-browser testing**: Chrome, Safari, Firefox (desktop + mobile)
-- [x] **Performance audit**: Lighthouse scores, image optimization, lazy loading for charts
-- [x] **Accessibility check**: Alt text, ARIA labels, keyboard navigation
-- [x] **SEO verification**: Meta tags, Open Graph, Twitter Cards on all pages
-- [x] **Dead link scan**: Verify zero broken links across the site
-- [x] **Console error sweep**: Zero errors on all pages
-- [x] **Git cleanup**: Remove tracked large files (`.m4a` in root), ensure `.gitignore` is complete
-- [x] **Repository README update**: Reflect current site structure and features
-- [x] **Update HANDOVER_CONTEXT.md** and **TODO.md** to "launch-ready" state
-- [ ] **Deployment**: Push to production (Cloudflare Pages / Vercel / IPFS)
-- [ ] **DNS / Domain**: Verify `legitimate-intervention.org` resolves correctly
 
 ---
 
-## 🧹 OSS Launch Cleanup + Content Enrichment (Review-First)
+## 🧹 Later (Post-launch / Review-first)
 
-### Phase 14: Archive Pass + Repo Hygiene (No deletions without explicit approval)
-> Goal: Prepare repository structure for open-source launch by moving non-essential assets into `archive/` and tightening repo hygiene.
+- [ ] **OSS cleanup / archive pass** (Phase 14+)
+- [ ] **Mobile/iPad layout regression checks** (Phase 15)
+- [ ] **Research/all overview UX** (grid toggle + overview dashboard)
 
 legitimate-intervention-framework/
 ├── data/                  # refined datasets (csv/json)
@@ -148,24 +102,24 @@ legitimate-intervention-framework/
 ├── LICENSE
 └── requirements.txt
 
-- [ ] **Create archive structure**
-  - [ ] Add `archive/` top-level directory
-  - [ ] Add `archive/internal/` (private project-management docs + internal references)
-  - [ ] Add `archive/media/` (screenshots, large binaries, legacy visuals)
-  - [ ] Add `archive/manuscript/` (older drafts / non-shipping writeups)
+- [x] **Create archive structure**
+  - [x] Add `archive/` top-level directory
+  - [x] Add `archive/internal/` (private project-management docs + internal references)
+  - [x] Add `archive/media/` (screenshots, large binaries, legacy visuals)
+  - [x] Add `archive/manuscript/` (older drafts / non-shipping writeups)
 
-- [ ] **Move internal docs out of main tree (not public)**
-  - [ ] Move `TODO.md` → `archive/internal/TODO.md`
-  - [ ] Move `HANDOVER_CONTEXT.md` → `archive/internal/HANDOVER_CONTEXT.md`
+- [x] **Move internal docs out of main tree (not public)**
+  - [x] Move `TODO.md` → `archive/internal/TODO.md`
+  - [x] Move `HANDOVER_CONTEXT.md` → `archive/internal/HANDOVER_CONTEXT.md`
   - [ ] Replace with minimal public-facing equivalents (TBD) only if needed for contributors (user preference: likely none)
 
-- [ ] **Archive large / temporary assets**
-  - [ ] Move website screenshots (e.g. `web/Screenshot*.png`, `web/screencapture-*.png`) → `archive/media/`
-  - [ ] Ensure only one canonical audio file is shipped for the site (keep under `web/audio/`)
+- [x] **Archive large / temporary assets**
+  - [x] Move website screenshots (e.g. `web/Screenshot*.png`, `web/screencapture-*.png`) → `archive/media/`
+  - [x] Ensure only one canonical audio file is shipped for the site (keep under `web/audio/`)
   - [ ] Move any duplicate/unused large audio files into `archive/media/`
 
 - [ ] **Gnosis framework documents + their embedded images**
-  - [ ] Move `manuscript/gnosis_framework_response*.md` into a dedicated directory (e.g. `archive/gnosis/`)
+  - [x] Move `manuscript/gnosis_framework_response*.md` into a dedicated directory (e.g. `archive/gnosis/`)
   - [ ] Move referenced images from `visualizations/archived/v0_legacy/` into a stable archive location (e.g. `archive/gnosis/visuals/`)
   - [ ] Update image links inside the moved docs so they still render
 
@@ -258,6 +212,27 @@ legitimate-intervention-framework/
   - [x] Add a short “What to do next” block at Part boundaries with deep links (e.g., “open the database filtered to this theme”)
 
 - [x] **Threat page (`/web/research/threat/`) vector-count alignment**
+
+### Phase 22: Positioning + Share Cards + Research/All UX
+> Goal: Keep the site intervention-forward (legitimacy + effectiveness), avoid brittle hard-coded numbers, improve share previews, and add a fast overview mode for the 50-chart narrative.
+
+- [ ] **Landing positioning refresh (`/web/index.html`)**
+  - [ ] Add an intervention-forward paragraph aligned with paper abstract/intro (Option A: immediately after hero)
+  - [x] Add inline intervention charts: chart19 (sticky dock), chart40/chart41 (inline figures)
+  - [ ] Keep author line on landing only
+  - [ ] Remove brittle hard-coded counts/totals from landing lead copy
+  - [ ] Replace Top Attack Vectors chart with Vector Evolution chart in sticky dock
+
+- [ ] **Chart dock titles + captions**
+  - [x] Ensure chart dock header shows human titles (not raw chart ids)
+  - [x] Add missing title mappings for charts used on landing (chart19, chart40, chart41, vector evolution chart)
+
+- [ ] **Research/all overview UX**
+  - [ ] Prereq: push current state to GitHub before starting UX build
+  - [ ] Add an “overview dashboard” section at top for series charts
+  - [ ] Implement grid toggle:
+    - [ ] Grid mode: fast thumbnail/cards that jump to chart sections
+    - [ ] Dense mode: existing narrative scroll experience
   - [x] Verify all vector counts in the lead paragraphs match the dataset used for Chart 09/10
   - [x] Standardize terminology between “Key Compromise”, “Access Control / Key Compromise”, and related labels
 
@@ -273,23 +248,6 @@ legitimate-intervention-framework/
   - [x] Refactor “Three predictions”, “How to use this”, and “Taxonomy” sections to use theme-info/theme-description/theme-link structure for consistent spacing and CTA styling
 
 ---
-
-## 📋 Technical Notes
-
-### Audio Player Architecture Decision
-The persistent audio player needs to survive page navigation. Three approaches:
-
-1. **SPA Wrapper** (Recommended): Wrap the site in a lightweight shell that loads pages via `fetch` + `history.pushState`, keeping the audio `<iframe>` or `<audio>` element persistent in the shell. This is the most seamless UX but requires refactoring navigation.
-
-2. **sessionStorage Resume**: Save `currentTime` to `sessionStorage` on `beforeunload`, resume on next page's `DOMContentLoaded`. Simple but creates a brief silence gap during navigation.
-
-3. **Service Worker**: Cache the audio and use a service worker to manage playback state. Complex but most robust for offline/PWA scenarios.
-
-### Database JSON Sources
-- `web/data/exploits.json` — Generated from `data/refined/lif_exploits_final.csv`
-- `web/data/interventions.json` — Generated from `data/refined/lif_all_interventions.csv`
-- `web/data/charts/*.json` — 50 ECharts specs
-- `web/data/series/*.json` — 4 time series (cumulative, yearly, vector, four-layer)
 
 ### Scroll Navigator
 - `web/js/scroll_navigator.js` (4.7KB) — Currently loaded on 7 pages

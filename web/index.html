@@ -11,6 +11,32 @@
     <link rel="stylesheet" href="css/components/audio-dock.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+    <!-- SEO Metadata -->
+    <meta name="description"
+        content="A research-driven framework for legitimate emergency intervention in DeFi. Learn how real-world protocols contain exploits using pauses, freezes, quarantines, and recovery—and how to make these overrides legitimate and effective.">
+    <meta name="keywords"
+        content="DeFi security, crypto exploits, intervention framework, emergency governance, protocol overrides, blockchain risk">
+    <meta name="author" content="Legitimate Intervention Framework">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://legitimate-intervention.org/">
+    <meta property="og:title" content="Legitimate Overrides">
+    <meta property="og:description"
+        content="A research-driven framework for legitimate emergency intervention in DeFi.">
+    <meta property="og:image" content="https://legitimate-intervention.org/charts/chart19_hacks_vs_interventions_social.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta name="twitter:image" content="https://legitimate-intervention.org/charts/chart19_hacks_vs_interventions_social.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Legitimate Overrides">
+    <meta name="twitter:description"
+        content="A research-driven framework for legitimate emergency intervention in DeFi.">
+    <meta name="twitter:image" content="https://legitimate-intervention.org/charts/chart19_hacks_vs_interventions_social.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -40,6 +66,10 @@
                 <div class="scroll-section active" data-target="intro">
                     <div class="section-bar medium"></div>
                     <span class="section-label">Intro</span>
+                </div>
+                <div class="scroll-section" data-target="intervention-trend">
+                    <div class="section-bar short"></div>
+                    <span class="section-label">Trend</span>
                 </div>
                 <div class="scroll-section" data-target="annual">
                     <div class="section-bar short"></div>
@@ -121,6 +151,30 @@
             </section>
 
             <!-- ============================================ -->
+            <!-- SECTION 1A: INTERVENTION TREND               -->
+            <!-- ============================================ -->
+            <section data-narrative-section data-id="intervention-trend" data-chart="chart19_hacks_vs_interventions"
+                data-fallback-src="charts/chart19_hacks_vs_interventions.png" data-chart-anchor="chart19">
+                <h2>Intervention is already happening</h2>
+                <p>Smart contracts promise deterministic execution—yet real-world protocols increasingly face situations where the code behaves correctly by its own logic while the protocol's intent is violated. The research question is not whether to permit intervention in principle, but to understand when and how protocols <em>actually</em> intervene, and how to make such intervention legitimate and effective.</p>
+                <p>The data reveals a clear trend: as exploits have grown in sophistication, so have response mechanisms. Protocols now regularly deploy pauses, freezes, quarantines, and recovery procedures. The challenge lies not in the absence of response, but in its governance—balancing the need for rapid action against the imperative of legitimate authority.</p>
+                <figure class="narrative-inline-figure">
+                    <img src="charts/chart40_success_timeline.png" alt="Aggregate intervention success over time"
+                        style="width:100%; max-width:680px; margin: 1.5rem 0; border-radius: 4px;">
+                    <figcaption style="font-size: 0.8rem; color: #888; font-style: italic;">
+                        Aggregate intervention outcomes showing the growing effectiveness of protocol-level responses.
+                    </figcaption>
+                </figure>
+                <figure class="narrative-inline-figure">
+                    <img src="charts/chart41_success_timeline_case.png" alt="Case-level intervention success patterns"
+                        style="width:100%; max-width:680px; margin: 1.5rem 0; border-radius: 4px;">
+                    <figcaption style="font-size: 0.8rem; color: #888; font-style: italic;">
+                        Case-level analysis reveals variation in outcomes by response speed and authority type.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <!-- ============================================ -->
             <!-- SECTION 2: ANNUAL SCALE                      -->
             <!-- ============================================ -->
             <section data-narrative-section data-id="annual" data-chart="chart01_annual_losses"
@@ -177,8 +231,8 @@
             <!-- ============================================ -->
             <!-- SECTION 4: ATTACK VECTORS                    -->
             <!-- ============================================ -->
-            <section data-narrative-section data-id="vectors" data-chart="chart09_vector_distribution"
-                data-fallback-src="charts/chart09_vector_distribution.png" data-chart-anchor="chart09">
+            <section data-narrative-section data-id="vectors" data-chart="chart12_vector_evolution"
+                data-fallback-src="charts/chart12_vector_evolution.png" data-chart-anchor="chart12">
                 <h2>Attack vectors</h2>
                 <p><strong>Logic Bugs</strong> lead with 231 cases, exploiting unanticipated state transitions in
                     smart contracts. <strong>Key Compromise</strong> follows at 127 cases, where stolen private keys

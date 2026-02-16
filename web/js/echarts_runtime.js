@@ -131,7 +131,7 @@ function sanitizeEchartsOption(option) {
             for (const t of titles) {
                 if (!t.left && !t.right) t.left = 'center';
                 if (!t.textStyle) t.textStyle = {};
-                if (!t.textStyle.fontSize) t.textStyle.fontSize = isMobile ? 9 : 11;
+                if (!t.textStyle.fontSize) t.textStyle.fontSize = isMobile ? 14 : 16;
                 if (!t.textStyle.fontWeight) t.textStyle.fontWeight = 500;
             }
         }
@@ -145,7 +145,7 @@ function sanitizeEchartsOption(option) {
                 if (!leg.orient) leg.orient = 'horizontal';
                 if (!leg.type && isMobile) leg.type = 'scroll';
                 if (!leg.textStyle) leg.textStyle = {};
-                if (!leg.textStyle.fontSize) leg.textStyle.fontSize = isMobile ? 8 : 10;
+                if (!leg.textStyle.fontSize) leg.textStyle.fontSize = isMobile ? 6 : 7.5;
             }
         }
 
@@ -178,7 +178,7 @@ function sanitizeEchartsOption(option) {
                     }
 
                     // Enforce mobile font sizing
-                    ax.axisLabel.fontSize = isMobile ? 7 : 10;
+                    ax.axisLabel.fontSize = isMobile ? 5.25 : 7.5;
                     ax.axisLabel.fontWeight = 400; // No bold
 
                     if (ax.axisLabel.overflow === 'breakAll') {
@@ -417,7 +417,7 @@ function createLifEchartsTheme() {
             left: 'center',
             textStyle: {
                 fontWeight: 500,
-                fontSize: 15,
+                fontSize: 24,
             },
         },
         grid: {
@@ -431,7 +431,7 @@ function createLifEchartsTheme() {
             left: 'center',
             bottom: 0,
             textStyle: {
-                fontSize: 11,
+                fontSize: 8.25,
                 fontWeight: 400
             }
         },
@@ -670,7 +670,14 @@ async function setActiveInteractiveChart({ rootPrefix, chartId, chartEl, fallbac
     const frame = chartEl.closest('.narrative-chart-frame, .narrative-inline-chart-frame');
 
     if (fallbackImgEl && fallbackSrc) fallbackImgEl.src = fallbackSrc;
-    if (frame) frame.classList.add('is-fallback');
+
+    let fallbackTimer = null;
+    if (frame) {
+        frame.classList.remove('is-fallback');
+        fallbackTimer = window.setTimeout(() => {
+            frame.classList.add('is-fallback');
+        }, 250);
+    }
 
     const themeName = 'lif';
     echarts.registerTheme(themeName, createLifEchartsTheme());
@@ -683,6 +690,10 @@ async function setActiveInteractiveChart({ rootPrefix, chartId, chartEl, fallbac
         const option = (spec && spec.option) ? spec.option : spec;
         if (option && typeof option === 'object' && Object.keys(option).length > 0) {
             console.log('Using JSON spec option for:', chartId);
+            if (fallbackTimer) {
+                window.clearTimeout(fallbackTimer);
+                fallbackTimer = null;
+            }
             if (frame) frame.classList.remove('is-fallback');
             // Force a synchronous reflow so the container gets its real dimensions
             void chartEl.offsetHeight;
@@ -709,6 +720,10 @@ async function setActiveInteractiveChart({ rootPrefix, chartId, chartEl, fallbac
         return;
     }
 
+    if (fallbackTimer) {
+        window.clearTimeout(fallbackTimer);
+        fallbackTimer = null;
+    }
     if (frame) frame.classList.remove('is-fallback');
     void chartEl.offsetHeight;
 
@@ -722,6 +737,10 @@ async function setActiveInteractiveChart({ rootPrefix, chartId, chartEl, fallbac
         console.log('Chart rendered successfully:', chartId);
     } catch (e) {
         console.error('Registry function failed:', chartId, e);
+        if (fallbackTimer) {
+            window.clearTimeout(fallbackTimer);
+            fallbackTimer = null;
+        }
         if (frame) frame.classList.add('is-fallback');
         return;
     }

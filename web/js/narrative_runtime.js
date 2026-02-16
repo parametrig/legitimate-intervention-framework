@@ -41,9 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const chartAnchor = element.getAttribute('data-chart-anchor');
             const prettyTitleById = {
                 chart02_cumulative_losses: 'Cumulative Exploit Losses',
+                chart19_hacks_vs_interventions: 'Exploits vs Intervention Rate',
                 chart01_annual_losses: 'Annual Exploit Losses',
                 chart08_four_layer_timeline: 'Annual DeFi Losses by Category',
-                chart09_vector_distribution: 'Top Attack Vectors (Frequency)',
+                chart12_vector_evolution: 'Attack Vector Evolution Over Time',
                 chart21_authority_performance: 'Authority Performance Comparison',
                 chart38_success_vs_time: 'Success vs. Response Time',
                 chart28_matrix_heatmap_combined: 'Scope × Authority Matrix',

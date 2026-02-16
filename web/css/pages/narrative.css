@@ -139,9 +139,28 @@
 .narrative-chart-column {
     position: sticky;
     top: 69px;
-    height: calc(66vh - 40px);
+    height: calc(161vh - 40px);
+    min-height: 800px;
+    max-height: 1200px;
     align-self: start;
     min-width: 0;
+}
+
+/* Larger screens adjustment */
+@media (min-width: 1440px) {
+    .narrative-chart-column {
+        height: calc(210vh - 40px);
+        min-height: 1040px;
+        max-height: 1560px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .narrative-chart-column {
+        height: calc(230vh - 40px);
+        min-height: 1160px;
+        max-height: 1760px;
+    }
 }
 
 .page-home .narrative-sticky {
@@ -282,10 +301,10 @@
         border-top: 1px solid #e5e5e5;
         /* Clean padding all around */
         padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
-        height: 38vh;
+        height: 93vh;
         /* Slightly taller to ensure space */
         min-height: 300px;
-        max-height: 420px;
+        max-height: 1025px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -313,7 +332,7 @@
         /* Space below title */
         padding-right: 40px;
         /* Space for close button */
-        font-size: 0.95rem;
+        font-size: 0.475rem;
         font-weight: 400;
         text-align: left;
         width: 100%;

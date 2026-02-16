@@ -1,8 +1,8 @@
 # Handover Context: Project LIF & Web Development
 
-**Date:** Feb 15, 2026
+**Date:** Feb 16, 2026
 **Status:** ArXiv Published (2602.12260), Conference Applications Submitted, Content Sprint Complete
-**Current Focus:** OSS launch cleanup (archive-first), mobile/iPad horizontal scroll fix, “grey layer” scroll artifact, and research-page content enrichment
+**Current Focus:** Deployment/DNS remaining, plus per-page social cards (stable OG/Twitter images) and chart-dock UX polish (sticky sizing/typography + eliminating chart swap “fallback flash”)
 
 ---
 
@@ -49,6 +49,12 @@ See [`TODO.md`](./TODO.md) for the full phased plan.
 | 11 | Site-Wide Features (Banner, Footer) | ✅ |
 | 12 | Design System & CSS Cleanup | ⬜ |
 | 13 | Final QA, Cleanup & Launch | ✅ |
+
+Open launch items:
+- Deployment to production (Cloudflare Pages / Vercel / IPFS)
+- DNS / Domain verification for `legitimate-intervention.org`
+- Per-page social cards: add missing OG/Twitter tags + assign representative chart image per page
+- Verify sticky chart swaps are smooth (no fallback image flash) across desktop + mobile
 
 ---
 
