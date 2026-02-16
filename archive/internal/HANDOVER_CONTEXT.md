@@ -1,8 +1,8 @@
 # Handover Context: Project LIF & Web Development
 
 **Date:** Feb 16, 2026
-**Status:** ArXiv Published (2602.12260), Conference Applications Submitted, Content Sprint Complete
-**Current Focus:** Deployment/DNS remaining, plus per-page social cards (stable OG/Twitter images) and chart-dock UX polish (sticky sizing/typography + eliminating chart swap “fallback flash”)
+**Status:** Content & Positioning Sprint Complete, Ready for Design System Cleanup
+**Current Focus:** Design system & typography cleanup (Phase 23), then deployment preparation
 
 ---
 
@@ -20,12 +20,6 @@
 4. **Deep Linking:** database search/modal, research chart links
 5. **Universal Aesthetics:** 680px column, Newsreader typography, mobile dock
 
-### Dataset Reality Check (From `data/refined/`)
-- `data/refined/lif_exploits_final.csv`: **705** rows
-- `data/refined/lif_all_interventions.csv`: **130** rows
-- `data/refined/lif_intervention_metrics.csv`: **52** rows
-- The 52 “high-fidelity metrics” set includes **7** `incident_id`s that do not appear in `lif_all_interventions.csv` (these appear to be proactive / non-exploit responses, and should be explained consistently across docs and website copy).
-
 ### Content Integration Sprint (Phases 1-7) ✅
 - 8-section landing page with inline figures and media links
 - 50 chart descriptions enriched with ArXiv paper data
@@ -35,37 +29,54 @@
 - 8 transparent images for landing page
 - Hero section: masked audio player, corrected IMDB/ArXiv links, reordered actions
 
+### Positioning & Social Cards Sprint (Phase 22) ✅
+- Landing positioning refresh (intervention-forward content, inline charts)
+- Per-page social cards with white-background chart images
+- Chart dock titles + captions with human-readable names
+- Cross-link enrichment between landing, research, and database pages
+- Research hub consistency with deep links to relevant charts
+- Content consistency across all pages (intervention counts, terminology)
+
+### Archive & Cleanup Sprint (Phases 14-18) ✅
+- Archive structure created (`archive/internal/`, `archive/media/`, `archive/gnosis/`)
+- Internal docs moved out of main tree
+- Large assets archived (screenshots, binaries)
+- Gnosis framework documents organized with updated image links
+- Git hygiene completed (proper .gitignore, no tracked .DS_Store)
+- Mobile/iPad layout bugs fixed (horizontal scroll, grey layer)
+- Database UX polished (proactive indicators, rationales, deep links)
+- Content enrichment completed (decision framework, taxonomy, consistency)
+
 ---
 
-## 🎯 Current Sprint: Phases 8-13
+## 🎯 Current Status: Content Sprint Complete
 
-See [`TODO.md`](./TODO.md) for the full phased plan.
+All major content phases (14-22) are now complete. The site has:
+- ✅ Full content integration with research data
+- ✅ Consistent positioning and messaging
+- ✅ Working social cards and cross-links
+- ✅ Clean archive structure and git hygiene
+- ✅ Mobile-responsive layout
+- ✅ Database with classification rationales
+- ✅ Design framework and taxonomy explanations
 
-| Phase | Focus | Status |
-|-------|-------|--------|
-| 8 | Persistent Audio Player & Dock | ✅ |
-| 9 | Database Verification & Deep Linking | ✅ |
-| 10 | Scroll Navigator & Visual Polish | ✅ |
-| 11 | Site-Wide Features (Banner, Footer) | ✅ |
-| 12 | Design System & CSS Cleanup | ⬜ |
-| 13 | Final QA, Cleanup & Launch | ✅ |
+---
 
-Open launch items:
+## 🔄 Next Sprint: Design System & Typography (Phase 23)
+
+**Focus:** Visual consistency, design tokens, typography system
+- Create `web/css/tokens.css` with design tokens
+- Restructure CSS directory for maintainability
+- Typography consistency pass across all pages
+- Color system audit and standardization
+- Component library cleanup
+
+---
+
+## 📋 Open Launch Items
 - Deployment to production (Cloudflare Pages / Vercel / IPFS)
 - DNS / Domain verification for `legitimate-intervention.org`
-- Per-page social cards: add missing OG/Twitter tags + assign representative chart image per page
-- Verify sticky chart swaps are smooth (no fallback image flash) across desktop + mobile
-
----
-
-## 🧹 New Sprint: OSS Launch Cleanup + Content Enrichment (Review-First)
-
-See `TODO.md` Phase 14–16 for the detailed phased plan.
-
-Key decisions:
-- Internal docs (project-management) are **not public** and should move to `archive/internal/`.
-- PDFs: keep the concise/main PDFs committed (descriptive naming preferred).
-- Anything not needed for the main tree should be **moved into `archive/`** (not deleted) until final review.
+- Parameterize base domain at deploy time (avoid hardcoded URLs)
 
 ---
 
@@ -91,12 +102,12 @@ Key decisions:
 - `web/css/base.css` — Base styles
 - `web/css/layout.css` — Grid system & containers
 - `web/css/pages/` — Page-specific styles (6 files)
-- `web/css/style.css.bak` — Legacy backup (to be deleted in Phase 12)
+- `web/css/style.css.bak` — Legacy backup (to be deleted in Phase 23)
 
 ### Documentation
-- `TODO.md` — Phased execution checklist
-- `HANDOVER_CONTEXT.md` — This file
+- `archive/internal/TODO.md` — Phased execution checklist
+- `archive/internal/HANDOVER_CONTEXT.md` — This file
 
 ---
 
-*Last updated: Feb 15, 2026 — OSS cleanup + mobile layout bugs + content enrichment phased plan added to TODO*
+*Last updated: Feb 16, 2026 — Content & positioning sprint complete, ready for design system cleanup*
