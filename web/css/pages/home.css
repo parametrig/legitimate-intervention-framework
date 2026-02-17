@@ -98,6 +98,20 @@ section.active {
     opacity: 1;
 }
 
+/* Narrative Inline Figures (used in landing page) */
+.narrative-inline-figure img {
+    width: 100%;
+    max-width: var(--col-narrow);
+    margin: 1.5rem 0;
+    border-radius: 4px;
+}
+
+.narrative-inline-figure figcaption {
+    font-size: var(--fs-tiny);
+    color: var(--color-text-tertiary);
+    font-style: italic;
+}
+
 /* Mobile Responsive Overrides for Home */
 @media (max-width: 1024px) {
     .container {

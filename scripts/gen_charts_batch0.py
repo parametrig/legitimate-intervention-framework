@@ -246,7 +246,7 @@ for year in years08:
 garr = np.array(groups) / 1e9
 layer_names = ["Actually Intervened", "Eligible (Missed)", "Other Technical", "Systemic Failures"]
 # Using Emerald for more vibrant green to distinguish from blue overlap
-layer_colors = [C["emerald"], C["lblue"], C["lgray"], C["vlgray"]]
+layer_colors = [C["green"], C["lblue"], C["lgray"], C["vlgray"]]
 
 save("chart08_four_layer_timeline", {
     "title": {"text": "Annual DeFi Losses by Category"},
@@ -261,7 +261,7 @@ save("chart08_four_layer_timeline", {
               "axisLabel": {"formatter": "${value}B"}},
     "series": [
         {"name": name, "type": "line", "stack": "total", "areaStyle": {"opacity": 0.85},
-         "itemStyle": {"color": [C["emerald"], C["lblue"], C["lgray"], C["slate"]][i]},
+         "itemStyle": {"color": [C["green"], C["lblue"], C["lgray"], C["slate"]][i]},
          "lineStyle": {"width": 1},
          "data": [round(v,3) for v in garr[:,i]]}
         for i, name in enumerate(layer_names)

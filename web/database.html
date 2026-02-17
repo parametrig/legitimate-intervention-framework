@@ -72,7 +72,7 @@
         </p>
 
         <!-- Methodology Section -->
-        <div style="margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
+        <div class="db-methodology-wrapper">
             <div class="expandable-header" onclick="toggleSection('methodology')">
                 <svg class="chevron" id="chevron-methodology" width="16" height="16" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -81,27 +81,27 @@
                 </svg>
                 <h4>Methodology & Data Sources</h4>
             </div>
-            <div id="content-methodology" class="expandable-content" style="margin-top: 1rem;">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div id="content-methodology" class="expandable-content">
+                <div class="db-methodology-grid">
                     <div>
-                        <h4 class="text-small" style="margin-bottom: 0.5rem; font-weight: 600;">Data Sources (2014-2026)
+                        <h4 class="text-small">Data Sources (2014-2026)
                         </h4>
-                        <ul class="text-small" style="margin-left: 1.2rem; margin-bottom: 0;">
+                        <ul class="text-small">
                             <li><strong>Academic</strong>: Charoenwong & Bernardi (2022)</li>
                             <li><strong>Industry</strong>: De.Fi Rekt Database, DeFiHackLabs</li>
                             <li><strong>Investigative</strong>: Rekt.news, SlowMist</li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="text-small" style="margin-bottom: 0.5rem; font-weight: 600;">Key Definitions</h4>
-                        <ul class="text-small" style="margin-left: 1.2rem; margin-bottom: 0;">
+                        <h4 class="text-small">Key Definitions</h4>
+                        <ul class="text-small">
                             <li><strong>Authority</strong>: Entity authorized to intervene (Signers, Council, Gov).</li>
                             <li><strong>Scope</strong>: Technical domain (Asset, Module, Protocol).</li>
                             <li><strong>Saved</strong>: Funds rescued/frozen by intervention.</li>
                         </ul>
                     </div>
                 </div>
-                <p class="text-small" style="margin-top: 1rem; color: #888; display: flex; gap: 0.4rem;">
+                <p class="text-small db-methodology-note">
                     <em>Effectiveness is calculated based on the ratio of saved funds to total funds at risk
                         at the time of intervention.<br>Success Rate is calculated as (Saved / (Saved + Loss)) *
                         100.</em>

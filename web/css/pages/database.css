@@ -3,6 +3,36 @@
    Database Registry Layout
    ========================================= */
 
+/* Database Methodology Section */
+.db-methodology-wrapper {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.db-methodology-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.db-methodology-grid h4 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.db-methodology-grid ul {
+    margin-left: 1.2rem;
+    margin-bottom: 0;
+}
+
+.db-methodology-note {
+    margin-top: 1rem;
+    color: var(--color-text-tertiary);
+    display: flex;
+    gap: 0.4rem;
+}
+
 .highlight {
     color: var(--color-success);
     font-weight: 600;
