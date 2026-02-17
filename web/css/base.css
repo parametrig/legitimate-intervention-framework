@@ -142,6 +142,7 @@ a:hover {
 .mixed-layout>ul,
 .mixed-layout>ol,
 .mixed-layout>blockquote,
+.mixed-layout>figure,
 .mixed-layout>.editorial-content {
     max-width: var(--col-narrow);
 }
@@ -167,7 +168,8 @@ a:hover {
 .mixed-layout .narrative-content h3,
 .mixed-layout .narrative-content h4,
 .mixed-layout .narrative-content ul,
-.mixed-layout .narrative-content ol {
+.mixed-layout .narrative-content ol,
+.mixed-layout .narrative-content figure {
     max-width: var(--col-narrow);
 }
 

@@ -99,9 +99,17 @@ section.active {
 }
 
 /* Narrative Inline Figures (used in landing page) */
-.narrative-inline-figure img {
+.narrative-inline-figure {
     width: 100%;
     max-width: var(--col-narrow);
+    overflow: hidden;
+}
+
+.narrative-inline-figure img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
     margin: 1.5rem 0;
     border-radius: 4px;
 }

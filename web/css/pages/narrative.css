@@ -32,10 +32,10 @@
 
 .annotation-item {
     font-family: var(--font-serif);
-    font-size: var(--fs-small);
+    font-size: var(--fs-tiny);
     line-height: var(--lh-normal);
     color: var(--color-text-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     padding-left: 1.25rem;
     border-left: 2px solid var(--color-border-strong);
 }
@@ -43,9 +43,9 @@
 .annotation-item strong {
     display: block;
     color: var(--color-text);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
     font-weight: 600;
-    font-size: var(--fs-small);
+    font-size: var(--fs-tiny);
 }
 
 .narrative-content {
@@ -173,6 +173,29 @@
 
 .page-home .narrative-sticky {
     margin-top: 44px;
+}
+
+/* Narrative Inline Figures (used in landing page) */
+.narrative-inline-figure {
+    width: 100%;
+    max-width: var(--col-narrow);
+    overflow: hidden;
+    margin: 0 0 2rem 0;
+}
+
+.narrative-inline-figure img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+}
+
+.narrative-inline-figure figcaption {
+    font-size: var(--fs-tiny);
+    color: var(--color-text-tertiary);
+    font-style: italic;
 }
 
 .page-home .narrative-content {
