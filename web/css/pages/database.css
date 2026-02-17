@@ -3,8 +3,38 @@
    Database Registry Layout
    ========================================= */
 
+/* Database Methodology Section */
+.db-methodology-wrapper {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.db-methodology-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.db-methodology-grid h4 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.db-methodology-grid ul {
+    margin-left: 1.2rem;
+    margin-bottom: 0;
+}
+
+.db-methodology-note {
+    margin-top: 1rem;
+    color: var(--color-text-tertiary);
+    display: flex;
+    gap: 0.4rem;
+}
+
 .highlight {
-    color: #059669;
+    color: var(--color-success);
     font-weight: 600;
 }
 
@@ -16,7 +46,7 @@
     top: 72px;
     /* Clear navbar */
     z-index: 950;
-    background-color: var(--bg-color);
+    background-color: var(--color-bg);
     /* Match page background */
     padding: 1.5rem 0 0.5rem;
     margin-bottom: 0.5rem;
@@ -41,7 +71,7 @@ body.navbar-hidden .sticky-controls {
     font-family: var(--font-serif);
     padding: 0.8rem 1.5rem;
     /* Larger padding */
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-border);
     background: white;
     cursor: pointer;
     border-radius: 6px;
@@ -55,13 +85,13 @@ body.navbar-hidden .sticky-controls {
 }
 
 .toggle-btn:hover {
-    border-color: #999;
+    border-color: var(--color-text-tertiary);
 }
 
 .toggle-btn.active {
-    background: #1a1a1a;
+    background: var(--color-text);
     color: white;
-    border-color: #1a1a1a;
+    border-color: var(--color-text);
 }
 
 .toggle-btn span {
@@ -77,7 +107,7 @@ body.navbar-hidden .sticky-controls {
     align-items: center;
     margin-bottom: 1.5rem;
     padding: 1rem;
-    background: #f8f8f8;
+    background: var(--color-bg-surface);
     border-radius: 8px;
 }
 
@@ -86,7 +116,7 @@ body.navbar-hidden .sticky-controls {
     min-width: 200px;
     height: 42px;
     padding: 0 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-border);
     border-radius: 6px;
     font-family: var(--font-serif);
     font-size: var(--fs-small);
@@ -105,7 +135,7 @@ body.navbar-hidden .sticky-controls {
 .filter-select {
     height: 42px;
     padding: 0 2rem 0 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-border);
     border-radius: 6px;
     font-family: var(--font-serif);
     font-size: var(--fs-small);
@@ -128,7 +158,7 @@ body.navbar-hidden .sticky-controls {
     align-items: center;
     margin-bottom: 1.5rem;
     font-size: var(--fs-small);
-    color: #666;
+    color: var(--color-text-secondary);
 }
 
 #resultsCount {
@@ -140,17 +170,17 @@ body.navbar-hidden .sticky-controls {
 }
 
 .text-loss {
-    color: #dc2626 !important;
+    color: var(--color-danger) !important;
 }
 
 .text-saved {
-    color: #059669 !important;
+    color: var(--color-success) !important;
 }
 
 .clear-filters-btn {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background: #1a1a1a;
+    background: var(--color-text);
     color: white;
     border: none;
     border-radius: 6px;
@@ -164,7 +194,7 @@ body.navbar-hidden .sticky-controls {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     margin-bottom: 2rem;
-    border: 1px solid #eee;
+    border: 1px solid var(--color-border-light);
     border-radius: 8px;
     background: white;
 }
@@ -179,7 +209,7 @@ body.navbar-hidden .sticky-controls {
 }
 
 .case-table thead {
-    background: #f8f8f8;
+    background: var(--color-bg-surface);
 }
 
 .case-table th {
@@ -187,8 +217,8 @@ body.navbar-hidden .sticky-controls {
     text-align: left;
     padding: 1rem;
     font-size: var(--fs-tiny);
-    color: #666;
-    border-bottom: 1px solid #eee;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border-light);
 }
 
 .case-table th.sortable {
@@ -197,7 +227,7 @@ body.navbar-hidden .sticky-controls {
 }
 
 .case-table th.sortable:hover {
-    color: #1a1a1a;
+    color: var(--color-text);
 }
 
 .case-table th svg {
@@ -210,12 +240,12 @@ body.navbar-hidden .sticky-controls {
 
 .case-row {
     cursor: pointer;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--color-bg-surface-hover);
     transition: background 0.15s;
 }
 
 .case-row:hover {
-    background: #f8f8f8;
+    background: var(--color-bg-surface);
 }
 
 .case-row td {
@@ -228,12 +258,12 @@ body.navbar-hidden .sticky-controls {
 /* Amounts & Success Bars */
 .loss-amount {
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--color-text);
     font-size: 1rem;
 }
 
 .saved-amount {
-    color: #059669;
+    color: var(--color-success);
     font-size: var(--fs-tiny);
     font-weight: 600;
     margin-top: 2px;
@@ -241,7 +271,7 @@ body.navbar-hidden .sticky-controls {
 
 .success-container {
     height: 4px;
-    background: #eee;
+    background: var(--color-border-light);
     margin-top: 8px;
     border-radius: 2px;
     width: 80px;
@@ -256,15 +286,15 @@ body.navbar-hidden .sticky-controls {
 }
 
 .success-high {
-    color: #059669;
+    color: var(--color-success);
 }
 
 .success-medium {
-    color: #d97706;
+    color: var(--color-warning);
 }
 
 .success-low {
-    color: #dc2626;
+    color: var(--color-danger);
 }
 
 /* Tags & Labels */
@@ -272,7 +302,7 @@ body.navbar-hidden .sticky-controls {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #444;
+    color: var(--color-text-secondary);
 }
 
 .chain-icon {
@@ -314,7 +344,7 @@ body.navbar-hidden .sticky-controls {
     margin-left: 6px;
     display: inline-flex;
     align-items: center;
-    color: #999;
+    color: var(--color-text-tertiary);
     /* Standardized grey */
     cursor: help;
     vertical-align: middle;
@@ -322,7 +352,7 @@ body.navbar-hidden .sticky-controls {
 }
 
 .rationale-badge:hover {
-    color: #666;
+    color: var(--color-text-secondary);
 }
 
 .rationale-badge svg {
@@ -334,13 +364,13 @@ body.navbar-hidden .sticky-controls {
     display: inline-flex;
     align-items: center;
     vertical-align: middle;
-    color: #666;
+    color: var(--color-text-secondary);
     margin-left: 4px;
     transition: color 0.2s;
 }
 
 .source-link:hover {
-    color: #1a1a1a;
+    color: var(--color-text);
 }
 
 .source-link svg {
@@ -423,14 +453,14 @@ body.navbar-hidden .sticky-controls {
 
 .modal-header {
     padding: 2rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border-light);
 }
 
 .modal-header h2 {
     margin: 0;
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--color-text);
 }
 
 .modal-meta {
@@ -439,7 +469,7 @@ body.navbar-hidden .sticky-controls {
     flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
-    color: #666;
+    color: var(--color-text-secondary);
     font-size: var(--fs-small);
 }
 
@@ -450,14 +480,14 @@ body.navbar-hidden .sticky-controls {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #999;
+    color: var(--color-text-tertiary);
     cursor: pointer;
     line-height: 1;
     z-index: 10;
 }
 
 .modal-close:hover {
-    color: #1a1a1a;
+    color: var(--color-text);
 }
 
 .modal-body {
@@ -474,9 +504,9 @@ body.navbar-hidden .sticky-controls {
 
 .stat-card {
     padding: 1.25rem;
-    background: #f8f8f8;
+    background: var(--color-bg-surface);
     border-radius: 8px;
-    border: 1px solid #eee;
+    border: 1px solid var(--color-border-light);
 }
 
 .stat-label {
@@ -484,7 +514,7 @@ body.navbar-hidden .sticky-controls {
     font-size: var(--fs-tiny);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #888;
+    color: var(--color-text-tertiary);
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
@@ -493,15 +523,15 @@ body.navbar-hidden .sticky-controls {
     display: block;
     font-size: 1.25rem;
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--color-text);
 }
 
 .stat-card.loss .stat-value {
-    color: #dc2626;
+    color: var(--color-danger);
 }
 
 .stat-card.saved .stat-value {
-    color: #059669;
+    color: var(--color-success);
 }
 
 .detail-grid {
@@ -515,10 +545,10 @@ body.navbar-hidden .sticky-controls {
     font-size: var(--fs-tiny);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #888;
+    color: var(--color-text-tertiary);
     margin-bottom: 1rem;
     font-weight: 600;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border-light);
     padding-bottom: 0.5rem;
 }
 
@@ -534,13 +564,13 @@ body.navbar-hidden .sticky-controls {
 }
 
 .info-label {
-    color: #666;
+    color: var(--color-text-secondary);
     font-size: var(--fs-small);
 }
 
 .info-value {
     font-weight: 500;
-    color: #1a1a1a;
+    color: var(--color-text);
     font-size: var(--fs-small);
 }
 
@@ -548,15 +578,15 @@ body.navbar-hidden .sticky-controls {
     font-family: var(--font-serif);
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #333;
+    color: var(--color-text);
     margin-bottom: 2.5rem;
 }
 
 .rationale-section {
-    background: #fdfdfd;
+    background: var(--color-bg-surface);
     padding: 1.5rem;
     border-radius: 8px;
-    border: 1px solid #eee;
+    border: 1px solid var(--color-border-light);
     font-size: var(--fs-small);
 }
 
@@ -566,21 +596,21 @@ body.navbar-hidden .sticky-controls {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #1a1a1a;
+    color: var(--color-text);
     border: none;
     padding: 0;
 }
 
 .rationale-content {
     line-height: 1.5;
-    color: #555;
+    color: var(--color-text-secondary);
     font-size: var(--fs-small);
 }
 
 .modal-footer {
     padding: 1.5rem 2rem;
-    background: #fafafa;
-    border-top: 1px solid #eee;
+    background: var(--color-bg-surface);
+    border-top: 1px solid var(--color-border-light);
     display: flex;
     justify-content: flex-end;
 }
@@ -591,13 +621,13 @@ body.navbar-hidden .sticky-controls {
     /* Inherits shared styles */
     font-family: var(--font-sans);
     font-size: var(--fs-small);
-    color: #666;
+    color: var(--color-text-secondary);
     padding: 0.5rem 0;
     font-weight: 500;
 }
 
 .expandable-header:hover {
-    background: #f9f9f9;
+    background: var(--color-bg-surface);
 }
 
 /* Redundant styles removed (overflow, transition, max-height handled in layout.css) */
@@ -644,7 +674,7 @@ body.navbar-hidden .sticky-controls {
         padding: 0 0.75rem;
         border-radius: 6px;
         font-size: var(--fs-small);
-        border: 1px solid #ddd;
+        border: 1px solid var(--color-border);
         box-sizing: border-box;
         -webkit-appearance: none;
         appearance: none;

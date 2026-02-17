@@ -9,7 +9,8 @@
     <meta property="og:title" content="Research (Framework) | Legitimate Overrides">
     <meta property="og:description"
         content="Decision framework for legitimate intervention: taxonomy, cost model, and evidence-backed guidance for protocol designers.">
-    <meta property="og:image" content="https://legitimate-intervention.org/charts/chart28_matrix_heatmap_combined_social.png" />
+    <meta property="og:image"
+        content="https://legitimate-intervention.org/charts/chart28_matrix_heatmap_combined_social.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
@@ -17,8 +18,10 @@
     <meta name="twitter:title" content="Research (Framework) | Legitimate Overrides">
     <meta name="twitter:description"
         content="Decision framework for legitimate intervention: taxonomy, cost model, and evidence-backed guidance for protocol designers.">
-    <meta name="twitter:image" content="https://legitimate-intervention.org/charts/chart28_matrix_heatmap_combined_social.png" />
+    <meta name="twitter:image"
+        content="https://legitimate-intervention.org/charts/chart28_matrix_heatmap_combined_social.png" />
 
+    <link rel="stylesheet" href="../../css/tokens.css">
     <link rel="stylesheet" href="../../css/base.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/pages/narrative.css">
@@ -103,13 +106,16 @@
                 <section data-narrative-section data-id="predictions">
                     <h2 style="margin-top: 2rem;">Three predictions</h2>
 
-                    <p style="margin-top: 0.75rem;"><strong>Tiered authorities outperform pure designs.</strong> A first-responder Signer Set,
+                    <p style="margin-top: 0.75rem;"><strong>Tiered authorities outperform pure designs.</strong> A
+                        first-responder Signer Set,
                         an accountable Delegated Body, and slower Governance for adjudication beats any single tier.</p>
 
-                    <p style="margin-top: 1.25rem;"><strong>The optimal response window is under 60 minutes.</strong> The “golden hour” dominates
+                    <p style="margin-top: 1.25rem;"><strong>The optimal response window is under 60 minutes.</strong>
+                        The “golden hour” dominates
                         outcomes and the distribution is bimodal (fast containment or near-total failure).</p>
 
-                    <p style="margin-top: 1.25rem;"><strong>Scope-limited interventions beat protocol-wide pauses.</strong> Narrow blast radius
+                    <p style="margin-top: 1.25rem;"><strong>Scope-limited interventions beat protocol-wide
+                            pauses.</strong> Narrow blast radius
                         (Account/Asset/Module) preserves liveness while improving containment reliability.</p>
                 </section>
 
@@ -117,90 +123,92 @@
                     <h2 style="margin-top: 2rem;">How to use this</h2>
                     <ol style="margin-left: 1.2rem; margin-top: 0.75rem; margin-bottom: 0.75rem;">
                         <li><strong>Choose the goal state.</strong> Define what “containment” means for your protocol
-                        (freeze, pause, quarantine, rollback, or recovery).</li>
-                    <li><strong>Estimate costs.</strong> For each candidate mechanism, estimate
-                        <em>C<sub>central</sub></em>,
-                        <em>R<sub>blast</sub></em>,
-                        <em>R<sub>damage</sub></em>,
-                        and expected
-                        <em>Δt</em>.</li>
-                    <li><strong>Implement a tiered escalation path.</strong> Fast scoped action first, then
-                        accountable review, then governance adjudication and sunset clauses.</li>
-                </ol>
+                            (freeze, pause, quarantine, rollback, or recovery).</li>
+                        <li><strong>Estimate costs.</strong> For each candidate mechanism, estimate
+                            <em>C<sub>central</sub></em>,
+                            <em>R<sub>blast</sub></em>,
+                            <em>R<sub>damage</sub></em>,
+                            and expected
+                            <em>Δt</em>.
+                        </li>
+                        <li><strong>Implement a tiered escalation path.</strong> Fast scoped action first, then
+                            accountable review, then governance adjudication and sunset clauses.</li>
+                    </ol>
 
-                <p style="margin-top: 1rem;">Calculator prototype
-                    <a href="https://github.com/e3o8o/legitimate-overrides-paper/blob/main/notebooks/paper_analysis_complete.ipynb"
-                        target="_blank" rel="noopener noreferrer">notebook</a>
-                </p>
-            </section>
+                    <p style="margin-top: 1rem;">Calculator prototype
+                        <a href="https://github.com/e3o8o/legitimate-overrides-paper/blob/main/notebooks/paper_analysis_complete.ipynb"
+                            target="_blank" rel="noopener noreferrer">notebook</a>
+                    </p>
+                </section>
 
-            <section data-narrative-section data-id="taxonomy">
-                <h2>Scope × Authority Taxonomy</h2>
-                <p>The taxonomy decomposes emergency mechanisms along two axes:
-                    <strong>Scope</strong> (blast radius) and <strong>Authority</strong> (who can trigger action).
-                    The design goal is not maximal decentralization, but minimal <em>expected cost</em> given the
-                    protocol’s threat model and community constraints.</p>
-                <p><strong>Scope (what can be affected)</strong>: Network, Asset, Protocol, Module, Account.
-                    Narrower scope is more precise and reduces collateral disruption, but may be technically
-                    unavailable depending on architecture.</p>
-                <p><strong>Authority (who can act)</strong>: Signer Set (keys), Delegated Body (council/guardian),
-                    Governance (stake-weighted process). Faster authorities trade legitimacy for speed; slower
-                    authorities trade speed for legitimacy.</p>
-                <h3 style="margin-top: 1.5rem;">Canonical examples</h3>
-                <ul style="margin-left: 1.2rem; margin-top: 0.75rem; margin-bottom: 0.75rem;">
-                    <li><strong>Network × Signer Set</strong>: validator-coordinated chain halt
-                        (<a href="../../database.html?search=BNB%20Chain">BNB Chain</a>).</li>
-                    <li><strong>Asset × Signer Set</strong>: issuer freeze on a stablecoin
-                        (<a href="../../database.html?search=Tether">Tether</a>).</li>
-                    <li><strong>Protocol × Delegated Body</strong>: emergency council/guardian pause powers
-                        (<a href="../../database.html?search=Aave">Aave Guardians</a>).</li>
-                    <li><strong>Account × Governance</strong>: onchain vote to quarantine attacker addresses
-                        (<a href="../../database.html?search=Cetus">Sui / Cetus</a>).</li>
-                </ul>
-            </section>
+                <section data-narrative-section data-id="taxonomy">
+                    <h2>Scope × Authority Taxonomy</h2>
+                    <p>The taxonomy decomposes emergency mechanisms along two axes:
+                        <strong>Scope</strong> (blast radius) and <strong>Authority</strong> (who can trigger action).
+                        The design goal is not maximal decentralization, but minimal <em>expected cost</em> given the
+                        protocol’s threat model and community constraints.
+                    </p>
+                    <p><strong>Scope (what can be affected)</strong>: Network, Asset, Protocol, Module, Account.
+                        Narrower scope is more precise and reduces collateral disruption, but may be technically
+                        unavailable depending on architecture.</p>
+                    <p><strong>Authority (who can act)</strong>: Signer Set (keys), Delegated Body (council/guardian),
+                        Governance (stake-weighted process). Faster authorities trade legitimacy for speed; slower
+                        authorities trade speed for legitimacy.</p>
+                    <h3 style="margin-top: 1.5rem;">Canonical examples</h3>
+                    <ul style="margin-left: 1.2rem; margin-top: 0.75rem; margin-bottom: 0.75rem;">
+                        <li><strong>Network × Signer Set</strong>: validator-coordinated chain halt
+                            (<a href="../../database.html?search=BNB%20Chain">BNB Chain</a>).</li>
+                        <li><strong>Asset × Signer Set</strong>: issuer freeze on a stablecoin
+                            (<a href="../../database.html?search=Tether">Tether</a>).</li>
+                        <li><strong>Protocol × Delegated Body</strong>: emergency council/guardian pause powers
+                            (<a href="../../database.html?search=Aave">Aave Guardians</a>).</li>
+                        <li><strong>Account × Governance</strong>: onchain vote to quarantine attacker addresses
+                            (<a href="../../database.html?search=Cetus">Sui / Cetus</a>).</li>
+                    </ul>
+                </section>
 
-            <!-- Chart 47: Comprehensive LIF Analysis -->
-            <section data-narrative-section data-id="analysis" data-chart="chart47_comprehensive_lif_analysis"
-                data-fallback-src="../../charts/chart47_comprehensive_lif_analysis.png">
-                <h2>Comprehensive LIF Analysis</h2>
-                <p>The comprehensive LIF analysis integrates all three research pillars: Threat ($78.81B,
-                    705 cases, α ≈ 1.33), Intervention ($9.60B eligible, 26.0% CSR, 3 authority tiers),
-                    and Efficiency (82.5% golden-hour CSR, bimodal response distribution). The Scope × Authority
-                    matrix reveals 9 configurations, with Account × Delegated Body delivering the
-                    optimal balance of speed (sub-hour), legitimacy, and containment success (92%).</p>
-                <div class="narrative-inline-chart-frame">
-                    <div class="narrative-inline-chart" data-inline-chart></div>
-                </div>
-            </section>
+                <!-- Chart 47: Comprehensive LIF Analysis -->
+                <section data-narrative-section data-id="analysis" data-chart="chart47_comprehensive_lif_analysis"
+                    data-fallback-src="../../charts/chart47_comprehensive_lif_analysis.png">
+                    <h2>Comprehensive LIF Analysis</h2>
+                    <p>The comprehensive LIF analysis integrates all three research pillars: Threat ($78.81B,
+                        705 cases, α ≈ 1.33), Intervention ($9.60B eligible, 26.0% CSR, 3 authority tiers),
+                        and Efficiency (82.5% golden-hour CSR, bimodal response distribution). The Scope × Authority
+                        matrix reveals 9 configurations, with Account × Delegated Body delivering the
+                        optimal balance of speed (sub-hour), legitimacy, and containment success (92%).</p>
+                    <div class="narrative-inline-chart-frame">
+                        <div class="narrative-inline-chart" data-inline-chart></div>
+                    </div>
+                </section>
 
-            <!-- Chart 48: Strategic ROI Rankings -->
-            <section data-narrative-section data-id="roi-rankings" data-chart="chart48_strategic_roi_rankings"
-                data-fallback-src="../../charts/chart48_strategic_roi_rankings.png">
-                <h2>Strategic ROI Rankings</h2>
-                <p>Ranking intervention architectures by $ saved per unit of centralisation cost reveals
-                    the Delegated Body tier as the highest-ROI investment: each council deployment requires
-                    modest governance overhead but saves $6.4M median per activation. The Signer Set tier
-                    has the lowest per-unit cost but also the lowest CSR when operating alone. The analysis
-                    recommends a tiered "escalation path"—Signer Set → Delegated Body → Governance—
-                    mirroring the findings of the stochastic cost model.</p>
-                <div class="narrative-inline-chart-frame">
-                    <div class="narrative-inline-chart" data-inline-chart></div>
-                </div>
-            </section>
+                <!-- Chart 48: Strategic ROI Rankings -->
+                <section data-narrative-section data-id="roi-rankings" data-chart="chart48_strategic_roi_rankings"
+                    data-fallback-src="../../charts/chart48_strategic_roi_rankings.png">
+                    <h2>Strategic ROI Rankings</h2>
+                    <p>Ranking intervention architectures by $ saved per unit of centralisation cost reveals
+                        the Delegated Body tier as the highest-ROI investment: each council deployment requires
+                        modest governance overhead but saves $6.4M median per activation. The Signer Set tier
+                        has the lowest per-unit cost but also the lowest CSR when operating alone. The analysis
+                        recommends a tiered "escalation path"—Signer Set → Delegated Body → Governance—
+                        mirroring the findings of the stochastic cost model.</p>
+                    <div class="narrative-inline-chart-frame">
+                        <div class="narrative-inline-chart" data-inline-chart></div>
+                    </div>
+                </section>
 
-            <!-- Chart 50: Final Performance Metric -->
-            <section data-narrative-section data-id="prevention-met" data-chart="chart50_loss_prevented_vs_incurred"
-                data-fallback-src="../../charts/chart50_loss_prevented_vs_incurred.png">
-                <h2>Value Saved vs Incurred</h2>
-                <p>The ultimate performance metric: $2.51B preserved against $9.60B at risk (26.0% CSR),
-                    leaving a $7.09B "opportunity gap." The model predicts that deploying scope-limited
-                    Optimistic Freeze hooks across the top-100 TVL protocols would narrow this gap by
-                    40–60%, translating to $2.8–$4.3B in additional capital preservation over the
-                    historical dataset.</p>
-                <div class="narrative-inline-chart-frame">
-                    <div class="narrative-inline-chart" data-inline-chart></div>
-                </div>
-            </section>
+                <!-- Chart 50: Final Performance Metric -->
+                <section data-narrative-section data-id="prevention-met" data-chart="chart50_loss_prevented_vs_incurred"
+                    data-fallback-src="../../charts/chart50_loss_prevented_vs_incurred.png">
+                    <h2>Value Saved vs Incurred</h2>
+                    <p>The ultimate performance metric: $2.51B preserved against $9.60B at risk (26.0% CSR),
+                        leaving a $7.09B "opportunity gap." The model predicts that deploying scope-limited
+                        Optimistic Freeze hooks across the top-100 TVL protocols would narrow this gap by
+                        40–60%, translating to $2.8–$4.3B in additional capital preservation over the
+                        historical dataset.</p>
+                    <div class="narrative-inline-chart-frame">
+                        <div class="narrative-inline-chart" data-inline-chart></div>
+                    </div>
+                </section>
         </div>
 
         <div class="narrative-annotations">

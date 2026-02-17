@@ -10,9 +10,9 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--bg-color);
+    background-color: var(--color-bg);
     z-index: 1000;
-    transition: background-color 0.4s ease, border-color 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition-smooth), border-color var(--transition-smooth), transform var(--transition-smooth);
     display: flex;
     justify-content: center;
 }
@@ -50,8 +50,8 @@ header {
     margin-top: 10px;
     right: 0;
     min-width: 220px;
-    background: var(--bg-color);
-    border: 1px solid #e5e5e5;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
     padding: 0.5rem 0;
     z-index: 1100;
 }
@@ -74,12 +74,12 @@ header {
     display: block;
     padding: 0.45rem 1rem;
     margin-left: 0;
-    color: #666;
+    color: var(--color-text-secondary);
 }
 
 .nav-dropdown-menu a:hover {
-    color: #000;
-    background: rgba(0, 0, 0, 0.04);
+    color: var(--color-accent);
+    background: var(--color-bg-hover);
 }
 
 header.nav-hidden {
@@ -96,7 +96,8 @@ header.transparent {
     text-decoration: none;
     font-size: var(--fs-h4);
     /* Increased from fs-small (14px to 18px) */
-    color: #666;
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
 }
 
 .page-container {
@@ -148,12 +149,12 @@ header.transparent {
 }
 
 .nav-links a:hover {
-    color: #000;
+    color: var(--color-accent);
 }
 
 /* Navigation Active State */
 .nav-links a.active {
-    color: #000;
+    color: var(--color-text);
     font-weight: 600;
 }
 
@@ -161,7 +162,7 @@ header.transparent {
 .metadata-bar {
     font-family: var(--font-serif);
     font-size: 1.125rem;
-    color: #666;
+    color: var(--color-text-secondary);
     margin-bottom: 2rem;
     margin-top: 0;
     display: flex;
@@ -176,7 +177,7 @@ header.transparent {
 
 .report-lead {
     font-size: var(--fs-lead);
-    color: var(--text-color);
+    color: var(--color-text);
     line-height: var(--lh-normal);
     max-width: 800px;
     margin-bottom: 1.5rem;
@@ -201,12 +202,12 @@ header.transparent {
     gap: 0.4rem;
     cursor: pointer;
     text-decoration: none;
-    color: #999;
-    transition: color 0.2s ease;
+    color: var(--color-text-tertiary);
+    transition: color var(--transition-fast);
 }
 
 .metadata-item:hover {
-    color: var(--text-color);
+    color: var(--color-accent);
 }
 
 .metadata-item i,
@@ -226,8 +227,8 @@ header.transparent {
     display: flex;
     align-items: center;
     text-decoration: none !important;
-    color: #666;
-    transition: color 0.2s ease;
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
 }
 
 .nav-icon-link svg {
@@ -236,7 +237,7 @@ header.transparent {
 }
 
 .nav-icon-link:hover {
-    color: #000;
+    color: var(--color-accent);
 }
 
 /* -------------------------------------------
@@ -272,7 +273,7 @@ header.transparent {
     top: 12px;
     bottom: 12px;
     width: 1px;
-    background: #e5e5e5;
+    background: var(--color-border);
 }
 
 .scroll-marker {
@@ -303,17 +304,17 @@ header.transparent {
 }
 
 .scroll-section:hover .section-bar {
-    background: #000;
+    background: var(--color-accent);
 }
 
 .scroll-section.active .section-bar {
-    background: #000;
+    background: var(--color-text);
 }
 
 .section-bar {
     height: 2px;
-    background: #d4d4d4;
-    transition: all 0.2s ease;
+    background: var(--color-border-strong);
+    transition: all var(--transition-fast);
     flex-shrink: 0;
 }
 
@@ -332,11 +333,11 @@ header.transparent {
 
 .section-label {
     font-size: var(--fs-small);
-    color: #666;
+    color: var(--color-text-secondary);
     white-space: nowrap;
     opacity: 0;
     transform: translateX(-8px);
-    transition: all 0.3s ease;
+    transition: all var(--transition-normal);
     pointer-events: none;
 }
 
@@ -346,12 +347,12 @@ header.transparent {
 }
 
 .scroll-section.active .section-label {
-    color: #000;
+    color: var(--color-text);
     font-weight: 600;
 }
 
 .scroll-section:hover .section-label {
-    color: #000;
+    color: var(--color-accent);
 }
 
 .scroll-progress {
@@ -359,9 +360,9 @@ header.transparent {
     bottom: -24px;
     left: 0;
     font-size: var(--fs-tiny);
-    color: #999;
+    color: var(--color-text-tertiary);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-normal);
     font-weight: 500;
 }
 
@@ -402,7 +403,7 @@ header.transparent {
    Used in About and potential others
    ------------------------------------------- */
 .wallet-address-container {
-    background: #f9f9f9;
+    background: var(--color-bg-surface);
     padding: 1rem;
     border-radius: 6px;
     display: flex;
@@ -412,12 +413,12 @@ header.transparent {
     cursor: pointer;
     font-family: var(--font-mono);
     font-size: 0.8rem;
-    color: #333;
-    transition: background-color 0.2s;
+    color: var(--color-text);
+    transition: background-color var(--transition-fast);
 }
 
 .wallet-address-container:hover {
-    background: #f0f0f0;
+    background: var(--color-bg-surface-hover);
 }
 
 .wallet-text {
@@ -427,12 +428,12 @@ header.transparent {
 
 .wallet-label {
     font-weight: 700;
-    color: #000;
+    color: var(--color-text);
     margin-right: 0.5rem;
 }
 
 .wallet-ens {
-    color: #666;
+    color: var(--color-text-secondary);
     margin-left: 0.5rem;
 }
 
@@ -446,11 +447,11 @@ header.transparent {
 .copy-icon {
     width: 16px;
     height: 16px;
-    color: #999;
+    color: var(--color-text-tertiary);
 }
 
 .wallet-address-container:hover .copy-icon {
-    color: #333;
+    color: var(--color-text);
 }
 
 .wallet-feedback {
@@ -459,7 +460,7 @@ header.transparent {
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.7rem;
-    color: #059669;
+    color: var(--color-success);
     font-weight: 500;
     opacity: 0;
     transition: opacity 0.3s;
@@ -484,7 +485,7 @@ header.transparent {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(250, 249, 246, 0.95);
     z-index: 1000;
     justify-content: center;
     align-items: center;
@@ -531,13 +532,13 @@ header.transparent {
 }
 
 .expandable-header:hover {
-    opacity: 0.7;
+    color: var(--color-accent);
 }
 
 .expandable-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    transition: max-height var(--transition-normal);
 }
 
 .expandable-content.open {
@@ -545,11 +546,11 @@ header.transparent {
 }
 
 .chevron {
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-normal);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #999;
+    color: var(--color-text-tertiary);
     flex-shrink: 0;
 }
 
@@ -571,15 +572,15 @@ header.transparent {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: #fafafa;
+    background: var(--color-bg-surface);
 }
 
 .insight-content {
     padding: 1.5rem;
     font-size: var(--fs-small);
-    color: var(--text-color);
+    color: var(--color-text);
     line-height: var(--lh-normal);
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--color-border-light);
 }
 
 .insight-content ul {
@@ -598,7 +599,7 @@ header.transparent {
 .alternating-sections>section:nth-of-type(even),
 .alternating-sections .narrative-content>section:nth-of-type(even),
 .alternating-sections .hero-grid>div.section-wrapper:nth-of-type(even) {
-    background-color: var(--bg-color);
+    background-color: var(--color-bg);
 }
 
 /* Fix for negative margin interaction with standard layout padding */
@@ -610,8 +611,8 @@ header.transparent {
 /* GLOBAL BANNER                             */
 /* ========================================= */
 #global-banner {
-    background: #111;
-    color: #fff;
+    background: var(--chart-ink);
+    color: var(--color-text-inverse);
     padding: 0.6rem 1rem;
     font-size: 0.85rem;
     font-family: var(--font-sans, sans-serif);
@@ -634,7 +635,7 @@ header.transparent {
 #global-banner #banner-dismiss {
     background: none;
     border: none;
-    color: #fff;
+    color: var(--color-text-inverse);
     font-size: 1.2rem;
     cursor: pointer;
     line-height: 1;

@@ -10,69 +10,68 @@ DATA  = BASE / "data" / "refined"
 OUT   = BASE / "web" / "data" / "charts"
 OUT.mkdir(parents=True, exist_ok=True)
 
-# ── Color palette (matches notebook COLORS dict) ───────────────────
+# ── Color palette (mirrors tokens.css — single source of truth) ────
+# Each key maps to a CSS custom property in web/css/tokens.css:
+#   blue   → --authority-blue      (#2563EB)  Signer Set
+#   green  → --authority-green     (#16A34A)  Delegated Body / success
+#   purple → --authority-purple    (#7C3AED)  Governance
+#   red    → --color-danger        (#DC2626)  Losses / critical
+#   amber  → --color-warning       (#D97706)  Caution / secondary
+#   slate  → --chart-slate         (#475569)  Neutral series
+#   gray   → --chart-gray          (#6B7280)  Unknown category
+#   lgray  → --chart-gray-light    (#9CA3AF)  Light neutral
+#   lblue  → --chart-blue-light    (#60A5FA)  Light blue variant
+#   ink    → --chart-ink           (#1E293B)  Dark emphasis
 C = {
-    # Base Tones
+    # Neutrals
     "slate":   "#475569",
     "gray":    "#6B7280",
     "lgray":   "#9CA3AF",
-    "vlgray":  "#F1F5F9", # Lightest blue-gray for background/systemic
+    "vlgray":  "#F1F5F9",
     "ink":     "#1E293B",
-    # Authority / Role Colors (Cool)
+    # Authority
     "blue":    "#2563EB",
-    "teal":    "#0D9488",
     "purple":  "#7C3AED",
     "lblue":   "#60A5FA",
-    # Scope / Impact Colors (Vivid)
+    # Semantic
     "red":     "#DC2626",
     "amber":   "#D97706",
-    "indigo":  "#4F46E5",
-    "pink":    "#DB2777",
-    "green":   "#16A34A", # Characterstic LIF Green
-    # Categorical / Subset Tones
-    "emerald": "#059669",
-    "orange":  "#EA580C",
+    "green":   "#16A34A",
 }
 
-# Authority (Operational roles)
+# Authority (Operational roles) — matches echarts_runtime.js AUTHORITY_COLORS
 AUTH_COLORS = {
-    "Signer Set":     C["blue"],    # Core System
-    "Delegated Body": C["teal"],    # Specialized/Council
-    "Governance":     C["purple"],  # Heavy/Slow
-    "Unknown":        C["gray"],
+    "Signer Set":     C["blue"],    # --authority-blue
+    "Delegated Body": C["green"],   # --authority-green
+    "Governance":     C["purple"],  # --authority-purple
+    "Unknown":        C["gray"],    # --chart-gray
 }
 
 # Scope (Technical Impact Layer)
 SCOPE_COLORS = {
     "Network":  C["red"],      # Critical Infrastructure
     "Protocol": C["amber"],    # Core Logic
-    "Asset":    C["indigo"],   # Value Layer
-    "Module":   C["pink"],     # Specialized Logic
-    "Account":  C["emerald"],  # User-centric (Standard green)
+    "Asset":    C["purple"],   # Value Layer (shared w/ Governance)
+    "Module":   C["lblue"],    # Specialized Logic
+    "Account":  C["green"],    # User-centric
 }
 
 # Subsets (Data Tiers)
-SUBSET_COLORS = {
-    "All Interventions":      C["slate"],   # Reference line
-    "LIF-Relevant":           C["green"],   # Matches Chart 02 Target
-    "High-Fidelity Metrics":  C["orange"],  # Technical subset
-}
-
-LOSS_COLORS = {
-    "Incurred": C["red"],
-    "Saved":    C["green"],
-    "Prevented": C["green"], # Alias for Saved
-}
-
-SCOPE_ORDER     = ["Network", "Asset", "Protocol", "Module", "Account"]
-AUTHORITY_ORDER = ["Signer Set", "Delegated Body", "Governance"]
-AUTHORITY_MAP   = {"Protocol Team": "Signer Set", "Security Council": "Delegated Body"}
-
 SUBSET_COLORS = {
     "All Interventions":      C["purple"],
     "LIF-Relevant":           C["green"],
     "High-Fidelity Metrics":  C["amber"],
 }
+
+LOSS_COLORS = {
+    "Incurred":  C["red"],
+    "Saved":     C["green"],
+    "Prevented": C["green"],
+}
+
+SCOPE_ORDER     = ["Network", "Asset", "Protocol", "Module", "Account"]
+AUTHORITY_ORDER = ["Signer Set", "Delegated Body", "Governance"]
+AUTHORITY_MAP   = {"Protocol Team": "Signer Set", "Security Council": "Delegated Body"}
 
 # Helper to remove xAxis name (prevent bottom-right overlap on horizontal bars)
 HIDE_X_NAME = {"name": "", "nameLocation": "middle", "nameGap": 0}

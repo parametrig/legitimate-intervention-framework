@@ -1,0 +1,195 @@
+/* =========================================
+   TOKENS.CSS
+   Design System Tokens — Single Source of Truth
+   Authority Palette · Neutrals · Typography · Spacing
+   ========================================= */
+
+:root {
+    /* ---- Backgrounds ---- */
+    --color-bg: #faf9f6;
+    /* Cream — page background */
+    --color-bg-alt: #f4f4f2;
+    /* Alternating sections */
+    --color-bg-hover: rgba(0, 0, 0, 0.04);
+    /* Interactive hover bg */
+    --color-bg-surface: #f9f9f9;
+    /* Cards, wallets, code blocks */
+    --color-bg-surface-hover: #f0f0f0;
+    /* Surface on hover */
+
+    /* ---- Text ---- */
+    --color-text: #1a1a1a;
+    /* Primary — body, headings */
+    --color-text-secondary: #666666;
+    /* Metadata, captions, nav */
+    --color-text-tertiary: #999999;
+    /* Muted labels, timestamps */
+    --color-text-inverse: #ffffff;
+    /* Text on dark backgrounds */
+
+    /* ---- Borders ---- */
+    --color-border: #e5e5e5;
+    /* Standard dividers */
+    --color-border-light: #eeeeee;
+    /* Subtle separators */
+    --color-border-strong: #d4d4d4;
+    /* Heavy dividers, dots */
+
+    /* ---- Authority Palette ---- */
+    --authority-blue: #2563EB;
+    /* Signer Set */
+    --authority-green: #16A34A;
+    /* Delegated Body */
+    --authority-purple: #7C3AED;
+    /* Governance */
+
+    /* ---- Semantic Colors ---- */
+    --color-success: #059669;
+    /* Positive outcomes, copy confirmations */
+    --color-danger: #DC2626;
+    /* Losses, errors, red in charts */
+    --color-warning: #D97706;
+    /* Cautions, amber in charts */
+
+    /* ---- Chart Extended Palette ---- */
+    --chart-slate: #475569;
+    /* Secondary chart series */
+    --chart-gray: #6B7280;
+    /* Unknown/neutral category */
+    --chart-gray-light: #9CA3AF;
+    /* Light gray series */
+    --chart-blue-light: #60A5FA;
+    /* Light blue variant */
+    --chart-ink: #1E293B;
+    /* Dark ink for emphasis */
+
+    /* ---- Accent ---- */
+    --color-accent: #B8860B;
+    /* Warm gold — hover highlights, active states */
+    --color-accent-light: rgba(184, 134, 11, 0.08);
+    /* Accent backgrounds */
+
+    /* ---- Typography ---- */
+    --font-serif: 'Newsreader', Georgia, serif;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    /* ---- Font Sizes ---- */
+    --fs-h1: 3rem;
+    /* 48px — Hero */
+    --fs-h2: 2rem;
+    /* 32px — Section Headers */
+    --fs-h3: 1.5rem;
+    /* 24px — Subheaders */
+    --fs-h4: 1.125rem;
+    /* 18px — Dropdown/Small Headers */
+    --fs-p: 1.125rem;
+    /* 18px — Body Text */
+    --fs-lead: 1.25rem;
+    /* 20px — Lead Text */
+    --fs-small: 0.875rem;
+    /* 14px */
+    --fs-tiny: 0.75rem;
+    /* 12px */
+
+    /* ---- Widths ---- */
+    --col-narrow: 680px;
+
+    /* ---- Line Heights ---- */
+    --lh-tight: 1.1;
+    --lh-normal: 1.625;
+    --lh-loose: 2;
+
+    /* ---- Transitions ---- */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---- Mobile Typography Scale ---- */
+@media (max-width: 768px) {
+    :root {
+        --fs-h1: 2.5rem;
+        --fs-h2: 1.5rem;
+        --fs-h3: 1.25rem;
+        --fs-h4: 1.125rem;
+        --fs-p: 1rem;
+        --fs-lead: 1.125rem;
+    }
+}
+
+/* =========================================
+   LANDING ACTIONS (Listen / PDF / Watch)
+   ========================================= */
+
+.landing-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-serif);
+    font-size: var(--fs-lead);
+}
+
+.landing-action-btn,
+.landing-action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: none;
+    border: none;
+    padding: 0.15rem 0;
+    color: var(--color-text-secondary);
+    font: inherit;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1.5px solid transparent;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.landing-action-btn:hover,
+.landing-action-link:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+}
+
+.landing-action-btn svg,
+.landing-action-link svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   THEME QUICKLINKS (Jump to: Threat · Intervention...)
+   ========================================= */
+
+.theme-quicklinks {
+    font-size: var(--fs-small);
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+}
+
+.theme-quicklinks a {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.theme-quicklinks a:hover {
+    color: var(--color-accent);
+}
+
+/* ---- Explore links (underlined cross-refs) ---- */
+.explore-link {
+    margin-top: 0.75rem;
+}
+
+.explore-link a {
+    text-decoration: underline;
+}

@@ -14,20 +14,20 @@
 }
 
 .editorial-content a {
-    color: #1a1a1a;
+    color: var(--color-text);
     text-decoration: underline;
     text-underline-offset: 3px;
 }
 
 .editorial-content a:hover {
-    opacity: 0.7;
+    color: var(--color-accent);
 }
 
 /* Acknowledgements Section */
 .acknowledgements {
     margin-top: 4rem;
     padding-top: 2rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--color-border-light);
 }
 
 .acknowledgements h3 {
@@ -41,7 +41,7 @@
 
 .acknowledgements li {
     font-size: var(--fs-small);
-    color: #666;
+    color: var(--color-text-secondary);
     margin-bottom: 0.5rem;
 }
 
@@ -49,21 +49,21 @@
 .contact-section {
     margin-top: 4rem;
     padding: 2rem;
-    background: #f8f8f8;
+    background: var(--color-bg-surface);
     border-radius: 8px;
     text-align: center;
 }
 
 .button {
     display: inline-block;
-    background: #1a1a1a;
+    background: var(--color-text);
     color: white;
     padding: 1rem 2rem;
     text-decoration: none;
     border-radius: 6px;
     font-family: var(--font-sans);
     margin-top: 1rem;
-    transition: opacity 0.2s;
+    transition: opacity var(--transition-fast);
 }
 
 .button:hover {
@@ -79,7 +79,7 @@
     flex-wrap: wrap;
     opacity: 0.5;
     padding: 1rem 2rem;
-    border-top: 1px dotted #eee;
+    border-top: 1px dotted var(--color-border-light);
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     position: relative;
@@ -98,7 +98,7 @@
 .illustration-svg {
     width: 60px;
     height: 60px;
-    stroke: #666;
+    stroke: var(--color-text-secondary);
     stroke-width: 1.5;
     fill: none;
 }
@@ -106,7 +106,7 @@
 .illustration-caption {
     font-size: var(--fs-tiny);
     font-family: var(--font-sans);
-    color: #999;
+    color: var(--color-text-tertiary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     text-align: center;
@@ -120,6 +120,71 @@
 
 .about-centered p {
     text-align: center;
+}
+
+/* Key Findings Table */
+.key-findings {
+    margin: 2.5rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.key-findings h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.key-findings table {
+    width: 100%;
+    max-width: var(--col-narrow);
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.key-findings tr {
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.key-findings tr:last-child {
+    border-bottom: none;
+}
+
+.key-findings td {
+    padding: 0.4rem 0;
+}
+
+.key-findings td:first-child {
+    padding-right: 1rem;
+}
+
+/* Collapsible Sections Container */
+.collapsible-sections {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border-light);
+}
+
+.collapsible-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Expandable Content */
+.expandable-content {
+    margin-top: 1rem;
+}
+
+/* Editorial lists */
+.editorial-content ul,
+.editorial-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Contact paragraph */
+.contact-line {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 /* Mobile Responsive Overrides for About */

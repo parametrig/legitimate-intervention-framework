@@ -79,6 +79,7 @@ metrics = pd.read_csv('data/refined/lif_intervention_metrics.csv')
 
 ## Documentation
 
+- **[Website Documentation](web/WEBSITE.md)** - Architecture, design system, chart pipeline, deployment
 - **[Data Dictionary](methodology/data_dictionary.md)** - Complete field definitions
 - **[Dataset Summary](methodology/dataset_summary.md)** - Statistics and overview
 - **[Data Provenance](methodology/data_provenance.md)** - Sources and methodology

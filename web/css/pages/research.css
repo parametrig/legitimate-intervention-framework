@@ -21,7 +21,7 @@
 
 .report-lead {
     font-size: var(--fs-lead);
-    color: var(--text-color);
+    color: var(--color-text);
     max-width: 800px;
     line-height: var(--lh-normal);
 }
@@ -33,21 +33,21 @@
     gap: 1.5rem;
     margin: 3rem 0 5rem;
     padding: 2rem;
-    background: var(--bg-color);
-    border: 1px solid #e5e5e5;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
     border-radius: 12px;
 }
 
 .stat-card {
     padding: 1rem;
-    border-left: 3px solid #1a1a1a;
+    border-left: 3px solid var(--color-text);
 }
 
 .stat-card .label {
     font-size: var(--fs-tiny);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #666;
+    color: var(--color-text-secondary);
     margin-bottom: 0.5rem;
     display: block;
     font-family: var(--font-sans);
@@ -57,13 +57,13 @@
     font-size: 2.5rem;
     font-weight: 500;
     font-family: var(--font-serif);
-    color: #1a1a1a;
+    color: var(--color-text);
     line-height: 1.1;
 }
 
 .stat-card .sub {
     font-size: var(--fs-small);
-    color: #059669;
+    color: var(--color-success);
     margin-top: 0.5rem;
     display: block;
 }
@@ -86,7 +86,7 @@
 
 .section-intro p {
     font-size: var(--fs-p);
-    color: var(--text-color);
+    color: var(--color-text);
 }
 
 /* Research Chart Grid */
@@ -101,7 +101,7 @@
 .chart-card {
     position: relative;
     background: white;
-    border: 1px solid #eee;
+    border: 1px solid var(--color-border-light);
     border-radius: 8px;
     padding: 0;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
@@ -116,13 +116,13 @@
 .chart-header h3 {
     font-size: var(--fs-h3);
     margin: 0;
-    color: #1a1a1a;
+    color: var(--color-text);
     font-weight: 500;
 }
 
 .chart-media {
     padding: 1.5rem;
-    background: var(--bg-color);
+    background: var(--color-bg);
     text-align: center;
     min-height: 250px;
     display: flex;
@@ -146,7 +146,7 @@
     padding: 0.75rem 1.5rem;
     background: white;
     border: none;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--color-border-light);
     text-align: left;
     cursor: pointer;
     display: flex;
@@ -154,28 +154,28 @@
     align-items: center;
     font-family: var(--font-sans);
     font-size: var(--fs-small);
-    color: #666;
-    transition: background 0.2s;
+    color: var(--color-text-secondary);
+    transition: background var(--transition-fast);
 }
 
 .insight-toggle:hover {
-    background: #f9f9f9;
-    color: #1a1a1a;
+    background: var(--color-bg-surface);
+    color: var(--color-text);
 }
 
 .insight-panel {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: #fafafa;
+    background: var(--color-bg-surface);
 }
 
 .insight-content {
     padding: 1.5rem;
     font-size: var(--fs-small);
-    color: var(--text-color);
+    color: var(--color-text);
     line-height: var(--lh-normal);
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--color-border-light);
 }
 
 .insight-content ul {
@@ -195,7 +195,7 @@
 
 .case-study-card {
     background: white;
-    border: 1px solid #eee;
+    border: 1px solid var(--color-border-light);
     padding: 1.5rem;
     border-radius: 8px;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -214,7 +214,7 @@
     font-size: var(--fs-tiny);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #999;
+    color: var(--color-text-tertiary);
     margin-bottom: 0.5rem;
     display: block;
 }
@@ -228,14 +228,14 @@
 
 .case-meta {
     font-size: var(--fs-small);
-    color: var(--text-color);
+    color: var(--color-text);
     margin-bottom: 1rem;
     display: flex;
     gap: 1rem;
 }
 
 .case-tag {
-    background: #eee;
+    background: var(--color-border-light);
     padding: 2px 6px;
     border-radius: 4px;
     font-size: var(--fs-tiny);
@@ -245,7 +245,7 @@
 .taxonomy-wrapper {
     overflow-x: auto;
     margin: 2rem 0;
-    border: 1px solid #eee;
+    border: 1px solid var(--color-border-light);
     border-radius: 8px;
 }
 
@@ -258,14 +258,14 @@
 .taxonomy-table td {
     padding: 1rem;
     text-align: left;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border-light);
     font-size: var(--fs-small);
 }
 
 .taxonomy-table th {
-    background: #f9f9f9;
+    background: var(--color-bg-surface);
     font-weight: 500;
-    color: #666;
+    color: var(--color-text-secondary);
 }
 
 /* Mobile Responsive Overrides */
