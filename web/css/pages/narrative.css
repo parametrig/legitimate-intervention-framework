@@ -18,7 +18,7 @@
 /* Annotations sidebar column */
 .narrative-layout {
     display: grid;
-    grid-template-columns: 1fr 260px;
+    grid-template-columns: 1fr 390px;
     gap: 3rem;
     align-items: start;
 }
