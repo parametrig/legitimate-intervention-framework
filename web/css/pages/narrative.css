@@ -15,29 +15,37 @@
     width: 100%;
 }
 
-/* Annotations are now merged into the main flow or moved to blocks */
+/* Annotations sidebar column */
+.narrative-layout {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 3rem;
+    align-items: start;
+}
+
 .narrative-annotations {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-border-light);
-    max-width: 680px;
+    position: sticky;
+    top: 120px;
+    align-self: start;
+    padding-top: 100px;
 }
 
 .annotation-item {
     font-family: var(--font-serif);
-    font-size: 1rem;
+    font-size: var(--fs-small);
     line-height: var(--lh-normal);
     color: var(--color-text-secondary);
     margin-bottom: 2rem;
-    padding-left: 1.5rem;
-    border-left: 2px solid var(--color-text);
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--color-border-strong);
 }
 
 .annotation-item strong {
     display: block;
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
+    color: var(--color-text);
+    margin-bottom: 0.4rem;
     font-weight: 600;
+    font-size: var(--fs-small);
 }
 
 .narrative-content {
@@ -277,6 +285,12 @@
         padding-right: 2rem;
         gap: 2rem;
         padding-bottom: calc(33vh + 7rem);
+    }
+
+    .narrative-annotations {
+        position: static;
+        padding-top: 2rem;
+        border-top: 1px solid var(--color-border-light);
     }
 
     .page-home .narrative-layout {

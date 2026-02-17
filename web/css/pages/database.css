@@ -272,7 +272,7 @@ body.navbar-hidden .sticky-controls {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #444;
+    color: var(--color-text-secondary);
 }
 
 .chain-icon {
@@ -484,7 +484,7 @@ body.navbar-hidden .sticky-controls {
     font-size: var(--fs-tiny);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #888;
+    color: var(--color-text-tertiary);
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
@@ -515,7 +515,7 @@ body.navbar-hidden .sticky-controls {
     font-size: var(--fs-tiny);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #888;
+    color: var(--color-text-tertiary);
     margin-bottom: 1rem;
     font-weight: 600;
     border-bottom: 1px solid var(--color-border-light);
@@ -553,7 +553,7 @@ body.navbar-hidden .sticky-controls {
 }
 
 .rationale-section {
-    background: #fdfdfd;
+    background: var(--color-bg-surface);
     padding: 1.5rem;
     border-radius: 8px;
     border: 1px solid var(--color-border-light);

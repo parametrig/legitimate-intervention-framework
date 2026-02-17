@@ -611,8 +611,8 @@ header.transparent {
 /* GLOBAL BANNER                             */
 /* ========================================= */
 #global-banner {
-    background: #111;
-    color: #fff;
+    background: var(--chart-ink);
+    color: var(--color-text-inverse);
     padding: 0.6rem 1rem;
     font-size: 0.85rem;
     font-family: var(--font-sans, sans-serif);

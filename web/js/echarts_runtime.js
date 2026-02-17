@@ -5,16 +5,16 @@ function _css(v, fb) {
 }
 
 const LIF_COLORS = {
-    blue:   _css('--authority-blue',   '#2563EB'),
-    green:  _css('--authority-green',  '#16A34A'),
+    blue: _css('--authority-blue', '#2563EB'),
+    green: _css('--authority-green', '#16A34A'),
     purple: _css('--authority-purple', '#7C3AED'),
-    amber:  _css('--color-warning',    '#D97706'),
-    red:    _css('--color-danger',     '#DC2626'),
-    slate:  _css('--chart-slate',      '#475569'),
-    gray:   _css('--chart-gray',       '#6B7280'),
-    lgray:  _css('--chart-gray-light', '#9CA3AF'),
-    lblue:  _css('--chart-blue-light', '#60A5FA'),
-    ink:    _css('--chart-ink',        '#1E293B'),
+    amber: _css('--color-warning', '#D97706'),
+    red: _css('--color-danger', '#DC2626'),
+    slate: _css('--chart-slate', '#475569'),
+    gray: _css('--chart-gray', '#6B7280'),
+    lgray: _css('--chart-gray-light', '#9CA3AF'),
+    lblue: _css('--chart-blue-light', '#60A5FA'),
+    ink: _css('--chart-ink', '#1E293B'),
 };
 
 const AUTHORITY_COLORS = {
@@ -417,7 +417,7 @@ function createLifEchartsTheme() {
         ],
         textStyle: {
             fontFamily: 'Newsreader, Georgia, serif',
-            color: '#1a1a1a',
+            color: _css('--color-text', '#1a1a1a'),
         },
         title: {
             left: 'center',
@@ -443,15 +443,15 @@ function createLifEchartsTheme() {
         },
         tooltip: {
             backgroundColor: 'rgba(255,255,255,0.96)',
-            borderColor: '#e5e5e5',
+            borderColor: _css('--color-border', '#e5e5e5'),
             borderWidth: 1,
             textStyle: {
-                color: '#1a1a1a',
+                color: _css('--color-text', '#1a1a1a'),
             },
         },
         axisPointer: {
             lineStyle: {
-                color: '#9CA3AF',
+                color: _css('--chart-gray-light', '#9CA3AF'),
             },
         },
     };
