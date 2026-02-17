@@ -19,7 +19,7 @@
 .narrative-annotations {
     margin-top: 4rem;
     padding-top: 2rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--color-border-light);
     max-width: 680px;
 }
 
@@ -27,10 +27,10 @@
     font-family: var(--font-serif);
     font-size: 1rem;
     line-height: var(--lh-normal);
-    color: #555;
+    color: var(--color-text-secondary);
     margin-bottom: 2rem;
     padding-left: 1.5rem;
-    border-left: 2px solid #000;
+    border-left: 2px solid var(--color-text);
 }
 
 .annotation-item strong {
@@ -81,7 +81,7 @@
 
 .narrative-content section {
     padding-bottom: 6rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border-light);
 }
 
 .narrative-content section:last-of-type {
@@ -297,8 +297,8 @@
         bottom: 0;
         top: auto;
         z-index: 1200;
-        background: var(--bg-color);
-        border-top: 1px solid #e5e5e5;
+        background: var(--color-bg);
+        border-top: 1px solid var(--color-border);
         /* Clean padding all around */
         padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
         height: 93vh;
@@ -354,11 +354,11 @@
         height: 32px;
         align-items: center;
         justify-content: center;
-        border: 1px solid #e5e5e5;
+        border: 1px solid var(--color-border);
         background: transparent;
         border-radius: 999px;
         cursor: pointer;
-        color: var(--text-color);
+        color: var(--color-text);
     }
 
     .narrative-chart-frame {
@@ -395,12 +395,12 @@
         height: 40px;
         align-items: center;
         justify-content: center;
-        border: 1px solid #e5e5e5;
-        background: var(--bg-color);
+        border: 1px solid var(--color-border);
+        background: var(--color-bg);
         border-radius: 999px;
         cursor: pointer;
         z-index: 1300;
-        color: var(--text-color);
+        color: var(--color-text);
     }
 
     body.dock-closed .chart-dock-reopen {
@@ -424,7 +424,7 @@
     /* Stack chart dock above audio player if present */
     body.has-audio-dock .narrative-chart-column {
         bottom: calc(48px + env(safe-area-inset-bottom));
-        border-bottom: 1px solid #e5e5e5;
+        border-bottom: 1px solid var(--color-border);
         /* Add border to separate from audio player */
     }
 

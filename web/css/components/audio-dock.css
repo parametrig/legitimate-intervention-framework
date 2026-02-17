@@ -28,9 +28,9 @@
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid #e5e5e5;
-    border-left: 1px solid #e5e5e5;
-    border-right: 1px solid #e5e5e5;
+    border-top: 1px solid var(--color-border);
+    border-left: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
     border-radius: 10px 10px 0 0;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
     font-family: var(--font-serif, 'Newsreader', Georgia, serif);
@@ -42,7 +42,7 @@
     border: none;
     padding: 4px;
     cursor: pointer;
-    color: #333;
+    color: var(--color-text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,7 +52,7 @@
 }
 
 .lif-audio-btn:hover {
-    color: #000;
+    color: var(--color-text);
     background: rgba(0, 0, 0, 0.05);
 }
 
@@ -74,7 +74,7 @@
 .lif-audio-progress-wrap {
     flex: 1;
     height: 6px;
-    background: #e5e5e5;
+    background: var(--color-border);
     border-radius: 3px;
     cursor: pointer;
     overflow: hidden;
@@ -84,7 +84,7 @@
 .lif-audio-progress-bar {
     height: 100%;
     width: 0%;
-    background: #333;
+    background: var(--color-text);
     border-radius: 3px;
     transition: width 0.15s linear;
 }
@@ -92,7 +92,7 @@
 /* Time label */
 .lif-audio-time {
     font-size: 0.75rem;
-    color: #999;
+    color: var(--color-text-tertiary);
     white-space: nowrap;
     min-width: 85px;
     text-align: right;
