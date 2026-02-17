@@ -141,11 +141,15 @@
     ------------------------------------------------------- */
     let dock, audio;
     let dockReady = false;
+    let podcastBtn;
 
     function ensureDock() {
         if (dockReady) return;
         dock = createDock();
         audio = document.getElementById('lifAudio');
+
+        // Find the podcast button on the page (the one that opens the player)
+        podcastBtn = document.querySelector('.landing-action-btn[onclick*="lifAudioPlayer"]');
 
         const playBtn = document.getElementById('lifAudioPlay');
         const rewBtn = document.getElementById('lifAudioRew');
@@ -161,9 +165,11 @@
             if (audio.paused) {
                 playIcon.style.display = '';
                 pauseIcon.style.display = 'none';
+                if (podcastBtn) podcastBtn.classList.remove('playing');
             } else {
                 playIcon.style.display = 'none';
                 pauseIcon.style.display = '';
+                if (podcastBtn) podcastBtn.classList.add('playing');
             }
         }
 
@@ -182,6 +188,7 @@
         audio.addEventListener('ended', () => {
             syncIcons();
             clearState();
+            if (podcastBtn) podcastBtn.classList.remove('playing');
         });
 
         playBtn.addEventListener('click', () => {
@@ -208,6 +215,7 @@
             dock.classList.remove('open');
             document.body.classList.remove('has-audio-dock');
             clearState();
+            if (podcastBtn) podcastBtn.classList.remove('playing');
         });
 
         dockReady = true;
