@@ -52,7 +52,7 @@
             }
         }
         const prefix = depth > 0 ? '../'.repeat(depth) : '';
-        return prefix + 'audio/code_is_law_vs_kill_switch.m4a';
+        return prefix + 'audio/code_is_law_vs_kill_switch.mp3';
     }
 
     /* -------------------------------------------------------
@@ -100,7 +100,7 @@
         dock.id = 'lifAudioDock';
         dock.innerHTML = `
             <audio id="lifAudio" preload="auto">
-                <source src="${resolveAudioSrc()}" type="audio/mp4">
+                <source src="${resolveAudioSrc()}" type="audio/mpeg">
             </audio>
             <div class="lif-audio-controls">
                 <button class="lif-audio-btn" id="lifAudioRew" title="Rewind 15s" aria-label="Rewind 15 seconds">
