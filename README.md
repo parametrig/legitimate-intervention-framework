@@ -1,6 +1,6 @@
 # Legitimate Intervention Framework (LIF)
 
-A standardized dataset of blockchain security incidents and emergency interventions.
+LIF is an open-source research framework for onchain governance and protocol safety. This repository contains a standardized dataset of blockchain security incidents and emergency interventions.
 
 **Version:** 1.0  
 **Last Updated:** 2026-02-13
@@ -94,6 +94,14 @@ metrics = pd.read_csv('data/refined/lif_intervention_metrics.csv')
 - **Complete Coverage:** Ecosystem classifications (EVM, Non-EVM, CeFi, etc.)
 - **Intervention Data:** Timing, scope, authority, and effectiveness metrics
 - **Source Attribution:** All cases linked to primary sources
+
+---
+
+## Related Projects
+
+- **Research Paper**: https://github.com/e3o8o/legitimate-overrides-paper  
+  Academic paper by Oghenekaro Elem & Nimrod Talmon: "Legitimate Overrides in Decentralized Protocols."
+> **ArXiv**: https://arxiv.org/pdf/2602.12260
 
 ---
 
