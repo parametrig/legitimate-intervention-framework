@@ -105,6 +105,12 @@ metrics = pd.read_csv('data/refined/lif_intervention_metrics.csv')
 
 ---
 
+## Live Deployments
+
+- **IPFS gateway**: https://ipfs.io/ipfs/bafybeiaik6otc54wklfhchk6jr4z7ezh4cjhzu3jilvaesnkmdumxnkcoq/
+
+---
+
 ## License
 
 This dataset is provided for research purposes. Please cite appropriately when using in academic work.
