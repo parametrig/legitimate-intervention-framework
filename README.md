@@ -109,6 +109,12 @@ metrics = pd.read_csv('data/refined/lif_intervention_metrics.csv')
 
 - **IPFS gateway**: https://ipfs.io/ipfs/bafybeiaik6otc54wklfhchk6jr4z7ezh4cjhzu3jilvaesnkmdumxnkcoq/
 
+### Website Runtime Note
+
+- The public database view is now intended to read a frozen public exploit/intervention snapshot through the live AUK API via a same-origin Cloudflare Pages proxy.
+- The chart layer remains backed by static aggregated JSON in `web/data/charts/` and `web/data/series/`.
+- Local fallback files under `web/data/` are aligned to the normalized infrastructure JSON contract rather than the older website-specific envelope export.
+
 ---
 
 ## License

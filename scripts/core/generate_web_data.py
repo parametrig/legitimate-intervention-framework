@@ -1,10 +1,20 @@
 #!/usr/bin/env python3
-"""Generate JSON data files for the LIF web database from CSV sources."""
+"""Generate JSON data files for the LIF web database.
+
+When the Parametrig infrastructure repo is available in the same workspace,
+the canonical normalized AUK JSON files are used as the source of truth for
+`web/data/exploits.json` and `web/data/interventions.json`.
+
+This keeps the website fallback data aligned with the live API contract.
+If the infrastructure repo is unavailable, the script falls back to local CSV
+generation for standalone use.
+"""
 
 import csv
 import json
+import os
 from pathlib import Path
-from datetime import datetime, timezone
+import shutil
 
 # Get repository root (two levels up from scripts/core/)
 REPO_ROOT = Path(__file__).parent.parent.parent
@@ -13,6 +23,17 @@ WEB_DATA_DIR = REPO_ROOT / "web" / "data"
 RATIONALES_FILE = REPO_ROOT / "manuscript" / "rationales.md"
 
 SCHEMA_VERSION = "1.0"
+
+
+def find_infra_defi_dir():
+    """Locate the canonical infrastructure data directory if present."""
+    env_dir = Path(os.environ["PARAMETRIG_INFRA_DATA_DIR"]) if "PARAMETRIG_INFRA_DATA_DIR" in os.environ else None
+    candidates = [env_dir] if env_dir else []
+    candidates.append(REPO_ROOT.parents[1] / "PARAMETRIG" / "parametrig" / "infrastructure" / "data" / "auk" / "defi")
+    for candidate in candidates:
+        if candidate and candidate.exists():
+            return candidate
+    return None
 
 def load_csv(filepath):
     """Load CSV file and return list of dicts."""
@@ -37,15 +58,6 @@ def parse_year(date_str):
         return int(date_str[:4])
     except (ValueError, TypeError):
         return None
-
-def build_envelope(records, source_files):
-    """Build a versioned envelope for web JSON exports."""
-    return {
-        "schema_version": SCHEMA_VERSION,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "source_files": source_files,
-        "records": records,
-    }
 
 def extract_rationale_cases():
     """Extract case rationale text from rationales.md."""
@@ -360,32 +372,31 @@ def main():
     # Ensure output directory exists
     WEB_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Generate exploits.json
-    print("Generating exploits.json...")
-    exploits_records = generate_exploits_json()
-    exploits = build_envelope(
-        records=exploits_records,
-        source_files={
-            "exploits": str((DATA_DIR / "lif_exploits_final.csv").relative_to(REPO_ROOT)),
-        },
-    )
-    with open(WEB_DATA_DIR / "exploits.json", 'w', encoding='utf-8') as f:
-        json.dump(exploits, f, indent=2, ensure_ascii=False)
-    print(f"  → {len(exploits_records)} exploits written")
+    infra_defi_dir = find_infra_defi_dir()
+    if infra_defi_dir:
+        print(f"Using canonical infrastructure JSON from {infra_defi_dir}")
+        shutil.copy2(infra_defi_dir / "exploits.json", WEB_DATA_DIR / "exploits.json")
+        shutil.copy2(infra_defi_dir / "interventions.json", WEB_DATA_DIR / "interventions.json")
+        with open(infra_defi_dir / "exploits.json", "r", encoding="utf-8") as f:
+            exploits_records = json.load(f)
+        with open(infra_defi_dir / "interventions.json", "r", encoding="utf-8") as f:
+            interventions_records = json.load(f)
+        print(f"  → {len(exploits_records)} exploits synced")
+        print(f"  → {len(interventions_records)} interventions synced")
+    else:
+        print("Canonical infrastructure repo not found; falling back to local CSV generation.")
 
-    # Generate interventions.json
-    print("Generating interventions.json...")
-    interventions_records = generate_interventions_json()
-    interventions = build_envelope(
-        records=interventions_records,
-        source_files={
-            "all_interventions": str((DATA_DIR / "lif_all_interventions.csv").relative_to(REPO_ROOT)),
-            "metrics": str((DATA_DIR / "lif_intervention_metrics.csv").relative_to(REPO_ROOT)),
-        },
-    )
-    with open(WEB_DATA_DIR / "interventions.json", 'w', encoding='utf-8') as f:
-        json.dump(interventions, f, indent=2, ensure_ascii=False)
-    print(f"  → {len(interventions_records)} interventions written")
+        print("Generating exploits.json...")
+        exploits_records = generate_exploits_json()
+        with open(WEB_DATA_DIR / "exploits.json", 'w', encoding='utf-8') as f:
+            json.dump(exploits_records, f, indent=2, ensure_ascii=False)
+        print(f"  → {len(exploits_records)} exploits written")
+
+        print("Generating interventions.json...")
+        interventions_records = generate_interventions_json()
+        with open(WEB_DATA_DIR / "interventions.json", 'w', encoding='utf-8') as f:
+            json.dump(interventions_records, f, indent=2, ensure_ascii=False)
+        print(f"  → {len(interventions_records)} interventions written")
 
     # Summary stats
     total_loss = sum(i["loss_usd"] or 0 for i in interventions_records)

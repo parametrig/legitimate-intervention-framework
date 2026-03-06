@@ -306,14 +306,39 @@ function formatDate(dateStr) {
 }
 
 // Load JSON data
+function isLocalDatabaseDev() {
+    return ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+}
+
+async function fetchDatabasePayload(resource) {
+    const proxyUrl = `/api/risk/${resource}?limit=1000&offset=0`;
+    const localUrl = `data/${resource}.json`;
+
+    const tryLoad = async (url) => {
+        const res = await fetch(url);
+        if (!res.ok) {
+            throw new Error(`Failed to load ${url}: ${res.status}`);
+        }
+        return res.json();
+    };
+
+    try {
+        return await tryLoad(proxyUrl);
+    } catch (error) {
+        if (isLocalDatabaseDev()) {
+            console.warn(`Falling back to local ${resource}.json for local development`, error);
+            return tryLoad(localUrl);
+        }
+        throw error;
+    }
+}
+
 async function loadDatabaseData() {
     try {
-        const [interventionsRes, exploitsRes] = await Promise.all([
-            fetch('data/interventions.json'),
-            fetch('data/exploits.json')
+        const [interventionsPayload, exploitsPayload] = await Promise.all([
+            fetchDatabasePayload('interventions'),
+            fetchDatabasePayload('exploits')
         ]);
-        const interventionsPayload = await interventionsRes.json();
-        const exploitsPayload = await exploitsRes.json();
 
         allInterventions = Array.isArray(interventionsPayload)
             ? interventionsPayload

@@ -26,6 +26,10 @@ const AUTHORITY_COLORS = {
 
 let __lifDataCache = null;
 
+function __lifIsLocalDev() {
+    return ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+}
+
 async function loadJson(path) {
     const res = await fetch(path);
     if (!res.ok) throw new Error(`Failed to load ${path}: ${res.status}`);
@@ -367,9 +371,21 @@ function applyLandingChartOverrides(option, chartEl) {
 async function loadLifData(rootPrefix) {
     if (__lifDataCache) return __lifDataCache;
 
+    const loadDataset = async (resource) => {
+        const proxyPath = `${rootPrefix}api/risk/${resource}?limit=1000&offset=0`;
+        try {
+            return await loadJson(proxyPath);
+        } catch (error) {
+            if (__lifIsLocalDev()) {
+                return loadJson(`${rootPrefix}data/${resource}.json`);
+            }
+            throw error;
+        }
+    };
+
     const [exploitsPayload, interventionsPayload] = await Promise.all([
-        loadJson(`${rootPrefix}data/exploits.json`),
-        loadJson(`${rootPrefix}data/interventions.json`),
+        loadDataset('exploits'),
+        loadDataset('interventions'),
     ]);
 
     __lifDataCache = {

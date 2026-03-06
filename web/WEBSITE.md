@@ -35,7 +35,7 @@ web/
 │   ├── efficiency/index.html
 │   └── framework/index.html
 ├── css/
-│   ├── tokens.css          # ⭐ Design tokens (single source of truth)
+│   ├── tokens.css          # Design tokens (single source of truth)
 │   ├── base.css            # Reset, grid, layout primitives
 │   ├── layout.css          # Navigation, footer, banner, responsive
 │   ├── components/
@@ -49,15 +49,17 @@ web/
 │       └── research-index.css
 ├── js/
 │   ├── main.js             # Navigation, search, database logic
-│   ├── echarts_runtime.js  # ⭐ Chart rendering engine + theme
+│   ├── echarts_runtime.js  # Chart rendering engine + theme
 │   ├── narrative_runtime.js # Scroll-synced narrative charts
 │   ├── audio_player.js     # Podcast player
 │   ├── banner.js           # Development banner
 │   └── scroll_navigator.js # Section scroll tracking
+├── ../functions/
+│   └── api/risk/[resource].js # Cloudflare Pages proxy for database datasets
 ├── data/
 │   ├── charts/             # 50+ ECharts JSON specs (generated)
-│   ├── exploits.json       # Exploit dataset (705 records)
-│   └── interventions.json  # Intervention dataset (137 records)
+│   ├── exploits.json       # Local-dev fallback only; normalized to match infrastructure canonical JSON
+│   └── interventions.json  # Local-dev fallback only; normalized to match infrastructure canonical JSON
 └── favicon.svg
 ```
 
@@ -84,6 +86,13 @@ Every HTML page loads stylesheets in this order:
 | `audio_player.js` | Podcast player widget | Landing page |
 | `scroll_navigator.js` | Active section tracking | Narrative pages |
 | `banner.js` | Development banner dismiss | All pages |
+
+Database data-loading model:
+
+- production: same-origin Cloudflare Pages Function proxy at `/api/risk/exploits` and `/api/risk/interventions`
+- local static dev: falls back to `web/data/*.json` when the proxy is unavailable on `localhost`
+- charts: still read static `web/data/charts/*.json` and `web/data/series/*.json`
+- local fallback files are expected to follow the same normalized raw-data structure as the infrastructure repo, not the older metadata-envelope export shape
 
 ---
 
@@ -299,7 +308,7 @@ The site is a **static site** (HTML + CSS + JS) with no server-side rendering or
 | Platform | Notes |
 |----------|-------|
 | **Vercel** | Deploy the `web/` directory; no build command needed |
-| **Cloudflare Pages** | Point to `web/` as output directory |
+| **Cloudflare Pages** | Point to `web/` as output directory and keep `functions/` at repo root for the database proxy |
 | **IPFS** | All paths are relative; works with any gateway |
 | **GitHub Pages** | Serve from `web/` directory |
 
@@ -307,6 +316,14 @@ The site is a **static site** (HTML + CSS + JS) with no server-side rendering or
 
 - **No build step required** — all files are production-ready as-is
 - **Relative paths** — all asset and data references use relative paths for IPFS compatibility
-- **No SSR/API** — data is pre-generated as static JSON in `web/data/`
+- **Pages Functions optional but now used in production** — the Database view proxies raw dataset reads through `functions/api/risk/[resource].js`
+- **Chart payloads remain static** — `web/data/charts/` and `web/data/series/` are still served as generated static JSON
 - **Font loading** — `Newsreader` loaded from Google Fonts CDN; works on all platforms
 - **ECharts** — loaded from CDN (`cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js`)
+
+### Required Cloudflare Pages Environment Variables
+
+For production database proxying:
+
+- `LIF_WEBSITE_API_KEY` — dedicated read-only AUK API key for the LIF website tenant
+- `AUK_API_BASE_URL` — optional override, defaults to `https://api.parametrig.com`
