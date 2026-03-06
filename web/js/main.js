@@ -340,13 +340,30 @@ async function loadDatabaseData() {
             fetchDatabasePayload('exploits')
         ]);
 
-        allInterventions = Array.isArray(interventionsPayload)
+        const rawInts = Array.isArray(interventionsPayload)
             ? interventionsPayload
             : (interventionsPayload.records || []);
 
-        allExploits = Array.isArray(exploitsPayload)
+        const rawExploits = Array.isArray(exploitsPayload)
             ? exploitsPayload
             : (exploitsPayload.records || []);
+
+        const normalizeRecord = (c) => ({
+            ...c,
+            id: c.id || c.incidentId || '',
+            loss_usd: c.loss_usd !== undefined ? c.loss_usd : c.lossUSD,
+            loss_prevented_usd: c.loss_prevented_usd !== undefined ? c.loss_prevented_usd : c.lossPreventedUSD,
+            is_proactive: c.is_proactive !== undefined ? c.is_proactive : c.isProactive,
+            success_pct: c.success_pct !== undefined ? c.success_pct : c.successPct,
+            time_to_detect_min: c.time_to_detect_min !== undefined ? c.time_to_detect_min : c.timeToDetectMin,
+            time_to_contain_min: c.time_to_contain_min !== undefined ? c.time_to_contain_min : c.timeToContainMin,
+            intervention_notes: c.intervention_notes !== undefined ? c.intervention_notes : c.interventionNotes,
+            source_url: c.source_url !== undefined ? c.source_url : c.sourceUrl,
+            vector: c.vector || c.vectorCategory || c.vector_category || '—'
+        });
+
+        allInterventions = rawInts.map(normalizeRecord);
+        allExploits = rawExploits.map(normalizeRecord);
         return true;
     } catch (error) {
         console.error('Error loading database:', error);
