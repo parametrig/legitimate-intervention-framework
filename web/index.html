@@ -14,7 +14,7 @@
 
     <!-- SEO Metadata -->
     <meta name="description"
-        content="A research-driven framework for legitimate emergency intervention in DeFi. Learn how real-world protocols contain exploits using pauses, freezes, quarantines, and recovery—and how to make these overrides legitimate and effective.">
+        content="A research-driven framework for legitimate emergency intervention in DeFi. Learn how protocols contain exploits using pauses, freezes, quarantines, and recovery, and how to make these overrides legitimate and effective.">
     <meta name="keywords"
         content="DeFi security, crypto exploits, intervention framework, emergency governance, protocol overrides, blockchain risk">
     <meta name="author" content="Legitimate Intervention Framework">
@@ -142,11 +142,10 @@
                         </svg>watch
                     </a>
                 </div>
-                <p class="report-lead">Between 2014 and 2026, we documented <strong>705 exploit cases</strong> resulting
-                    in
+                <p class="report-lead">Between 2014 and 2026, we documented 705 exploit cases resulting in
                     <strong>$78.81B</strong>
-                    in cumulative losses. Of these, <strong>$9.60B</strong> was intervention-eligible—losses where a
-                    protocol override could have prevented or reduced damage. This research asks a simple question:
+                    in cumulative losses. Of these, $9.60B was intervention-eligible: losses where a protocol override
+                    could have prevented or reduced damage. This research asks a simple question:
                     <em>when code fails, who should be allowed to intervene, and how?</em>
                 </p>
             </section>
@@ -157,19 +156,16 @@
             <section data-narrative-section data-id="intervention-trend" data-chart="chart19_hacks_vs_interventions"
                 data-fallback-src="charts/chart19_hacks_vs_interventions.png" data-chart-anchor="chart19">
                 <h2>Intervention is already happening</h2>
-                <p>Smart contracts promise deterministic execution—yet real-world protocols increasingly face situations
-                    where the code behaves correctly by its own logic while the protocol's intent is violated. The
-                    research question is not to settle whether intervention is desirable, but to
-                    understand when and how protocols <em>actually</em> intervene in practice, and what legitimacy
-                    constraints could apply if a community chooses to allow intervention.
-                </p>
+                <p>Smart contracts promise deterministic execution. In practice, protocols increasingly face situations
+                    where the code behaves correctly by its own logic while the protocol's intent is violated. This
+                    research measures when and how protocols <em>actually</em> intervene in practice, and what
+                    legitimacy constraints could apply if a community chooses to allow intervention.</p>
                 <p>Documenting interventions is an attempt to make the tradeoffs
                     <strong>legible</strong>.
                 </p>
                 <p>The data reveals a clear trend: as exploits have grown in sophistication, so have response
                     mechanisms. Protocols now regularly deploy pauses, freezes, quarantines, and recovery procedures.
-                    The challenge lies not in the absence of response, but in its governance—balancing the need for
-                    rapid action against the imperative of legitimate authority.</p>
+                    The challenge is governance. Protocols need to balance rapid action against legitimate authority.</p>
                 <figure class="narrative-inline-figure">
                     <img src="charts/chart40_success_timeline.png" alt="Aggregate intervention success over time">
                     <figcaption>
@@ -192,7 +188,7 @@
                 <h2>The scale of the threat</h2>
                 <p>2022 peaked at <strong>$58B</strong> in annual losses, driven by the Terra/Luna collapse and the
                     FTX implosion. After a 91% decline, losses climbed back to <strong>$3.76B</strong> in 2025. The
-                    threat is not receding—it is restructuring around new attack surfaces.</p>
+                    threat is restructuring around new attack surfaces.</p>
                 <p>Losses follow a power law (α&thinsp;≈&thinsp;1.33): the top 10 incidents account for
                     <strong>40%</strong> of all losses, and the top 1.4% of cases produce 80% of cumulative damage.
                     This extreme concentration means a small number of well-designed interventions could have
@@ -218,14 +214,14 @@
                 data-fallback-src="charts/chart08_four_layer_timeline.png" data-chart-anchor="chart08">
                 <h2>Four layers of loss</h2>
                 <p>Not all losses are equal. We decompose the $78.81B into four layers:</p>
-                <p><strong>Layer 1</strong> — Systemic collapses (Terra/Luna, FTX). These are beyond intervention
-                    scope; no kill-switch prevents a bank run. <strong>Layer 2</strong> — Social engineering and
-                    off-chain attacks. These bypass on-chain logic entirely. <strong>Layer 3</strong> — Technical
+                <p><strong>Layer 1</strong>: Systemic collapses (Terra/Luna, FTX). These are beyond intervention
+                    scope. No kill-switch prevents a bank run. <strong>Layer 2</strong>: Social engineering and
+                    off-chain attacks. These bypass on-chain logic entirely. <strong>Layer 3</strong>: Technical
                     exploits where the protocol had intervention capability but did not act in time.
-                    <strong>Layer 4</strong> — Technical exploits where intervention mechanisms were absent.
+                    <strong>Layer 4</strong>: Technical exploits where intervention mechanisms were absent.
                 </p>
                 <p>Layers 3 and 4 constitute the <strong>$9.60B intervention-eligible market</strong>. Of this,
-                    <strong>$2.51B</strong> has actually been prevented—a <strong>26.0% effectiveness rate</strong>,
+                    <strong>$2.51B</strong> has actually been prevented (26.0% effectiveness),
                     leaving a <strong>$7.09B opportunity gap</strong>.
                 </p>
                 <figure class="narrative-inline-figure">
@@ -244,7 +240,7 @@
                 <p><strong>Logic Bugs</strong> lead with 231 cases, exploiting unanticipated state transitions in
                     smart contracts. <strong>Key Compromise</strong> follows at 127 cases, where stolen private keys
                     bypass all contract-level safeguards. <strong>Oracle Manipulation</strong> accounts for
-                    62 cases but carries the highest per-incident severity—flash loan attacks can drain pools in a
+                    62 cases but carries the highest per-incident severity. Flash loan attacks can drain pools in a
                     single transaction.</p>
                 <p>The vector evolution tells a story: in 2020–21, flash-loan-driven oracle attacks dominated. By
                     2023–24, attackers shifted to key compromise and social engineering, exploiting the human
@@ -264,12 +260,11 @@
             <section data-narrative-section data-id="intervention" data-chart="chart21_authority_performance"
                 data-fallback-src="charts/chart21_authority_performance.png" data-chart-anchor="chart21">
                 <h2>Who responds, and how well?</h2>
-                <p>We classify every intervention by its <strong>authority level</strong>—who makes the decision to
-                    act. <strong>Signer Sets</strong> (multisig key holders) handle 71.2% of interventions by
-                    count, acting fastest at a median of 30 minutes. <strong>Governance</strong> votes, while the
-                    most legitimate, take 30+ days and cover just 11.5% of cases.</p>
-                <p>The middle ground—<strong>Delegated Bodies</strong> like Security Councils and Emergency
-                    subDAOs—account for 17.3% of cases but show the strongest capital protection at
+                <p>We classify every intervention by authority level (who makes the decision to act). Signer Sets
+                    (multisig key holders) handle 71.2% of interventions by count, acting fastest at a median of 30
+                    minutes. Governance votes take 30+ days and cover just 11.5% of cases.</p>
+                <p>The middle ground is Delegated Bodies (Security Councils and Emergency subDAOs). They account for
+                    17.3% of cases and show the strongest capital protection at
                     <strong>$1.10B prevented</strong>. They balance speed (60–90 minute median) with
                     democratic accountability through elected membership and constrained mandates.
                 </p>
@@ -298,9 +293,9 @@
                 <p>The paper's core finding: <strong>speed and legitimacy are inversely correlated</strong>.
                     Interventions within 60 minutes prevent <strong>82.5%</strong> of losses on average.
                     After 24 hours, effectiveness drops to <strong>10.9%</strong>. We call this the
-                    "golden hour"—the window where rapid action is existentially important.</p>
+                    "golden hour": the window where rapid action matters most.</p>
                 <p>This creates a fundamental tradeoff. Fast responders (Signer Sets) act
-                    unilaterally—effective, but centralizing. Slow responders (Governance) are democratic but
+                    unilaterally. This is effective, but centralizing. Slow responders (Governance) are democratic but
                     arrive after assets have been drained. The question is whether we can design mechanisms
                     that are both fast <em>and</em> legitimate.</p>
                 <figure class="narrative-inline-figure">
@@ -318,11 +313,11 @@
             <section data-narrative-section data-id="taxonomy" data-chart="chart28_matrix_heatmap_combined"
                 data-fallback-src="charts/chart28_matrix_heatmap_combined.png" data-chart-anchor="chart28">
                 <h2>A taxonomy of intervention</h2>
-                <p>We propose a two-dimensional classification: <strong>Scope</strong> (what gets affected—Account,
-                    Module, Protocol, Network) × <strong>Authority</strong> (who decides—Signer Set, Delegated Body,
-                    Governance). This creates a 5×3 effectiveness matrix that maps the design space.</p>
-                <p>The sweet spot: <strong>Account × Delegated Body</strong> achieves 92% containment success—narrow
-                    scope limits collateral damage while elected bodies provide legitimacy. The danger zone:
+                <p>We propose a two-dimensional classification: Scope (what gets affected: Account, Module, Protocol,
+                    Network) × Authority (who decides: Signer Set, Delegated Body, Governance). This creates a 5×3
+                    effectiveness matrix that maps the design space.</p>
+                <p>The sweet spot is Account × Delegated Body. It achieves 92% containment success. Narrow
+                    scope limits collateral damage while elected bodies provide legitimacy. The danger zone is
                     <strong>Protocol × Signer Set</strong> achieves only 33%, where broad scope combined with
                     unchecked authority produces unreliable outcomes.
                 </p>
@@ -339,17 +334,13 @@
             <section data-narrative-section data-id="opportunity" data-chart="chart50_loss_prevented_vs_incurred"
                 data-fallback-src="charts/chart50_loss_prevented_vs_incurred.png" data-chart-anchor="chart50">
                 <h2>The $7 billion opportunity</h2>
-                <p>Of <strong>$9.60B</strong> in intervention-eligible losses, the industry has prevented
-                    <strong>$2.51B</strong>—a 26.0% effectiveness rate. The remaining <strong>$7.09B</strong>
-                    represents the intervention opportunity gap: losses that <em>could</em> have been prevented
-                    with better mechanism design.
-                </p>
-                <p>The path forward is not more centralized kill-switches, nor slower governance rituals.
-                    It is composable intervention architectures—tiered authority with automatic escalation,
-                    constrained emergency powers with mandatory sunset clauses, and scope-limited permissions
-                    that preserve the principle of minimal intervention.</p>
-                <p style="margin-top: 2rem;"><a href="research/"
-                        style="font-weight: 600; text-decoration: underline;">Explore the full research →</a></p>
+                <p>Of $9.60B in intervention-eligible losses, the industry has prevented $2.51B. That is a 26.0%
+                    effectiveness rate. The remaining $7.09B is the opportunity gap: losses that could have been
+                    reduced with better response mechanisms.</p>
+                <p>We focus on design choices that change this number. Authority should be fast enough to matter and
+                    constrained enough to be legitimate. Scope should be narrow by default and widen only when the
+                    evidence and impact justify it.</p>
+                <p style="margin-top: 2rem;"><a href="research/" style="font-weight:600; text-decoration:underline;">Explore the full report →</a></p>
             </section>
 
         </div>

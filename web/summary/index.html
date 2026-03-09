@@ -86,12 +86,12 @@
             <section data-narrative-section data-id="executive" class="hero-section">
                 <h1>Executive Summary</h1>
                 <p class="metadata-bar">14 February 2026 • Elem Oghenekaro • Dr. Nimrod Talmon</p>
-                <p class="report-lead">Between 2014 and 2026, we documented <strong>705 exploit cases</strong>
-                    resulting in <strong>$78.81 billion</strong> in cumulative losses. Of these, 601 cases
-                    ($9.60B) were intervention-eligible—incidents where a protocol override could have
-                    prevented or reduced damage. Only <strong>$2.51B</strong> has actually been saved,
-                    leaving a <strong>$7.09B opportunity gap</strong>. This research formalizes the
-                    design space for legitimate emergency intervention in decentralized protocols.</p>
+                <p class="report-lead">Between 2014 and 2026, we documented 705 exploit cases resulting in
+                    <strong>$78.81B</strong>
+                    in cumulative losses. Of these, 601 cases ($9.60B) were intervention-eligible: incidents where a
+                    protocol override could have prevented or reduced damage. Only $2.51B has actually been saved,
+                    leaving a $7.09B opportunity gap. This research formalizes the design space for legitimate
+                    emergency intervention in decentralized protocols.</p>
 
                 <table style="width:100%; max-width:680px; margin:2rem 0; border-collapse:collapse; font-size:0.95rem;">
                     <thead>
@@ -139,17 +139,15 @@
             <section data-narrative-section data-id="threat">
                 <h2>I. The Threat Landscape</h2>
                 <p>Losses are dominated by a small number of catastrophic incidents. The distribution follows a
-                    power law (α&thinsp;≈&thinsp;1.33): the top <strong>1.4% of cases</strong> produce
-                    <strong>80% of cumulative losses</strong>, and the top 50 incidents alone account for
-                    over $70B in damage. 2022 peaked at $58B (driven by Terra/Luna and FTX), then dropped
-                    91%—but 2025 saw a resurgence to $3.76B, indicating that the threat is restructuring,
-                    not receding.
+                    power law (α&thinsp;≈&thinsp;1.33). The top 1.4% of cases produce 80% of cumulative losses, and the
+                    top 50 incidents alone account for over $70B in damage. 2022 peaked at $58B (Terra/Luna and FTX),
+                    then dropped 91%. In 2025, losses rose to $3.76B, indicating that the threat is restructuring.
                 </p>
                 <p>The leading attack vectors are <strong>Logic Bugs</strong> (231 cases), which exploit
                     unanticipated state transitions in smart contracts, and <strong>Key Compromise</strong>
                     (127 cases), which bypass all on-chain safeguards via stolen private keys.
-                    <strong>Oracle Manipulation</strong> carries the highest per-incident severity—a single
-                    flash-loan attack can drain an entire liquidity pool within one transaction block.
+                    <strong>Oracle Manipulation</strong> carries the highest per-incident severity. A single flash-loan
+                    attack can drain an entire liquidity pool within one transaction block.
                     The vector evolution shows a strategic shift: from flash-loan attacks (2020–21)
                     to key compromise and social engineering (2023–24), as attackers increasingly target
                     the human layer.
@@ -159,19 +157,16 @@
 
             <section data-narrative-section data-id="intervention">
                 <h2>II. The Intervention Gap</h2>
-                <p>We classify every documented intervention by its <strong>authority level</strong>—who
-                    has the power to act. <strong>Signer Sets</strong> (multisig key holders) dominate at
-                    71.2% of interventions by count, acting with a median response time of 30 minutes.
-                    <strong>Governance</strong> votes achieve the highest containment success rate (73.2%)
-                    but take 30+ days and cover only 11.5% of cases. The middle ground—<strong>Delegated
-                        Bodies</strong> like Security Councils and Emergency subDAOs—handle 17.3% of cases
-                    with a median of 60–90 minutes and protect <strong>$1.10B</strong> in total capital.
+                <p>We classify every documented intervention by authority (who has the power to act). Signer Sets
+                    (multisig key holders) dominate at 71.2% of interventions by count, with a median response time of
+                    30 minutes. Governance votes achieve the highest containment success rate (73.2%), but take 30+
+                    days and cover only 11.5% of cases. Delegated Bodies (Security Councils and Emergency subDAOs)
+                    handle 17.3% of cases with a median of 60–90 minutes and protect $1.10B in total capital.
                 </p>
                 <p>This reveals the core tradeoff: speed and democratic legitimacy are inversely correlated.
                     Signer Sets act fast but concentrate authority in a few hands. Governance distributes
-                    power but arrives after assets have been drained. Delegated Bodies represent the
-                    emerging "sweet spot"—elected members with constrained emergency mandates and
-                    mandatory sunset clauses—balancing responsiveness with accountability.</p>
+                    power but arrives after assets have been drained. Delegated Bodies balance responsiveness with
+                    accountability through elected membership, constrained mandates, and sunset clauses.</p>
                 <p><a href="../research/intervention/">Explore intervention charts →</a></p>
             </section>
 
@@ -179,7 +174,7 @@
                 <h2>III. Measuring Efficiency</h2>
                 <p>The data reveals a "golden hour" in exploit response: interventions within 60 minutes
                     prevent <strong>82.5% of losses</strong> on average. After 24 hours, effectiveness
-                    drops to <strong>10.9%</strong>. The response-time distribution is bimodal—protocols
+                    drops to <strong>10.9%</strong>. The response-time distribution is bimodal. Protocols
                     either react in under an hour or not at all for days, with very few cases in between.
                     This binary pattern suggests that if intervention capability is adopted, it must be
                     pre-built, not improvised during a crisis.</p>
@@ -187,7 +182,7 @@
                     <strong>Scope</strong> (Account, Module, Protocol, Network) ×
                     <strong>Authority</strong> (Signer Set, Delegated Body, Governance). The most
                     effective combination is <strong>Account × Delegated Body</strong> at 92% containment
-                    success—narrow scope limits collateral damage while elected bodies provide legitimacy.
+                    success. Narrow scope limits collateral damage while elected bodies provide legitimacy.
                     Conversely, <strong>Protocol × Signer Set</strong> achieves only 33%: broad scope
                     combined with unchecked authority produces unreliable outcomes.
                 </p>
@@ -206,7 +201,7 @@
                     recovery than protocol-wide pauses.
                 </p>
                 <p>If a community decides limited intervention is acceptable, we propose the
-                    <strong>Optimistic Freeze</strong> model—an intervention mechanism
+                    <strong>Optimistic Freeze</strong> model: an intervention mechanism
                     that acts first and seeks ratification later, analogous to optimistic rollups in
                     scaling. Emergency powers are constrained by a bounded scope (Module or Account level),
                     time-limited mandates (24–72h before automatic expiry), and mandatory governance

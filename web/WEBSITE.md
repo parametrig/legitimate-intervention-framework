@@ -321,9 +321,3 @@ The site is a **static site** (HTML + CSS + JS) with no server-side rendering or
 - **Font loading** — `Newsreader` loaded from Google Fonts CDN; works on all platforms
 - **ECharts** — loaded from CDN (`cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js`)
 
-### Required Cloudflare Pages Environment Variables
-
-For production database proxying:
-
-- `LIF_WEBSITE_API_KEY` — dedicated read-only AUK API key for the LIF website tenant
-- `AUK_API_BASE_URL` — optional override, defaults to `https://api.parametrig.com`
