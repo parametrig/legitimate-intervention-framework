@@ -45,6 +45,16 @@
             font-family: var(--font-serif);
             color: var(--color-text);
             font-size: clamp(16px, 2.4vw, 30px);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .reveal.ready {
+            opacity: 1;
+        }
+
+        .reveal .slide-background {
+            background: var(--color-bg) !important;
         }
 
         .reveal .slides {
@@ -125,7 +135,7 @@
             content: '—';
             position: absolute;
             left: 0;
-            color: var(--color-accent);
+            color: var(--color-accent, var(--authority-blue));
         }
 
         .tagline {
@@ -192,6 +202,148 @@
             color: var(--color-text-tertiary);
             letter-spacing: 0.12em;
         }
+
+        /* --- SVG Visual Containers --- */
+        .svg-content-wrap {
+            flex: 1 1 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 0;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .deck-svg {
+            width: auto;
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .svg-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            justify-items: center;
+            width: 100%;
+        }
+
+        /* --- Laptop breakpoint --- */
+        @media (max-width: 1199px) {
+            .reveal .slides section {
+                padding: 28px 36px;
+            }
+
+            .slide-num {
+                bottom: 28px;
+                right: 36px;
+            }
+        }
+
+        /* --- Tablet breakpoint --- */
+        @media (max-width: 900px) {
+            .reveal .slides section {
+                padding: 20px 24px;
+            }
+
+            .reveal h1 {
+                font-size: 2.4em;
+            }
+
+            .reveal h2 {
+                font-size: 1.3em;
+            }
+
+            .reveal h3 {
+                margin-bottom: 4px;
+            }
+
+            .slide-num {
+                bottom: 16px;
+                right: 18px;
+                font-size: 10px;
+            }
+
+            .two-col,
+            .svg-grid {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+        }
+
+        /* --- Phone breakpoint --- */
+        @media (max-width: 480px) {
+            .reveal .slides section {
+                padding: 20px 16px;
+            }
+
+            .reveal h1 {
+                font-size: 1.8em;
+            }
+
+            .reveal h2 {
+                font-size: 1.25em;
+                margin-bottom: 8px;
+            }
+
+            .reveal h3 {
+                font-size: 0.75em;
+                margin-bottom: 4px;
+            }
+
+            .tagline {
+                font-size: 0.9em;
+            }
+
+            .pill {
+                font-size: 0.6em;
+                padding: 4px 8px;
+            }
+
+            .dim {
+                font-size: 0.6em !important;
+            }
+
+            .slide-num {
+                bottom: 8px;
+                right: 12px;
+                font-size: 10px;
+            }
+
+            .two-col {
+                gap: 8px !important;
+            }
+        }
+
+        /* --- Portrait phone --- */
+        @media (max-width: 480px) and (orientation: portrait) {
+            .reveal .slides section {
+                padding: 14px 12px;
+                justify-content: center;
+            }
+
+            .svg-grid {
+                gap: 8px !important;
+            }
+        }
+
+        .reveal .controls {
+            color: var(--color-accent, var(--authority-blue));
+        }
+
+        .reveal .progress {
+            height: 3px;
+        }
+
+        .reveal .progress span {
+            background: var(--color-accent, var(--authority-blue));
+        }
     </style>
 </head>
 
@@ -199,43 +351,32 @@
     <div class="reveal">
         <div class="slides">
 
+            <!-- SLIDE 1: TITLE -->
             <section class="center-slide">
-                <h1>Legitimate Overrides</h1>
-                <p class="tagline">Engineering emergency governance under time pressure</p>
-                <p class="dim" style="margin-top: 10px; max-width: 42ch; font-size: 0.75em; text-align: center;">When $78.8B of exploits happen, “code is law” becomes a design problem.</p>
-                <div class="pill-row" style="margin-top: 14px;">
-                    <span class="pill">Scope × Authority</span>
-                    <span class="pill">α ≈ 1.33 (heavy-tailed losses)</span>
-                    <span class="pill">Decision support tooling</span>
+                <h1 style="font-size: clamp(1.6em, 3.8vw, 2.4em); margin-bottom: 0.1em;">Legitimate Overrides in
+                    Decentralized Protocols</h1>
+                <p class="tagline" style="font-size: 0.8em; margin-top: 0;">Engineering emergency governance under time
+                    pressure</p>
+                <div class="svg-content-wrap" style="overflow: visible; margin-top: -10px;">
+                    <img class="deck-svg" src="assets/1-title.svg" alt="Legitimate Overrides conceptual overview"
+                        style="width: auto; max-height: none; height: 430px;" />
                 </div>
-                <p class="dim" style="margin-top: 18px; font-size: 0.6em;">TERSE 2026 · Elem Oghenekaro · Dr. Nimrod Talmon</p>
+                <p style="margin-top: 12px; font-size: 0.55em; font-weight: 600; color: var(--color-text);">TERSE 2026 ·
+                    Elem Oghenekaro · Dr. Nimrod Talmon</p>
                 <aside class="notes">
                     This talk is about emergency powers that already exist across protocols (pauses, freezes, forks).
-                    The central question isn’t “intervene or not”—it’s how to design mechanisms that are fast enough to work and constrained enough to remain legitimate.
+                    The central question is how to design mechanisms that are fast enough to work and constrained enough
+                    to remain legitimate.
                 </aside>
                 <span class="slide-num">01</span>
             </section>
 
+            <!-- SLIDE 2: THE PARADOX -->
             <section>
                 <h3>The paradox</h3>
                 <h2>In crises, communities demand intervention. Outside crises, override capability reduces trust.</h2>
-                <div class="two-col">
-                    <div class="card">
-                        <h3 style="margin-top: 0;">Crisis mode</h3>
-                        <ul>
-                            <li>Users want containment</li>
-                            <li>Integrators want continuity</li>
-                            <li>Time-to-contain dominates</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="margin-top: 0;">Normal mode</h3>
-                        <ul>
-                            <li>Override = standing backdoor</li>
-                            <li>Legitimacy is contested</li>
-                            <li>Even unused power has a cost</li>
-                        </ul>
-                    </div>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/2-paradox.svg" alt="Immutability–Intervention Paradox" />
                 </div>
                 <aside class="notes">
                     Even unused emergency powers impose a cost: they change the trust model.
@@ -244,29 +385,28 @@
                 <span class="slide-num">02</span>
             </section>
 
+            <!-- SLIDE 3: EVIDENCE -->
             <section>
                 <h3>Evidence</h3>
                 <h2>Dataset and scope</h2>
-                <ul>
-                    <li>705 documented exploit incidents (2016–2026)</li>
-                    <li>Losses are heavy-tailed (power law), α ≈ 1.33</li>
-                    <li>Intervention mechanisms appear across many ecosystems</li>
-                </ul>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/3-evidence.svg" alt="705 incidents, heavy-tailed losses" />
+                </div>
                 <aside class="notes">
                     The argument is empirics-first. We map a design space against what actually happened.
-                    Heavy tails mean rare catastrophic events dominate—design must optimize for tail risk, not averages.
+                    Heavy tails mean rare catastrophic events dominate. Design must optimize for tail risk, not
+                    averages.
                 </aside>
                 <span class="slide-num">03</span>
             </section>
 
+            <!-- SLIDE 4: HEAVY TAILS -->
             <section>
                 <h3>Heavy tails</h3>
                 <h2>Super-hacks dominate the risk</h2>
-                <ul>
-                    <li>~80% of cumulative losses concentrated in a small number of incidents</li>
-                    <li>Governance must handle rare, high-stakes events under time pressure</li>
-                    <li>In heavy-tailed systems, one failure can dominate years of safe operation</li>
-                </ul>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/4-heavy-tails.svg" alt="Power-law loss distribution" />
+                </div>
                 <aside class="notes">
                     This motivates emergency design: tails are where systems break.
                     The question becomes: which mechanism minimizes total cost under tail risk?
@@ -274,32 +414,16 @@
                 <span class="slide-num">04</span>
             </section>
 
+            <!-- SLIDE 5: SCOPE × AUTHORITY -->
             <section>
                 <h3>Design space</h3>
                 <h2>Scope × Authority taxonomy</h2>
-                <div class="two-col">
-                    <div class="card">
-                        <h3 style="margin-top: 0;">Scope (Hierarchy of precision)</h3>
-                        <ul>
-                            <li>Network</li>
-                            <li>Asset</li>
-                            <li>Protocol</li>
-                            <li>Module</li>
-                            <li>Account</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="margin-top: 0;">Authority (Trigger holder)</h3>
-                        <ul>
-                            <li>Signer set</li>
-                            <li>Delegated body</li>
-                            <li>Governance process</li>
-                        </ul>
-                        <p class="dim" style="margin: 14px 0 0; font-size: 0.75em;">Debate stops being “centralized vs decentralized” and becomes: what scope, triggered by whom, under what safeguards.</p>
-                    </div>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/5-scope-authority.svg" alt="Scope × Authority taxonomy matrix" />
                 </div>
                 <aside class="notes">
-                    Debate stops being “centralized vs decentralized” and becomes: what scope, triggered by whom, under what safeguards.
+                    Reframe from "centralized vs decentralized" to mechanism design: what scope, triggered by whom,
+                    under what safeguards.
                     Fast examples:
                     - Asset scope + issuer authority: stablecoin blacklist/freeze.
                     - Protocol scope + delegated authority: guardian pauses a protocol during exploit.
@@ -307,15 +431,14 @@
                 <span class="slide-num">05</span>
             </section>
 
+            <!-- SLIDE 6: OBJECTIVE -->
             <section>
                 <h3>Objective</h3>
                 <h2>What are we optimizing?</h2>
-                <ul>
-                    <li>Containment speed (time-to-contain)</li>
-                    <li>Blast radius (collateral disruption)</li>
-                    <li>Standing centralization / legitimacy cost (“Chekhov’s gun”)</li>
-                </ul>
-                <p class="dim" style="margin-top: 16px; max-width: 62ch; font-size: 0.82em;">Most real decisions here aren’t risk vs safety. They’re <strong>risk vs risk</strong>: action risk vs inaction risk, where the baseline is not neutral.</p>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/6-objective.svg"
+                        alt="Containment speed, blast radius, legitimacy cost" />
+                </div>
                 <aside class="notes">
                     Emergency mechanisms have a cost even when never used.
                     We make that cost explicit and engineer against it.
@@ -324,64 +447,63 @@
                 <span class="slide-num">06</span>
             </section>
 
+            <!-- SLIDE 7: MODEL -->
             <section>
                 <h3>Model</h3>
                 <h2>Expected cost framing (intuition)</h2>
-                <div class="card" style="width: 100%;">
-                    <p style="margin: 0; font-family: var(--font-mono); font-size: 0.82em; line-height: 1.6;">ExpectedCost(m) = CentralizationCost(m) + Σ Pr[h] · ( Time(m) · DamageRate(h) + BlastRate(m) )</p>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/7-model.svg" alt="Expected cost model formula" />
                 </div>
-                <ul style="margin-top: 16px;">
-                    <li>Choose architecture <span class="pill">m</span> ex ante</li>
-                    <li>Events arrive; losses accrue until contained</li>
-                    <li>Standing cost trades off against speed and disruption</li>
-                </ul>
                 <aside class="notes">
                     A protocol chooses architecture m ex ante.
                     Events arrive with some distribution; losses accrue until contained.
-                    Audience anchor: this is like SRE incident response—you pay standing cost for reliability so you don’t pay catastrophic cost later.
+                    Audience anchor: this is like SRE incident response—you pay standing cost for reliability so you
+                    don't pay catastrophic cost later.
                 </aside>
                 <span class="slide-num">07</span>
             </section>
 
+            <!-- SLIDE 8: EMPIRICS -->
             <section>
                 <h3>Empirics</h3>
                 <h2>Scope–Authority matching</h2>
-                <ul>
-                    <li>Signer sets dominate volume but show weaker success than governance where governance is used</li>
-                    <li>Many failures are mis-allocations of authority to task</li>
-                    <li>Delegation is often the practical sweet spot for time-critical containment (if bounded tightly)</li>
-                </ul>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/8-empirics.svg"
+                        alt="Scope–Authority empirical matching results" />
+                </div>
                 <aside class="notes">
-                    Not simply “governance is slow.”
-                    Governance tends to succeed where deliberation is the right tool (network recovery / history revision).
-                    Delegation can be the practical sweet spot for time-critical containment, but bound it tightly.
+                    Not simply "governance is slow."
+                    Governance tends to succeed where deliberation is the right tool (network recovery / history
+                    revision).
+                    Delegation can be the best-performing option for time-critical containment, but only with tight
+                    bounds.
                 </aside>
                 <span class="slide-num">08</span>
             </section>
 
+            <!-- SLIDE 9: SENTIMENT -->
             <section>
                 <h3>Sentiment</h3>
                 <h2>Legitimacy cost is not fixed</h2>
-                <ul>
-                    <li>Community sentiment modulates effective standing cost</li>
-                    <li>Aggregate average sentiment: +0.028 (variance high)</li>
-                    <li>Same mechanism can be seen as protection or discretion depending on priors + process</li>
-                </ul>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/9-sentiment.svg"
+                        alt="Community sentiment modulates legitimacy cost" />
+                </div>
                 <aside class="notes">
-                    Same mechanism can be perceived as protective or as discretion depending on community priors and process.
+                    Same mechanism can be perceived as protective or as discretion depending on community priors and
+                    process.
                     This suggests culture-aware calibration rather than universal prescriptions.
                 </aside>
                 <span class="slide-num">09</span>
             </section>
 
+            <!-- SLIDE 10: TOOLING -->
             <section>
                 <h3>Tooling</h3>
-                <h2>From debate → mechanism selection</h2>
-                <ul>
-                    <li>Open-source prototype: <span class="pill">Intervention Mechanism Calculator</span></li>
-                    <li>Rank mechanism packages; run sensitivity analysis under different threat assumptions</li>
-                    <li>Designed to be critiqueable and community-configurable</li>
-                </ul>
+                <h2>From debate to mechanism selection</h2>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/10-tooling.svg" alt="Intervention Mechanism Calculator" />
+                </div>
                 <aside class="notes">
                     Tooling converts framework into implementable selection.
                     Designed to be critiqueable and adaptable by different communities.
@@ -390,17 +512,16 @@
                 <span class="slide-num">10</span>
             </section>
 
+            <!-- SLIDE 11: PRINCIPLES -->
             <section>
                 <h3>Principles</h3>
                 <h2>Actionable design takeaways</h2>
-                <ul>
-                    <li>Prefer precision where possible (module/account vs protocol/network)</li>
-                    <li>Use delegation with bounds for time-critical containment</li>
-                    <li>Use governance where it’s strong: ratification, recovery, history revision</li>
-                    <li>Make overrides bounded, auditable, time-limited, and reversible/ratifiable</li>
-                </ul>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/11-principles.svg"
+                        alt="Design principles for legitimate overrides" />
+                </div>
                 <aside class="notes">
-                    The point is a “constitution for emergencies” not ad hoc heroics.
+                    The point is a "constitution for emergencies" not ad hoc heroics.
                     Minimum viable legitimacy checklist:
                     - Pre-specified authority
                     - Scope minimization
@@ -411,167 +532,123 @@
                 <span class="slide-num">11</span>
             </section>
 
-            <section>
-                <h3>CTA</h3>
-                <h2>If you want the data & framework</h2>
-                <p class="cta" style="margin-top: 0;">https://lif-research.org</p>
-                <ul>
-                    <li>Replication, critique, and missing-case contributions welcome</li>
-                    <li>Goal: make emergency governance measurable and engineerable</li>
-                </ul>
-                <aside class="notes">
-                    Invite replication, critique, and missing-case contributions.
-                    Emphasize the goal: make emergency governance measurable and engineerable.
-                </aside>
-                <span class="slide-num">12</span>
-            </section>
-
+            <!-- SLIDE 12: ANTI-DRIFT ANCHOR -->
             <section>
                 <h3>Anti-drift anchor</h3>
-                <h2>Layered stack: prevention → bounded response → tooling</h2>
-                <div class="two-col">
-                    <div class="card">
-                        <h3 style="margin-top: 0;">Prevention</h3>
-                        <ul>
-                            <li>Credible layers</li>
-                            <li>Deterministic constraints where possible</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="margin-top: 0;">Bounded response</h3>
-                        <ul>
-                            <li>Legitimate overrides (LIF)</li>
-                            <li>Scope, authority, time, evidence, ratification</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card" style="margin-top: 18px; width: 100%;">
-                    <h3 style="margin-top: 0;">Tooling</h3>
-                    <ul>
-                        <li>Dataset + calculator for measurement and calibration</li>
-                    </ul>
+                <h2>Layered stack: prevention, bounded response, tooling</h2>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/12-anti-drift.svg"
+                        alt="Prevention, bounded response, and tooling stack" />
                 </div>
                 <aside class="notes">
                     This slide is the anti-drift anchor.
                     It links prevention primitives to bounded response design, and both to the measurement/tooling loop.
                 </aside>
+                <span class="slide-num">12</span>
+            </section>
+
+            <!-- SLIDE 13: CREDIBLE LAYERS -->
+            <section>
+                <h3>Credible layers</h3>
+                <h2>Where they fit (and what they don't solve)</h2>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/13-credible-layers.svg"
+                        alt="Credible layers in the defense stack" />
+                </div>
+                <aside class="notes">
+                    Prevention shifts the equilibrium, but does not remove the need for response design.
+                </aside>
                 <span class="slide-num">13</span>
             </section>
 
+            <!-- SLIDE 14: COMPARISON -->
             <section>
-                <h3>Credible layers</h3>
-                <h2>Where they fit (and what they don’t solve)</h2>
-                <ul>
-                    <li>Pre-execution assertion/invariant enforcement reduces discretionary response</li>
-                    <li>Not a complete substitute: novel failures and cross-domain issues remain</li>
-                    <li>Correct model: defense-in-depth, not a single mechanism</li>
-                </ul>
+                <h3>Comparison</h3>
+                <h2>Design schools in the market</h2>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/14-comparison.svg" alt="API screening vs in-block enforcement" />
+                </div>
                 <aside class="notes">
-                    Prevention shifts the equilibrium, but does not remove the need for response design.
+                    Many products are easier to integrate because they sit at the dapp/RPC layer or scan mempool
+                    heuristically.
+                    Credible-layer style enforcement is heavier: you execute transactions during block production, take
+                    traces, and decide inclusion.
+                    The key advantage is exact-state validation: it's much harder to bypass with timing games.
                 </aside>
                 <span class="slide-num">14</span>
             </section>
 
-            <section>
-                <h3>Comparison</h3>
-                <h2>Design schools in the market</h2>
-                <div class="two-col">
-                    <div class="card">
-                        <h3 style="margin-top: 0;">API / RPC / mempool screening</h3>
-                        <ul>
-                            <li>Easier integration (API calls, heuristic screening)</li>
-                            <li>Checks occur pre-block; exact state can be unknown</li>
-                            <li>Can be bypassed via timing/state divergence</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="margin-top: 0;">In-block enforcement (credible layer)</h3>
-                        <ul>
-                            <li>Validates at the exact state of execution (inside the block)</li>
-                            <li>Harder to bypass under sophisticated timing games</li>
-                            <li>Heavier integration: execution + trace during block production</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card" style="margin-top: 18px; width: 100%;">
-                    <h3 style="margin-top: 0;">Timing bypass (intuition)</h3>
-                    <p class="dim" style="margin: 0; font-size: 0.82em; line-height: 1.6; font-family: var(--font-mono);">t1: on the mempool → honest<br>t1: in the block after t2 → malicious</p>
-                </div>
-                <aside class="notes">
-                    Many products are easier to integrate because they sit at the dapp/RPC layer or scan mempool heuristically.
-                    Credible-layer style enforcement is heavier: you execute transactions during block production, take traces, and decide inclusion.
-                    The key advantage is exact-state validation: it’s much harder to bypass with timing games.
-                </aside>
-                <span class="slide-num">14b</span>
-            </section>
-
+            <!-- SLIDE 15: INCENTIVES -->
             <section>
                 <h3>Incentives</h3>
-                <h2>“Do nothing” is an equilibrium</h2>
-                <ul>
-                    <li>Acting creates a signature</li>
-                    <li>Inaction creates ambiguity</li>
-                    <li>Ambiguity can be career-safe even when systemically harmful</li>
-                </ul>
+                <h2>"Do nothing" is an equilibrium</h2>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/15-incentives.svg"
+                        alt="Inaction equilibrium in emergency governance" />
+                </div>
                 <aside class="notes">
                     This motivates why procedures matter: we need decision pathways that make correct action defensible.
                 </aside>
                 <span class="slide-num">15</span>
             </section>
 
+            <!-- SLIDE 16: WALKTHROUGH -->
             <section>
                 <h3>Walkthrough</h3>
                 <h2>A single incident, mapped to the taxonomy</h2>
-                <ul>
-                    <li>Identify: scope, authority, time-to-contain, outcome</li>
-                    <li>Ask: what alternative mechanism would the calculator recommend?</li>
-                    <li>Goal: show the method, not litigate history</li>
-                </ul>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/16-walkthrough.svg"
+                        alt="Incident walkthrough mapped to Scope × Authority" />
+                </div>
                 <aside class="notes">
                     Keep it short; the goal is to show the method, not litigate history.
                 </aside>
                 <span class="slide-num">16</span>
             </section>
 
+            <!-- SLIDE 17: IMPLEMENTATION -->
             <section>
                 <h3>Implementation</h3>
                 <h2>Patterns (how to embed legitimacy)</h2>
-                <ul>
-                    <li>Optimistic freeze (fast action + governance ratification)</li>
-                    <li>Pre-registered action registry (bounded authority)</li>
-                    <li>Non-retroactivity for parameter changes</li>
-                </ul>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/17-implementation.svg"
+                        alt="Optimistic freeze, action registry, non-retroactivity" />
+                </div>
                 <aside class="notes">
-                    These are practical “constitutional” mechanisms.
+                    These are practical "constitutional" mechanisms.
                 </aside>
                 <span class="slide-num">17</span>
             </section>
 
+            <!-- SLIDE 18: GNOSIS -->
+            <section>
+                <h3>Case note</h3>
+                <h2>Gnosis: forum consultation</h2>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/18-gnosis.svg" alt="Gnosis forum consultation application" />
+                </div>
+                <aside class="notes">
+                    Keep this concrete.
+                    Reference the thread as the primary source. Avoid claiming adoption or outcomes.
+                    Point to the consultation as a mechanism for making scope, criteria, and non-powers explicit.
+                </aside>
+                <span class="slide-num">18</span>
+            </section>
+
+            <!-- SLIDE 19: CLOSING -->
             <section>
                 <h3>Closing</h3>
                 <h2>What to do next</h2>
-                <div class="two-col">
-                    <div class="card">
-                        <h3 style="margin-top: 0;">If you’re a protocol</h3>
-                        <ul>
-                            <li>Choose your cell(s) in Scope × Authority</li>
-                            <li>Publish constraints and runbooks</li>
-                            <li>Measure sentiment; calibrate legitimacy assumptions</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="margin-top: 0;">If you’re a DAO / chain</h3>
-                        <ul>
-                            <li>Decide prevention posture vs narrow intervention regime</li>
-                            <li>If intervention exists: bound it, instrument it, audit it</li>
-                        </ul>
-                    </div>
+                <div class="svg-content-wrap">
+                    <img class="deck-svg" src="assets/19-closing.svg"
+                        alt="Actionable next steps for protocols and DAOs" />
                 </div>
-                <p class="cta">Explore the framework: <a href="https://lif-research.org" target="_blank" rel="noopener">lif-research.org</a></p>
+                <p class="cta">Explore the framework: <a href="https://lif-research.org" target="_blank"
+                        rel="noopener">lif-research.org</a></p>
                 <aside class="notes">
                     Close with explicit next steps. Make it actionable for builders, DAOs, and chain communities.
                 </aside>
-                <span class="slide-num">18</span>
+                <span class="slide-num">19</span>
             </section>
 
         </div>
@@ -579,12 +656,52 @@
 
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
     <script>
+        // Dynamic canvas sizing — fill screen on any device/orientation
+        function getDeckDimensions() {
+            const vw = window.innerWidth;
+            const vh = window.innerHeight;
+            const isPortrait = vh > vw;
+            if (isPortrait) {
+                return { width: vw, height: vh, margin: 0 };
+            }
+            return { width: 1280, height: 720, margin: 0.02 };
+        }
+
+        const dims = getDeckDimensions();
         Reveal.initialize({
             hash: true,
+            width: dims.width,
+            height: dims.height,
+            margin: dims.margin,
+            minScale: 0.1,
+            maxScale: 2.0,
+            transition: 'fade',
+            transitionSpeed: 'fast',
+            backgroundTransition: 'none',
+            center: true,
             controls: true,
+            controlsLayout: 'edges',
             progress: true,
-            center: false,
-            transition: 'fade'
+            slideNumber: false,
+            keyboard: true,
+            overview: true,
+            touch: true,
+            disableLayout: false,
+        });
+
+        // Re-layout on orientation change (debounced)
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                const d = getDeckDimensions();
+                Reveal.configure({ width: d.width, height: d.height, margin: d.margin });
+            }, 250);
+        });
+
+        // Fade in once layout is complete (prevents FOUC)
+        Reveal.on('ready', () => {
+            document.querySelector('.reveal').classList.add('ready');
         });
     </script>
 </body>
