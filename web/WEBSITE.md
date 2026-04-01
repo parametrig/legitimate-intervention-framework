@@ -90,6 +90,7 @@ Every HTML page loads stylesheets in this order:
 Database data-loading model:
 
 - production: same-origin Cloudflare Pages Function proxy at `/api/risk/exploits` and `/api/risk/interventions`
+- public upstream snapshot: the proxy now reads the canonical public Auk snapshot endpoints without forwarding an API key
 - bundled resilience fallback: if the proxy is unavailable or returns an error, the site falls back to `web/data/*.json`
 - local static dev: the same bundled fallback is what makes localhost work without the Pages proxy
 - charts: still read static `web/data/charts/*.json` and `web/data/series/*.json`
@@ -317,7 +318,7 @@ The site is a **static site** (HTML + CSS + JS) with no server-side rendering or
 
 - **No build step required** — all files are production-ready as-is
 - **Relative paths** — all asset and data references use relative paths for IPFS compatibility
-- **Pages Functions optional but now used in production** — the Database view proxies raw dataset reads through `functions/api/risk/[resource].js`
+- **Pages Functions optional but now used in production** — the Database view proxies raw dataset reads through `functions/api/risk/[resource].js` to the public Auk snapshot routes
 - **Chart payloads remain static** — `web/data/charts/` and `web/data/series/` are still served as generated static JSON
 - **Font loading** — `Newsreader` loaded from Google Fonts CDN; works on all platforms
 - **ECharts** — loaded from CDN (`cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js`)

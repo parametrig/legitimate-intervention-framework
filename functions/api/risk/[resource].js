@@ -20,14 +20,6 @@ export async function onRequestGet(context) {
   }
 
   const apiBaseUrl = (env.AUK_API_BASE_URL || 'https://api.parametrig.com').replace(/\/$/, '');
-  const apiKey = (env.LIF_WEBSITE_API_KEY || '').trim();
-
-  if (!apiKey) {
-    return json(
-      { message: 'LIF website API key is not configured', code: 'API_KEY_NOT_CONFIGURED' },
-      { status: 503 },
-    );
-  }
 
   const upstreamUrl = new URL(`${apiBaseUrl}/auk/v1/public/lif/${resource}`);
   const incomingUrl = new URL(request.url);
@@ -46,7 +38,6 @@ export async function onRequestGet(context) {
   try {
     upstream = await fetch(upstreamUrl.toString(), {
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
         'Accept': 'application/json',
       },
       cf: {
