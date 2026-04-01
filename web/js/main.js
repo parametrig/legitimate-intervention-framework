@@ -325,11 +325,11 @@ async function fetchDatabasePayload(resource) {
     try {
         return await tryLoad(proxyUrl);
     } catch (error) {
-        if (isLocalDatabaseDev()) {
-            console.warn(`Falling back to local ${resource}.json for local development`, error);
-            return tryLoad(localUrl);
-        }
-        throw error;
+        const fallbackReason = isLocalDatabaseDev()
+            ? `Falling back to local ${resource}.json for local development`
+            : `Falling back to bundled ${resource}.json because the live proxy request failed`;
+        console.warn(fallbackReason, error);
+        return tryLoad(localUrl);
     }
 }
 

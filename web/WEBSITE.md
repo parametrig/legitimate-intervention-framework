@@ -90,7 +90,8 @@ Every HTML page loads stylesheets in this order:
 Database data-loading model:
 
 - production: same-origin Cloudflare Pages Function proxy at `/api/risk/exploits` and `/api/risk/interventions`
-- local static dev: falls back to `web/data/*.json` when the proxy is unavailable on `localhost`
+- bundled resilience fallback: if the proxy is unavailable or returns an error, the site falls back to `web/data/*.json`
+- local static dev: the same bundled fallback is what makes localhost work without the Pages proxy
 - charts: still read static `web/data/charts/*.json` and `web/data/series/*.json`
 - local fallback files are expected to follow the same normalized raw-data structure as the infrastructure repo, not the older metadata-envelope export shape
 
@@ -320,4 +321,3 @@ The site is a **static site** (HTML + CSS + JS) with no server-side rendering or
 - **Chart payloads remain static** — `web/data/charts/` and `web/data/series/` are still served as generated static JSON
 - **Font loading** — `Newsreader` loaded from Google Fonts CDN; works on all platforms
 - **ECharts** — loaded from CDN (`cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js`)
-
