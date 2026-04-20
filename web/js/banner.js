@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="banner-content">
             <span>
                 LIF has been accepted into the Ethereum Security QF Round on Giveth. Donate April 23–May 14:
-                <a class="banner-link" href="https://giveth.io/project/lif:-legitimate-intervention-framework" target="_blank" rel="noopener noreferrer">giveth.io/project/lif:-legitimate-intervention-framework</a>
+                <a class="banner-link" href="https://qf.giveth.io/project/lif:-legitimate-intervention-framework?roundId=16" target="_blank" rel="noopener noreferrer">qf.giveth.io/project/lif:-legitimate-intervention-framework?roundId=16</a>
             </span>
             <button id="banner-dismiss" aria-label="Dismiss">×</button>
         </div>
