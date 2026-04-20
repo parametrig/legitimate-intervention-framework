@@ -611,7 +611,7 @@ header.transparent {
 /* GLOBAL BANNER                             */
 /* ========================================= */
 #global-banner {
-    background: var(--chart-ink);
+    background: #6d28d9;
     color: var(--color-text-inverse);
     padding: 0.6rem 1rem;
     font-size: 0.85rem;
@@ -630,6 +630,15 @@ header.transparent {
     align-items: center;
     gap: 1rem;
     text-align: center;
+}
+
+#global-banner .banner-link {
+    color: var(--color-text-inverse);
+    text-decoration: underline;
+}
+
+#global-banner .banner-link:hover {
+    opacity: 0.9;
 }
 
 #global-banner #banner-dismiss {
